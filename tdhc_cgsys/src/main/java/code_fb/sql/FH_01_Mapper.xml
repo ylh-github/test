@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.FH_01_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.FH_01_M1S1" >
+	 <result column="C_CONNUM_TP_FHINVOICE" property="cConnumTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CONSIGNEE_TP_FHINVOICE" property="cConsigneeTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TP_FHINVOICE" property="cCreaterTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_DR_TP_FHINVOICE" property="cDrTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_FHDWNAME_TP_FHINVOICE" property="cFhdwnameTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_FHINVOICEID_TP_FHINVOICE" property="cFhinvoiceidTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_FHINVOICE" property="cIdTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TP_FHINVOICE" property="cModifierTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHADDRESS_TP_FHINVOICE" property="cShaddressTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHDWIP_TP_FHINVOICE" property="cShdwipTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHNAME_TP_FHINVOICE" property="cShnameTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TP_FHINVOICE" property="cSw01TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TP_FHINVOICE" property="cSw02TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TP_FHINVOICE" property="cSw03TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TP_FHINVOICE" property="cSw04TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TP_FHINVOICE" property="cSw05TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TP_FHINVOICE" property="cSw06TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TP_FHINVOICE" property="cSw07TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TP_FHINVOICE" property="cSw08TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TP_FHINVOICE" property="cSw09TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TP_FHINVOICE" property="cSw10TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TP_FHINVOICE" property="cSw11TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TP_FHINVOICE" property="cSw12TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TP_FHINVOICE" property="cSw13TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TP_FHINVOICE" property="cSw14TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TP_FHINVOICE" property="cSw15TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_REMARK_TP_FHINVOICE" property="cSw15TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TP_FHINVOICE" property="cCreatetimeTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TP_FHINVOICE" property="cModifytimeTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TP_FHINVOICE" property="cTimestampTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_CONNUM_TP_FHMATEIALS" property="cConnumTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TP_FHMATEIALS" property="cCreaterTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_DR_TP_FHMATEIALS" property="cDrTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_FHINVOICEID_TP_FHMATEIALS" property="cFhinvoiceidTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME_TP_FHMATEIALS" property="cGoodsnameTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_HSCODE_TP_FHMATEIALS" property="cHscodeTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_FHMATEIALS" property="cIdTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TP_FHMATEIALS" property="cModifierTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_NUM_TP_FHMATEIALS" property="cNumTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_PRICE_TP_FHMATEIALS" property="cPriceTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_REALNAME_TP_FHMATEIALS" property="cRealnameTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_REALSPEC_TP_FHMATEIALS" property="cRealspecTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SPEC_TP_FHMATEIALS" property="cSpecTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_STATE_TP_FHMATEIALS" property="cStateTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TP_FHMATEIALS" property="cSw01TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TP_FHMATEIALS" property="cSw02TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TP_FHMATEIALS" property="cSw03TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TP_FHMATEIALS" property="cSw04TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TP_FHMATEIALS" property="cSw05TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TP_FHMATEIALS" property="cSw06TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TP_FHMATEIALS" property="cSw07TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TP_FHMATEIALS" property="cSw08TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TP_FHMATEIALS" property="cSw09TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TP_FHMATEIALS" property="cSw10TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TP_FHMATEIALS" property="cSw11TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TP_FHMATEIALS" property="cSw12TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TP_FHMATEIALS" property="cSw13TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TP_FHMATEIALS" property="cSw14TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TP_FHMATEIALS" property="cSw15TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_UNIT_TP_FHMATEIALS" property="cUnitTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_Unit_TP_FHMATEIALS" property="cUnitTpFhmateials" jdbcType="VARCHAR" />
+	    
+	    
+	 <result column="C_CREATETIME_TP_FHMATEIALS" property="cCreatetimeTpFhmateials" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TP_FHMATEIALS" property="cModifytimeTpFhmateials" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TP_FHMATEIALS" property="cTimestampTpFhmateials" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <resultMap id="M2S2ResultMap" type="code_fb.entity.FH_01_M2S2" >
+	 <result column="C_CLUDEADDR_TP_CGCONTRACTMT" property="cCludeaddrTpCgcontractmt" jdbcType="VARCHAR" />
+	 <result column="C_CLUDECOM_TP_CGCONTRACTMT" property="cCludecomTpCgcontractmt" jdbcType="VARCHAR" />
+	 <result column="C_CONNUM_TP_CGCONTRACTMT" property="cConnumTpCgcontractmt" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_CGCONTRACTMT" property="cIdTpCgcontractmt" jdbcType="VARCHAR" />
+	 <result column="C_SUPPLIER_TP_CGCONTRACTMT" property="cSupplierTpCgcontractmt" jdbcType="VARCHAR" />
+	 <result column="C_CLUDETIME_TP_CGCONTRACTMT" property="cCludetimeTpCgcontractmt" jdbcType="TIMESTAMP" />
+	 <result column="C_GOODSNAME_TP_CGCONTRACTST" property="cGoodsnameTpCgcontractst" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNUM_TP_CGCONTRACTST" property="cGoodsnumTpCgcontractst" jdbcType="VARCHAR" />
+	 <result column="C_PRICE_TP_CGCONTRACTST" property="cPriceTpCgcontractst" jdbcType="VARCHAR" />
+	 <result column="C_SPEC_TP_CGCONTRACTST" property="cSpecTpCgcontractst" jdbcType="VARCHAR" />
+	 <result column="C_STATE_TP_CGCONTRACTST" property="cStateTpCgcontractst" jdbcType="VARCHAR" />
+	 <result column="C_UNIT_TP_CGCONTRACTST" property="cUnitTpCgcontractst" jdbcType="VARCHAR" />
+ </resultMap>
+ <select id="M1S11QFH_01_M1S1" parameterType="code_fb.entity.FH_01_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_FHINVOICE.C_FHDWNAME C_FHDWNAME_TP_FHINVOICE 
+,
+
+TP_FHINVOICE.C_ID C_ID_TP_FHINVOICE 
+,
+TP_FHMATEIALS.C_ID C_ID_TP_FHMATEIALS 
+,
+TP_FHINVOICE.C_SHADDRESS C_SHADDRESS_TP_FHINVOICE 
+,
+TP_FHINVOICE.C_SHNAME C_SHNAME_TP_FHINVOICE 
+,
+TP_FHINVOICE.C_CONNUM C_CONNUM_TP_FHINVOICE 
+,
+TP_FHMATEIALS.C_NUM C_NUM_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_UNIT C_UNIT_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_SPEC C_SPEC_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_GOODSNAME C_GOODSNAME_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_STATE C_STATE_TP_FHMATEIALS 
+,
+TP_FHINVOICE.C_REMARK C_REMARK_TP_FHINVOICE 
+,
+TP_FHMATEIALS.C_FHINVOICEID C_FHINVOICEID_TP_FHMATEIALS
+,
+TP_FHINVOICE.C_FHINVOICEID C_FHINVOICEID_TP_FHINVOICE
+ from TP_FHINVOICE,TP_FHMATEIALS
+ WHERE 1=1 
+   <if test="fh01M1s1.cConnumTpFhinvoice != null" >
+       AND  TP_FHINVOICE.C_CONNUM like '%' || #{fh01M1s1.cConnumTpFhinvoice,jdbcType=VARCHAR} || '%'
+  </if>
+   
+       AND   TP_FHINVOICE.C_FHINVOICEID= TP_FHMATEIALS.C_FHINVOICEID
+  
+	</select> 
+
+
+<!--  批量导入 -->
+  <insert id="M1S12MSG" parameterType="java.util.List" >
+   <foreach close=";end;" collection="fh01M1s1" index="index" item="item" open="begin" separator=";">  
+   	  insert into TP_FHINVOICE 
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+       C_ID, 
+      <if test="item.cCreater != null" >
+       C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null" >
+       C_CREATETIME,
+      </if> 
+      <if test="item.cModifytime != null" >
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cConnum != null" >
+        C_CONNUM,
+      </if>
+      <if test="item.cShname != null" >
+       C_SHNAME,
+      </if>
+      <if test="item.cShaddress != null" >
+       C_SHADDRESS,
+      </if>
+      <if test="item.cConsignee != null" >
+        C_CONSIGNEE,
+      </if>
+      <if test="item.cDr != null" >
+        C_DR,
+      </if>
+      <if test="item.cShdwip != null" >
+       C_SHDWIP,
+      </if>
+      <if test="item.cFhdwname != null" >
+        C_FHDWNAME,
+      </if>
+      <if test="item.cFhinvoiceid != null" >
+       C_FHINVOICEID,
+      </if>
+      <if test="item.cRemark != null" >
+        C_REMARK,
+      </if>  
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      C_ID_SUPP.NEXTVAL,
+      <if test="item.cCreater != null" >
+        #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime!= null" >
+        #{item.cCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null" >
+        #{item.cModifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null" >
+        #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShname != null" >
+        #{item.cShname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShaddress != null" >
+        #{item.cShaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConsignee != null" >
+        #{item.cConsignee,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null" >
+        #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShdwip != null" >
+        #{item.cShdwip,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFhdwname != null" >
+        #{item.cFhdwname,jdbcType=DATE},
+      </if>
+      <if test="item.cFhinvoiceid != null" >
+        #{item.cFhinvoiceid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRemark != null" >
+        #{item.cRemark,jdbcType=DATE},
+      </if>
+    </trim>
+</foreach>
+
+</insert>
+<delete id="M1S11DFH_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="fh01M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_FHMATEIALS
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTpFhmateials,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+<insert id="M1S12MSG2" parameterType="java.util.List" >
+   <foreach close=";end;" collection="fh01M1s12" index="index" item="item" open="begin" separator=";">  
+   	  insert   into TP_FHMATEIALS 
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+       C_ID,
+      <if test="item.cCreater != null" >
+       C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null" >
+       C_CREATETIME,
+      </if>
+      
+      <if test="item.cModifytime != null" >
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cConnum != null" >
+        C_CONNUM,
+      </if>
+      <if test="item.cGoodsname != null" >
+       C_GOODSNAME,
+      </if>
+      <if test="item.cSpec != null" >
+      C_SPEC,
+      </if>
+      <if test="item.cRealname != null" >
+       C_REALNAME,
+      </if>
+      <if test="item.cDr != null" >
+        C_DR,
+      </if>
+      <if test="item.cRealspec != null" >
+       C_REALSPEC,
+      </if>
+      <if test="item.cUnit != null" >
+        C_UNIT,
+      </if>
+      <if test="item.cFhinvoiceid != null" >
+       C_FHINVOICEID,
+      </if>
+      <if test="item.cNum != null" >
+        C_NUM,
+      </if>
+      <if test="item.cHscode != null" >
+        C_HSCODE,
+      </if>
+      <if test="item.cPrice != null" >
+        C_PRICE,
+      </if>
+     
+     </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      C_ID_SUPP.NEXTVAL,
+      <if test="item.cCreater != null" >
+        #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null" >
+        #{item.cCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null" >
+        #{item.cModifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null" >
+        #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cGoodsname != null" >
+        #{item.cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSpec != null" >
+        #{item.cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRealname != null" >
+        #{item.cRealname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null" >
+        #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRealspec != null" >
+        #{item.cRealsper,jdbcType=VARCHAR},
+      </if>
+        <if test="item.cUnit != null" >
+        #{item.cUnit,jdbcType=DATE},
+      </if>
+        <if test="item.cFhinvoiceid!= null" >
+        #{item.cFhinvoiceid,jdbcType=DATE},
+      </if>
+      <if test="item.cNum != null" >
+        #{item.cNum,jdbcType=DATE},
+      </if>
+      <if test="item.cHscode != null" >
+        #{item.cHscode,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cPrice != null" >
+        #{item.cPrice,jdbcType=DATE},
+      </if>
+     
+    </trim>
+</foreach>
+</insert>
+
+ <select id="M1S12Q"  parameterType="code_fb.entity.FH_01_M2S2" resultMap="M2S2ResultMap"> 
+	
+select 
+TP_CGCONTRACTMT.C_CONNUM C_CONNUM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTST.C_UNIT C_UNIT_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_SPEC C_SPEC_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTMT.C_CONNUM C_CONNUM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTST.C_GOODSNAME C_GOODSNAME_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_GOODSNUM C_GOODSNUM_TP_CGCONTRACTST
+ from TP_CGCONTRACTMT,TP_CGCONTRACTST
+ WHERE 1=1 
+ 	AND TP_CGCONTRACTST.C_CONNUM = TP_CGCONTRACTMT.C_CONNUM
+
+   <if test="fh01M2s2.cUnitTpCgcontractst != null" >
+       AND  TP_CGCONTRACTST.C_UNIT like '%' || #{fh01M2s2.cUnitTpCgcontractst,jdbcType=TIMESTAMP} || '%'
+  </if>
+    <if test="fh01M2s2.cSpecTpCgcontractst != null" >
+       AND  TP_CGCONTRACTST.C_SPEC like '%' || #{fh01M2s2.cSpecTpCgcontractst,jdbcType=TIMESTAMP} || '%'
+  </if>
+ 
+   <if test="fh01M2s2.cConnumTpCgcontractmt != null" >
+       AND  TP_CGCONTRACTMT.C_CONNUM like '%' || #{fh01M2s2.cConnumTpCgcontractmt,jdbcType=VARCHAR} || '%'
+  </if>
+  
+   <if test="fh01M2s2.cGoodsnumTpCgcontractst != null" >
+       AND  TP_CGCONTRACTST.C_GOODSNUM like '%' || #{fh01M2s2.cGoodsnumTpCgcontractst,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="fh01M2s2.cGoodsnameTpCgcontractst != null" >
+       AND  TP_CGCONTRACTST.C_GOODSNAME like '%' || #{fh01M2s2.cGoodsnameTpCgcontractst,jdbcType=VARCHAR} || '%'
+  </if>
+  <if test="fh01M2s2.cSupplierTpCgcontractmt != null" >
+       AND  TP_CGCONTRACTMT.C_SUPPLIER like '%' || #{fh01M2s2.cSupplierTpCgcontractmt,jdbcType=VARCHAR} || '%'
+  </if>
+ 
+	</select>
+	<select id="getHTH"  parameterType="code_fb.entity.FH_01_M2S2" resultMap="M2S2ResultMap"> 
+	
+select 
+TP_CGCONTRACTMT.C_SUPPLIER C_SUPPLIER_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDETIME C_CLUDETIME_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDEADDR C_CLUDEADDR_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDECOM C_CLUDECOM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CONNUM C_CONNUM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTST.C_STATE C_STATE_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_PRICE C_PRICE_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_UNIT C_UNIT_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_SPEC C_SPEC_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_CONNUM C_CONNUM_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_GOODSNAME C_GOODSNAME_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_GOODSNUM C_GOODSNAME_TP_CGCONTRACTST 
+
+ from TP_CGCONTRACTMT,TP_CGCONTRACTST
+ WHERE 1=1 
+ 	AND TP_CGCONTRACTST.C_CONNUM = TP_CGCONTRACTMT.C_CONNUM
+
+  
+ 
+   <if test="fh01M2s2.cConnumTpCgcontractmt != null" >
+       AND  TP_CGCONTRACTMT.C_CONNUM like '%' || #{fh01M2s2.cConnumTpCgcontractmt,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	
+	
+	 <update id="M1S13MSGFH_01_M1S1"  parameterType="java.lang.String" >	
+	
+	        update TP_FHMATEIALS
+	       set
+	C_STATE = 1
+	
+	 
+	where	C_ID = #{getcID,jdbcType=VARCHAR}
+    
+  </update>
+	
+	
+	
+	 <update id="M1S14MSGFH_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="fh01M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TP_FHMATEIALS
+	      <set>
+		C_STATE = 0
+	 </set> WHERE 1 = 1 
+ 	AND		C_ID = #{item.cIdTpFhmateials,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+   <update id="getHTInfo"  parameterType="java.lang.String" >	
+   	update TP_FHMATEIALS
+   	set C_STATE = 0
+	<!--  <foreach close=";end;" collection="fh01M1s1" index="index" item="item" open="begin" separator=";">  
+	        
+	      <set>
+		C_STATE = 0
+	 </set> WHERE 1 = 1  -->
+ 	where	C_ID = #{getcID,jdbcType=VARCHAR}
+       <!-- </foreach> -->
+  </update>
+  
+ <select id="M2S21QFH_01_M2S2" parameterType="code_fb.entity.FH_01_M2S2" resultMap="M2S2ResultMap"> 
+  select 
+TP_CGCONTRACTMT.C_SUPPLIER C_SUPPLIER_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDETIME C_CLUDETIME_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDEADDR C_CLUDEADDR_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CLUDECOM C_CLUDECOM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTMT.C_CONNUM C_CONNUM_TP_CGCONTRACTMT 
+,
+TP_CGCONTRACTST.C_STATE C_STATE_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_PRICE C_PRICE_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_UNIT C_UNIT_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_SPEC C_SPEC_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_CONNUM C_CONNUM_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_GOODSNAME C_GOODSNAME_TP_CGCONTRACTST 
+,
+TP_CGCONTRACTST.C_GOODSNUM C_GOODSNAME_TP_CGCONTRACTST 
+
+ from TP_CGCONTRACTMT,TP_CGCONTRACTST
+ WHERE 1=1 
+ AND TP_CGCONTRACTST.C_CONNUM = TP_CGCONTRACTMT.C_CONNUM
+   <if test="fh01M2s2.cConnumTpCgcontractmt != null" >
+       AND  TP_CGCONTRACTMT.C_CONNUM like '%' || #{fh01M2s2.cConnumTpCgcontractmt,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="fh01M2s2.cGoodsnameTpCgcontractst != null" >
+       AND  TP_CGCONTRACTST.C_GOODSNAME like '%' || #{fh01M2s2.cGoodsnameTpCgcontractst,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+ </mapper>

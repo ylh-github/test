@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="code_fb_cg.mapper.TpConcatfjMapper" >
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpConcatfj" >
+    <id column="C_ID" property="cId" jdbcType="VARCHAR" />
+    <result column="C_CONNUM" property="cConnum" jdbcType="VARCHAR" />
+    <result column="C_FILENAME" property="cFilename" jdbcType="VARCHAR" />
+    <result column="C_FILEADRESS" property="cFileadress" jdbcType="VARCHAR" />
+    <result column="C_VERSION" property="cVersion" jdbcType="VARCHAR" />
+    <result column="C_HVERSION" property="cHversion" jdbcType="VARCHAR" />
+    <result column="C_DESCRIPTION" property="cDescription" jdbcType="VARCHAR" />
+    <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+    <result column="C_CREATETIME" property="cCreatetime" jdbcType="DATE" />
+    <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+    <result column="C_MODIFYTIME" property="cModifytime" jdbcType="DATE" />
+    <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+    <result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+    <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+    <result column="C_SW01" property="cSw01" jdbcType="VARCHAR" />
+    <result column="C_SW02" property="cSw02" jdbcType="VARCHAR" />
+    <result column="C_SW03" property="cSw03" jdbcType="VARCHAR" />
+    <result column="C_SW04" property="cSw04" jdbcType="VARCHAR" />
+    <result column="C_SW05" property="cSw05" jdbcType="VARCHAR" />
+    <result column="C_SW06" property="cSw06" jdbcType="VARCHAR" />
+    <result column="C_SW07" property="cSw07" jdbcType="VARCHAR" />
+    <result column="C_SW08" property="cSw08" jdbcType="VARCHAR" />
+    <result column="C_SW09" property="cSw09" jdbcType="VARCHAR" />
+    <result column="C_SW10" property="cSw10" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    C_ID, C_CONNUM, C_FILENAME, C_FILEADRESS, C_VERSION, C_HVERSION, C_DESCRIPTION, C_CREATER, 
+    C_CREATETIME, C_MODIFIER, C_MODIFYTIME, C_REMARK, C_DR, C_TIMESTAMP, C_SW01, C_SW02, 
+    C_SW03, C_SW04, C_SW05, C_SW06, C_SW07, C_SW08, C_SW09, C_SW10
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="code_fb_cg.entity.TpConcatfjExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TP_CONCATFJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <!-- 根据合同号和文件名 -->
+  <select id="selectTpConcatfj" resultMap="BaseResultMap" parameterType="code_fb_cg.entity.TpConcatfj" >
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CONCATFJ
+    where 1=1
+    <if test="tpConcat.cConnum != ''">
+		AND C_CONNUM LIKE CONCAT('%',CONCAT(#{tpConcat.cConnum,jdbcType=VARCHAR} ,'%'))    
+    </if>
+    <if test="tpConcat.cFilename != ''">
+    	AND C_FILENAME LIKE CONCAT('%',CONCAT(#{tpConcat.cFilename,jdbcType=VARCHAR},'%'))
+    </if>
+  </select>
+  <!-- 根据合同号查询文件信息 -->
+    <select id="searchFile" resultMap="BaseResultMap" parameterType="code_fb.entity.CG_MNHT_M1S1" >
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CONCATFJ
+    where 1=1
+    <if test="cg_MNHT_M1S1.cConnum != ''">
+		AND C_CONNUM LIKE CONCAT('%',CONCAT(#{cg_MNHT_M1S1.cConnum,jdbcType=VARCHAR} ,'%'))    
+    </if>
+    <!-- <if test="tpConcat.cFilename != ''">
+    	AND C_FILENAME LIKE CONCAT('%',CONCAT(#{tpConcat.cFilename,jdbcType=VARCHAR},'%'))
+    </if> -->
+    ORDER BY to_number(C_ID)
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CONCATFJ
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TP_CONCATFJ
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="code_fb_cg.entity.TpConcatfjExample" >
+    delete from TP_CONCATFJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+   <delete id="deleateFile" parameterType="code_fb_cg.entity.TpConcatfj" >
+    delete from TP_CONCATFJ
+     where 1=1
+     <if test="cFilename!=null">
+     	AND C_FILENAME = #{cFilename,jdbcType=VARCHAR}
+     </if>
+     <if test="cConnum">
+     	AND C_CONNUM = #{cConnum,jdbcType=VARCHAR}
+     </if>
+  </delete>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpConcatfj" >
+    insert into TP_CONCATFJ (C_ID, C_CONNUM, C_FILENAME, 
+      C_FILEADRESS, C_VERSION, C_HVERSION, 
+      C_DESCRIPTION, C_CREATER, C_CREATETIME, 
+      C_MODIFIER, C_MODIFYTIME, C_REMARK, 
+      C_DR, C_TIMESTAMP, C_SW01, 
+      C_SW02, C_SW03, C_SW04, 
+      C_SW05, C_SW06, C_SW07, 
+      C_SW08, C_SW09, C_SW10
+      )
+    values (#{cId,jdbcType=VARCHAR}, #{cConnum,jdbcType=VARCHAR}, #{cFilename,jdbcType=VARCHAR}, 
+      #{cFileadress,jdbcType=VARCHAR}, #{cVersion,jdbcType=VARCHAR}, #{cHversion,jdbcType=VARCHAR}, 
+      #{cDescription,jdbcType=VARCHAR}, #{cCreater,jdbcType=VARCHAR}, #{cCreatetime,jdbcType=DATE}, 
+      #{cModifier,jdbcType=VARCHAR}, #{cModifytime,jdbcType=DATE}, #{cRemark,jdbcType=VARCHAR}, 
+      #{cDr,jdbcType=VARCHAR}, #{cTimestamp,jdbcType=TIMESTAMP}, #{cSw01,jdbcType=VARCHAR}, 
+      #{cSw02,jdbcType=VARCHAR}, #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=VARCHAR}, 
+      #{cSw05,jdbcType=VARCHAR}, #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=VARCHAR}, 
+      #{cSw08,jdbcType=VARCHAR}, #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TpConcatfj" >
+    insert into TP_CONCATFJ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+     <!--  <if test="cId != null" >
+      
+      </if> -->
+        C_ID,
+      <if test="cConnum != null" >
+        C_CONNUM,
+      </if>
+      <if test="cFilename != null" >
+        C_FILENAME,
+      </if>
+      <if test="cFileadress != null" >
+        C_FILEADRESS,
+      </if>
+      <if test="cVersion != null" >
+        C_VERSION,
+      </if>
+      <if test="cHversion != null" >
+        C_HVERSION,
+      </if>
+      <if test="cDescription != null" >
+        C_DESCRIPTION,
+      </if>
+      <if test="cCreater != null" >
+        C_CREATER,
+      </if>
+      <if test="cCreatetime != null" >
+        C_CREATETIME,
+      </if>
+      <if test="cModifier != null" >
+        C_MODIFIER,
+      </if>
+      <if test="cModifytime != null" >
+        C_MODIFYTIME,
+      </if>
+      <if test="cRemark != null" >
+        C_REMARK,
+      </if>
+      <if test="cDr != null" >
+        C_DR,
+      </if>
+      <if test="cTimestamp != null" >
+        C_TIMESTAMP,
+      </if>
+      <if test="cSw01 != null" >
+        C_SW01,
+      </if>
+      <if test="cSw02 != null" >
+        C_SW02,
+      </if>
+      <if test="cSw03 != null" >
+        C_SW03,
+      </if>
+      <if test="cSw04 != null" >
+        C_SW04,
+      </if>
+      <if test="cSw05 != null" >
+        C_SW05,
+      </if>
+      <if test="cSw06 != null" >
+        C_SW06,
+      </if>
+      <if test="cSw07 != null" >
+        C_SW07,
+      </if>
+      <if test="cSw08 != null" >
+        C_SW08,
+      </if>
+      <if test="cSw09 != null" >
+        C_SW09,
+      </if>
+      <if test="cSw10 != null" >
+        C_SW10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <!-- <if test="cId != null" >
+        #{cId,jdbcType=VARCHAR},
+      </if> -->
+      C_ID_FJ.NEXTVAL,
+      <if test="cConnum != null" >
+        #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cFilename != null" >
+        #{cFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="cFileadress != null" >
+        #{cFileadress,jdbcType=VARCHAR},
+      </if>
+      <if test="cVersion != null" >
+        #{cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="cHversion != null" >
+        #{cHversion,jdbcType=VARCHAR},
+      </if>
+      <if test="cDescription != null" >
+        #{cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null" >
+        #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null" >
+        #{cCreatetime,jdbcType=DATE},
+      </if>
+      <if test="cModifier != null" >
+        #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null" >
+        #{cModifytime,jdbcType=DATE},
+      </if>
+      <if test="cRemark != null" >
+        #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null" >
+        #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null" >
+        #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null" >
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null" >
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null" >
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null" >
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null" >
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null" >
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null" >
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null" >
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null" >
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null" >
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="code_fb_cg.entity.TpConcatfjExample" resultType="java.lang.Integer" >
+    select count(*) from TP_CONCATFJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update TP_CONCATFJ
+    <set >
+      <if test="record.cId != null" >
+        C_ID = #{record.cId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cConnum != null" >
+        C_CONNUM = #{record.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFilename != null" >
+        C_FILENAME = #{record.cFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFileadress != null" >
+        C_FILEADRESS = #{record.cFileadress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cVersion != null" >
+        C_VERSION = #{record.cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cHversion != null" >
+        C_HVERSION = #{record.cHversion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDescription != null" >
+        C_DESCRIPTION = #{record.cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCreater != null" >
+        C_CREATER = #{record.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCreatetime != null" >
+        C_CREATETIME = #{record.cCreatetime,jdbcType=DATE},
+      </if>
+      <if test="record.cModifier != null" >
+        C_MODIFIER = #{record.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cModifytime != null" >
+        C_MODIFYTIME = #{record.cModifytime,jdbcType=DATE},
+      </if>
+      <if test="record.cRemark != null" >
+        C_REMARK = #{record.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDr != null" >
+        C_DR = #{record.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTimestamp != null" >
+        C_TIMESTAMP = #{record.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cSw01 != null" >
+        C_SW01 = #{record.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw02 != null" >
+        C_SW02 = #{record.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw03 != null" >
+        C_SW03 = #{record.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw04 != null" >
+        C_SW04 = #{record.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw05 != null" >
+        C_SW05 = #{record.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw06 != null" >
+        C_SW06 = #{record.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw07 != null" >
+        C_SW07 = #{record.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw08 != null" >
+        C_SW08 = #{record.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw09 != null" >
+        C_SW09 = #{record.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw10 != null" >
+        C_SW10 = #{record.cSw10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update TP_CONCATFJ
+    set C_ID = #{record.cId,jdbcType=VARCHAR},
+      C_CONNUM = #{record.cConnum,jdbcType=VARCHAR},
+      C_FILENAME = #{record.cFilename,jdbcType=VARCHAR},
+      C_FILEADRESS = #{record.cFileadress,jdbcType=VARCHAR},
+      C_VERSION = #{record.cVersion,jdbcType=VARCHAR},
+      C_HVERSION = #{record.cHversion,jdbcType=VARCHAR},
+      C_DESCRIPTION = #{record.cDescription,jdbcType=VARCHAR},
+      C_CREATER = #{record.cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{record.cCreatetime,jdbcType=DATE},
+      C_MODIFIER = #{record.cModifier,jdbcType=VARCHAR},
+      C_MODIFYTIME = #{record.cModifytime,jdbcType=DATE},
+      C_REMARK = #{record.cRemark,jdbcType=VARCHAR},
+      C_DR = #{record.cDr,jdbcType=VARCHAR},
+      C_TIMESTAMP = #{record.cTimestamp,jdbcType=TIMESTAMP},
+      C_SW01 = #{record.cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{record.cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{record.cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{record.cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{record.cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{record.cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{record.cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{record.cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{record.cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{record.cSw10,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateList" parameterType="java.util.List" >
+   <foreach collection="tpConcatfj" close=";end;" open="begin" index="index" item="item" separator=";">
+    update TP_CONCATFJ
+    <set >
+      <if test="item.cId != null" >
+        C_ID = #{item.cId,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null" >
+        C_CONNUM = #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFilename != null" >
+        C_FILENAME = #{item.cFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFileadress != null" >
+        C_FILEADRESS = #{item.cFileadress,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cVersion != null" >
+        C_VERSION = #{item.cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cHversion != null" >
+        C_HVERSION = #{item.cHversion,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDescription != null" >
+        C_DESCRIPTION = #{item.cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreater != null" >
+        C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null" >
+        C_CREATETIME = #{item.cCreatetime,jdbcType=DATE},
+      </if>
+      <if test="item.cModifier != null" >
+        C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null" >
+        C_MODIFYTIME = #{item.cModifytime,jdbcType=DATE},
+      </if>
+      <if test="item.cRemark != null" >
+        C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null" >
+        C_DR = #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTimestamp != null" >
+        C_TIMESTAMP = #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw01 != null" >
+        C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null" >
+        C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null" >
+        C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null" >
+        C_SW04 = #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null" >
+        C_SW05 = #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null" >
+        C_SW06 = #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null" >
+        C_SW07 = #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null" >
+        C_SW08 = #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null" >
+        C_SW09 = #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null" >
+        C_SW10 = #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    	WHERE C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="code_fb_cg.entity.TpConcatfj" >
+    update TP_CONCATFJ
+    <set >
+      <if test="cConnum != null" >
+        C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cFilename != null" >
+        C_FILENAME = #{cFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="cFileadress != null" >
+        C_FILEADRESS = #{cFileadress,jdbcType=VARCHAR},
+      </if>
+      <if test="cVersion != null" >
+        C_VERSION = #{cVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="cHversion != null" >
+        C_HVERSION = #{cHversion,jdbcType=VARCHAR},
+      </if>
+      <if test="cDescription != null" >
+        C_DESCRIPTION = #{cDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null" >
+        C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null" >
+        C_CREATETIME = #{cCreatetime,jdbcType=DATE},
+      </if>
+      <if test="cModifier != null" >
+        C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null" >
+        C_MODIFYTIME = #{cModifytime,jdbcType=DATE},
+      </if>
+      <if test="cRemark != null" >
+        C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null" >
+        C_DR = #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null" >
+        C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null" >
+        C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null" >
+        C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null" >
+        C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null" >
+        C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null" >
+        C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null" >
+        C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null" >
+        C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null" >
+        C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null" >
+        C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null" >
+        C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="code_fb_cg.entity.TpConcatfj" >
+    update TP_CONCATFJ
+    set C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      C_FILENAME = #{cFilename,jdbcType=VARCHAR},
+      C_FILEADRESS = #{cFileadress,jdbcType=VARCHAR},
+      C_VERSION = #{cVersion,jdbcType=VARCHAR},
+      C_HVERSION = #{cHversion,jdbcType=VARCHAR},
+      C_DESCRIPTION = #{cDescription,jdbcType=VARCHAR},
+      C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{cCreatetime,jdbcType=DATE},
+      C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      C_MODIFYTIME = #{cModifytime,jdbcType=DATE},
+      C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      C_DR = #{cDr,jdbcType=VARCHAR},
+      C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{cSw10,jdbcType=VARCHAR}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+</mapper>

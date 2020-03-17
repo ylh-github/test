@@ -1,0 +1,23 @@
+package code_fb_cg.request;
+
+
+public class ReportDataRequest {
+
+	private String year;
+	private String[] cManor;
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String[] getcManor() {
+		return cManor;
+	}
+	public void setcManor(String[] cManor) {
+		this.cManor = cManor;
+	}
+
+
+	
+}

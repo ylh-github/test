@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code_fb_cg.mapper.TpCgshipMapper">
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpCgship">
+    <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_GOODSNAME" jdbcType="VARCHAR" property="cGoodsname" />
+    <result column="C_SPEC" jdbcType="VARCHAR" property="cSpec" />
+    <result column="C_CONNUM" jdbcType="VARCHAR" property="cConnum" />
+    <result column="C_WMNUM" jdbcType="VARCHAR" property="cWmnum" />
+    <result column="C_CONMTID" jdbcType="VARCHAR" property="cConmtid" />
+    <result column="C_CONSTID" jdbcType="VARCHAR" property="cConstid" />
+    <result column="C_ORDERNUM" jdbcType="VARCHAR" property="cOrdernum" />
+    <result column="C_SHIPNUM" jdbcType="VARCHAR" property="cShipnum" />
+    <result column="C_SHIPTIME" jdbcType="TIMESTAMP" property="cShiptime" />
+    <result column="C_GOODSNUM" jdbcType="VARCHAR" property="cGoodsnum" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" />
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" />
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" />
+    <result column="C_SW04" jdbcType="VARCHAR" property="cSw04" />
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" />
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" />
+    <result column="C_SW07" jdbcType="VARCHAR" property="cSw07" />
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+    <result column="C_SW11" jdbcType="VARCHAR" property="cSw11" />
+    <result column="C_SW12" jdbcType="VARCHAR" property="cSw12" />
+    <result column="C_SW13" jdbcType="VARCHAR" property="cSw13" />
+    <result column="C_SW14" jdbcType="VARCHAR" property="cSw14" />
+    <result column="C_SW15" jdbcType="VARCHAR" property="cSw15" />
+    <result column="C_SW16" jdbcType="VARCHAR" property="cSw16" />
+    <result column="C_SW17" jdbcType="VARCHAR" property="cSw17" />
+    <result column="C_SW18" jdbcType="VARCHAR" property="cSw18" />
+    <result column="C_SW19" jdbcType="VARCHAR" property="cSw19" />
+    <result column="C_SW20" jdbcType="VARCHAR" property="cSw20" />
+    <result column="C_FRAMENUM" jdbcType="VARCHAR" property="cFramenum" />
+    <result column="C_CONTAINER" jdbcType="VARCHAR" property="cContainer" />
+    <result column="C_DR" jdbcType="VARCHAR" property="cDr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    C_ID, C_GOODSNAME, C_SPEC, C_CONNUM, C_WMNUM, C_CONMTID, C_CONSTID, C_ORDERNUM, C_SHIPNUM, 
+    C_SHIPTIME, C_GOODSNUM, C_CREATER, C_CREATETIME, C_MODIFIER, C_MODIFYTIME, C_REMARK, 
+    C_SW01, C_SW02, C_SW03, C_SW04, C_SW05, C_SW06, C_SW07, C_SW08, C_SW09, C_SW10, C_SW11, 
+    C_SW12, C_SW13, C_SW14, C_SW15, C_SW16, C_SW17, C_SW18, C_SW19, C_SW20, C_FRAMENUM, 
+    C_CONTAINER, C_DR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGSHIP
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </select>
+  <!-- 条件查询 -->
+  <select id="selectBycondition" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGSHIP
+    where 1=1
+    		AND C_DR = '0'
+    	  <if test="cShipnum != null" >
+		       AND  C_SHIPNUM like '%' || #{cShipnum,jdbcType=VARCHAR} || '%'
+		  </if>
+		   <if test="cGoodsname != null" >
+		       AND  C_GOODSNAME like '%' || #{cGoodsname,jdbcType=VARCHAR} || '%'
+		  </if>
+		   <if test="cFramenum != null" >
+		       AND  C_FRAMENUM like '%' || #{cFramenum,jdbcType=VARCHAR} || '%'
+		  </if>
+		   <if test="cContainer != null" >
+		       AND  C_CONTAINER like '%' || #{cContainer,jdbcType=VARCHAR} || '%'<!-- 请购单号 -->
+		  </if>
+		  <if test="startTime != null" >
+			 AND  C_CREATETIME &gt;= #{startTime,jdbcType=TIMESTAMP}
+	 	  </if>
+		  <if test="endTime != null" >
+			 AND  C_CREATETIME &lt;= #{endTime,jdbcType=TIMESTAMP}
+		  </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TP_CGSHIP
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpCgship">
+    insert into TP_CGSHIP (C_ID, C_GOODSNAME, C_SPEC, 
+      C_CONNUM, C_WMNUM, C_CONMTID, 
+      C_CONSTID, C_ORDERNUM, C_SHIPNUM, 
+      C_SHIPTIME, C_GOODSNUM, C_CREATER, 
+      C_CREATETIME, C_MODIFIER, C_MODIFYTIME, 
+      C_REMARK, C_SW01, C_SW02, 
+      C_SW03, C_SW04, C_SW05, 
+      C_SW06, C_SW07, C_SW08, 
+      C_SW09, C_SW10, C_SW11, 
+      C_SW12, C_SW13, C_SW14, 
+      C_SW15, C_SW16, C_SW17, 
+      C_SW18, C_SW19, C_SW20, 
+      C_FRAMENUM, C_CONTAINER, C_DR
+      )
+    values (#{cId,jdbcType=VARCHAR}, #{cGoodsname,jdbcType=VARCHAR}, #{cSpec,jdbcType=VARCHAR}, 
+      #{cConnum,jdbcType=VARCHAR}, #{cWmnum,jdbcType=VARCHAR}, #{cConmtid,jdbcType=VARCHAR}, 
+      #{cConstid,jdbcType=VARCHAR}, #{cOrdernum,jdbcType=VARCHAR}, #{cShipnum,jdbcType=VARCHAR}, 
+      #{cShiptime,jdbcType=TIMESTAMP}, #{cGoodsnum,jdbcType=VARCHAR}, #{cCreater,jdbcType=VARCHAR}, 
+      #{cCreatetime,jdbcType=TIMESTAMP}, #{cModifier,jdbcType=VARCHAR}, #{cModifytime,jdbcType=TIMESTAMP}, 
+      #{cRemark,jdbcType=VARCHAR}, #{cSw01,jdbcType=VARCHAR}, #{cSw02,jdbcType=VARCHAR}, 
+      #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=VARCHAR}, #{cSw05,jdbcType=VARCHAR}, 
+      #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=VARCHAR}, #{cSw08,jdbcType=VARCHAR}, 
+      #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR}, #{cSw11,jdbcType=VARCHAR}, 
+      #{cSw12,jdbcType=VARCHAR}, #{cSw13,jdbcType=VARCHAR}, #{cSw14,jdbcType=VARCHAR}, 
+      #{cSw15,jdbcType=VARCHAR}, #{cSw16,jdbcType=VARCHAR}, #{cSw17,jdbcType=VARCHAR}, 
+      #{cSw18,jdbcType=VARCHAR}, #{cSw19,jdbcType=VARCHAR}, #{cSw20,jdbcType=VARCHAR}, 
+      #{cFramenum,jdbcType=VARCHAR}, #{cContainer,jdbcType=VARCHAR}, #{cDr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TpCgship">
+    insert into TP_CGSHIP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        C_ID,
+      </if>
+      <if test="cGoodsname != null">
+        C_GOODSNAME,
+      </if>
+      <if test="cSpec != null">
+        C_SPEC,
+      </if>
+      <if test="cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="cWmnum != null">
+        C_WMNUM,
+      </if>
+      <if test="cConmtid != null">
+        C_CONMTID,
+      </if>
+      <if test="cConstid != null">
+        C_CONSTID,
+      </if>
+      <if test="cOrdernum != null">
+        C_ORDERNUM,
+      </if>
+      <if test="cShipnum != null">
+        C_SHIPNUM,
+      </if>
+      <if test="cShiptime != null">
+        C_SHIPTIME,
+      </if>
+      <if test="cGoodsnum != null">
+        C_GOODSNUM,
+      </if>
+      <if test="cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="cSw10 != null">
+        C_SW10,
+      </if>
+      <if test="cSw11 != null">
+        C_SW11,
+      </if>
+      <if test="cSw12 != null">
+        C_SW12,
+      </if>
+      <if test="cSw13 != null">
+        C_SW13,
+      </if>
+      <if test="cSw14 != null">
+        C_SW14,
+      </if>
+      <if test="cSw15 != null">
+        C_SW15,
+      </if>
+      <if test="cSw16 != null">
+        C_SW16,
+      </if>
+      <if test="cSw17 != null">
+        C_SW17,
+      </if>
+      <if test="cSw18 != null">
+        C_SW18,
+      </if>
+      <if test="cSw19 != null">
+        C_SW19,
+      </if>
+      <if test="cSw20 != null">
+        C_SW20,
+      </if>
+      <if test="cFramenum != null">
+        C_FRAMENUM,
+      </if>
+      <if test="cContainer != null">
+        C_CONTAINER,
+      </if>
+      <if test="cDr != null">
+        C_DR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cGoodsname != null">
+        #{cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpec != null">
+        #{cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="cConnum != null">
+        #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cWmnum != null">
+        #{cWmnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmtid != null">
+        #{cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConstid != null">
+        #{cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrdernum != null">
+        #{cOrdernum,jdbcType=VARCHAR},
+      </if>
+      <if test="cShipnum != null">
+        #{cShipnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cShiptime != null">
+        #{cShiptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cGoodsnum != null">
+        #{cGoodsnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null">
+        #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw01 != null">
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw11 != null">
+        #{cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw12 != null">
+        #{cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw13 != null">
+        #{cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw14 != null">
+        #{cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw15 != null">
+        #{cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw16 != null">
+        #{cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw17 != null">
+        #{cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw18 != null">
+        #{cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw19 != null">
+        #{cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw20 != null">
+        #{cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="cFramenum != null">
+        #{cFramenum,jdbcType=VARCHAR},
+      </if>
+      <if test="cContainer != null">
+        #{cContainer,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        #{cDr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertShip" parameterType="java.util.List">
+  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+    insert into TP_CGSHIP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="item.cGoodsname != null">
+        C_GOODSNAME,
+      </if>
+      <if test="item.cSpec != null">
+        C_SPEC,
+      </if>
+      <if test="item.cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="item.cWmnum != null">
+        C_WMNUM,
+      </if>
+      <if test="item.cConmtid != null">
+        C_CONMTID,
+      </if>
+      <if test="item.cConstid != null">
+        C_CONSTID,
+      </if>
+      <if test="item.cOrdernum != null">
+        C_ORDERNUM,
+      </if>
+      <if test="item.cShipnum != null">
+        C_SHIPNUM,
+      </if>
+      <if test="item.cShiptime != null">
+        C_SHIPTIME,
+      </if>
+      <if test="item.cGoodsnum != null">
+        C_GOODSNUM,
+      </if>
+      <if test="item.cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="item.cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="item.cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="item.cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="item.cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="item.cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="item.cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="item.cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="item.cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="item.cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="item.cSw10 != null">
+        C_SW10,
+      </if>
+      <if test="item.cSw11 != null">
+        C_SW11,
+      </if>
+      <if test="item.cSw12 != null">
+        C_SW12,
+      </if>
+      <if test="item.cSw13 != null">
+        C_SW13,
+      </if>
+      <if test="item.cSw14 != null">
+        C_SW14,
+      </if>
+      <if test="item.cSw15 != null">
+        C_SW15,
+      </if>
+      <if test="item.cSw16 != null">
+        C_SW16,
+      </if>
+      <if test="item.cSw17 != null">
+        C_SW17,
+      </if>
+      <if test="item.cSw18 != null">
+        C_SW18,
+      </if>
+      <if test="item.cSw19 != null">
+        C_SW19,
+      </if>
+      <if test="item.cSw20 != null">
+        C_SW20,
+      </if>
+      <if test="item.cFramenum != null">
+        C_FRAMENUM,
+      </if>
+      <if test="item.cContainer != null">
+        C_CONTAINER,
+      </if>
+        C_DR,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      	C_ID_SEQ.NEXTVAL,
+      <if test="item.cGoodsname != null">
+        #{item.cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSpec != null">
+        #{item.cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null">
+        #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cWmnum != null">
+        #{item.cWmnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConmtid != null">
+        #{item.cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConstid != null">
+        #{item.cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrdernum != null">
+        #{item.cOrdernum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShipnum != null">
+        #{item.cShipnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShiptime != null">
+        #{item.cShiptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cGoodsnum != null">
+        #{item.cGoodsnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreater != null">
+        #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null">
+        #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null">
+        #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null">
+        #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cRemark != null">
+        #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw01 != null">
+        #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null">
+        #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null">
+        #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null">
+        #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null">
+        #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null">
+        #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null">
+        #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null">
+        #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null">
+        #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null">
+        #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null">
+        #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null">
+        #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw13 != null">
+        #{item.cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw14 != null">
+        #{item.cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw15 != null">
+        #{item.cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw16 != null">
+        #{item.cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw17 != null">
+        #{item.cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw18 != null">
+        #{item.cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw19 != null">
+        #{item.cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw20 != null">
+        #{item.cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFramenum != null">
+        #{item.cFramenum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cContainer != null">
+        #{item.cContainer,jdbcType=VARCHAR},
+      </if>
+        '0',
+    </trim>
+    </foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="code_fb_cg.entity.TpCgship">
+    update TP_CGSHIP
+    <set>
+      <if test="cGoodsname != null">
+        C_GOODSNAME = #{cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpec != null">
+        C_SPEC = #{cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="cConnum != null">
+        C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cWmnum != null">
+        C_WMNUM = #{cWmnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmtid != null">
+        C_CONMTID = #{cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConstid != null">
+        C_CONSTID = #{cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrdernum != null">
+        C_ORDERNUM = #{cOrdernum,jdbcType=VARCHAR},
+      </if>
+      <if test="cShipnum != null">
+        C_SHIPNUM = #{cShipnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cShiptime != null">
+        C_SHIPTIME = #{cShiptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cGoodsnum != null">
+        C_GOODSNUM = #{cGoodsnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null">
+        C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw01 != null">
+        C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw11 != null">
+        C_SW11 = #{cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw12 != null">
+        C_SW12 = #{cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw13 != null">
+        C_SW13 = #{cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw14 != null">
+        C_SW14 = #{cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw15 != null">
+        C_SW15 = #{cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw16 != null">
+        C_SW16 = #{cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw17 != null">
+        C_SW17 = #{cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw18 != null">
+        C_SW18 = #{cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw19 != null">
+        C_SW19 = #{cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw20 != null">
+        C_SW20 = #{cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="cFramenum != null">
+        C_FRAMENUM = #{cFramenum,jdbcType=VARCHAR},
+      </if>
+      <if test="cContainer != null">
+        C_CONTAINER = #{cContainer,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        C_DR = #{cDr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateForShip" parameterType="java.util.List">
+  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+    update TP_CGSHIP
+    <set>
+      <if test="item.cGoodsname != null">
+        C_GOODSNAME = #{item.cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSpec != null">
+        C_SPEC = #{item.cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null">
+        C_CONNUM = #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cWmnum != null">
+        C_WMNUM = #{item.cWmnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConmtid != null">
+        C_CONMTID = #{item.cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConstid != null">
+        C_CONSTID = #{item.cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrdernum != null">
+        C_ORDERNUM = #{item.cOrdernum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShipnum != null">
+        C_SHIPNUM = #{item.cShipnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cShiptime != null">
+        C_SHIPTIME = #{item.cShiptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cGoodsnum != null">
+        C_GOODSNUM = #{item.cGoodsnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreater != null">
+        C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null">
+        C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null">
+        C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null">
+        C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw01 != null">
+        C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null">
+        C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null">
+        C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null">
+        C_SW04 = #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null">
+        C_SW05 = #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null">
+        C_SW06 = #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null">
+        C_SW07 = #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null">
+        C_SW08 = #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null">
+        C_SW09 = #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null">
+        C_SW10 = #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null">
+        C_SW11 = #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null">
+        C_SW12 = #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw13 != null">
+        C_SW13 = #{item.cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw14 != null">
+        C_SW14 = #{item.cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw15 != null">
+        C_SW15 = #{item.cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw16 != null">
+        C_SW16 = #{item.cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw17 != null">
+        C_SW17 = #{item.cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw18 != null">
+        C_SW18 = #{item.cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw19 != null">
+        C_SW19 = #{item.cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw20 != null">
+        C_SW20 = #{item.cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFramenum != null">
+        C_FRAMENUM = #{item.cFramenum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cContainer != null">
+        C_CONTAINER = #{item.cContainer,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null">
+        C_DR = #{item.cDr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <update id="updateByPrimaryKey" parameterType="code_fb_cg.entity.TpCgship">
+    update TP_CGSHIP
+    set C_GOODSNAME = #{cGoodsname,jdbcType=VARCHAR},
+      C_SPEC = #{cSpec,jdbcType=VARCHAR},
+      C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      C_WMNUM = #{cWmnum,jdbcType=VARCHAR},
+      C_CONMTID = #{cConmtid,jdbcType=VARCHAR},
+      C_CONSTID = #{cConstid,jdbcType=VARCHAR},
+      C_ORDERNUM = #{cOrdernum,jdbcType=VARCHAR},
+      C_SHIPNUM = #{cShipnum,jdbcType=VARCHAR},
+      C_SHIPTIME = #{cShiptime,jdbcType=TIMESTAMP},
+      C_GOODSNUM = #{cGoodsnum,jdbcType=VARCHAR},
+      C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      C_SW11 = #{cSw11,jdbcType=VARCHAR},
+      C_SW12 = #{cSw12,jdbcType=VARCHAR},
+      C_SW13 = #{cSw13,jdbcType=VARCHAR},
+      C_SW14 = #{cSw14,jdbcType=VARCHAR},
+      C_SW15 = #{cSw15,jdbcType=VARCHAR},
+      C_SW16 = #{cSw16,jdbcType=VARCHAR},
+      C_SW17 = #{cSw17,jdbcType=VARCHAR},
+      C_SW18 = #{cSw18,jdbcType=VARCHAR},
+      C_SW19 = #{cSw19,jdbcType=VARCHAR},
+      C_SW20 = #{cSw20,jdbcType=VARCHAR},
+      C_FRAMENUM = #{cFramenum,jdbcType=VARCHAR},
+      C_CONTAINER = #{cContainer,jdbcType=VARCHAR},
+      C_DR = #{cDr,jdbcType=VARCHAR}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByCDR" parameterType="java.util.List">
+  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+    update TP_CGSHIP
+    set
+      C_DR = '1'
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+  </foreach>
+  </update>
+</mapper>

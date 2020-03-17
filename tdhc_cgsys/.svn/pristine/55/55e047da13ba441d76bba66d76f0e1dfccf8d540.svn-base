@@ -1,0 +1,126 @@
+
+ package code_fb.service;
+ import java.text.ParseException;
+
+import code_fb.request.CG_H001_Request;
+import code_fb.request.CG_H001_Request_C001 ;
+import code_fb.request.CG_H001_Request_C002 ;
+import code_fb.request.CG_H001_Request_C003 ;
+import code_fb.request.CG_H001_Request_C004 ;
+import code_fb.request.CG_H001_Request_C005 ;
+import code_fb.request.CG_H001_Request_M1S1 ;
+import code_fb.request.CG_H001_Request_S1S2 ;
+import code_fb.response.CG_H001_Response_C001 ;
+import code_fb.response.CG_H001_Response_C002 ;
+import code_fb.response.CG_H001_Response_C003 ;
+import code_fb.response.CG_H001_Response_C004 ;
+import code_fb.response.CG_H001_Response_C005 ;
+import code_fb.response.CG_H001_Response_M1S1 ;
+import code_fb.response.CG_H001_Response_S1S2 ;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User; 
+ public interface CG_H001_Service {
+ /**
+ 		 * 动态查询C0011查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_C001> C0011Q(CG_H001_Request_C001 cgH001RequestC001,String session);
+ /**
+ 		 * 动态查询C0021查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_C002> C0021Q(CG_H001_Request_C002 cgH001RequestC002,String session);
+ /**
+ 		 * 动态查询C0031查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_C003> C0031Q(CG_H001_Request_C003 cgH001RequestC003,String session);
+ /**
+ 		 * 动态查询C0041查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_C004> C0041Q(CG_H001_Request_C004 cgH001RequestC004,String session);
+ /**
+ 		 * 动态查询C0051查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_C005> C0051Q(CG_H001_Request_C005 cgH001RequestC005,String session);
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S11Q(CG_H001_Request cg_H001_Request,String session);
+ //查询发票总金额 > 合同金额 的合同 
+ ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S11Q1(CG_H001_Request cg_H001_Request,String session);
+ //可以通过请购单号查询
+ ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S11Q11(CG_H001_Request cg_H001_Request,String session);
+ 
+// ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S11QFT(CG_H001_Request cg_H001_Request,String session);
+ //查询标记的合同
+ ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S11QBJ(CG_H001_Request cg_H001_Request,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(CG_H001_Request_M1S1 cgH001RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ * @throws ParseException 
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(CG_H001_Request_M1S1 cgH001RequestM1s1,String session) throws ParseException;
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(CG_H001_Request_M1S1 cgH001RequestM1s1,String session);
+ /**
+ 		 * 动态查询S1S21查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_H001_Response_S1S2> S1S21Q(CG_H001_Request_S1S2 cgH001RequestS1s2,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> S1S21A(CG_H001_Request_S1S2 cgH001RequestS1s2,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> S1S21U(CG_H001_Request_S1S2 cgH001RequestS1s2,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> S1S21D(CG_H001_Request_S1S2 cgH001RequestS1s2,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> S1S22MSG(CG_H001_Request_S1S2 cgH001RequestS1s2,String session);
+ /**
+  * M1S11查询按钮--有用户限制
+  * @param user
+  * @param data
+  * @param session
+  * @return
+  */
+ResponseObject<EmptyTag, CG_H001_Response_M1S1> M1S12Q(User user, CG_H001_Request data, String session);
+ }

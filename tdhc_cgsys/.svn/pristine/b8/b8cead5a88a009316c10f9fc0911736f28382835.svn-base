@@ -1,0 +1,21 @@
+
+ 
+ package code_fb.request;
+  import java.util.List;
+  import code_fb.entity.CG_H001_M1S1;
+  public class CG_H001_Request {
+  private List<CG_H001_M1S1> cgH001M1s1;
+  private List<H002request> h002request;
+  public List<CG_H001_M1S1> getCgH001M1s1() {
+  	return cgH001M1s1;
+  	}
+  public void setCgH001M1s1(List<CG_H001_M1S1>cgH001M1s1) {
+  	this.cgH001M1s1 = cgH001M1s1;
+  	}
+public List<H002request> getH002request() {
+	return h002request;
+}
+public void setH002request(List<H002request> h002request) {
+	this.h002request = h002request;
+}
+  }

@@ -1,0 +1,1786 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CLAUSE_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CLAUSE_M1S1" >
+	 <result column="C_CONTYPE_TP_CGCLAUSEDATA" property="cContypeTpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TP_CGCLAUSEDATA" property="cCreaterTpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_DR_TP_CGCLAUSEDATA" property="cDrTpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_CGCLAUSEDATA" property="cIdTpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TP_CGCLAUSEDATA" property="cModifierTpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TP_CGCLAUSEDATA" property="cSw01TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TP_CGCLAUSEDATA" property="cSw02TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TP_CGCLAUSEDATA" property="cSw03TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TP_CGCLAUSEDATA" property="cSw04TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TP_CGCLAUSEDATA" property="cSw05TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TP_CGCLAUSEDATA" property="cSw06TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TP_CGCLAUSEDATA" property="cSw07TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TP_CGCLAUSEDATA" property="cSw08TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TP_CGCLAUSEDATA" property="cSw09TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TP_CGCLAUSEDATA" property="cSw10TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TP_CGCLAUSEDATA" property="cSw11TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TP_CGCLAUSEDATA" property="cSw12TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TP_CGCLAUSEDATA" property="cSw13TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TP_CGCLAUSEDATA" property="cSw14TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TP_CGCLAUSEDATA" property="cSw15TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW16_TP_CGCLAUSEDATA" property="cSw16TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW17_TP_CGCLAUSEDATA" property="cSw17TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW18_TP_CGCLAUSEDATA" property="cSw18TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW19_TP_CGCLAUSEDATA" property="cSw19TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW20_TP_CGCLAUSEDATA" property="cSw20TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW21_TP_CGCLAUSEDATA" property="cSw21TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW22_TP_CGCLAUSEDATA" property="cSw22TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW23_TP_CGCLAUSEDATA" property="cSw23TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW24_TP_CGCLAUSEDATA" property="cSw24TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW25_TP_CGCLAUSEDATA" property="cSw25TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW26_TP_CGCLAUSEDATA" property="cSw26TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW27_TP_CGCLAUSEDATA" property="cSw27TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW28_TP_CGCLAUSEDATA" property="cSw28TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW29_TP_CGCLAUSEDATA" property="cSw29TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW30_TP_CGCLAUSEDATA" property="cSw30TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW31_TP_CGCLAUSEDATA" property="cSw31TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW32_TP_CGCLAUSEDATA" property="cSw32TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW33_TP_CGCLAUSEDATA" property="cSw33TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW34_TP_CGCLAUSEDATA" property="cSw34TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW35_TP_CGCLAUSEDATA" property="cSw35TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW36_TP_CGCLAUSEDATA" property="cSw36TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW37_TP_CGCLAUSEDATA" property="cSw37TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW38_TP_CGCLAUSEDATA" property="cSw38TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW39_TP_CGCLAUSEDATA" property="cSw39TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW40_TP_CGCLAUSEDATA" property="cSw40TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW41_TP_CGCLAUSEDATA" property="cSw41TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW42_TP_CGCLAUSEDATA" property="cSw42TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW43_TP_CGCLAUSEDATA" property="cSw43TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW44_TP_CGCLAUSEDATA" property="cSw44TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW45_TP_CGCLAUSEDATA" property="cSw45TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW46_TP_CGCLAUSEDATA" property="cSw46TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW47_TP_CGCLAUSEDATA" property="cSw47TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW48_TP_CGCLAUSEDATA" property="cSw48TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW49_TP_CGCLAUSEDATA" property="cSw49TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW50_TP_CGCLAUSEDATA" property="cSw50TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW51_TP_CGCLAUSEDATA" property="cSw51TpCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TP_CGCLAUSEDATA" property="cCreatetimeTpCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYDATE_TP_CGCLAUSEDATA" property="cModifydateTpCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TP_CGCLAUSEDATA" property="cTimestampTpCgclausedata" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QCLAUSE_M1S1" parameterType="code_fb.entity.CLAUSE_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE like '%' || #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER = #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}    
+  </if>
+   OR TP_CGCLAUSEDATA.C_CREATER = 'admin'
+	</select> 
+	
+	 <select id="M1S11QCLAUSE_M1S11" parameterType="code_fb.entity.CLAUSE_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE like '%' || #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER = #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}    
+  </if>
+	</select> 
+	
+	
+	
+ <select id="M1S11QCLAUSE_M1S2" parameterType="code_fb.entity.CLAUSE_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE like '%' || #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER  =  #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}
+  </if>
+ <!--   <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER = #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}    
+  </if>
+   OR TP_CGCLAUSEDATA.C_CREATER = 'admin' -->
+	</select> 
+<select id="M1S11QCLAUSE_CHECK" parameterType="code_fb.entity.CLAUSE_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE  = #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR}
+  </if>
+  <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER  = #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}
+  </if>
+	</select> 
+<select id="selectContType" parameterType="java.lang.String"  resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+ from TP_CGCLAUSEDATA TP_CGCLAUSEDATA
+ WHERE 1=1 
+  <!--  <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE like '%' || #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR} || '%'
+  </if> -->
+  AND  TP_CGCLAUSEDATA.C_CREATER = #{user,jdbcType=VARCHAR} 
+	</select>
+<!-- 下拉框值的查询	 -->
+<select id="getContTypeInfo" parameterType="code_fb.entity.CLAUSE_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="clauseM1s1.cContypeTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CONTYPE  = #{clauseM1s1.cContypeTpCgclausedata,jdbcType=VARCHAR}
+  </if>
+   <if test="clauseM1s1.cCreaterTpCgclausedata != null" >
+       AND  TP_CGCLAUSEDATA.C_CREATER  = #{clauseM1s1.cCreaterTpCgclausedata,jdbcType=VARCHAR}
+  </if>
+	</select> 	
+<select id="getStandardInfo" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGCLAUSEDATA.C_SW09 C_SW09_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW08 C_SW08_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW11 C_SW11_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW12 C_SW12_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW13 C_SW13_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW14 C_SW14_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW15 C_SW15_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW16 C_SW16_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW17 C_SW17_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW18 C_SW18_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW19 C_SW19_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW20 C_SW20_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW21 C_SW21_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW22 C_SW22_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW23 C_SW23_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW24 C_SW24_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW25 C_SW25_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW26 C_SW26_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW27 C_SW27_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW28 C_SW28_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW29 C_SW29_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW30 C_SW30_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW31 C_SW31_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW32 C_SW32_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW33 C_SW33_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW34 C_SW34_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW35 C_SW35_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW36 C_SW36_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW37 C_SW37_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW38 C_SW38_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW39 C_SW39_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW40 C_SW40_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW41 C_SW41_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW42 C_SW42_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW43 C_SW43_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW44 C_SW44_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW45 C_SW45_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW46 C_SW46_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW47 C_SW47_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW48 C_SW48_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW49 C_SW49_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW50 C_SW50_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW51 C_SW51_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_ID C_ID_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CONTYPE C_CONTYPE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_DR C_DR_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATER C_CREATER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW01 C_SW01_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW02 C_SW02_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW03 C_SW03_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW04 C_SW04_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW05 C_SW05_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW06 C_SW06_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW07 C_SW07_TP_CGCLAUSEDATA 
+,
+TP_CGCLAUSEDATA.C_SW10 C_SW10_TP_CGCLAUSEDATA 
+
+ from TP_CGCLAUSEDATA
+ WHERE 1=1 
+   <!-- <if test="clauseM1s1.cContypeTpCgclausedata != null" > -->
+       AND  TP_CGCLAUSEDATA.C_CONTYPE  = '标准合同类型'
+<!--   </if> -->
+	</select> 
+
+	 <insert id="M1S11ACLAUSE_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="clauseM1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TP_CGCLAUSEDATA
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cSw09TpCgclausedata != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw08TpCgclausedata != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw11TpCgclausedata != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TpCgclausedata != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TpCgclausedata != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TpCgclausedata != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TpCgclausedata != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw16TpCgclausedata != null" >
+		C_SW16,
+  </if>
+	 <if test="item.cSw17TpCgclausedata != null" >
+		C_SW17,
+  </if>
+	 <if test="item.cSw18TpCgclausedata != null" >
+		C_SW18,
+  </if>
+	 <if test="item.cSw19TpCgclausedata != null" >
+		C_SW19,
+  </if>
+	 <if test="item.cSw20TpCgclausedata != null" >
+		C_SW20,
+  </if>
+	 <if test="item.cSw21TpCgclausedata != null" >
+		C_SW21,
+  </if>
+	 <if test="item.cSw22TpCgclausedata != null" >
+		C_SW22,
+  </if>
+	 <if test="item.cSw23TpCgclausedata != null" >
+		C_SW23,
+  </if>
+	 <if test="item.cSw24TpCgclausedata != null" >
+		C_SW24,
+  </if>
+	 <if test="item.cSw25TpCgclausedata != null" >
+		C_SW25,
+  </if>
+	 <if test="item.cSw26TpCgclausedata != null" >
+		C_SW26,
+  </if>
+	 <if test="item.cSw27TpCgclausedata != null" >
+		C_SW27,
+  </if>
+	 <if test="item.cSw28TpCgclausedata != null" >
+		C_SW28,
+  </if>
+	 <if test="item.cSw29TpCgclausedata != null" >
+		C_SW29,
+  </if>
+	 <if test="item.cSw30TpCgclausedata != null" >
+		C_SW30,
+  </if>
+	 <if test="item.cSw31TpCgclausedata != null" >
+		C_SW31,
+  </if>
+	 <if test="item.cSw32TpCgclausedata != null" >
+		C_SW32,
+  </if>
+	 <if test="item.cSw33TpCgclausedata != null" >
+		C_SW33,
+  </if>
+	 <if test="item.cSw34TpCgclausedata != null" >
+		C_SW34,
+  </if>
+	 <if test="item.cSw35TpCgclausedata != null" >
+		C_SW35,
+  </if>
+	 <if test="item.cSw36TpCgclausedata != null" >
+		C_SW36,
+  </if>
+	 <if test="item.cSw37TpCgclausedata != null" >
+		C_SW37,
+  </if>
+	 <if test="item.cSw38TpCgclausedata != null" >
+		C_SW38,
+  </if>
+	 <if test="item.cSw39TpCgclausedata != null" >
+		C_SW39,
+  </if>
+	 <if test="item.cSw40TpCgclausedata != null" >
+		C_SW40,
+  </if>
+	 <if test="item.cSw41TpCgclausedata != null" >
+		C_SW41,
+  </if>
+	 <if test="item.cSw42TpCgclausedata != null" >
+		C_SW42,
+  </if>
+	 <if test="item.cSw43TpCgclausedata != null" >
+		C_SW43,
+  </if>
+	 <if test="item.cSw44TpCgclausedata != null" >
+		C_SW44,
+  </if>
+	 <if test="item.cSw45TpCgclausedata != null" >
+		C_SW45,
+  </if>
+	 <if test="item.cSw46TpCgclausedata != null" >
+		C_SW46,
+  </if>
+	 <if test="item.cSw47TpCgclausedata != null" >
+		C_SW47,
+  </if>
+	 <if test="item.cSw48TpCgclausedata != null" >
+		C_SW48,
+  </if>
+	 <if test="item.cSw49TpCgclausedata != null" >
+		C_SW49,
+  </if>
+	 <if test="item.cSw50TpCgclausedata != null" >
+		C_SW50,
+  </if>
+	 <if test="item.cSw51TpCgclausedata != null" >
+		C_SW51,
+  </if>
+  C_ID ,
+	 <if test="item.cContypeTpCgclausedata != null" >
+		C_CONTYPE,
+  </if>
+	 <if test="item.cDrTpCgclausedata != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestampTpCgclausedata != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cCreaterTpCgclausedata != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetimeTpCgclausedata != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifierTpCgclausedata != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifydateTpCgclausedata != null" >
+		C_MODIFYDATE,
+  </if>
+	 <if test="item.cSw01TpCgclausedata != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02TpCgclausedata != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03TpCgclausedata != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TpCgclausedata != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TpCgclausedata != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TpCgclausedata != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TpCgclausedata != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw10TpCgclausedata != null" >
+		C_SW10,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cSw09TpCgclausedata != null" >
+		#{item.cSw09TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TpCgclausedata != null" >
+		#{item.cSw08TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TpCgclausedata != null" >
+		#{item.cSw11TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TpCgclausedata != null" >
+		#{item.cSw12TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TpCgclausedata != null" >
+		#{item.cSw13TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TpCgclausedata != null" >
+		#{item.cSw14TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TpCgclausedata != null" >
+		#{item.cSw15TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TpCgclausedata != null" >
+		#{item.cSw16TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TpCgclausedata != null" >
+		#{item.cSw17TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TpCgclausedata != null" >
+		#{item.cSw18TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TpCgclausedata != null" >
+		#{item.cSw19TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TpCgclausedata != null" >
+		#{item.cSw20TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw21TpCgclausedata != null" >
+		#{item.cSw21TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw22TpCgclausedata != null" >
+		#{item.cSw22TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw23TpCgclausedata != null" >
+		#{item.cSw23TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw24TpCgclausedata != null" >
+		#{item.cSw24TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw25TpCgclausedata != null" >
+		#{item.cSw25TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw26TpCgclausedata != null" >
+		#{item.cSw26TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw27TpCgclausedata != null" >
+		#{item.cSw27TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw28TpCgclausedata != null" >
+		#{item.cSw28TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw29TpCgclausedata != null" >
+		#{item.cSw29TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw30TpCgclausedata != null" >
+		#{item.cSw30TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw31TpCgclausedata != null" >
+		#{item.cSw31TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw32TpCgclausedata != null" >
+		#{item.cSw32TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw33TpCgclausedata != null" >
+		#{item.cSw33TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw34TpCgclausedata != null" >
+		#{item.cSw34TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw35TpCgclausedata != null" >
+		#{item.cSw35TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw36TpCgclausedata != null" >
+		#{item.cSw36TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw37TpCgclausedata != null" >
+		#{item.cSw37TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw38TpCgclausedata != null" >
+		#{item.cSw38TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw39TpCgclausedata != null" >
+		#{item.cSw39TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw40TpCgclausedata != null" >
+		#{item.cSw40TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw41TpCgclausedata != null" >
+		#{item.cSw41TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw42TpCgclausedata != null" >
+		#{item.cSw42TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw43TpCgclausedata != null" >
+		#{item.cSw43TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw44TpCgclausedata != null" >
+		#{item.cSw44TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw45TpCgclausedata != null" >
+		#{item.cSw45TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw46TpCgclausedata != null" >
+		#{item.cSw46TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw47TpCgclausedata != null" >
+		#{item.cSw47TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw48TpCgclausedata != null" >
+		#{item.cSw48TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw49TpCgclausedata != null" >
+		#{item.cSw49TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw50TpCgclausedata != null" >
+		#{item.cSw50TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw51TpCgclausedata != null" >
+		#{item.cSw51TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+		C_ID_CAUSE.NEXTVAL,
+	 <if test="item.cContypeTpCgclausedata != null" >
+		#{item.cContypeTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTpCgclausedata != null" >
+		#{item.cDrTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTpCgclausedata != null" >
+		#{item.cTimestampTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTpCgclausedata != null" >
+		#{item.cCreaterTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTpCgclausedata != null" >
+		#{item.cCreatetimeTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTpCgclausedata != null" >
+		#{item.cModifierTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTpCgclausedata != null" >
+		#{item.cModifydateTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TpCgclausedata != null" >
+		#{item.cSw01TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TpCgclausedata != null" >
+		#{item.cSw02TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TpCgclausedata != null" >
+		#{item.cSw03TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TpCgclausedata != null" >
+		#{item.cSw04TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TpCgclausedata != null" >
+		#{item.cSw05TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TpCgclausedata != null" >
+		#{item.cSw06TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TpCgclausedata != null" >
+		#{item.cSw07TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TpCgclausedata != null" >
+		#{item.cSw10TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UCLAUSE_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="clauseM1s1" index="index" item="item" open="begin" separator=";">  
+	        update TP_CGCLAUSEDATA
+	         <set >
+	 <if test="item.cSw09TpCgclausedata != null" >
+		C_SW09 = #{item.cSw09TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TpCgclausedata != null" >
+		C_SW08 = #{item.cSw08TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TpCgclausedata != null" >
+		C_SW11 = #{item.cSw11TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TpCgclausedata != null" >
+		C_SW12 = #{item.cSw12TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TpCgclausedata != null" >
+		C_SW13 = #{item.cSw13TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TpCgclausedata != null" >
+		C_SW14 = #{item.cSw14TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TpCgclausedata != null" >
+		C_SW15 = #{item.cSw15TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TpCgclausedata != null" >
+		C_SW16 = #{item.cSw16TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TpCgclausedata != null" >
+		C_SW17 = #{item.cSw17TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TpCgclausedata != null" >
+		C_SW18 = #{item.cSw18TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TpCgclausedata != null" >
+		C_SW19 = #{item.cSw19TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TpCgclausedata != null" >
+		C_SW20 = #{item.cSw20TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw21TpCgclausedata != null" >
+		C_SW21 = #{item.cSw21TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw22TpCgclausedata != null" >
+		C_SW22 = #{item.cSw22TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw23TpCgclausedata != null" >
+		C_SW23 = #{item.cSw23TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw24TpCgclausedata != null" >
+		C_SW24 = #{item.cSw24TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw25TpCgclausedata != null" >
+		C_SW25 = #{item.cSw25TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw26TpCgclausedata != null" >
+		C_SW26 = #{item.cSw26TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw27TpCgclausedata != null" >
+		C_SW27 = #{item.cSw27TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw28TpCgclausedata != null" >
+		C_SW28 = #{item.cSw28TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw29TpCgclausedata != null" >
+		C_SW29 = #{item.cSw29TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw30TpCgclausedata != null" >
+		C_SW30 = #{item.cSw30TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw31TpCgclausedata != null" >
+		C_SW31 = #{item.cSw31TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw32TpCgclausedata != null" >
+		C_SW32 = #{item.cSw32TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw33TpCgclausedata != null" >
+		C_SW33 = #{item.cSw33TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw34TpCgclausedata != null" >
+		C_SW34 = #{item.cSw34TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw35TpCgclausedata != null" >
+		C_SW35 = #{item.cSw35TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw36TpCgclausedata != null" >
+		C_SW36 = #{item.cSw36TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw37TpCgclausedata != null" >
+		C_SW37 = #{item.cSw37TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw38TpCgclausedata != null" >
+		C_SW38 = #{item.cSw38TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw39TpCgclausedata != null" >
+		C_SW39 = #{item.cSw39TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw40TpCgclausedata != null" >
+		C_SW40 = #{item.cSw40TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw41TpCgclausedata != null" >
+		C_SW41 = #{item.cSw41TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw42TpCgclausedata != null" >
+		C_SW42 = #{item.cSw42TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw43TpCgclausedata != null" >
+		C_SW43 = #{item.cSw43TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw44TpCgclausedata != null" >
+		C_SW44 = #{item.cSw44TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw45TpCgclausedata != null" >
+		C_SW45 = #{item.cSw45TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw46TpCgclausedata != null" >
+		C_SW46 = #{item.cSw46TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw47TpCgclausedata != null" >
+		C_SW47 = #{item.cSw47TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw48TpCgclausedata != null" >
+		C_SW48 = #{item.cSw48TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw49TpCgclausedata != null" >
+		C_SW49 = #{item.cSw49TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw50TpCgclausedata != null" >
+		C_SW50 = #{item.cSw50TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw51TpCgclausedata != null" >
+		C_SW51 = #{item.cSw51TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIdTpCgclausedata != null" >
+		C_ID = #{item.cIdTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContypeTpCgclausedata != null" >
+		C_CONTYPE = #{item.cContypeTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTpCgclausedata != null" >
+		C_DR = #{item.cDrTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTpCgclausedata != null" >
+		C_TIMESTAMP = #{item.cTimestampTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTpCgclausedata != null" >
+		C_CREATER = #{item.cCreaterTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTpCgclausedata != null" >
+		C_CREATETIME = #{item.cCreatetimeTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTpCgclausedata != null" >
+		C_MODIFIER = #{item.cModifierTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTpCgclausedata != null" >
+		C_MODIFYDATE = #{item.cModifydateTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TpCgclausedata != null" >
+		C_SW01 = #{item.cSw01TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TpCgclausedata != null" >
+		C_SW02 = #{item.cSw02TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TpCgclausedata != null" >
+		C_SW03 = #{item.cSw03TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TpCgclausedata != null" >
+		C_SW04 = #{item.cSw04TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TpCgclausedata != null" >
+		C_SW05 = #{item.cSw05TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TpCgclausedata != null" >
+		C_SW06 = #{item.cSw06TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TpCgclausedata != null" >
+		C_SW07 = #{item.cSw07TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TpCgclausedata != null" >
+		C_SW10 = #{item.cSw10TpCgclausedata,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTpCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+  
+  <!-- 单条修改条款信息 -->
+  <update id="M1S11UCLAUSE_M1S2"  parameterType="code_fb.entity.CLAUSE_M1S1" >	
+	 update TP_CGCLAUSEDATA
+	 <set >
+	 <if test="cSw09TpCgclausedata != null" >
+		C_SW09 = #{cSw09TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw08TpCgclausedata != null" >
+		C_SW08 = #{cSw08TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw11TpCgclausedata != null" >
+		C_SW11 = #{cSw11TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw12TpCgclausedata != null" >
+		C_SW12 = #{cSw12TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw13TpCgclausedata != null" >
+		C_SW13 = #{cSw13TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw14TpCgclausedata != null" >
+		C_SW14 = #{cSw14TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw15TpCgclausedata != null" >
+		C_SW15 = #{cSw15TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw16TpCgclausedata != null" >
+		C_SW16 = #{cSw16TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw17TpCgclausedata != null" >
+		C_SW17 = #{cSw17TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw18TpCgclausedata != null" >
+		C_SW18 = #{cSw18TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw19TpCgclausedata != null" >
+		C_SW19 = #{cSw19TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw20TpCgclausedata != null" >
+		C_SW20 = #{cSw20TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw21TpCgclausedata != null" >
+		C_SW21 = #{cSw21TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw22TpCgclausedata != null" >
+		C_SW22 = #{cSw22TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw23TpCgclausedata != null" >
+		C_SW23 = #{cSw23TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw24TpCgclausedata != null" >
+		C_SW24 = #{cSw24TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw25TpCgclausedata != null" >
+		C_SW25 = #{cSw25TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw26TpCgclausedata != null" >
+		C_SW26 = #{cSw26TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw27TpCgclausedata != null" >
+		C_SW27 = #{cSw27TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw28TpCgclausedata != null" >
+		C_SW28 = #{cSw28TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw29TpCgclausedata != null" >
+		C_SW29 = #{cSw29TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw30TpCgclausedata != null" >
+		C_SW30 = #{cSw30TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw31TpCgclausedata != null" >
+		C_SW31 = #{cSw31TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw32TpCgclausedata != null" >
+		C_SW32 = #{cSw32TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw33TpCgclausedata != null" >
+		C_SW33 = #{cSw33TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw34TpCgclausedata != null" >
+		C_SW34 = #{cSw34TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw35TpCgclausedata != null" >
+		C_SW35 = #{cSw35TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw36TpCgclausedata != null" >
+		C_SW36 = #{cSw36TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw37TpCgclausedata != null" >
+		C_SW37 = #{cSw37TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw38TpCgclausedata != null" >
+		C_SW38 = #{cSw38TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw39TpCgclausedata != null" >
+		C_SW39 = #{cSw39TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw40TpCgclausedata != null" >
+		C_SW40 = #{cSw40TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw41TpCgclausedata != null" >
+		C_SW41 = #{cSw41TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw42TpCgclausedata != null" >
+		C_SW42 = #{cSw42TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw43TpCgclausedata != null" >
+		C_SW43 = #{cSw43TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw44TpCgclausedata != null" >
+		C_SW44 = #{cSw44TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw45TpCgclausedata != null" >
+		C_SW45 = #{cSw45TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw46TpCgclausedata != null" >
+		C_SW46 = #{cSw46TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw47TpCgclausedata != null" >
+		C_SW47 = #{cSw47TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw48TpCgclausedata != null" >
+		C_SW48 = #{cSw48TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw49TpCgclausedata != null" >
+		C_SW49 = #{cSw49TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw50TpCgclausedata != null" >
+		C_SW50 = #{cSw50TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw51TpCgclausedata != null" >
+		C_SW51 = #{cSw51TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cIdTpCgclausedata != null" >
+		C_ID = #{cIdTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cContypeTpCgclausedata != null" >
+		C_CONTYPE = #{cContypeTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cDrTpCgclausedata != null" >
+		C_DR = #{cDrTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cTimestampTpCgclausedata != null" >
+		C_TIMESTAMP = #{cTimestampTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cCreaterTpCgclausedata != null" >
+		C_CREATER = #{cCreaterTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cCreatetimeTpCgclausedata != null" >
+		C_CREATETIME = #{cCreatetimeTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cModifierTpCgclausedata != null" >
+		C_MODIFIER = #{cModifierTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cModifydateTpCgclausedata != null" >
+		C_MODIFYDATE = #{cModifydateTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cSw01TpCgclausedata != null" >
+		C_SW01 = #{cSw01TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw02TpCgclausedata != null" >
+		C_SW02 = #{cSw02TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw03TpCgclausedata != null" >
+		C_SW03 = #{cSw03TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw04TpCgclausedata != null" >
+		C_SW04 = #{cSw04TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw05TpCgclausedata != null" >
+		C_SW05 = #{cSw05TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw06TpCgclausedata != null" >
+		C_SW06 = #{cSw06TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw07TpCgclausedata != null" >
+		C_SW07 = #{cSw07TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw10TpCgclausedata != null" >
+		C_SW10 = #{cSw10TpCgclausedata,jdbcType=VARCHAR}
+ </if> 
+	 </set> 
+	 WHERE 1 = 1 
+		AND C_CONTYPE = #{cContypeTpCgclausedata,jdbcType=VARCHAR}
+  </update>
+  <update id="M1S11UCLAUSE_M1S3"  parameterType="code_fb.entity.CLAUSE_M1S1" >	
+	 update TP_CGCLAUSEDATA
+	 <set >
+	 <if test="cSw09TpCgclausedata != null" >
+		C_SW09 = #{cSw09TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw08TpCgclausedata != null" >
+		C_SW08 = #{cSw08TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw11TpCgclausedata != null" >
+		C_SW11 = #{cSw11TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw12TpCgclausedata != null" >
+		C_SW12 = #{cSw12TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw13TpCgclausedata != null" >
+		C_SW13 = #{cSw13TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw14TpCgclausedata != null" >
+		C_SW14 = #{cSw14TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw15TpCgclausedata != null" >
+		C_SW15 = #{cSw15TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw16TpCgclausedata != null" >
+		C_SW16 = #{cSw16TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw17TpCgclausedata != null" >
+		C_SW17 = #{cSw17TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw18TpCgclausedata != null" >
+		C_SW18 = #{cSw18TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw19TpCgclausedata != null" >
+		C_SW19 = #{cSw19TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw20TpCgclausedata != null" >
+		C_SW20 = #{cSw20TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw21TpCgclausedata != null" >
+		C_SW21 = #{cSw21TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw22TpCgclausedata != null" >
+		C_SW22 = #{cSw22TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw23TpCgclausedata != null" >
+		C_SW23 = #{cSw23TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw24TpCgclausedata != null" >
+		C_SW24 = #{cSw24TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw25TpCgclausedata != null" >
+		C_SW25 = #{cSw25TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw26TpCgclausedata != null" >
+		C_SW26 = #{cSw26TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw27TpCgclausedata != null" >
+		C_SW27 = #{cSw27TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw28TpCgclausedata != null" >
+		C_SW28 = #{cSw28TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw29TpCgclausedata != null" >
+		C_SW29 = #{cSw29TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw30TpCgclausedata != null" >
+		C_SW30 = #{cSw30TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw31TpCgclausedata != null" >
+		C_SW31 = #{cSw31TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw32TpCgclausedata != null" >
+		C_SW32 = #{cSw32TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw33TpCgclausedata != null" >
+		C_SW33 = #{cSw33TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw34TpCgclausedata != null" >
+		C_SW34 = #{cSw34TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw35TpCgclausedata != null" >
+		C_SW35 = #{cSw35TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw36TpCgclausedata != null" >
+		C_SW36 = #{cSw36TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw37TpCgclausedata != null" >
+		C_SW37 = #{cSw37TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw38TpCgclausedata != null" >
+		C_SW38 = #{cSw38TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw39TpCgclausedata != null" >
+		C_SW39 = #{cSw39TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw40TpCgclausedata != null" >
+		C_SW40 = #{cSw40TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw41TpCgclausedata != null" >
+		C_SW41 = #{cSw41TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw42TpCgclausedata != null" >
+		C_SW42 = #{cSw42TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw43TpCgclausedata != null" >
+		C_SW43 = #{cSw43TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw44TpCgclausedata != null" >
+		C_SW44 = #{cSw44TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw45TpCgclausedata != null" >
+		C_SW45 = #{cSw45TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw46TpCgclausedata != null" >
+		C_SW46 = #{cSw46TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw47TpCgclausedata != null" >
+		C_SW47 = #{cSw47TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw48TpCgclausedata != null" >
+		C_SW48 = #{cSw48TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw49TpCgclausedata != null" >
+		C_SW49 = #{cSw49TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw50TpCgclausedata != null" >
+		C_SW50 = #{cSw50TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw51TpCgclausedata != null" >
+		C_SW51 = #{cSw51TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cIdTpCgclausedata != null" >
+		C_ID = #{cIdTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cContypeTpCgclausedata != null" >
+		C_CONTYPE = #{cContypeTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cDrTpCgclausedata != null" >
+		C_DR = #{cDrTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cTimestampTpCgclausedata != null" >
+		C_TIMESTAMP = #{cTimestampTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cCreaterTpCgclausedata != null" >
+		C_CREATER = #{cCreaterTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cCreatetimeTpCgclausedata != null" >
+		C_CREATETIME = #{cCreatetimeTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cModifierTpCgclausedata != null" >
+		C_MODIFIER = #{cModifierTpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cModifydateTpCgclausedata != null" >
+		C_MODIFYDATE = #{cModifydateTpCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="cSw01TpCgclausedata != null" >
+		C_SW01 = #{cSw01TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw02TpCgclausedata != null" >
+		C_SW02 = #{cSw02TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw03TpCgclausedata != null" >
+		C_SW03 = #{cSw03TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw04TpCgclausedata != null" >
+		C_SW04 = #{cSw04TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw05TpCgclausedata != null" >
+		C_SW05 = #{cSw05TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw06TpCgclausedata != null" >
+		C_SW06 = #{cSw06TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw07TpCgclausedata != null" >
+		C_SW07 = #{cSw07TpCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="cSw10TpCgclausedata != null" >
+		C_SW10 = #{cSw10TpCgclausedata,jdbcType=VARCHAR}
+ </if> 
+	 </set> 
+	 WHERE 1=1
+	<!--  <if test="cContypeTpCgclausedata != null" >
+       AND  C_CONTYPE like '%' || #{cContypeTpCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cCreaterTpCgclausedata != null" >
+       AND C_CREATER  =  #{cCreaterTpCgclausedata,jdbcType=VARCHAR}
+  </if> -->
+	  AND C_ID = #{cIdTpCgclausedata,jdbcType=VARCHAR}
+  </update>
+	 <delete id="M1S11DCLAUSE_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="clauseM1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_CGCLAUSEDATA
+ 			WHERE 1 = 1 
+		and C_ID = #{item.cIdTpCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

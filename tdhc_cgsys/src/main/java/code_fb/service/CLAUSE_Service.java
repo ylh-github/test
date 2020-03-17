@@ -1,0 +1,60 @@
+
+ package code_fb.service;
+ import code_fb.request.CLAUSE_Request_M1S1;
+import code_fb.response.CLAUSE_Response_M1S1;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User; 
+ public interface CLAUSE_Service {
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CLAUSE_Response_M1S1> M1S11Q(User user,CLAUSE_Request_M1S1 clauseRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(User user,CLAUSE_Request_M1S1 clauseRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(User user,CLAUSE_Request_M1S1 clauseRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(User user,CLAUSE_Request_M1S1 clauseRequestM1s1,String session);
+ /**
+  * selectContType查询合同条款
+ * @param user 
+  * @param data
+  * @param session
+  * @return
+  */
+ResponseObject<EmptyTag, CLAUSE_Response_M1S1> selectContType(User user, CLAUSE_Request_M1S1 data, String session);
+/**
+ * 下拉框查询
+ * @param user 
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, CLAUSE_Response_M1S1> getContTypeInfo(User user, CLAUSE_Request_M1S1 data, String session);
+/**
+ * 修改添加
+ * @param user
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, EmptyData> M1S11UA(User user, CLAUSE_Request_M1S1 data, String session);
+ResponseObject<EmptyTag, CLAUSE_Response_M1S1> M1S11Q3(User user, CLAUSE_Request_M1S1 data, String session);
+ResponseObject<EmptyTag, EmptyData> M1S11U3(User user, CLAUSE_Request_M1S1 data, String session);
+ }

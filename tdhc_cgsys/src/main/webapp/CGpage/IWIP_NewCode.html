@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>物料编码基础维护</title>
+    <!-- DevExtreme 依赖 -->
+    <script type="text/javascript" src="js02/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css02/dx.common.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css02/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" href="css/dx.Lightcss.css">
+
+    <link rel="stylesheet" type="text/css" href="css02/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css02/easyui/themes/icon.css">
+
+    <link rel="stylesheet" type="text/css" href="css02/fontawesome/css/all.min.css">
+
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js02/jszip.min.js"></script>
+    <script type="text/javascript" src="js02/jszip.js"></script>
+    <script type="text/javascript" src="js02/dx.all.js"></script>
+    <!-- <link rel="stylesheet" href="./css1/base_ba003.css"> -->
+    <script type="text/javascript" src="js02/easyui/jquery.easyui.min.js"></script>
+    <script src="js02/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="js02/cake.js"></script>
+    <script src="./js1/IWIP_NewCode.js"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:20%;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:50px;padding:5px">
+                <div id="searchForm"></div>
+            </div>
+            <div data-options="region:'center',title:''">
+                <div id="button" style="background:#2e4c8c;color:#fff"></div>
+            </div>
+        </div>
+
+    </div>
+    <div data-options="region:'center',title:''">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false" style="width:70%;">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false" style="width:50%;">
+                        <div class="easyui-layout" data-options="fit:true">
+                            <div data-options="region:'west',title:'大类',split:true,hideCollapsedContent:false" style="width:50%;">
+                                <div id="dataGrid"></div>
+                            </div>
+                            <div data-options="region:'center',title:'中类'">
+                                <div id="dataGrid1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-options="region:'center',title:''">
+                        <div class="easyui-layout" data-options="fit:true">
+                            <div data-options="region:'west',title:'小类',split:true,hideCollapsedContent:false" style="width:50%">
+                                <div id="dataGrid2"></div>
+                            </div>
+                            <div data-options="region:'center',title:'物料名称'">
+                                <div id="dataGrid3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',title:''">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'west',title:'属性',split:true,hideCollapsedContent:false" style="width:50%">
+                        <div id="dataGrid4"></div>
+                    </div>
+                    <div data-options="region:'center',title:'属性值'">
+                        <div id="dataGrid5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',title:'浏览区',split:true,hideCollapsedContent:false" style="height:30%;">
+        <div id="dataGrid6"></div>
+    </div>
+
+    <!--修改-->
+    <div id="savemotai" style="display: none">
+        <div id="saveForm" style="margin-bottom: 200px"></div>
+        <div style="display: inline-block;width:700px;height:10px"></div>
+        <div id="savesure"></div>
+        <div id="savecancel"></div>
+    </div>
+
+    <!-- 上传图片 -->
+    <div id="import-content">
+        <form method="post" id="imgform" enctype="multipart/form-data" action="dy_upload_image.jspx" style="margin-bottom:40px;">
+
+            <h3> 请选择一张图片，格式为.jpg或.png </h3>
+            <input type="file" name="uploadImage" id="uploadImage">
+
+        </form>
+
+        <div id="pictsure" style="margin-left:200px;"></div>
+        <div id="pictcansel"></div>
+    </div>
+
+
+</body>
+
+</html>

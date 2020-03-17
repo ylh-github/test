@@ -1,0 +1,58 @@
+package code_fb_cg.service;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractst;
+import code_fb_cg.request.ExcelCONST;
+import code_fb_cg.request.ShipM1s1Q;
+import code_fb_cg.request.Xxk_Cont_Request;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+
+public interface TpCgcontractstService {
+
+	ResponseObject<EmptyTag, List<TpCgcontractst>> selectByConST(RequestObject<EmptyTag, List<TpCgcontractmt>> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> selectForShip(RequestObject<EmptyTag, ShipM1s1Q> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> ExcelConSt(RequestObject<EmptyTag, ExcelCONST> requestObject) throws Exception;
+	
+	ResponseObject<EmptyTag, List<TpCgcontractst>> selectGOODSNAME();
+	ResponseObject<EmptyTag, List<TpCgcontractst>> QXCAIGOU(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21select(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21DH(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21CK(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21BF(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21SD(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21QXSD(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, EmptyData> S1S21DCC(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, EmptyData> S1S21GKH(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, EmptyData> S1S21CXDR(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//采购员批注
+	ResponseObject<EmptyTag, EmptyData> S1S21PZ(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//国内批注
+	ResponseObject<EmptyTag, EmptyData> S1S21PZ2(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//国外批注
+	ResponseObject<EmptyTag, EmptyData> S1S21PZ3(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//厂家信息
+	ResponseObject<EmptyTag, EmptyData> S1S21CJXX(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//厂家信息修改
+	ResponseObject<EmptyTag, EmptyData> S1S21CJXXXG(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//分类
+	ResponseObject<EmptyTag, EmptyData> S1S21FL(User user,RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//提前/延期
+	ResponseObject<EmptyTag, EmptyData> S1S21TY(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	ResponseObject<EmptyTag, List<TpCgcontractst>> S1S21Q(RequestObject<EmptyTag, ShipM1s1Q> requestObject);
+	//物资导出
+	ResponseObject<EmptyTag, EmptyData> S1S21DC(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//对比导出
+	ResponseObject<EmptyTag, EmptyData> S1S21DBDC(RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//合并
+	ResponseObject<EmptyTag, EmptyData> S1S21HB(User user, RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//拆分
+	ResponseObject<EmptyTag, EmptyData> S1S21CF(User user, RequestObject<EmptyTag, ExcelCONST> requestObject);
+	//撤销合并/拆分
+	ResponseObject<EmptyTag, EmptyData> S1S21CXHB(User user, RequestObject<EmptyTag, ExcelCONST> requestObject);
+}

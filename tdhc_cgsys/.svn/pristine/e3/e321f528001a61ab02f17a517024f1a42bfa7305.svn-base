@@ -1,0 +1,36 @@
+
+ package code_fb.mapper;
+ import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.DZ_08_M1S1;
+import code_fb_cg.entity.TbSupplier;
+
+ @Repository("dz08Mapper")
+ public interface DZ_08_Mapper {
+ List<DZ_08_M1S1> M1S11QDZ_08_M1S1( @Param("dz08M1s1")DZ_08_M1S1 dz08M1s1);
+ List<DZ_08_M1S1> M1S11QSupplier( @Param("supplier")String supplier);
+ int M1S11ADZ_08_M1S1(@Param("dz08M1s1") List<DZ_08_M1S1> dz08M1s1);
+ int M1S11UDZ_08_M1S1(@Param("dz08M1s1") List<DZ_08_M1S1> dz08M1s1);
+ int M1S11DDZ_08_M1S1(@Param("dz08M1s1") List<DZ_08_M1S1> dz08M1s1);
+ int M1S12MSGDZ_08_M1S1(@Param("dz08M1s1") List<DZ_08_M1S1> dz08M1s1);
+ /**
+  * 导入
+  * @param list
+  * @return
+  */
+ int  Import_SuppExcel(@Param("list") List<TbSupplier> list);
+ /**
+  * 查询供应商的名称
+ * @return
+  */
+ List<TbSupplier> findSupplierInfo();
+ /**
+  * 供应商信息的填充
+  * @param tbSupplier
+  * @return
+  */
+List<TbSupplier> getSupplierInfo(@Param("tbSupplier") TbSupplier tbSupplier);
+ }

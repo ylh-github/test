@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>信息卡管理</title>
+    <!-- DevExtreme 依赖 -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script src="js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="js/localization/dx.messages.zh.js"></script>
+    <!-- <link rel="stylesheet" href="./css1/TCG01.css"> -->
+    <script src="./js1/CG_XXLY_03.js"></script>
+    <script src="./js1/CG_XXLYJudgment.js"></script>
+</head>
+
+<body class="easyui-layout">
+    <!-- <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:50%;">
+        <div class="easyui-layout" data-options="fit: true">
+            <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false"
+                style="height:75px;padding: 5px;">
+                <div id="searchFormM1"></div>
+            </div>
+            <div data-options="region:'center',title:''">
+                <div class="easyui-layout" data-options="fit: true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:45px;padding: 5px;">
+                        <div id="operateFormM1S1"></div>
+                    </div>
+                    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:50%;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false" style="width:65%;">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',split:true,hideCollapsedContent:false" style="height:40px;padding: 3px">
+                        <!-- 顶部查询条件 -->
+                        <div id="searchFormM1"></div>
+                    </div>
+                    <div data-options="region:'center',title:''">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',title:''">
+                <div class="easyui-layout" data-options="fit:true">
+                    <!--  <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false"
+                        style="height:75px;padding: 3px">
+                        顶部查询条件
+                        <div id="searchFormM3">searchForm1</div>
+                    </div> -->
+
+                    <div data-options="region:'center',title:'信息卡提交结果'">
+                        <div id="dataGridS3"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div data-options="region:'center',title:''">
+        <div class="easyui-layout" data-options="fit: true">
+            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height: 45px; padding: 5px">
+                <div id="searchFormM2"></div>
+            </div>
+            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                <div id="dataGridS2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加模态框 -->
+    <div id="addmotai">
+        <h1 style="text-align:center;height:10px;margin-bottom: 50px">
+            单&nbsp;&nbsp;证&nbsp;&nbsp;信&nbsp;&nbsp;息&nbsp;&nbsp;录&nbsp;&nbsp;用&nbsp;&nbsp;卡</h1>
+
+        <div style="height:550px;overflow-y: scroll;">
+            <!--  <h3>出&nbsp;&nbsp;口&nbsp;&nbsp;端</h3> -->
+            <div id="mAke" style="margin:15px 0 20px 0"></div>
+            <!--  <h3>进&nbsp;&nbsp;口&nbsp;&nbsp;端</h3> -->
+            <!--  <div id="mAke2" style="margin:15px 0 20px 0"></div> -->
+            <div id="addFormMT"></div>
+        </div>
+        <!-- <div id="addsure"></div>
+        <div id="addcansel"></div> -->
+    </div>
+    <!-- 修改模态框 -->
+    <div id="addmotai2">
+        <div id="addForm2" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure2"></div>
+        <div id="addcansel2"></div>
+    </div>
+
+    <div id="addmotai3">
+        <div style="height:95%;overflow-y:scroll">
+            <div id="formList">
+                <div id="addForm" style="margin-bottom: 10px"></div>
+            </div>
+            <p style="text-align:center">此处为分隔线</p>
+            <div id="bottom_form"></div>
+        </div>
+
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>

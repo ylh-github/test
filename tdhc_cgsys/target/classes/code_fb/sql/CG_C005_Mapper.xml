@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_C005_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_C005_M1S1" >
+	 <result column="C_UNIT" property="cUnit" jdbcType="VARCHAR" />
+	 <result column="C_PHONE" property="cPhone" jdbcType="VARCHAR" />
+	 <result column="C_ORDEALLINE" property="cOrdealline" jdbcType="TIMESTAMP" />
+	 <result column="C_MTID" property="cMtid" jdbcType="VARCHAR" />
+	 <result column="C_MANOR" property="cManor" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+	 <result column="C_TYPENAME" property="cTypename" jdbcType="VARCHAR" />
+	 <result column="C_PLANTIME" property="cPlantime" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_POLITIME" property="cPolitime" jdbcType="TIMESTAMP" />
+	 <result column="C_PLANOR" property="cPlanor" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTSTATE" property="cAllotstate" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTMAN" property="cAllotman" jdbcType="VARCHAR" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_NO" property="cNo" jdbcType="VARCHAR" />
+	 <result column="C_DEPTOR" property="cDeptor" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_ARRTIME" property="cArrtime" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTTIME" property="cAllottime" jdbcType="TIMESTAMP" />
+	 <result column="C_POLINORMTIME" property="cPolinormtime" jdbcType="VARCHAR" />
+	 <result column="C_NUM" property="cNum" jdbcType="VARCHAR" />
+	 <result column="C_MUSTNEED" property="cMustneed" jdbcType="VARCHAR" />
+ </resultMap>
+ <select id="M1S11QCG_C005_M1S1" parameterType="code_fb.entity.CG_C005_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGORDERST.C_CREATER 
+,
+TP_CGORDERST.C_ARRTIME 
+,
+TP_CGORDERST.C_ALLOTTIME 
+,
+TP_CGORDERST.C_ALLOTSTATE 
+,
+TP_CGORDERST.C_ALLOTMAN 
+,
+TP_CGORDERST.C_TYPENAME 
+,
+TP_CGORDERST.C_UNIT 
+,
+TP_CGORDERST.C_TIMESTAMP 
+,
+TP_CGORDERST.C_STATE 
+,
+TP_CGORDERST.C_SPEC 
+,
+TP_CGORDERST.C_REMARK 
+,
+TP_CGORDERST.C_POLITIME 
+,
+TP_CGORDERST.C_POLINORMTIME 
+,
+TP_CGORDERST.C_PLANTIME 
+,
+TP_CGORDERST.C_PLANOR 
+,
+TP_CGORDERST.C_PHONE 
+,
+TP_CGORDERST.C_ORDEALLINE 
+,
+TP_CGORDERST.C_NUM 
+,
+TP_CGORDERST.C_NO 
+,
+TP_CGORDERST.C_MUSTNEED 
+,
+TP_CGORDERST.C_MTID 
+,
+TP_CGORDERST.C_MODIFYTIME 
+,
+TP_CGORDERST.C_MODIFIER 
+,
+TP_CGORDERST.C_MANOR 
+,
+TP_CGORDERST.C_ID 
+,
+TP_CGORDERST.C_DR 
+,
+TP_CGORDERST.C_GOODSNAME 
+,
+TP_CGORDERST.C_DEPTOR 
+,
+TP_CGORDERST.C_CREATETIME 
+
+ from TP_CGORDERST
+ WHERE 1=1 
+	 <if test="cgC005M1s1.cPolitime != null" >
+		 AND  TP_CGORDERST.C_POLITIME like '%' || #{cgC005M1s1.cPolitime,jdbcType=TIMESTAMP} || '%'
+  </if>
+	 <if test="cgC005M1s1.cManor != null" >
+		 AND  TP_CGORDERST.C_MANOR like '%' || #{cgC005M1s1.cManor,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC005M1s1.cGoodsname != null" >
+		 AND  TP_CGORDERST.C_GOODSNAME like '%' || #{cgC005M1s1.cGoodsname,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC005M1s1.startTime != null" >
+		 AND  TP_CGORDERST.C_CREATETIME &gt;= #{cgC005M1s1.startTime,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="cgC005M1s1.endTime != null" >
+		 AND  TP_CGORDERST.C_CREATETIME &lt;= #{cgC005M1s1.endTime,jdbcType=TIMESTAMP}
+  </if>
+	</select> 
+ </mapper>

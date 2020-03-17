@@ -1,0 +1,870 @@
+///////////////////////////////////////////////////////////////////////////////////////////
+/////////////变量定义！////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+let TP_CGGOODSTYPE_C_STATE = []; //用于数据集合,对应字段含义为
+let TP_CGGOODSTYPE_C_COMNAME = []; //用于数据集合,对应字段含义为
+let TP_CGGOODSTYPE_C_TYPENAME = []; //用于数据集合,对应字段含义为
+let M1S11addIns;
+let C0031addIns;
+let C0021addIns;
+let C0011addIns;
+let tabledataS1 = []; //用于接收表格数据源
+let searchdataM1; //每个查询条件form的数据
+let searchdataFormM1; //每个查询条件form的实例
+let adddata = {}; //添加按钮需要的数据源
+let addIns; //增加操作时候的模态框实例
+//设置模态框的属性
+if (addIns == null) {
+    addIns = $('#addmotai ').dxPopup({
+        'visible': false, //设置属性不可见
+        height: 300, //设置高度
+        width: 450, //设置宽度
+    }).dxPopup('instance');
+}
+let change = ''; //区分增加和修改的状态,1为增加;2为修改
+//查询区域数据
+let haha = [
+      /*  { value: '1', description: '设备' },
+            { value: '2', description: '备件' } */
+
+]
+let hehe = [
+       /* { value: '1', description: '青拓' },
+            { value: '2', description: '青山' } */
+
+]
+let validationGroupName = 'validationGroupName';
+//当存在不需要与后台通信的数据框,且需要自行添加的选择框
+///////////////////////////////////////////////////////////////////////////////////////////
+/////////////$function！////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+$(function() {
+    start() //调用初始化函数
+    ////////////////////////////////////
+    //////查询Form属性生成/////////////////)
+    ////////////////////////////////////
+    //以下为查询form的代码
+    searchdataFormM1 = $('#searchFormM1').dxForm({
+        formData: searchdataM1,
+        ////当参数小于三个时为五个,大于等于三时统一乘二
+        ////王晶晶给改为自适应编码
+        colCountByScreen: {
+            lg: 8,
+            md: 4,
+            sm: 2,
+            xs: 1,
+        },
+        //所有查询条件为一组的代码段
+        itemType: 'group',
+        items: [{
+                dataField: 'cTypename',
+                label: {
+                    text: '物资类型'
+                },
+                editorType: 'dxSelectBox',
+                editorOptions: {
+                    //以上完成对没有联动数据源配置
+                    //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                    dataSource: TP_CGGOODSTYPE_C_TYPENAME,
+                    valueExpr: 'cSubitemid',
+                    displayExpr: 'cSubitemdes',
+                    searchEnable: true,
+                    showClearButton: true,
+                }
+            },
+            {
+                dataField: 'cComname',
+                label: {
+                    text: '公司名称'
+                },
+                editorType: 'dxSelectBox',
+                editorOptions: {
+                    //以上完成对没有联动数据源配置
+                    //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                    dataSource: TP_CGGOODSTYPE_C_COMNAME,
+
+                    valueExpr: 'cSubitemid',
+                    displayExpr: 'cSubitemdes',
+                    searchEnable: true,
+                    showClearButton: true,
+                }
+            },
+            {
+                dataField: 'startTime',
+                label: {
+                    text: '开始时间'
+                },
+                editorType: "dxDateBox",
+                editorOptions: {
+                    width: "100%",
+                    type: "date",
+                    displayFormat: 'yyyy-MM-dd',
+                    value: new Date(),
+                },
+            },
+            {
+                dataField: 'endTime',
+                label: {
+                    text: '结束时间'
+                },
+                editorType: "dxDateBox",
+                editorOptions: {
+                    width: "100%",
+                    type: "date",
+                    displayFormat: 'yyyy-MM-dd',
+                    value: new Date(),
+                },
+            },
+        ]
+    }).dxForm('instance')
+    //完成对查询条件的自动生成
+    ////////////////////////////////////
+    //////表格属性生成/////////////////)
+    ////////////////////////////////////
+    $('#dataGridS1').dxDataGrid({
+        dataSource: tabledataS1,
+        editing: {
+            mode: 'popup',
+            //allowUpdating: false     
+        },
+        // keyExpr: 'ID',     
+        columnAutoWidth: true,
+        showBorders: true,
+        allowColumnResizing: true,
+        showColumnLines: true,
+        showRowLines: true,
+        onCellHoverChanged: '#888',
+        hoverStateEnabled: true,
+        noDataText: '',
+        //允许脚本编写     
+        height: 450,
+        paging: {
+            enabled: false
+        },
+        scrolling: {
+            mode: 'virtual'
+        },
+        selection: {
+            mode: 'multiple'
+        },
+        columns: [{
+                dataField: 'cTypename',
+                caption: '物料类型',
+                 calculateDisplayValue: function (rowData) {
+
+                     let matchedItem = haha.find(item => item.cSubitemid == rowData.cTypename);
+
+                if (matchedItem == null || matchedItem == undefined) {
+                    return "";
+                } else {
+                    return matchedItem.cSubitemdes;
+                }
+
+            }
+            },
+            {
+                dataField: 'cDealline',
+                caption: '设定采购期限/天',
+            },
+            {
+                dataField: 'cComname',
+                caption: '公司名称',
+                 calculateDisplayValue: function (rowData) {
+
+                     let matchedItem = hehe.find(item => item.cSubitemid == rowData.cComname);
+
+                    if (matchedItem == null || matchedItem == undefined) {
+                        return "";
+                    } else {
+                        return matchedItem.cSubitemdes;
+                    }
+
+                }
+            },
+            {
+                dataField: 'cCreater',
+                caption: '创建人',
+            },
+            {
+                dataField: 'cModifier',
+                caption: '修改人',
+            },
+            {
+                dataField: 'cModifytime',
+                caption: '修改时间',
+                dataType: "date",
+                format: "yyyy-MM-dd"
+            },
+            // {
+            //     dataField: 'cId',
+            //     caption: '物资类型档案主键',
+            // },//zsq 不显示
+            {
+                dataField: 'cRemark',
+                caption: '备注',
+            },
+        ]
+    });
+    ////////////////////////////////////////////////////
+    ////生成按钮层//////////////////////////////////////
+    ////////////////////////////////////////////////////
+    $('#operateFormM1S1').dxForm({
+        width: '100%',
+        colCount: 6,
+        items: [{
+                name: 'M1S11Q',
+                itemType: 'button',
+                buttonOptions: {
+                    icon: 'search',
+                    text: '查询', //zsq M1S11Q 改为 查询 
+                    onClick: function() {
+                        M1S11_serDel();
+                    }
+                }
+            },
+            {
+                name: 'M1S11A',
+                itemType: 'button',
+                buttonOptions: {
+                    icon: 'plus',
+                    text: '新增',
+                    onClick: function() {
+                        change = '1';
+                        $('#addmotai').show()
+                        addIns = $('#addmotai').dxPopup({
+                            width: 1000, //为了规范限制模态框大小//用脚本标识模态框的标题
+                            height: 450, //为了规范限制模态框大小//用脚本标识模态框的标题
+                        }).dxPopup('instance')
+                        addIns.option('title', 'CG_A003')
+                        addIns.show();
+                        M1S11_addfun();
+                        M1S11addIns.option('formData', new Object())
+                    }
+                }
+            },
+            {
+                name: 'M1S11_U',
+                itemType: 'button',
+                buttonOptions: {
+                    icon: 'save',
+                    text: '修改',
+                    onClick: function() {
+                        change = '2'
+                        let grid = $('#dataGridS1').dxDataGrid('instance');
+                        let rowsData = grid.getSelectedRowsData()[0]
+                        let selectedRowKeys = grid.getSelectedRowKeys()
+                        if (selectedRowKeys.length < 1) {
+                            // Cake.Ui.Toast.showInfo('请选择一条要修改的数据。')     
+                            DevExpress.ui.notify('请选择一条要修改的数据。', 'info', 3000);
+                            return;
+                        }
+                        if (selectedRowKeys.length > 1) {
+                            // Cake.Ui.Toast.showInfo('一次只能选择一条要修改的数据。')    
+                            DevExpress.ui.notify('一次只能选择一条要修改的数据。', 'info', 3000);
+                            return;
+                        }
+                        addIns = $('#addmotai').dxPopup({
+                            //模态框增加name    
+                            width: 1000,
+                            height: 450
+                        }).dxPopup('instance')
+                        addIns.option('title', 'CG_A003');
+                        addIns.show();
+                        // 调用模态框函数    
+                        // updatafun()    
+                        M1S11_Updatefun()
+                        M1S11addIns.option('formData', rowsData)
+                    }
+                }
+            },
+            {
+                name: 'M1S11D',
+                itemType: 'button',
+                buttonOptions: {
+                    icon: 'remove',
+                    text: '删除',
+                    onClick: function() {
+                        let grid1 = $('#dataGridS1').dxDataGrid('instance');
+                        let selectedRowKeys = grid1.getSelectedRowKeys()
+                        let rowsData = grid1.getSelectedRowsData()
+                        //脚本执行  
+                        if (selectedRowKeys.length < 1) {
+                            DevExpress.ui.notify('请选择一条要删除的数据。', 'info', 3000);
+                            return;
+                        }
+                        msg = {
+                            ver: '53cc62f6122a436083ec083eed1dc03d',
+                            session: '42f5c0d7178148938f4fda29460b815a',
+                            tag: {},
+                            data: {}
+                        };
+                        //前后端统一叫'tscLtrawbin' 
+
+                        msg.data.cgA003M1s1 = $('#dataGridS1').dxDataGrid('instance').getSelectedRowsData();
+                        //console.log.log(msg)
+                        $.ajax({
+                            url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/M1S11D'),
+                            dataType: 'json', //返回格式为json   
+                            async: true, //请求是否异步,默认为异步,这也是ajax重要特性   
+                            data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名 
+                            type: 'post', //请求方式 get 或者post , 
+                            contentType: 'application/json',
+                            success: function(data) {
+                                let select = data.msg
+                                if (data.errcode == 0) {
+                                    DevExpress.ui.notify('删除成功', 'success', 3000);
+                                    M1S11_serDel();
+
+                                } else {
+                                    DevExpress.ui.notify(select, 'warning', 3000);
+                                }
+                            },
+                            error: function() {
+                                DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                            }
+                        })
+                    }
+                }
+            },
+        ]
+    })
+    ///////////////////////////////////////////////////////
+    //Star()请求下拉框、多选框数据、通过请求网址的后缀生成代码 
+    ///////////////////////////////////////////////////////
+    function start() {
+        //ajax传参用 		    
+        msg = {
+            ver: '53cc62f6122a436083ec083eed1dc03d',
+            session: '42f5c0d7178148938f4fda29460b815a',
+            tag: {},
+            data: {}
+        };
+        //console.log.log(msg)
+
+        initLoad1()
+        function initLoad1() {
+            //cake.Ui.LoadPanel.show()
+            // 初始化加载所有下拉框数据
+            msg = {
+                ver: "53cc62f6122a436083ec083eed1dc03d",
+                session: "42f5c0d7178148938f4fda29460b815a",
+                tag: {},
+                data: {
+                    "cItemid": "WLLX"
+                }
+            };
+            $.ajax({
+                type: "post",
+                url: Cake.Piper.getAuthUrl("../../tdhc_cgsys/CG_A001/selcon"),
+                data: JSON.stringify(msg),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (result) {
+                    /* //console.log.log(result.data);
+                    haha = result.data; */
+
+                    result.data.forEach(item => {
+                        haha.push(item);
+                    });
+                    // 钢种分类
+                    // globecStlGroup.splice(0, globecStlGroup.length);
+
+                    //  cake.Ui.LoadPanel.close()
+                },
+                error: function () {
+                    cake.Ui.LoadPanel.close()
+                }
+            });
+        }
+        initLoad2()
+        function initLoad2() {
+            //cake.Ui.LoadPanel.show()
+            // 初始化加载所有下拉框数据
+            msg = {
+                ver: "53cc62f6122a436083ec083eed1dc03d",
+                session: "42f5c0d7178148938f4fda29460b815a",
+                tag: {},
+                data: {
+                    "cItemid": "GSMC"
+                }
+            };
+            $.ajax({
+                type: "post",
+                url: Cake.Piper.getAuthUrl("../../tdhc_cgsys/CG_A001/selcon"),
+                data: JSON.stringify(msg),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (result) {
+                    /* //console.log.log(result.data);
+                    hehe = result.data; */
+                    result.data.forEach(item => {
+                        hehe.push(item);
+                    });
+                    
+                    // 钢种分类
+                    // globecStlGroup.splice(0, globecStlGroup.length);
+
+                    //  cake.Ui.LoadPanel.close()
+                },
+                error: function () {
+                    cake.Ui.LoadPanel.close()
+                }
+            });
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////    
+        //寻找查询条件的所有字段,带有后缀请求的,并且尾号为零的,所有下来框的循环生成,    
+        ////////////////////////////////////////////////////////////////////////////////    
+        $.ajax({
+            url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/C0011Q'), //请求的url地址
+            dataType: 'json', //返回格式为json              
+            async: true, //请求是否异步,默认为异步,这也是ajax重要特性             
+            data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名            
+            type: 'post', //请求方式 get 或者post ,            
+            contentType: 'application/json',
+            success: function(data) {
+                TP_CGGOODSTYPE_C_COMNAME.splice(0, TP_CGGOODSTYPE_C_COMNAME.length);
+                data.data.cgA003C001.forEach(item => TP_CGGOODSTYPE_C_COMNAME.push(item));
+                // $('#this-grid-container1').dxDataGrid('instance').refresh()            
+            },
+            error: function() {
+                DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')            
+                //e.cancel=true;            
+            }
+        })
+        $.ajax({
+            url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/C0021Q'), //请求的url地址
+            dataType: 'json', //返回格式为json              
+            async: true, //请求是否异步,默认为异步,这也是ajax重要特性             
+            data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名            
+            type: 'post', //请求方式 get 或者post ,            
+            contentType: 'application/json',
+            success: function(data) {
+                TP_CGGOODSTYPE_C_STATE.splice(0, TP_CGGOODSTYPE_C_STATE.length);
+                data.data.cgA003C002.forEach(item => TP_CGGOODSTYPE_C_STATE.push(item));
+                // $('#this-grid-container1').dxDataGrid('instance').refresh()            
+            },
+            error: function() {
+                DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')            
+                //e.cancel=true;            
+            }
+        })
+        $.ajax({
+            url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/C0031Q'), //请求的url地址
+            dataType: 'json', //返回格式为json              
+            async: true, //请求是否异步,默认为异步,这也是ajax重要特性             
+            data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名            
+            type: 'post', //请求方式 get 或者post ,            
+            contentType: 'application/json',
+            success: function(data) {
+                TP_CGGOODSTYPE_C_TYPENAME.splice(0, TP_CGGOODSTYPE_C_TYPENAME.length);
+                data.data.cgA003C003.forEach(item => TP_CGGOODSTYPE_C_TYPENAME.push(item));
+                // $('#this-grid-container1').dxDataGrid('instance').refresh()            
+            },
+            error: function() {
+                DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')            
+                //e.cancel=true;            
+            }
+        })
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    //功能类代码(与button生成代码对应）     /////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    function M1S11_serDel() {
+        msg = {
+            ver: '53cc62f6122a436083ec083eed1dc03d',
+            session: '42f5c0d7178148938f4fda29460b815a',
+            tag: {},
+            data: {
+					cgA003M1s1:{
+					startTime: new Date(),
+					endTime: new Date(),
+					cComname   : null,
+					cDeptname  : null,
+					// cDeptcode  : null,
+
+  			}
+
+            }
+        };
+
+         msg.data.cgA003M1s1 = searchdataFormM1.option('formData');
+
+        //开始时间
+		let startTime =msg.data.cgA003M1s1.startTime;
+		msg.data.cgA003M1s1.startTime = new Date(startTime.getFullYear(), startTime.getMonth(), startTime.getDate(), 0, 0, 0, 0);
+
+		// 结束时间
+		let endTime = msg.data.cgA003M1s1.endTime;
+		msg.data.cgA003M1s1.endTime = new Date(endTime.getFullYear(), endTime.getMonth(), endTime.getDate(), 23, 59, 59, 999);
+
+        // let searchtiao = searchdataFormM1.option('formData')
+
+        msg.data.cgA003M1s1 = [searchdataFormM1.option('formData')];
+        //console.log.log(msg)
+        // let searchtiao = searchdataFormM1.option('formData')
+        // msg.data.cgA003M1s1 = [searchdataFormM1.option('formData')];//zsq
+        $.ajax({
+            url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/M1S11Q'),
+            dataType: 'json', //返回格式为json      
+            async: true, //请求是否异步,默认为异步,这也是ajax重要特性       
+            data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名       
+            type: 'post', //请求方式 get 或者post ,       
+            contentType: 'application/json',
+            success: function(data) {
+                //console.log.log(data)
+                if (data.data == null) {
+					 tabledataS1.splice(0, tabledataS1.length);
+                    $('#dataGridS1').dxDataGrid('instance').option('dataSource', tabledataS1)
+                    return
+                }
+
+                let select;
+                select = data.data.cgA003M1s1
+                tabledataS1.splice(0, tabledataS1.length);
+                select.forEach(item => tabledataS1.push(item));
+				$('#dataGridS1').dxDataGrid('instance').option('dataSource', tabledataS1)
+                $('#dataGridS1').dxDataGrid('instance').deselectAll()
+                $('#dataGridS1').dxDataGrid('instance').refresh()
+
+            },
+            error: function() {
+                DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')       
+                //e.cancel=true;       
+            }
+        })
+    }
+
+    function M1S11_addfun() {
+        M1S11addIns = $('#addForm').dxForm({
+            formData: adddata,
+            validationGroup: validationGroupName,
+            colCount: 3,
+            items: [{
+                    dataField: 'cTypename',
+                    label: {
+                        text: '物料类型'
+                    },
+                    editorType: 'dxSelectBox',
+                    editorOptions: {
+                        //以上完成对没有联动数据源配置
+                        //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                        dataSource: TP_CGGOODSTYPE_C_TYPENAME,
+                        valueExpr: 'cSubitemid',
+                        displayExpr: 'cSubitemdes',
+                        searchEnable: true,
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 30,
+                            min: 0,
+                            message: '长度超限，最长为30！'
+                        },
+                    ]
+                },
+                {
+                    dataField: 'cDealline',
+                    label: {
+                        text: '设定采购期限/天'
+                    },
+                    editorOptions: {
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 30,
+                            min: 0,
+                            message: '长度超限，最长为30！'
+                        },
+                    ]
+                },
+                {
+                    dataField: 'cComname',
+                    label: {
+                        text: '公司名称'
+                    },
+                    editorType: 'dxSelectBox',
+                    editorOptions: {
+                        //以上完成对没有联动数据源配置
+                        //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                        dataSource: TP_CGGOODSTYPE_C_COMNAME,
+                        valueExpr: 'cSubitemid',
+                        displayExpr: 'cSubitemdes',
+                        searchEnable: true,
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 60,
+                            min: 0,
+                            message: '长度超限，最长为60！'
+                        },
+                    ]
+                },
+                // {
+                //     dataField: 'cId',
+                //     label: {
+                //         text: '物资类型档案主键'
+                //     },
+                //     editorOptions: {
+                //         showClearButton: true,
+                //     },
+                //     validationRules: [{
+                //         type: 'stringLength',
+                //         max: 30,
+                //         min: 0,
+                //         message: '长度超限，最长为30！'
+                //     }, ]
+                // },//zsq 不显示
+                {
+                    dataField: 'cRemark',
+                    label: {
+                        text: '备注'
+                    },
+                    editorOptions: {
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                        type: 'stringLength',
+                        max: 20,
+                        min: 0,
+                        message: '长度超限，最长为20！'
+                    }, ]
+                }
+            ]
+        }).dxForm('instance')
+        $('#addsure').dxButton({
+            text: '确定',
+            icon: 'todo',
+            validationGroup: validationGroupName,
+            onClick: function(e) {
+                let validateResult = e.validationGroup.validate();
+                if (!validateResult.isValid) {
+                    DevExpress.ui.notify('数据不符合规范', 'info', 3000);
+                    return;
+                }
+                msg = {
+                    ver: '53cc62f6122a436083ec083eed1dc03d',
+                    session: '42f5c0d7178148938f4fda29460b815a',
+                    tag: {},
+                    data: {},
+                };
+                msg.data.cgA003M1s1 = [M1S11addIns.option('formData')];
+                //change等于1为添加         
+                $.ajax({
+                    url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/M1S11A'),
+                    dataType: 'json', //返回格式为json           
+                    async: true, //请求是否异步,默认为异步,这也是ajax重要特性          
+                    data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名         
+                    type: 'post', //请求方式 get 或者post ,         
+                    contentType: 'application/json',
+                    success: function(data) {
+                        let select = data.msg
+                        if (data.errcode == 0) {
+                            M1S11_serDel();
+
+                            DevExpress.ui.notify('数据保存成功', 'success', 3000);
+                            addIns.hide()
+                        } else {
+                            DevExpress.ui.notify(select, 'warning', 3000);
+                        }
+                    },
+                    error: function() {
+                        DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                        // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')         
+                        //e.cancel=true;         
+                    }
+                })
+            }
+        })
+        $('#addcansel').dxButton({
+            text: '取消',
+            icon: 'remove',
+            onClick: function() {
+                addIns.hide()
+            }
+        })
+    }
+
+    function M1S11_Updatefun() {
+        M1S11addIns = $('#addForm').dxForm({
+            formData: adddata,
+            validationGroup: validationGroupName,
+            colCount: 3,
+            items: [{
+                    dataField: 'cTypename',
+                    label: {
+                        text: '物料类型'
+                    },
+                    editorType: 'dxSelectBox',
+                    editorOptions: {
+                        //以上完成对没有联动数据源配置
+                        //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                        dataSource: TP_CGGOODSTYPE_C_TYPENAME,
+                        valueExpr: 'cSubitemid',
+                        displayExpr: 'cSubitemdes',
+                        searchEnable: true,
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 30,
+                            min: 0,
+                            message: '长度超限，最长为30！'
+                        },
+                    ]
+                },
+                {
+                    dataField: 'cDealline',
+                    label: {
+                        text: '设定采购期限/天'
+                    },
+                    editorOptions: {
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 30,
+                            min: 0,
+                            message: '长度超限，最长为30！'
+                        },
+                    ]
+                },
+                {
+                    dataField: 'cComname',
+                    label: {
+                        text: '公司名称'
+                    },
+                    editorType: 'dxSelectBox',
+                    editorOptions: {
+                        //以上完成对没有联动数据源配置
+                        //以下处理是否存在联动,联动的条件是当前字段的ajax字符串后缀为0时候,代表不因其他调节变化自身的值
+                        dataSource: TP_CGGOODSTYPE_C_COMNAME,
+                        valueExpr: 'cSubitemid',
+                        displayExpr: 'cSubitemdes',
+                        searchEnable: true,
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                            type: 'required',
+                            message: '必填！'
+                        },
+                        {
+                            type: 'stringLength',
+                            max: 60,
+                            min: 0,
+                            message: '长度超限，最长为60！'
+                        },
+                    ]
+                },
+                // {
+                //     dataField: 'cId',
+                //     label: {
+                //         text: '物资类型档案主键'
+                //     },
+                //     editorOptions: {
+                //         showClearButton: true,
+                //     },
+                //     validationRules: [{
+                //         type: 'stringLength',
+                //         max: 30,
+                //         min: 0,
+                //         message: '长度超限，最长为30！'
+                //     }, ]
+                // }, //zsq
+                {
+                    dataField: 'cRemark',
+                    label: {
+                        text: '备注'
+                    },
+                    editorOptions: {
+                        showClearButton: true,
+                    },
+                    validationRules: [{
+                        type: 'stringLength',
+                        max: 20,
+                        min: 0,
+                        message: '长度超限，最长为20！'
+                    }, ]
+                }
+            ]
+        }).dxForm('instance')
+        $('#addsure').dxButton({
+            text: '确定',
+            icon: 'todo',
+            validationGroup: validationGroupName,
+            onClick: function(e) {
+                let validateResult = e.validationGroup.validate();
+                if (!validateResult.isValid) {
+                    DevExpress.ui.notify('数据不符合规范', 'info', 3000);
+                    return;
+                }
+                msg = {
+                    ver: '53cc62f6122a436083ec083eed1dc03d',
+                    session: '42f5c0d7178148938f4fda29460b815a',
+                    tag: {},
+                    data: {},
+                };
+                msg.data.cgA003M1s1 = [M1S11addIns.option('formData')];
+                //change等于1为添加         
+                $.ajax({
+                    url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_A003/M1S11U'),
+                    dataType: 'json', //返回格式为json           
+                    async: true, //请求是否异步,默认为异步,这也是ajax重要特性          
+                    data: JSON.stringify(msg), //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名         
+                    type: 'post', //请求方式 get 或者post ,         
+                    contentType: 'application/json',
+                    success: function(data) {
+                        let select = data.msg
+                        if (data.errcode == 0) {
+                            M1S11_serDel();
+
+                            DevExpress.ui.notify('数据保存成功', 'success', 3000);
+                            addIns.hide()
+                        } else {
+                            DevExpress.ui.notify(select, 'warning', 3000);
+                        }
+                    },
+                    error: function() {
+                        DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+                        // Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')         
+                        //e.cancel=true;         
+                    }
+                })
+            }
+        })
+        $('#addcansel').dxButton({
+            text: '取消',
+            icon: 'remove',
+            onClick: function() {
+                addIns.hide()
+            }
+        })
+    }
+    //Script ------------------------------------
+})

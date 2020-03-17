@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="code_fb.mapper.CG_A003_Mapper">
+	<resultMap id="C001ResultMap"
+		type="code_fb.entity.CG_A003_C001">
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMDES" property="cSubitemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_COMNAME" property="cComname"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMID" property="cSubitemid"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="C002ResultMap"
+		type="code_fb.entity.CG_A003_C002">
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMDES" property="cSubitemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMID" property="cSubitemid"
+			jdbcType="VARCHAR" />
+		<result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="C003ResultMap"
+		type="code_fb.entity.CG_A003_C003">
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMDES" property="cSubitemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMID" property="cSubitemid"
+			jdbcType="VARCHAR" />
+		<result column="C_TYPENAME" property="cTypename"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="M1S1ResultMap"
+		type="code_fb.entity.CG_A003_M1S1">
+		<result column="C_ID" property="cId" jdbcType="VARCHAR" />
+		<result column="C_MODIFYTIME" property="cModifytime"
+			jdbcType="TIMESTAMP" />
+		<result column="C_CREATETIME" property="cCreatetime"
+			jdbcType="TIMESTAMP" />
+		<result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+		<result column="C_COMNAME" property="cComname"
+			jdbcType="VARCHAR" />
+		<result column="C_TIMESTAMP" property="cTimestamp"
+			jdbcType="TIMESTAMP" />
+		<result column="C_TYPENAME" property="cTypename"
+			jdbcType="VARCHAR" />
+		<result column="C_MODIFIER" property="cModifier"
+			jdbcType="VARCHAR" />
+		<result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+		<result column="C_DEALLINE" property="cDealline"
+			jdbcType="VARCHAR" />
+		<result column="C_CREATER" property="cCreater"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="C0011QCG_A003_C001"
+		parameterType="code_fb.entity.CG_A003_C001" resultMap="C001ResultMap">
+		select <!-- TP_CGGOODSTYPE.C_COMNAME , -->
+		TP_CGAUTHORITY.C_ENABLED
+		,
+		TP_CGAUTHORITY.C_ITEMDES
+		,
+		TP_CGAUTHORITY.C_SUBITEMID
+		,
+		TP_CGAUTHORITY.C_SUBITEMDES
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		AND TP_CGAUTHORITY.C_SUBITEMDES IS NOT NULL
+		AND TP_CGAUTHORITY.C_SUBITEMID IS NOT NULL
+		<if test="cEnabled != null">
+			AND TP_CGAUTHORITY.C_ENABLED like '' || #{cEnabled,jdbcType=VARCHAR} ||
+			''
+		</if>
+		<if test="cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '' || #{cItemdes,jdbcType=VARCHAR} ||
+			''
+		</if>
+	</select>
+	<select id="C0021QCG_A003_C002"
+		parameterType="code_fb.entity.CG_A003_C002" resultMap="C002ResultMap">
+		select <!-- TP_CGGOODSTYPE.C_STATE , -->
+		TP_CGAUTHORITY.C_ITEMDES
+		,
+		TP_CGAUTHORITY.C_SUBITEMID
+		,
+		TP_CGAUTHORITY.C_SUBITEMDES
+		,
+		TP_CGAUTHORITY.C_ENABLED
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		<if test="cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '' || #{cItemdes,jdbcType=VARCHAR} ||
+			''
+		</if>
+		<if test="cEnabled != null">
+			AND TP_CGAUTHORITY.C_ENABLED like '' || #{cEnabled,jdbcType=VARCHAR} ||
+			''
+		</if>
+	</select>
+	<select id="C0031QCG_A003_C003"
+		parameterType="code_fb.entity.CG_A003_C003" resultMap="C003ResultMap">
+		select
+		TP_CGAUTHORITY.C_ITEMDES
+		,
+		TP_CGAUTHORITY.C_SUBITEMID
+		,
+		TP_CGAUTHORITY.C_SUBITEMDES
+		,
+		TP_CGAUTHORITY.C_ENABLED
+		<!-- , TP_CGGOODSTYPE.C_TYPENAME -->
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		AND TP_CGAUTHORITY.C_SUBITEMDES IS NOT NULL
+		AND TP_CGAUTHORITY.C_SUBITEMID IS NOT NULL
+		<if test="cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '' || #{cItemdes,jdbcType=VARCHAR} ||
+			''
+		</if>
+		<if test="cEnabled != null">
+			AND TP_CGAUTHORITY.C_ENABLED like '' || #{cEnabled,jdbcType=VARCHAR} ||
+			''
+		</if>
+	</select>
+	<select id="M1S11QCG_A003_M1S1"
+		parameterType="code_fb.entity.CG_A003_M1S1" resultMap="M1S1ResultMap">
+		select
+		TP_CGGOODSTYPE.C_TYPENAME
+		,
+		TP_CGGOODSTYPE.C_DEALLINE
+		,
+		TP_CGGOODSTYPE.C_COMNAME
+		,
+		TP_CGGOODSTYPE.C_CREATETIME
+		,
+		TP_CGGOODSTYPE.C_CREATER
+		,
+		TP_CGGOODSTYPE.C_ID
+		,
+		TP_CGGOODSTYPE.C_MODIFIER
+		,
+		TP_CGGOODSTYPE.C_MODIFYTIME
+		,
+		TP_CGGOODSTYPE.C_REMARK
+		,
+		TP_CGGOODSTYPE.C_STATE
+		,
+		TP_CGGOODSTYPE.C_TIMESTAMP
+
+		from TP_CGGOODSTYPE
+		WHERE 1=1
+		<if test="cgA003M1s1.cTypename != null">
+			AND TP_CGGOODSTYPE.C_TYPENAME like '%' ||
+			#{cgA003M1s1.cTypename,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="cgA003M1s1.cComname != null">
+			AND TP_CGGOODSTYPE.C_COMNAME like '%' ||
+			#{cgA003M1s1.cComname,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="cgA003M1s1.startTime != null">
+			AND TP_CGGOODSTYPE.C_CREATETIME &gt; = 
+			#{cgA003M1s1.startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="cgA003M1s1.endTime != null">
+			AND TP_CGGOODSTYPE.C_CREATETIME &lt;= 
+			#{cgA003M1s1.endTime,jdbcType=TIMESTAMP} 
+		</if>
+	</select>
+	<insert id="M1S11ACG_A003_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA003M1s1" index="index"
+			item="item" open="begin" separator=";">
+			insert into TP_CGGOODSTYPE
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="item.cTypename != null">
+					C_TYPENAME
+				</if>
+				<if test="item.cDealline != null">,
+					C_DEALLINE
+				</if>
+				<if test="item.cComname != null">,
+					C_COMNAME
+				</if>
+				,
+				C_ID
+				,C_CREATETIME
+				<if test="item.cCreater != null">,
+					C_CREATER
+				</if>
+				<if test="item.cRemark != null">,
+					C_REMARK
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="item.cTypename != null">
+					#{item.cTypename,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cDealline != null">,
+					#{item.cDealline,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cComname != null">,
+					#{item.cComname,jdbcType=VARCHAR}
+				</if>
+				,
+				C_ID_SEQ.NEXTVAL,
+				SYSTIMESTAMP
+				<if test="item.cCreater != null">,
+					#{item.cCreater,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cRemark != null">,
+					#{item.cRemark,jdbcType=VARCHAR}
+				</if>
+			</trim>
+		</foreach>
+	</insert>
+	<update id="M1S11UCG_A003_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA003M1s1" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGGOODSTYPE
+			<set>
+				<if test="item.cTypename != null">
+					C_TYPENAME = #{item.cTypename,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cDealline != null">
+					C_DEALLINE = #{item.cDealline,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cComname != null">
+					C_COMNAME = #{item.cComname,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+				</if>
+					C_MODIFYTIME = SYSTIMESTAMP,
+				<if test="item.cId != null">
+					C_ID = #{item.cId,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cRemark != null">
+					C_REMARK = #{item.cRemark,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<delete id="M1S11DCG_A003_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA003M1s1" index="index"
+			item="item" open="begin" separator=";">
+			delete from TP_CGGOODSTYPE
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+</mapper>

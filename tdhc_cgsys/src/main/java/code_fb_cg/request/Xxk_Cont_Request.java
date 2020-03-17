@@ -1,0 +1,93 @@
+package code_fb_cg.request;
+
+import java.util.Date;
+import java.util.List;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb_cg.entity.TbDocumeform;
+import code_fb_cg.entity.TpCgcontractmt;
+
+public class Xxk_Cont_Request {
+	//合同信息
+	private TpCgcontractmt tpCgcontractmt;
+	//form中的开始结束时间
+	private TpCgcontractmt tpCgTime;
+	//form中其他信息
+	private  List<CG_MNHT_M1S1> cgMnhtM1s1;
+	
+	private TbDocumeform tbDocumeform;
+	
+	private CG_MNHT_M1S1 cg_MNHT_M1S1;
+	private Date startTime;
+	private Date endTime;
+	
+	private String cConnum;
+	public CG_MNHT_M1S1 getCg_MNHT_M1S1() {
+		return cg_MNHT_M1S1;
+	}
+
+	public void setCg_MNHT_M1S1(CG_MNHT_M1S1 cg_MNHT_M1S1) {
+		this.cg_MNHT_M1S1 = cg_MNHT_M1S1;
+	}
+
+	public TpCgcontractmt getTpCgcontractmt() {
+		return tpCgcontractmt;
+	}
+
+	public void setTpCgcontractmt(TpCgcontractmt tpCgcontractmt) {
+		this.tpCgcontractmt = tpCgcontractmt;
+	}
+
+	public TpCgcontractmt getTpCgTime() {
+		return tpCgTime;
+	}
+
+	public void setTpCgTime(TpCgcontractmt tpCgTime) {
+		this.tpCgTime = tpCgTime;
+	}
+
+	public List<CG_MNHT_M1S1> getCgMnhtM1s1() {
+		return cgMnhtM1s1;
+	}
+
+	public void setCgMnhtM1s1(List<CG_MNHT_M1S1> cgMnhtM1s1) {
+		this.cgMnhtM1s1 = cgMnhtM1s1;
+	}
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
+	public Date getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+
+
+	public TbDocumeform getTbDocumeform() {
+		return tbDocumeform;
+	}
+
+	public void setTbDocumeform(TbDocumeform tbDocumeform) {
+		this.tbDocumeform = tbDocumeform;
+	}
+
+
+	public String getcConnum() {
+		return cConnum;
+	}
+
+	public void setcConnum(String cConnum) {
+		this.cConnum = cConnum;
+	}
+
+	
+	
+}

@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code_fb_cg.mapper.TpCgauthorityMapper">
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpCgauthority">
+    <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_ITEMID" jdbcType="VARCHAR" property="cItemid" />
+    <result column="C_ITEMDES" jdbcType="VARCHAR" property="cItemdes" />
+    <result column="C_SUBITEMID" jdbcType="VARCHAR" property="cSubitemid" />
+    <result column="C_SUBITEMDES" jdbcType="VARCHAR" property="cSubitemdes" />
+    <result column="C_GROUP" jdbcType="VARCHAR" property="cGroup" />
+    <result column="C_ORDER" jdbcType="DECIMAL" property="cOrder" />
+    <result column="C_ENABLED" jdbcType="VARCHAR" property="cEnabled" />
+    <result column="C_VALUE" jdbcType="VARCHAR" property="cValue" />
+    <result column="C_DR" jdbcType="VARCHAR" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="TIMESTAMP" property="cTimestamp" />
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" />
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" />
+    <result column="C_SW04" jdbcType="VARCHAR" property="cSw04" />
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" />
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" />
+    <result column="C_SW07" jdbcType="VARCHAR" property="cSw07" />
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYDATE" jdbcType="TIMESTAMP" property="cModifydate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    C_ID, C_ITEMID, C_ITEMDES, C_SUBITEMID, C_SUBITEMDES, C_GROUP, C_ORDER, C_ENABLED, 
+    C_VALUE, C_DR, C_TIMESTAMP, C_SW02, C_SW03, C_SW04, C_SW05, C_SW06, C_SW07, C_SW08, 
+    C_SW09, C_SW10, C_SW01, C_CREATER, C_CREATETIME, C_MODIFIER, C_MODIFYDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </select>
+  <!-- 查询该助理是谁的助理 -->
+  <select id="selectCAIGOUZHULI" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW04 IS NOT NULL
+    AND C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR}
+  </select>
+  <!-- 查询该主任的信息 -->
+  <select id="selectZHUREN" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where  C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR}
+  </select>
+  <!-- 查询该经理信息 -->
+  <select id="selectJINGLI" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where  C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR}
+  </select>
+  <!-- 查询有助理的人有都是谁 -->
+  <select id="selectWHOHAVEZL" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW04 IS NOT NULL
+  </select>
+  <!-- 查询主任下都有谁 -->
+  <select id="selectZRXIASHU" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW01 = #{cSw01,jdbcType=VARCHAR}
+  </select>
+  <!-- 经理的下属 -->
+  <select id="selectJLXIASHU" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW02 = #{cSw02,jdbcType=VARCHAR}
+  </select>
+  <select id="selectFZJLXIASHU" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW03 = #{cSw03,jdbcType=VARCHAR}
+  </select>
+  <!-- 根据项目描述和项目ID 查询两个字段一样的数据 -->
+  <select id="selectDESAndID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where 
+    C_ITEMID = #{cItemid,jdbcType=VARCHAR}
+    AND	C_ITEMDES = #{cItemdes,jdbcType=VARCHAR}
+  </select>
+  
+   <!-- 数据字典获取基础维护数据 -->
+  <select id="getDictionaryInfoWithItemNos" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where C_ITEMID = #{itemNo}
+  		<if test="subitemid != null and subitemid != ''">
+			and C_SUBITEMID = #{subitemid}
+		</if>
+  		 and C_ENABLED = '0' and C_SUBITEMID is not null
+  </select>
+  <!-- 经理获取自己和属下员工的数据 -->
+  <select id="getDictionaryInfoWithItemNos1" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where 
+			 C_SW02 = #{cSw02}
+  			and C_ITEMID = #{cItemid}
+  		 and C_ENABLED = '0' and C_SUBITEMID is not null
+  </select>
+  <!-- 主任获取自己和属下员工的数据 -->
+  <select id="getDictionaryInfoWithItemNos2" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where 
+			 C_SW01 = #{cSw01}
+  			and C_ITEMID = #{cItemid}
+  		 and C_ENABLED = '0' and C_SUBITEMID is not null
+  </select>
+  <!-- 经理获取自己和属下员工的数据 -->
+  <select id="getDictionaryInfoWithItemNos3" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where 
+			 C_SW03 = #{cSw03}
+  			and C_ITEMID = #{cItemid}
+  		 and C_ENABLED = '0' and C_SUBITEMID is not null
+  </select>
+  <!-- 获取员工的数据 -->
+  <select id="getDictionaryInfoWithItemNos4" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where 
+  			 C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+  		 AND C_ITEMID = #{cItemid} and C_ENABLED = '0'
+  </select>
+  
+  <select id="selectH001FKFS" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+   	C_SUBITEMDES,C_SUBITEMID,C_ITEMID,C_ITEMDES,C_VALUE
+    from TP_CGAUTHORITY
+    where 1=1
+    AND C_SUBITEMDES IS NOT NULL
+    AND C_SUBITEMID IS NOT NULL
+    AND C_ENABLED = #{cEnabled,jdbcType=VARCHAR}
+    AND	C_ITEMDES = #{cItemdes,jdbcType=VARCHAR}
+  </select>
+  <select id="selectH001WCZT" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+   	C_SUBITEMDES,C_SUBITEMID,C_ITEMID,C_ITEMDES
+    from TP_CGAUTHORITY
+    where 1=1
+    AND C_SUBITEMDES IS NOT NULL
+    AND C_SUBITEMID IS NOT NULL
+    AND C_ENABLED = #{cEnabled,jdbcType=VARCHAR}
+    AND	C_ITEMDES = #{cItemdes,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 查询副总 -->
+  <select id="selectFuZong" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW03 = #{cSubitemdes,jdbcType=VARCHAR} 
+    AND C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+    and C_ITEMID = #{cItemid}
+  </select>
+  
+  <!-- 查询经理 -->
+  <select id="selectJingLi" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW02 = #{cSubitemdes,jdbcType=VARCHAR} 
+    AND C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+    and C_ITEMID = #{cItemid}
+  </select>
+  
+  <!-- 查询主任 -->
+  <select id="selectZhuRen" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW01 = #{cSubitemdes,jdbcType=VARCHAR} 
+    AND C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+    and C_ITEMID = #{cItemid}
+  </select>
+  
+  <!-- 查询该助理是谁的助理 -->
+  <select id="selectZhuLi" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SW04 IS NOT NULL
+    AND C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+    and C_ITEMID = #{cItemid}
+  </select>
+  
+  <!-- 查询单位 -->
+  <select id="selectDanWei" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+    AND C_ITEMID = #{cItemid}
+  </select>
+  
+  <!-- 根据项目Id 和 子项Id 查询数据 -->
+  <select id="selectcItemidSubitemid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR}
+    AND C_ITEMID = #{cItemid}
+  </select>
+  
+  <select id="selectSubitemidAll" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_ITEMID = #{cItemid}
+    <if test=" cSubitemid != null and cSubitemid.length != 0 ">
+		AND C_SUBITEMID IN   
+		   <foreach collection="cSubitemid" item="item" index="index" open="(" separator="," close=")" >
+			 #{item}  
+		   </foreach>
+		</if>
+	order by C_GROUP 
+  </select>
+  
+  <!-- 查询分组为1的子项数据 -->
+  <select id="selectBybgcause" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from TP_CGAUTHORITY where C_ITEMID = #{itemNo}
+  		 and C_GROUP = '1'
+  		 and C_ENABLED = '0' and C_SUBITEMID is not null
+  </select>
+  
+  
+  <!-- 根据数据子项描述查询数据子项ID -->
+  <select id="selectSubitemid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select  
+    <include refid="Base_Column_List" />
+    from TP_CGAUTHORITY
+    where C_ENABLED = '0'
+    AND C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TP_CGAUTHORITY
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpCgauthority">
+    insert into TP_CGAUTHORITY (C_ID, C_ITEMID, C_ITEMDES, 
+      C_SUBITEMID, C_SUBITEMDES, C_GROUP, 
+      C_ORDER, C_ENABLED, C_VALUE, 
+      C_DR, C_TIMESTAMP, C_SW02, 
+      C_SW03, C_SW04, C_SW05, 
+      C_SW06, C_SW07, C_SW08, 
+      C_SW09, C_SW10, C_SW01, 
+      C_CREATER, C_CREATETIME, C_MODIFIER, 
+      C_MODIFYDATE)
+    values (#{cId,jdbcType=VARCHAR}, #{cItemid,jdbcType=VARCHAR}, #{cItemdes,jdbcType=VARCHAR}, 
+      #{cSubitemid,jdbcType=VARCHAR}, #{cSubitemdes,jdbcType=VARCHAR}, #{cGroup,jdbcType=VARCHAR}, 
+      #{cOrder,jdbcType=DECIMAL}, #{cEnabled,jdbcType=VARCHAR}, #{cValue,jdbcType=VARCHAR}, 
+      #{cDr,jdbcType=VARCHAR}, #{cTimestamp,jdbcType=TIMESTAMP}, #{cSw02,jdbcType=VARCHAR}, 
+      #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=VARCHAR}, #{cSw05,jdbcType=VARCHAR}, 
+      #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=VARCHAR}, #{cSw08,jdbcType=VARCHAR}, 
+      #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR}, #{cSw01,jdbcType=VARCHAR}, 
+      #{cCreater,jdbcType=VARCHAR}, #{cCreatetime,jdbcType=TIMESTAMP}, #{cModifier,jdbcType=VARCHAR}, 
+      #{cModifydate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TpCgauthority">
+    insert into TP_CGAUTHORITY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,    
+      <if test="cItemid != null">
+        C_ITEMID,
+      </if>
+      <if test="cItemdes != null">
+        C_ITEMDES,
+      </if>
+      <if test="cSubitemid != null">
+        C_SUBITEMID,
+      </if>
+      <if test="cSubitemdes != null">
+        C_SUBITEMDES,
+      </if>
+      <if test="cGroup != null">
+        C_GROUP,
+      </if>
+      <if test="cOrder != null">
+        C_ORDER,
+      </if>
+      <if test="cEnabled != null">
+        C_ENABLED,
+      </if>
+      <if test="cValue != null">
+        C_VALUE,
+      </if>
+      <if test="cDr != null">
+        C_DR,
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="cSw10 != null">
+        C_SW10,
+      </if>
+      <if test="cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="cModifydate != null">
+        C_MODIFYDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        C_ID_AU_SEQ.NEXTVAL,
+      <if test="cItemid != null">
+        #{cItemid,jdbcType=VARCHAR},
+      </if>
+      <if test="cItemdes != null">
+        #{cItemdes,jdbcType=VARCHAR},
+      </if>
+      <if test="cSubitemid != null">
+        #{cSubitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="cSubitemdes != null">
+        #{cSubitemdes,jdbcType=VARCHAR},
+      </if>
+      <if test="cGroup != null">
+        #{cGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrder != null">
+        #{cOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="cEnabled != null">
+        #{cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null">
+        #{cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null">
+        #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw02 != null">
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw01 != null">
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null">
+        #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifydate != null">
+        #{cModifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="code_fb_cg.entity.TpCgauthority">
+    update TP_CGAUTHORITY
+    <set>
+      <if test="cItemid != null">
+        C_ITEMID = #{cItemid,jdbcType=VARCHAR},
+      </if>
+      <if test="cItemdes != null">
+        C_ITEMDES = #{cItemdes,jdbcType=VARCHAR},
+      </if>
+      <if test="cSubitemid != null">
+        C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="cSubitemdes != null">
+        C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR},
+      </if>
+      <if test="cGroup != null">
+        C_GROUP = #{cGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrder != null">
+        C_ORDER = #{cOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="cEnabled != null">
+        C_ENABLED = #{cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null">
+        C_VALUE = #{cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        C_DR = #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw02 != null">
+        C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw01 != null">
+        C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreater != null">
+        C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifydate != null">
+        C_MODIFYDATE = #{cModifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="code_fb_cg.entity.TpCgauthority">
+    update TP_CGAUTHORITY
+    set C_ITEMID = #{cItemid,jdbcType=VARCHAR},
+      C_ITEMDES = #{cItemdes,jdbcType=VARCHAR},
+      C_SUBITEMID = #{cSubitemid,jdbcType=VARCHAR},
+      C_SUBITEMDES = #{cSubitemdes,jdbcType=VARCHAR},
+      C_GROUP = #{cGroup,jdbcType=VARCHAR},
+      C_ORDER = #{cOrder,jdbcType=DECIMAL},
+      C_ENABLED = #{cEnabled,jdbcType=VARCHAR},
+      C_VALUE = #{cValue,jdbcType=VARCHAR},
+      C_DR = #{cDr,jdbcType=VARCHAR},
+      C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      C_MODIFYDATE = #{cModifydate,jdbcType=TIMESTAMP}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <!-- M1S1启用 -->
+  <update id="M1S12U" parameterType="java.util.List">
+   <foreach close=";end;" collection="cgA001M1s1" index="index" item="item" open="begin" separator=";">
+    update TP_CGAUTHORITY
+     <set>
+      <if test="item.cEnabled != null">
+      C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifier != null">
+      C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifydate != null">
+      C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+      </if>
+       </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+   </foreach>
+  </update>
+  <!-- M1S1禁用 -->
+  <update id="M1S13U" parameterType="java.util.List">
+   <foreach close=";end;" collection="cgA001M1s1" index="index" item="item" open="begin" separator=";">
+    update TP_CGAUTHORITY
+    <set>
+      <if test="item.cEnabled != null">
+      C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifier != null">
+      C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifydate != null">
+      C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+      </if>
+      </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+   </foreach>
+  </update>
+  <!-- S1S2启用 -->
+  <update id="S1S22U" parameterType="java.util.List">
+   <foreach close=";end;" collection="cgA001S1s2" index="index" item="item" open="begin" separator=";">
+    update TP_CGAUTHORITY
+    <set>
+      <if test="item.cEnabled != null">
+      C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifier != null">
+      C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifydate != null">
+      C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+      </if>
+      </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+   </foreach>
+  </update>
+  <!-- S1S2禁用 -->
+  <update id="S1S23U" parameterType="java.util.List">
+   <foreach close=";end;" collection="cgA001S1s2" index="index" item="item" open="begin" separator=";">
+    update TP_CGAUTHORITY
+    <set>
+      <if test="item.cEnabled != null">
+      C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifier != null">
+      C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifydate != null">
+      C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+      </if>
+      </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+   </foreach>
+  </update>
+</mapper>

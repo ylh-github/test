@@ -1,0 +1,108 @@
+
+ package code_fb.service;
+ import code_fb.request.CG_XXLY_Request_M1S1;
+import code_fb.response.CG_XXLY_Response_M1S1;
+import code_fb_cg.request.Xxk_Cont_Request;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User; 
+ public interface CG_XXLY_Service {
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S11Q(CG_XXLY_Request_M1S1 cgXxlyRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1,String session);
+ /**
+  * 信息卡添加 
+  * @param user
+  * @param data
+  * @param session
+  * @return
+  */
+ResponseObject<EmptyTag, EmptyData> M1S21A(User user, CG_XXLY_Request_M1S1 data, String session) throws Exception;
+/**
+ * 合同信息卡联动
+ * @param xxk_Cont_Request
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21Q(Xxk_Cont_Request xxk_Cont_Request, String session);
+/**
+ * 审核页面的联动查询
+ * @param requestObject
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21Q4(Xxk_Cont_Request data, String session);
+/**
+ * 信息卡提交审核
+ * @param user
+ * @param requestObject
+ * @return
+ */
+ResponseObject<EmptyTag, EmptyData> M1S11Submit(User user, CG_XXLY_Request_M1S1 data, String session);
+/**
+ * M1S21U修改按钮
+ * @param user
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, EmptyData> M1S21U(User user, CG_XXLY_Request_M1S1 data, String session);
+/**
+ * 表2查询
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21QS(Xxk_Cont_Request data, String session);
+/**
+ * 根据合同号查询信息卡物资
+ * @param user
+ * @param xxk_Cont_Request
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> getInfo(User user, Xxk_Cont_Request xxk_Cont_Request, String session);
+/**
+ * 修改信息卡
+ * @param user
+ * @param requestObject
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21UXXK(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1, String session);
+/**
+ * 印尼审核
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S15Q(CG_XXLY_Request_M1S1 data, String session);
+/**
+ * 信息卡撤销
+ * @param user
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, EmptyData> M1S11UP(User user, CG_XXLY_Request_M1S1 data, String session);
+ }

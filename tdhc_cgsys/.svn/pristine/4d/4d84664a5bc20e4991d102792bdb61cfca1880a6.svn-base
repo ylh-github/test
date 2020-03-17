@@ -1,0 +1,35 @@
+
+ package code_fb.mapper;
+ import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.ZZ_01_M1S1;
+import code_fb_cg.entity.TbCludecompany;
+
+ @Repository("zz01Mapper")
+ public interface ZZ_01_Mapper {
+ List<ZZ_01_M1S1> M1S11QZZ_01_M1S1( @Param("zz01M1s1")ZZ_01_M1S1 zz01M1s1);
+ ZZ_01_M1S1 selectBycId( @Param("cId")String cId);
+ int M1S11AZZ_01_M1S1(@Param("zz01M1s1") List<ZZ_01_M1S1> zz01M1s1);
+ int M1S11UZZ_01_M1S1(@Param("zz01M1s1") List<ZZ_01_M1S1> zz01M1s1);
+ int M1S11DZZ_01_M1S1(@Param("zz01M1s1") List<ZZ_01_M1S1> zz01M1s1);
+ /**
+  * 导入
+  * @param list
+  * @return
+  */
+ int Import_CompExcel(@Param("list") List<TbCludecompany> list);
+ /**
+  * 查询签订公司
+  * @return
+  */
+ List<TbCludecompany> findCompInfo();
+ /**
+  * 签订公司的填充
+  * @param tbCludecompany
+  * @return
+  */
+ List<TbCludecompany> getCompInfo(@Param("tbCludecompany") TbCludecompany tbCludecompany);
+ }

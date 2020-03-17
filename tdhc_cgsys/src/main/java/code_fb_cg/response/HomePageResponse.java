@@ -1,0 +1,105 @@
+package code_fb_cg.response;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgorderstInfo;
+
+public class HomePageResponse {
+	//请购单总数
+	private int tpCgordermtSum;
+	//请购物资数量
+	private int tpCgorderstSum;
+	
+	private int[] monthSum;
+	//合同总数
+	private int tpCgcontractmtSum;
+	
+	private int tpCgcontractNum;
+	//发票已开的数
+	private int fapiaoSum;
+	//已到货的数量
+	private int RegoodSum;
+	//已付款的总数
+	private int paidSum;
+	//每个月对应的数量
+	private int eMonthSum;
+	//请购项对应的统计实例
+	private List<TpCgorderstInfo> tpCgorderstInfo;
+	public int getTpCgordermtSum() {
+		return tpCgordermtSum;
+	}
+	public void setTpCgordermtSum(int tpCgordermtSum) {
+		this.tpCgordermtSum = tpCgordermtSum;
+	}
+	public int getTpCgcontractmtSum() {
+		return tpCgcontractmtSum;
+	}
+	public void setTpCgcontractmtSum(int tpCgcontractmtSum) {
+		this.tpCgcontractmtSum = tpCgcontractmtSum;
+	}
+	public int getFapiaoSum() {
+		return fapiaoSum;
+	}
+	public void setFapiaoSum(int fapiaoSum) {
+		this.fapiaoSum = fapiaoSum;
+	}
+	public int getRegoodSum() {
+		return RegoodSum;
+	}
+	public void setRegoodSum(int regoodSum) {
+		RegoodSum = regoodSum;
+	}
+	public int getPaidSum() {
+		return paidSum;
+	}
+	public void setPaidSum(int paidSum) {
+		this.paidSum = paidSum;
+	}
+	public int getTpCgcontractNum() {
+		return tpCgcontractNum;
+	}
+	public void setTpCgcontractNum(int tpCgcontractNum) {
+		this.tpCgcontractNum = tpCgcontractNum;
+	}
+	public int getTpCgorderstSum() {
+		return tpCgorderstSum;
+	}
+	public void setTpCgorderstSum(int tpCgorderstSum) {
+		this.tpCgorderstSum = tpCgorderstSum;
+	}
+	public int[] getMonthSum() {
+		return monthSum;
+	}
+	public void setMonthSum(int[] monthSum) {
+		this.monthSum = monthSum;
+	}
+	public int geteMonthSum() {
+		return eMonthSum;
+	}
+	public void seteMonthSum(int eMonthSum) {
+		this.eMonthSum = eMonthSum;
+	}
+	private int monthNum;
+
+	public int getMonthNum() {
+		return monthNum;
+	}
+	public void setMonthNum(int monthNum) {
+		this.monthNum = monthNum;
+	}
+	private int[] monthdes;
+	public int[] getMonthdes() {
+		return monthdes;
+	}
+	public void setMonthdes(int[] monthdes) {
+		this.monthdes = monthdes;
+	}
+	public List<TpCgorderstInfo> getTpCgorderstInfo() {
+		return tpCgorderstInfo;
+	}
+	public void setTpCgorderstInfo(List<TpCgorderstInfo> tpCgorderstInfo) {
+		this.tpCgorderstInfo = tpCgorderstInfo;
+	}
+	
+	
+}

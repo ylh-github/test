@@ -1,0 +1,26 @@
+package code_fb_cg.request;
+
+public class DelInformation {
+
+	private String cDelivdate; //交货期限
+	
+	private String cDelivplace; //交货地点
+
+	public String getcDelivdate() {
+		return cDelivdate;
+	}
+
+	public void setcDelivdate(String cDelivdate) {
+		this.cDelivdate = cDelivdate;
+	}
+
+	public String getcDelivplace() {
+		return cDelivplace;
+	}
+
+	public void setcDelivplace(String cDelivplace) {
+		this.cDelivplace = cDelivplace;
+	}
+	
+	
+}

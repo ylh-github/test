@@ -1,0 +1,18 @@
+package code_fb_cg.service;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgorderst;
+import code_fb_cg.request.HompageObject;
+import code_fb_cg.request.TpCgordermtM1S13;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+
+public interface TpCgorderstTJService {
+
+	ResponseObject<EmptyTag, List<TpCgorderst>> searchTpCgorderstTJ(
+			RequestObject<EmptyTag, TpCgordermtM1S13> requestObject);
+
+
+}

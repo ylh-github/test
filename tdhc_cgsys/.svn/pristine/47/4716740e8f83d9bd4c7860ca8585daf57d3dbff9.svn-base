@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.GYS_DJB_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.GYS_DJB_M1S1" >
+	 <result column="C_ACCOUNTNO" property="cAccountno" jdbcType="VARCHAR" />
+	 <result column="C_BANKNAME" property="cBankname" jdbcType="VARCHAR" />
+	 <result column="C_CHINESENAME" property="cChinesename" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+	 <result column="C_ENGLISHNAME" property="cEnglishname" jdbcType="VARCHAR" />
+	 <result column="C_FAXNO" property="cFaxno" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_NATURE" property="cNature" jdbcType="VARCHAR" />
+	 <result column="C_OPERATIONN" property="cOperationn" jdbcType="VARCHAR" />
+	 <result column="C_OPERATIONR" property="cOperationr" jdbcType="VARCHAR" />
+	 <result column="C_OPERATIONT" property="cOperationt" jdbcType="VARCHAR" />
+	 <result column="C_PAST" property="cPast" jdbcType="VARCHAR" />
+	 <result column="C_PASTCOMP" property="cPastcomp" jdbcType="VARCHAR" />
+	 <result column="C_PASTEOPLE" property="cPasteople" jdbcType="VARCHAR" />
+	 <result column="C_PASTFAXNO" property="cPastfaxno" jdbcType="VARCHAR" />
+	 <result column="C_PASTHONE" property="cPasthone" jdbcType="VARCHAR" />
+	 <result column="C_PASTNT" property="cPastnt" jdbcType="VARCHAR" />
+	 <result column="C_PASTPS" property="cPastps" jdbcType="VARCHAR" />
+	 <result column="C_PASTTURNOV" property="cPastturnov" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_SIGNATORY" property="cSignatory" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_SUPADDRESS" property="cSupaddress" jdbcType="VARCHAR" />
+	 <result column="C_SUPEMAIL" property="cSupemail" jdbcType="VARCHAR" />
+	 <result column="C_SUPPAGENT" property="cSuppagent" jdbcType="VARCHAR" />
+	 <result column="C_SUPPCODE" property="cSuppcode" jdbcType="VARCHAR" />
+	 <result column="C_SUPPDEALER" property="cSuppdealer" jdbcType="VARCHAR" />
+	 <result column="C_SUPPEOPLE" property="cSuppeople" jdbcType="VARCHAR" />
+	 <result column="C_SUPPHONE" property="cSupphone" jdbcType="VARCHAR" />
+	 <result column="C_SUPPMONEY" property="cSuppmoney" jdbcType="VARCHAR" />
+	 <result column="C_SUPPSHONE" property="cSuppshone" jdbcType="VARCHAR" />
+	 <result column="C_SW01" property="cSw01" jdbcType="VARCHAR" />
+	 <result column="C_SW02" property="cSw02" jdbcType="VARCHAR" />
+	 <result column="C_SW03" property="cSw03" jdbcType="VARCHAR" />
+	 <result column="C_SW04" property="cSw04" jdbcType="VARCHAR" />
+	 <result column="C_SW05" property="cSw05" jdbcType="VARCHAR" />
+	 <result column="C_SW06" property="cSw06" jdbcType="VARCHAR" />
+	 <result column="C_SW07" property="cSw07" jdbcType="VARCHAR" />
+	 <result column="C_SW08" property="cSw08" jdbcType="VARCHAR" />
+	 <result column="C_SW09" property="cSw09" jdbcType="VARCHAR" />
+	 <result column="C_SW10" property="cSw10" jdbcType="VARCHAR" />
+	 <result column="C_SW11" property="cSw11" jdbcType="VARCHAR" />
+	 <result column="C_SW12" property="cSw12" jdbcType="VARCHAR" />
+	 <result column="C_SW13" property="cSw13" jdbcType="VARCHAR" />
+	 <result column="C_SW14" property="cSw14" jdbcType="VARCHAR" />
+	 <result column="C_SW15" property="cSw15" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_SIGNADATE" property="cSignadate" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QGYS_DJB_M1S1" parameterType="code_fb.entity.GYS_DJB_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_SUPPLIEFORM.C_ID C_ID 
+,
+TP_SUPPLIEFORM.C_SW15 C_SW15 
+,
+TP_SUPPLIEFORM.C_CHINESENAME C_CHINESENAME 
+,
+TP_SUPPLIEFORM.C_ENGLISHNAME C_ENGLISHNAME 
+,
+TP_SUPPLIEFORM.C_SUPPMONEY C_SUPPMONEY 
+,
+TP_SUPPLIEFORM.C_NATURE C_NATURE 
+,
+TP_SUPPLIEFORM.C_OPERATIONR C_OPERATIONR 
+,
+TP_SUPPLIEFORM.C_OPERATIONN C_OPERATIONN 
+,
+TP_SUPPLIEFORM.C_OPERATIONT C_OPERATIONT 
+,
+TP_SUPPLIEFORM.C_SUPPEOPLE C_SUPPEOPLE 
+,
+TP_SUPPLIEFORM.C_SUPPHONE C_SUPPHONE 
+,
+TP_SUPPLIEFORM.C_FAXNO C_FAXNO 
+,
+TP_SUPPLIEFORM.C_SUPPSHONE C_SUPPSHONE 
+,
+TP_SUPPLIEFORM.C_SUPEMAIL C_SUPEMAIL 
+,
+TP_SUPPLIEFORM.C_SUPADDRESS C_SUPADDRESS 
+,
+TP_SUPPLIEFORM.C_BANKNAME C_BANKNAME 
+,
+TP_SUPPLIEFORM.C_ACCOUNTNO C_ACCOUNTNO 
+,
+TP_SUPPLIEFORM.C_SUPPAGENT C_SUPPAGENT 
+,
+TP_SUPPLIEFORM.C_SUPPDEALER C_SUPPDEALER 
+,
+TP_SUPPLIEFORM.C_PASTPS C_PASTPS 
+,
+TP_SUPPLIEFORM.C_PAST C_PAST 
+,
+TP_SUPPLIEFORM.C_PASTNT C_PASTNT 
+,
+TP_SUPPLIEFORM.C_PASTCOMP C_PASTCOMP 
+,
+TP_SUPPLIEFORM.C_PASTTURNOV C_PASTTURNOV 
+,
+TP_SUPPLIEFORM.C_PASTEOPLE C_PASTEOPLE 
+,
+TP_SUPPLIEFORM.C_PASTHONE C_PASTHONE 
+,
+TP_SUPPLIEFORM.C_PASTFAXNO C_PASTFAXNO 
+,
+TP_SUPPLIEFORM.C_SIGNATORY C_SIGNATORY 
+,
+TP_SUPPLIEFORM.C_SIGNADATE C_SIGNADATE 
+,
+TP_SUPPLIEFORM.C_REMARK C_REMARK 
+,
+TP_SUPPLIEFORM.C_STATE C_STATE 
+,
+TP_SUPPLIEFORM.C_DR C_DR 
+,
+TP_SUPPLIEFORM.C_TIMESTAMP C_TIMESTAMP 
+,
+TP_SUPPLIEFORM.C_CREATER C_CREATER 
+,
+TP_SUPPLIEFORM.C_CREATETIME C_CREATETIME 
+,
+TP_SUPPLIEFORM.C_MODIFIER C_MODIFIER 
+,
+TP_SUPPLIEFORM.C_MODIFYTIME C_MODIFYTIME 
+,
+TP_SUPPLIEFORM.C_SW01 C_SW01 
+,
+TP_SUPPLIEFORM.C_SW02 C_SW02 
+,
+TP_SUPPLIEFORM.C_SW03 C_SW03 
+,
+TP_SUPPLIEFORM.C_SW04 C_SW04 
+,
+TP_SUPPLIEFORM.C_SW05 C_SW05 
+,
+TP_SUPPLIEFORM.C_SW06 C_SW06 
+,
+TP_SUPPLIEFORM.C_SW07 C_SW07 
+,
+TP_SUPPLIEFORM.C_SW08 C_SW08 
+,
+TP_SUPPLIEFORM.C_SW09 C_SW09 
+,
+TP_SUPPLIEFORM.C_SW10 C_SW10 
+,
+TP_SUPPLIEFORM.C_SW11 C_SW11 
+,
+TP_SUPPLIEFORM.C_SW12 C_SW12 
+,
+TP_SUPPLIEFORM.C_SW13 C_SW13 
+,
+TP_SUPPLIEFORM.C_SW14 C_SW14 
+,
+TP_SUPPLIEFORM.C_SUPPCODE C_SUPPCODE 
+
+ from TP_SUPPLIEFORM
+ WHERE 1=1 
+   <if test="gysDjbM1s1.cChinesename != null" >
+       AND  TP_SUPPLIEFORM.C_CHINESENAME like '%' || #{gysDjbM1s1.cChinesename,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="gysDjbM1s1.cSuppcode != null" >
+       AND  TP_SUPPLIEFORM.C_SUPPCODE like '%' || #{gysDjbM1s1.cSuppcode,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <insert id="M1S11AGYS_DJB_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gysDjbM1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TP_SUPPLIEFORM
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+		C_ID,
+	 <if test="item.cSw15 != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cChinesename != null" >
+		C_CHINESENAME,
+  </if>
+	 <if test="item.cEnglishname != null" >
+		C_ENGLISHNAME,
+  </if>
+	 <if test="item.cSuppmoney != null" >
+		C_SUPPMONEY,
+  </if>
+	 <if test="item.cNature != null" >
+		C_NATURE,
+  </if>
+	 <if test="item.cOperationr != null" >
+		C_OPERATIONR,
+  </if>
+	 <if test="item.cOperationn != null" >
+		C_OPERATIONN,
+  </if>
+	 <if test="item.cOperationt != null" >
+		C_OPERATIONT,
+  </if>
+	 <if test="item.cSuppeople != null" >
+		C_SUPPEOPLE,
+  </if>
+	 <if test="item.cSupphone != null" >
+		C_SUPPHONE,
+  </if>
+	 <if test="item.cFaxno != null" >
+		C_FAXNO,
+  </if>
+	 <if test="item.cSuppshone != null" >
+		C_SUPPSHONE,
+  </if>
+	 <if test="item.cSupemail != null" >
+		C_SUPEMAIL,
+  </if>
+	 <if test="item.cSupaddress != null" >
+		C_SUPADDRESS,
+  </if>
+	 <if test="item.cBankname != null" >
+		C_BANKNAME,
+  </if>
+	 <if test="item.cAccountno != null" >
+		C_ACCOUNTNO,
+  </if>
+	 <if test="item.cSuppagent != null" >
+		C_SUPPAGENT,
+  </if>
+	 <if test="item.cSuppdealer != null" >
+		C_SUPPDEALER,
+  </if>
+	 <if test="item.cPastps != null" >
+		C_PASTPS,
+  </if>
+	 <if test="item.cPast != null" >
+		C_PAST,
+  </if>
+	 <if test="item.cPastnt != null" >
+		C_PASTNT,
+  </if>
+	 <if test="item.cPastcomp != null" >
+		C_PASTCOMP,
+  </if>
+	 <if test="item.cPastturnov != null" >
+		C_PASTTURNOV,
+  </if>
+	 <if test="item.cPasteople != null" >
+		C_PASTEOPLE,
+  </if>
+	 <if test="item.cPasthone != null" >
+		C_PASTHONE,
+  </if>
+	 <if test="item.cPastfaxno != null" >
+		C_PASTFAXNO,
+  </if>
+	 <if test="item.cSignatory != null" >
+		C_SIGNATORY,
+  </if>
+	 <if test="item.cSignadate != null" >
+		C_SIGNADATE,
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK,
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE,
+  </if>
+	 <if test="item.cDr != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestamp != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME,
+  </if>
+	 <if test="item.cSw01 != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02 != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03 != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04 != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05 != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06 != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07 != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08 != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09 != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10 != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11 != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12 != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13 != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14 != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSuppcode != null" >
+		C_SUPPCODE,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+		C_ID_SEQ.NEXTVAL,
+	 <if test="item.cSw15 != null" >
+		#{item.cSw15,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cChinesename != null" >
+		#{item.cChinesename,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnglishname != null" >
+		#{item.cEnglishname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppmoney != null" >
+		#{item.cSuppmoney,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNature != null" >
+		#{item.cNature,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationr != null" >
+		#{item.cOperationr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationn != null" >
+		#{item.cOperationn,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationt != null" >
+		#{item.cOperationt,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppeople != null" >
+		#{item.cSuppeople,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupphone != null" >
+		#{item.cSupphone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaxno != null" >
+		#{item.cFaxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppshone != null" >
+		#{item.cSuppshone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupemail != null" >
+		#{item.cSupemail,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupaddress != null" >
+		#{item.cSupaddress,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBankname != null" >
+		#{item.cBankname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cAccountno != null" >
+		#{item.cAccountno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppagent != null" >
+		#{item.cSuppagent,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppdealer != null" >
+		#{item.cSuppdealer,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastps != null" >
+		#{item.cPastps,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPast != null" >
+		#{item.cPast,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastnt != null" >
+		#{item.cPastnt,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastcomp != null" >
+		#{item.cPastcomp,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastturnov != null" >
+		#{item.cPastturnov,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPasteople != null" >
+		#{item.cPasteople,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPasthone != null" >
+		#{item.cPasthone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastfaxno != null" >
+		#{item.cPastfaxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSignatory != null" >
+		#{item.cSignatory,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSignadate != null" >
+		#{item.cSignadate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cRemark != null" >
+		#{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		#{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDr != null" >
+		#{item.cDr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestamp != null" >
+		#{item.cTimestamp,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreater != null" >
+		#{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		#{item.cCreatetime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifier != null" >
+		#{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytime != null" >
+		#{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01 != null" >
+		#{item.cSw01,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02 != null" >
+		#{item.cSw02,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03 != null" >
+		#{item.cSw03,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04 != null" >
+		#{item.cSw04,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05 != null" >
+		#{item.cSw05,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06 != null" >
+		#{item.cSw06,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07 != null" >
+		#{item.cSw07,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08 != null" >
+		#{item.cSw08,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09 != null" >
+		#{item.cSw09,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10 != null" >
+		#{item.cSw10,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11 != null" >
+		#{item.cSw11,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12 != null" >
+		#{item.cSw12,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13 != null" >
+		#{item.cSw13,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14 != null" >
+		#{item.cSw14,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppcode != null" >
+		#{item.cSuppcode,jdbcType=VARCHAR},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UGYS_DJB_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gysDjbM1s1" index="index" item="item" open="begin" separator=";">  
+	        update TP_SUPPLIEFORM
+	         <set >
+	 <if test="item.cId != null" >
+		C_ID = #{item.cId,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15 != null" >
+		C_SW15 = #{item.cSw15,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cChinesename != null" >
+		C_CHINESENAME = #{item.cChinesename,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnglishname != null" >
+		C_ENGLISHNAME = #{item.cEnglishname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppmoney != null" >
+		C_SUPPMONEY = #{item.cSuppmoney,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNature != null" >
+		C_NATURE = #{item.cNature,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationr != null" >
+		C_OPERATIONR = #{item.cOperationr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationn != null" >
+		C_OPERATIONN = #{item.cOperationn,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOperationt != null" >
+		C_OPERATIONT = #{item.cOperationt,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppeople != null" >
+		C_SUPPEOPLE = #{item.cSuppeople,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupphone != null" >
+		C_SUPPHONE = #{item.cSupphone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaxno != null" >
+		C_FAXNO = #{item.cFaxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppshone != null" >
+		C_SUPPSHONE = #{item.cSuppshone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupemail != null" >
+		C_SUPEMAIL = #{item.cSupemail,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupaddress != null" >
+		C_SUPADDRESS = #{item.cSupaddress,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBankname != null" >
+		C_BANKNAME = #{item.cBankname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cAccountno != null" >
+		C_ACCOUNTNO = #{item.cAccountno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppagent != null" >
+		C_SUPPAGENT = #{item.cSuppagent,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppdealer != null" >
+		C_SUPPDEALER = #{item.cSuppdealer,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastps != null" >
+		C_PASTPS = #{item.cPastps,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPast != null" >
+		C_PAST = #{item.cPast,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastnt != null" >
+		C_PASTNT = #{item.cPastnt,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastcomp != null" >
+		C_PASTCOMP = #{item.cPastcomp,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastturnov != null" >
+		C_PASTTURNOV = #{item.cPastturnov,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPasteople != null" >
+		C_PASTEOPLE = #{item.cPasteople,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPasthone != null" >
+		C_PASTHONE = #{item.cPasthone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPastfaxno != null" >
+		C_PASTFAXNO = #{item.cPastfaxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSignatory != null" >
+		C_SIGNATORY = #{item.cSignatory,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSignadate != null" >
+		C_SIGNADATE = #{item.cSignadate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE = #{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDr != null" >
+		C_DR = #{item.cDr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestamp != null" >
+		C_TIMESTAMP = #{item.cTimestamp,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01 != null" >
+		C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02 != null" >
+		C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03 != null" >
+		C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04 != null" >
+		C_SW04 = #{item.cSw04,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05 != null" >
+		C_SW05 = #{item.cSw05,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06 != null" >
+		C_SW06 = #{item.cSw06,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07 != null" >
+		C_SW07 = #{item.cSw07,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08 != null" >
+		C_SW08 = #{item.cSw08,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09 != null" >
+		C_SW09 = #{item.cSw09,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10 != null" >
+		C_SW10 = #{item.cSw10,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11 != null" >
+		C_SW11 = #{item.cSw11,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12 != null" >
+		C_SW12 = #{item.cSw12,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13 != null" >
+		C_SW13 = #{item.cSw13,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14 != null" >
+		C_SW14 = #{item.cSw14,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSuppcode != null" >
+		C_SUPPCODE = #{item.cSuppcode,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DGYS_DJB_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gysDjbM1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_SUPPLIEFORM
+ WHERE 1 = 1 
+		and C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

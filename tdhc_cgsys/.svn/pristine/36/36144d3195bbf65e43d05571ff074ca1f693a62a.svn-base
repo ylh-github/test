@@ -1,0 +1,817 @@
+package code_fb_cg.service.impl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractst;
+import code_fb_cg.entity.TpCgmoneybook;
+import code_fb_cg.mapper.TpCgcontractmtMapper;
+import code_fb_cg.mapper.TpCgcontractstMapper;
+import code_fb_cg.mapper.TpCgmoneybookMapper;
+import code_fb_cg.request.ContractmtList2;
+import code_fb_cg.request.MoneyBook;
+import code_fb_cg.request.MoneyRequestDel;
+import code_fb_cg.service.TpCgmoneybookService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RandomId;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+
+@Service("tpCgmoneybookService")
+public class TpCgmoneybookServiceImpl implements TpCgmoneybookService {
+
+	@Autowired
+	private TpCgmoneybookMapper tpCgmoneybookMapper;
+	@Autowired
+	private TpCgcontractstMapper tpCgcontractstMapper;
+	@Autowired
+	private TpCgcontractmtMapper tpCgcontractmtMapper;
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ResponseObject<EmptyTag, List<TpCgmoneybook>> selectForMoneyBook(
+			RequestObject<EmptyTag, List<TpCgcontractmt>> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		TpCgmoneybook book = new TpCgmoneybook();
+		book.setcConmtid(requestObject.getData().get(0).getcId());
+		List<TpCgmoneybook> data = tpCgmoneybookMapper.selectForMoneyBook(book);
+		if (data.size() == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("查询失败").build();
+		}
+		return builder.data(data).errcode(Errcode.Success).build();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> insertMoneyBook(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		// TODO 根据合同添加付款明细
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<TpCgmoneybook> book = requestObject.getData().getMoneybook();
+		TpCgcontractmt tpmt = new TpCgcontractmt();
+		tpmt.setcId(book.get(0).getcConmtid());
+		List<TpCgcontractmt> conmt = tpCgcontractmtMapper.selectById(tpmt);//根据合同ID  查询合同主表
+//		BigDecimal bsw02;//未付金额
+//		BigDecimal bmoney;//实付金额
+		Double temp = 0.00;//已有付款的实付金额总数
+		Double money = 0.00;//实付金额
+		Double money1 = 0.00;//申请金额
+		Double conmoney = 0.00;//合同中原有的金额总数
+		money = Double.parseDouble(book.get(0).getcClearmoney());//付款明细的实付金额
+		conmoney = Double.parseDouble(conmt.get(0).getcConmoney());//合同金额
+		if(requestObject.getData().getMoneybook().get(0).getcClearmoney().indexOf("-")==0) {//如果付款明细中申请金额中含有'-' 则修改合同的总金额 减去申请金额
+			money1 = Double.parseDouble(book.get(0).getcClearmoney().replace("-", ""));//付款明细的申请金额
+			conmt.get(0).setcConmoney(ri.formatForTwo(new BigDecimal(conmoney-money1)));
+			List<TpCgmoneybook> list = tpCgmoneybookMapper.selectForMoneyBook(book.get(0));
+			if (list.size() != 0) {
+				for (int i = 0; i < list.size(); i++) {
+					if(list.get(i).getcClearmoney().indexOf("-") == -1) {
+						temp += Double.valueOf(list.get(i).getcClearmoney());//已有的付款明细总付款金额
+					}
+				}
+				conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(temp)));//实付金额金额不变
+				conmt.get(0).setcSw02(ri.formatForTwo(new BigDecimal(conmoney-money1-temp)));//合同金额-申请金额-实付金额=未付金额
+				if((conmoney-money1-temp) != 0 && temp != 0) {
+					conmt.get(0).setcSignstep("2");
+				}else if(temp == 0){
+					conmt.get(0).setcSignstep("0");
+				}
+			}
+			if(list.size() == 0) {
+				//conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(money)));//如果没有直接将付款明细的实付款修改到
+				conmt.get(0).setcSw02(ri.formatForTwo(new BigDecimal(conmoney-money1)));//合同金额-申请金额 = 新的合同金额=未付金额
+//				if((conmoney-money1) == 0) {
+//					conmt.get(0).setcSignstep("1");
+//				}else {
+//					conmt.get(0).setcState("0");
+//					conmt.get(0).setcSignstep("0");
+//				}
+			}
+//			if(conmoney-temp < money1) {
+//				return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+//			}
+			int row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));//修改合同的总金额
+			if (row0 == 0) {
+				return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+			}
+			//book.get(0).setcClearmoney(ri.formatForTwo(new BigDecimal(book.get(0).getcClearmoney())));
+			int row = tpCgmoneybookMapper.insertMoneyBook(book.get(0));
+			if (row != 0) {
+				return builder.errcode(Errcode.Success).msg("添加成功").build();
+			}
+		}
+		if(requestObject.getData().getMoneybook().get(0).getcClearmoney().indexOf("+")==0) {//如果付款明细中申请金额中含有'-' 则修改合同的总金额 加上申请金额
+			money1 = Double.parseDouble(book.get(0).getcClearmoney().replace("+", ""));//付款明细的申请金额
+			conmt.get(0).setcConmoney(ri.formatForTwo(new BigDecimal(conmoney+money1)));//合同金额
+			List<TpCgmoneybook> list = tpCgmoneybookMapper.selectForMoneyBook(book.get(0));
+			if (list.size() != 0) {
+				for (int i = 0; i < list.size(); i++) {
+					if(list.get(i).getcClearmoney().indexOf("+") == -1) {
+						temp += Double.valueOf(list.get(i).getcClearmoney());//已有的付款明细总付款金额
+					}
+				}
+				conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(temp)));//实付金额金额不变
+				conmt.get(0).setcSw02(ri.formatForTwo(new BigDecimal(conmoney+money1-temp)));//合同金额+申请金额-实付金额=未付金额
+				if((conmoney+money1-temp) != 0 && temp != 0) {
+					conmt.get(0).setcSignstep("2");
+				}else if(temp == 0){
+					conmt.get(0).setcSignstep("0");
+				}
+			}
+			if(list.size() == 0) {
+				//conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(money)));//如果没有直接将付款明细的实付款修改到
+				conmt.get(0).setcSw02(ri.formatForTwo(new BigDecimal(conmoney+money1)));//合同金额+申请金额 = 新的合同金额=未付金额
+//				if((conmoney+money1)==0) {
+//					conmt.get(0).setcSignstep("1");
+//					if(conmt.get(0).getcCheckway().equals("1") && conmt.get(0).getcTransway().equals("1")) {
+//						conmt.get(0).setcState("1");
+//					}else {
+//						conmt.get(0).setcState("0");
+//					}
+//				}else {
+//					conmt.get(0).setcState("0");
+//					conmt.get(0).setcSignstep("0");
+//				}
+			}
+			int row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));//修改合同的总金额
+			if (row0 == 0) {
+				return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+			}
+			//book.get(0).setcClearmoney(ri.formatForTwo(new BigDecimal(book.get(0).getcClearmoney())));
+			int row = tpCgmoneybookMapper.insertMoneyBook(book.get(0));
+			if (row != 0) {
+				return builder.errcode(Errcode.Success).msg("添加成功").build();
+			}
+		}
+		List<TpCgmoneybook> list = tpCgmoneybookMapper.selectForMoneyBook(book.get(0));
+		if (list.size() != 0) {
+			for (int i = 0; i < list.size(); i++) {
+				if(list.get(i).getcClearmoney().indexOf("-") == -1 && list.get(i).getcClearmoney().indexOf("+") == -1) {
+					temp += Double.valueOf(list.get(i).getcClearmoney());
+				}
+			}
+			BigDecimal btemp = new BigDecimal(temp.toString());
+			BigDecimal bconmoney = new BigDecimal(conmoney.toString());
+			BigDecimal bmoney = new BigDecimal(money.toString());
+			conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(temp+money)));//实付金额
+			conmt.get(0).setcSw02(ri.formatForTwo(bconmoney.subtract(btemp).subtract(bmoney)));
+			if((bconmoney.subtract(btemp).subtract(bmoney)).compareTo(new BigDecimal("0")) != 0 && btemp.add(bmoney).compareTo(new BigDecimal("0")) !=0) {
+				conmt.get(0).setcSignstep("2");
+			}else if(btemp.add(bmoney).compareTo(new BigDecimal("0")) ==0){
+				conmt.get(0).setcSignstep("0");
+			}
+		}
+		if(list.size() == 0) {
+			conmt.get(0).setcSw01(ri.formatForTwo(new BigDecimal(money)));//如果没有直接将付款明细的实付款修改到
+			conmt.get(0).setcSw02(ri.formatForTwo(new BigDecimal(conmoney-money)));
+			if((conmoney-money) != 0 && money != 0) {
+				conmt.get(0).setcSignstep("2");
+			}else if(money == 0){
+				conmt.get(0).setcSignstep("0");
+			}
+		}
+//		System.out.println(conmoney-temp+"aaaaaaaaaaaaaaaaaaaaaaaaa");
+//		System.out.println(money+"bbbbbbbbbbbbbbbbbbbbbbb");
+//		bsw02 = new BigDecimal(conmoney-temp);
+//		bmoney = new BigDecimal(money);
+//		if(bsw02.compareTo(bmoney) == -1) {
+//			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+//		}
+		book.get(0).setcClearmoney(ri.formatForTwo(new BigDecimal(book.get(0).getcClearmoney())));
+		int row = tpCgmoneybookMapper.insertMoneyBook(book.get(0));
+		if (row == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		int row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));
+		if (row0 == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		return builder.data(row).errcode(Errcode.Success).msg("添加成功").build();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> delectById(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<TpCgmoneybook> book = requestObject.getData().getMoneybook();//前端传参
+		List<TpCgmoneybook> bookRemoney = new ArrayList<TpCgmoneybook>();//如果传参存在有包含- +的数据 存放集合
+		for (TpCgmoneybook tpCgmoneybook : book) {
+			if(tpCgmoneybook.getcClearmoney().indexOf("-")==0) {
+				bookRemoney.add(tpCgmoneybook);
+			}
+			if(tpCgmoneybook.getcClearmoney().indexOf("+")==0) {
+				bookRemoney.add(tpCgmoneybook);
+			}
+		}
+//		List<TpCgmoneybook> bookRemoney = tpCgmoneybookMapper.selectForMoneyBookAndRemoney(requestObject.getData().getCgH002S2s3().get(0).getcConnum());
+		//查询该付款明细 属于哪个合同
+		TpCgcontractmt mt = tpCgcontractmtMapper.selectByPrimaryKey(book.get(0).getcConmtid());//付款明细的合同主键就是合同CID
+		int row0 = tpCgmoneybookMapper.delectById(book);
+		if(row0==0) {
+			return builder.errcode(Errcode.FailParameterError).msg("删除失败").build();
+		}
+		double mo = 0.00;//删除的实付金额
+		double conmo = 0.00;//合同的原金额
+		double consw01 = 0.00;//合同实付金额
+		double consw02 = 0.00;//合同未付金额
+		double remore = 0.00;//删除的付款中存在申请金额修改合同金额的数据   申请金额
+		double remoadd = 0.00;//删除的付款中存在申请金额修改合同金额的数据   申请金额
+		double remo = 0.00;//增加和减少的差值
+		 conmo = Double.parseDouble(mt.getcConmoney());//合同的原有合同金额
+		 if(mt.getcSw01()==null) {
+			 consw01 = Double.parseDouble("0");//合同实付金额
+		 }
+		 if(mt.getcSw01()!=null) {
+			 consw01 = Double.parseDouble(mt.getcSw01());//合同实付金额
+		 }
+		 if(mt.getcSw02()==null) {
+			 consw02 = Double.parseDouble("0");//合同未付金额
+		 }
+		 if(mt.getcSw02()!=null) {
+			 consw02 = Double.parseDouble(mt.getcSw02());//合同未付金额
+		 }
+		 
+		for (int i = 0; i < book.size(); i++) {
+			if(book.get(i).getcClearmoney().indexOf("-") == -1 && book.get(i).getcClearmoney().indexOf("+") == -1) {
+				mo += Double.valueOf(book.get(i).getcClearmoney());//删除的实付金额
+			}	
+		}
+		//如果删除的付款明细是为了修改合同金额的付款条    
+		if(bookRemoney.size() > 0) {
+			for (int i = 0; i < bookRemoney.size(); i++) {
+				if(bookRemoney.get(i).getcClearmoney().indexOf("-")==0) {
+					remore += Double.valueOf(bookRemoney.get(i).getcClearmoney().replace("-", ""));//删除中存在的申请金额
+				}
+				if(bookRemoney.get(i).getcClearmoney().indexOf("+")==0) {
+					remoadd += Double.valueOf(bookRemoney.get(i).getcClearmoney().replace("+", ""));//删除中存在的申请金额
+				}
+			}
+			if(remore >= remoadd) {
+				remo = remore-remoadd;
+				mt.setcConmoney(ri.formatForTwo(new BigDecimal(conmo+remo)));//合同原金额 + 申请金额 = 新的合同金额
+				String mtid = mt.getcId();//合同ID
+				mt.setcSw01(ri.formatForTwo(new BigDecimal(consw01-mo)));
+				mt.setcSw02(ri.formatForTwo(new BigDecimal(consw02+mo+remo)));//合同未付金额+申请金额 = 新的未付金额
+				mt.setcId(mtid);
+				if((conmo+remo) - (consw01-mo) != 0 && (consw01-mo) != 0) {
+					mt.setcSignstep("2");
+				}else if((consw01-mo) == 0){
+					mt.setcSignstep("0");
+				}
+				int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+				if(row1!=0) {
+					return builder.errcode(Errcode.Success).msg("删除成功").build();
+				}
+			}
+			if(remore < remoadd) {
+				remo = remoadd-remore;
+				mt.setcConmoney(ri.formatForTwo(new BigDecimal(conmo-remo)));//合同原金额 - 申请金额 = 新的合同金额
+				String mtid = mt.getcId();//合同ID
+				mt.setcSw01(ri.formatForTwo(new BigDecimal(consw01-mo)));
+				mt.setcSw02(ri.formatForTwo(new BigDecimal(consw02+mo-remo)));//合同未付金额-申请金额 = 新的未付金额
+				mt.setcId(mtid);
+				if((conmo-remo) - (consw01-mo) != 0 && (consw01-mo) != 0) {
+					mt.setcSignstep("2");
+				}else if((consw01-mo) == 0){
+					mt.setcSignstep("0");
+				}
+				int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+				if(row1!=0) {
+					return builder.errcode(Errcode.Success).msg("删除成功").build();
+				}
+			}
+		}
+		String mtid = mt.getcId();//合同ID
+		mt.setcSw01(ri.formatForTwo(new BigDecimal(consw01-mo)));
+		mt.setcSw02(ri.formatForTwo(new BigDecimal(consw02+mo)));
+		mt.setcId(mtid);
+		if(conmo - (consw01-mo) != 0 && (consw01-mo) != 0) {
+			mt.setcSignstep("2");
+		}else if((consw01-mo) == 0){
+			mt.setcSignstep("0");
+		}
+		int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+		if(row1==0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("删除失败").build();
+		}
+		return builder.errcode(Errcode.Success).msg("删除成功").build();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> updateByPrimaryKey(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		TpCgcontractmt mt = tpCgcontractmtMapper.selectByPrimaryKey(requestObject.getData().getMoneybook().get(0).getcConmtid());
+		TpCgmoneybook book0 = tpCgmoneybookMapper.selectByPrimaryKey(requestObject.getData().getMoneybook().get(0).getcId());
+		TpCgmoneybook book = requestObject.getData().getMoneybook().get(0);
+		double money = 0.00;//修改前的实付金额 付款明细
+		double como = 0.00;//合同金额
+		double mo = 0.00;//修改前的实付
+		double coso = 0.00;//修改前的未支付
+//		double sy = 0.00;//差值
+		double money1 = 0.00;//申请中带-的申请金额修改后
+		double remore = 0.00;//申请中带-的申请金额修改前后的差值
+		
+		
+//		double remore1 = 0.00;//申请中带-的申请金额修改前
+//		double remoadd0 = 0.00;//申请中带+的申请金额修改后
+//		double remoadd1 = 0.00;//申请中带+的申请金额修改前
+//		double remoadd = 0.00;//申请中带+的申请金额修改前后的差值
+//		 money = Double.parseDouble(book0.getcClearmoney());//修改前的实付金额 付款明细
+		 como = Double.parseDouble(mt.getcConmoney());//合同金额
+		 mo = Double.parseDouble(mt.getcSw01());//修改前的实付
+		 coso = Double.parseDouble(mt.getcSw02());//修改前的未支付
+//		 sy = como-coso;
+//		 //remore0 = Double.parseDouble(book.getcRemoney().replace("-", ""));//修改后申请金额
+//		 remore1 = Double.parseDouble(book0.getcRemoney().replace("-", ""));//修改前申请金额
+//		 remoadd0 = Double.parseDouble(book.getcRemoney().replace("+", ""));//修改后申请金额
+//		 remoadd1 = Double.parseDouble(book0.getcRemoney().replace("+", ""));//修改前申请金额
+		if(book.getcClearmoney().indexOf("-") == 0) {//判断修改的付款明细中 申请金额是否有‘-’
+			money1 = Double.parseDouble(book.getcClearmoney().replace("-", ""));//修改后申请金额
+			if(book0.getcClearmoney().indexOf("-") == 0) {
+				money = Double.parseDouble(book0.getcClearmoney().replace("-", ""));//修改前的实付金额 付款明细
+//				if((coso + money) < money1) {
+//					return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//				}
+				if(money1 >= money) {//修改后的 >= 修改前的
+					remore = money1-money;
+					mt.setcConmoney(ri.formatForTwo(new BigDecimal(como-remore)));//合同金额 - 差值
+					mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+					mt.setcSw02(ri.formatForTwo(new BigDecimal(coso-remore)));//未付金额 = 修改前未付 - 差值
+					mt.setcId(mt.getcId());
+					if((como-remore) - mo != 0 && mo != 0) {
+						mt.setcSignstep("2");
+					}else if(mo == 0){
+						mt.setcSignstep("0");
+					}
+					//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+					int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+					if(row0==0) {
+						return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+					}
+					int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+					if(row1!=0) {
+						return builder.errcode(Errcode.Success).msg("修改成功").build();
+					}
+				}
+				if(money1 < money) {//修改后的 < 修改前的
+					remore = money-money1;
+					mt.setcConmoney(ri.formatForTwo(new BigDecimal(como+remore)));//合同金额 + 差值
+					mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+					mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+remore)));//未付金额 = 修改前未付 + 差值
+					mt.setcId(mt.getcId());
+					if((como+remore) - mo != 0 && mo != 0) {
+						mt.setcSignstep("2");
+					}else if(mo == 0){
+						mt.setcSignstep("0");
+					}
+					//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+					int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+					if(row0==0) {
+						return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+					}
+					int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+					if(row1!=0) {
+						return builder.errcode(Errcode.Success).msg("修改成功").build();
+					}
+				}	
+			}
+			if(book0.getcClearmoney().indexOf("+") == 0) {
+				money = Double.parseDouble(book0.getcClearmoney().replace("+", ""));//修改前的实付金额 付款明细
+//				if((coso - money) < money1) {
+//					return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//				}
+				mt.setcConmoney(ri.formatForTwo(new BigDecimal(como-money-money1)));//合同金额 - 修改前 - 修改后
+				mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+				mt.setcSw02(ri.formatForTwo(new BigDecimal(coso-money-money1)));//未付金额 = 修改前未付 - 修改前 - 修改后
+				mt.setcId(mt.getcId());
+				if((como-money-money1) - mo != 0 && mo != 0) {
+					mt.setcSignstep("2");
+				}else if(mo == 0){
+					mt.setcSignstep("0");
+				}
+				//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+				int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+				if(row0==0) {
+					return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+				}
+				int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+				if(row1!=0) {
+					return builder.errcode(Errcode.Success).msg("修改成功").build();
+				}
+			}
+			
+			money = Double.parseDouble(book0.getcClearmoney());//修改前的实付金额 付款明细
+//			if((coso + money) < money1) {
+//				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//			}
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como-money1)));//合同金额 - 修改前 - 修改后
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo - money)));//实付金额  - 修改前
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+money-money1)));//未付金额 = 修改前未付 - 修改前 - 修改后
+			mt.setcId(mt.getcId());
+			if((como-money1) - (mo - money) != 0 && (mo - money) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo - money) == 0){
+				mt.setcSignstep("0");
+			}
+			//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1!=0) {
+				return builder.errcode(Errcode.Success).msg("修改成功").build();
+			}
+			
+		}
+		if(book.getcClearmoney().indexOf("+")==0) {//判断修改的付款明细中 申请金额是否有‘+’
+			money1 = Double.parseDouble(book.getcClearmoney().replace("+", ""));//修改后申请金额
+			
+			if(book0.getcClearmoney().indexOf("+") == 0) {//判断修改前的付款明细中 申请金额是否有‘+’
+				money = Double.parseDouble(book0.getcClearmoney().replace("+", ""));//修改前的实付金额 付款明细
+				if(money1 >= money) {//修改后的 >= 修改前的
+					remore = money1-money;
+					mt.setcConmoney(ri.formatForTwo(new BigDecimal(como+remore)));//合同金额 + 差值
+					mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+					mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+remore)));//未付金额 = 修改前未付 + 差值
+					mt.setcId(mt.getcId());
+					if((como+remore) - mo != 0 && mo != 0) {
+						mt.setcSignstep("2");
+					}else if(mo == 0){
+						mt.setcSignstep("0");
+					}
+					//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+					int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+					if(row0==0) {
+						return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+					}
+					int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+					if(row1!=0) {
+						return builder.errcode(Errcode.Success).msg("修改成功").build();
+					}
+				}
+				if(money1 < money) {//修改后的 < 修改前的
+					remore = money-money1;
+					mt.setcConmoney(ri.formatForTwo(new BigDecimal(como-remore)));//合同金额 - 差值
+					mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+					mt.setcSw02(ri.formatForTwo(new BigDecimal(coso-remore)));//未付金额 = 修改前未付 - 差值
+					mt.setcId(mt.getcId());
+					if((como-remore) - mo != 0 && mo != 0) {
+						mt.setcSignstep("2");
+					}else if(mo == 0){
+						mt.setcSignstep("0");
+					}
+					//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+					int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+					if(row0==0) {
+						return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+					}
+					int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+					if(row1!=0) {
+						return builder.errcode(Errcode.Success).msg("修改成功").build();
+					}
+				}	
+			}
+			if(book0.getcClearmoney().indexOf("-") == 0) {
+				money = Double.parseDouble(book0.getcClearmoney().replace("-", ""));//修改前的实付金额 付款明细
+		
+				mt.setcConmoney(ri.formatForTwo(new BigDecimal(como+money+money1)));//合同金额 + 修改前 + 修改后
+				mt.setcSw01(ri.formatForTwo(new BigDecimal(mo)));//实付金额不变
+				mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+money+money1)));//未付金额 = 修改前未付 + 修改前 + 修改后
+				mt.setcId(mt.getcId());
+				if((como+money+money1) - mo != 0 && mo != 0) {
+					mt.setcSignstep("2");
+				}else if(mo == 0){
+					mt.setcSignstep("0");
+				}
+				//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+				int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+				if(row0==0) {
+					return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+				}
+				int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+				if(row1!=0) {
+					return builder.errcode(Errcode.Success).msg("修改成功").build();
+				}
+			}
+			
+			money = Double.parseDouble(book0.getcClearmoney());//修改前的实付金额 付款明细
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como+money1)));//合同金额 - 差值
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo-money)));//实付金额不变
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+money+money1)));//未付金额 = 修改前未付 - 差值
+			mt.setcId(mt.getcId());
+			if((como+money1) - (mo-money) != 0 && (mo-money) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo-money) == 0){
+				mt.setcSignstep("0");
+			}
+			//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1!=0) {
+				return builder.errcode(Errcode.Success).msg("修改成功").build();
+			}	
+		}
+		
+		money1 = Double.parseDouble(book.getcClearmoney());//修改后申请金额
+		if(book0.getcClearmoney().indexOf("-") == 0) {
+			money = Double.parseDouble(book0.getcClearmoney().replace("-", ""));//修改前的实付金额 付款明细
+//			if((coso + money) < money1) {
+//				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//			}
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como+money)));//合同金额 + 修改前的申请金额
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo + money1)));//实付金额 = 修改前实付 + 修改后的申请金额
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso+money-money1)));//未付金额 = 修改前未付 + 修改前的申请金额 - 修改后的申请金额
+			mt.setcId(mt.getcId());
+			if((como+money) - (mo + money1) != 0 && (mo + money1) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo + money1) == 0){
+				mt.setcSignstep("0");
+			}
+			book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1!=0) {
+				return builder.errcode(Errcode.Success).msg("修改成功").build();
+			}		
+		}
+		if(book0.getcClearmoney().indexOf("+") == 0) {
+			money = Double.parseDouble(book0.getcClearmoney().replace("+", ""));//修改前的实付金额 付款明细
+//			if((coso - money) < money1) {
+//				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//			}
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como-money)));//合同金额 - 修改前的申请金额
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo + money1)));//实付金额 = 修改前实付 + 修改后的申请金额
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso-money-money1)));//未付金额 = 修改前未付 - 修改前的申请金额 - 修改后的申请金额
+			mt.setcId(mt.getcId());
+			if((como-money) - (mo + money1) != 0 && (mo + money1) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo + money1) == 0){
+				mt.setcSignstep("0");
+			}
+			//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1!=0) {
+				return builder.errcode(Errcode.Success).msg("修改成功").build();
+			}
+		}
+		
+		money = Double.parseDouble(book0.getcClearmoney());//修改前的实付金额 付款明细
+//		if((coso + money) < money1) {
+//			return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+//		}
+		if(money1 >= money) {//修改后的 >= 修改前的
+			remore = money1-money;
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como)));//合同金额不变
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo + remore)));//实付金额 + 差值
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso - remore)));//未付金额 = 修改前未付 - 差值
+			mt.setcId(mt.getcId());
+			if(como - (mo + remore) != 0 && (mo + remore) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo + remore) == 0){
+				mt.setcSignstep("0");
+			}
+			book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1!=0) {
+				return builder.errcode(Errcode.Success).msg("修改成功").build();
+			}
+		}
+		if(money1 < money) {//修改后的 < 修改前的
+			remore = money-money1;
+			mt.setcConmoney(ri.formatForTwo(new BigDecimal(como)));//合同金额不变
+			mt.setcSw01(ri.formatForTwo(new BigDecimal(mo - remore)));//实付金额 - 差值
+			mt.setcSw02(ri.formatForTwo(new BigDecimal(coso + remore)));//未付金额 = 修改前未付 + 差值
+			mt.setcId(mt.getcId());
+			if(como - (mo - remore) != 0 && (mo - remore) != 0) {
+				mt.setcSignstep("2");
+			}else if((mo - remore) == 0){
+				mt.setcSignstep("0");
+			}
+			//book.setcClearmoney(ri.formatForTwo(new BigDecimal(book.getcClearmoney())));
+			int row0 = tpCgmoneybookMapper.updateByPrimaryKeySelective(book);
+			if(row0==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+			int row1 = tpCgcontractmtMapper.updateByPrimaryKeySelective(mt);
+			if(row1==0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+			}
+		}
+		return builder.errcode(Errcode.Success).msg("修改成功").build();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> updateMoneyFinashi(
+			RequestObject<EmptyTag, ContractmtList2> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		for (TpCgcontractmt iterable_element : requestObject.getData().getList()) {
+			List<TpCgcontractst> stList = tpCgcontractstMapper.selectByCountSt(iterable_element.getcConnum());
+			List<TpCgmoneybook> book = new ArrayList<TpCgmoneybook>();
+			TpCgmoneybook mb = new TpCgmoneybook();
+			mb.setcConmtid(stList.get(0).getcMtid());//合同主键
+			mb.setcConnum(stList.get(0).getcConnum());//合同号
+			mb.setcGettime(iterable_element.getcGettime());//取号日期
+			mb.setcSupplier(iterable_element.getcSupplier());//供应商
+			mb.setcOrman(iterable_element.getcSw10());//采购员
+			mb.setcRemoney(iterable_element.getcConmoney());//合同金额
+			mb.setcPaytime(new Date());//付款时间
+			mb.setcClearmoney(iterable_element.getcConmoney());//实付金额
+			mb.setcCreater(iterable_element.getcCreater());
+			mb.setcCreatetime(new Date());
+			book.add(mb);
+			//添加每个物资的付款明细
+			int row = tpCgmoneybookMapper.updateMoneyFinashi(book);
+			if(row == 0) {
+				return builder.errcode(Errcode.FailParameterError).msg("付款失败").build();
+			}
+			//修改合同的实付和未付金额
+			RandomId ri = new RandomId();
+			iterable_element.setcSw01(ri.formatForTwo(new BigDecimal(iterable_element.getcConmoney())));
+			iterable_element.setcSw02(ri.formatForTwo(new BigDecimal("0")));
+			int row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(iterable_element);
+			if(row0 ==0) {
+				return builder.errcode(Errcode.FailParameterError).msg("付款失败").build();
+			}
+		}
+		return builder.errcode(Errcode.Success).msg("付款成功").build();
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> ADDfukuan(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<TpCgmoneybook> book = requestObject.getData().getMoneybook();
+		
+		TpCgcontractmt tpmt = new TpCgcontractmt();
+		tpmt.setcId(book.get(0).getcConmtid());
+		List<TpCgcontractmt> conmt = tpCgcontractmtMapper.selectById(tpmt);//根据合同ID  查询合同主表
+		BigDecimal money = new BigDecimal(conmt.get(0).getcSw01());//合同已付金额
+		BigDecimal nomoney = new BigDecimal(conmt.get(0).getcSw02());//合同未付金额
+		BigDecimal bookmoney = new BigDecimal(book.get(0).getcClearmoney());//申请金额
+		if("0".equals(book.get(0).getcRethings())) {
+			conmt.get(0).setcSw01(ri.formatForTwo(money.add(bookmoney)));
+			conmt.get(0).setcSw02(ri.formatForTwo(nomoney.subtract(bookmoney)));		
+		}
+		if("1".equals(book.get(0).getcRethings())) {
+			conmt.get(0).setcSw01(ri.formatForTwo(money.subtract(bookmoney)));
+			conmt.get(0).setcSw02(ri.formatForTwo(nomoney.add(bookmoney)));	
+		}
+		//判断合同未付金额是否为0  为0时 修改合同付款完成
+//		if("0.00".equals(conmt.get(0).getcSw02())) {
+//			conmt.get(0).setcSignstep("1");
+//		}else 
+		money = new BigDecimal(conmt.get(0).getcSw01());//获取修改的已付金额
+		//判断已付金额是否为0  为0时 合同未付款
+		if(money.compareTo(BigDecimal.ZERO) == 0) {
+			conmt.get(0).setcSignstep("0");
+		}else {
+			conmt.get(0).setcSignstep("2");
+		}
+		int row0 = 0;
+		row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));//修改金额
+		if (row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		book.get(0).setcClearmoney(ri.formatForTwo(new BigDecimal(book.get(0).getcClearmoney())));
+		int row = 0;
+		row = tpCgmoneybookMapper.ADDfukuan(book);
+		if(row == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		return builder.errcode(Errcode.Success).msg("添加成功").build();
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> updateFUKUAN(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<TpCgmoneybook> book = requestObject.getData().getMoneybook();
+		TpCgcontractmt tpmt = new TpCgcontractmt();
+		tpmt.setcId(book.get(0).getcConmtid());
+		List<TpCgcontractmt> conmt = tpCgcontractmtMapper.selectById(tpmt);//根据合同ID  查询合同主表
+		TpCgmoneybook book0 = tpCgmoneybookMapper.selectByPrimaryKey(book.get(0).getcId());
+		BigDecimal money = new BigDecimal(conmt.get(0).getcSw01());//合同已付金额
+		BigDecimal nomoney = new BigDecimal(conmt.get(0).getcSw02());//合同未付金额
+		BigDecimal bookmoney = new BigDecimal(book.get(0).getcClearmoney());//修改后申请金额
+		BigDecimal bookm = new BigDecimal(book0.getcClearmoney());//修改钱申请金额
+		if(bookm.compareTo(bookmoney) == 0) {
+			return builder.errcode(Errcode.Success).msg("修改成功").build();
+		}
+		if("0".equals(book0.getcRethings())) {//付款
+			if(bookmoney.compareTo(bookm) > 0 ) {//修改后的大于修改前的
+				conmt.get(0).setcSw01(ri.formatForTwo(money.add(bookmoney.subtract(bookm))));//已付金额 +差值
+				conmt.get(0).setcSw02(ri.formatForTwo(nomoney.subtract(bookmoney.subtract(bookm))));//未付金额 - 差值
+			}
+			if(bookmoney.compareTo(bookm) < 0 ) {//修改后的小于修改前的
+				conmt.get(0).setcSw01(ri.formatForTwo(money.subtract(bookm.subtract(bookmoney))));//已付金额 -差值
+				conmt.get(0).setcSw02(ri.formatForTwo(nomoney.add(bookm.subtract(bookmoney))));//未付金额 + 差值
+			}
+		}
+		if("1".equals(book0.getcRethings())) {//退款
+			if(bookmoney.compareTo(bookm) > 0 ) {//修改后的大于修改前的
+				conmt.get(0).setcSw01(ri.formatForTwo(money.subtract(bookmoney.subtract(bookm))));//已付金额-差值
+				conmt.get(0).setcSw02(ri.formatForTwo(nomoney.add(bookmoney.subtract(bookm))));//未付金额 + 差值
+			}
+			if(bookmoney.compareTo(bookm) < 0 ) {//修改后的小于修改前的
+				conmt.get(0).setcSw01(ri.formatForTwo(money.add(bookm.subtract(bookmoney))));//已付金额 +差值
+				conmt.get(0).setcSw02(ri.formatForTwo(nomoney.subtract(bookm.subtract(bookmoney))));//未付金额 - 差值
+			}
+		}
+		money = new BigDecimal(conmt.get(0).getcSw01());//获取修改的已付金额
+		//判断已付金额是否为0  为0时 合同未付款
+		if(money.compareTo(BigDecimal.ZERO) == 0) {
+			conmt.get(0).setcSignstep("0");
+		}else {
+			conmt.get(0).setcSignstep("2");
+		}
+		int row0 = 0;
+		row0 =tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));//修改金额
+		if (row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		book.get(0).setcClearmoney(ri.formatForTwo(new BigDecimal(book.get(0).getcClearmoney())));
+		int row = 0;
+		row = tpCgmoneybookMapper.updateFUKUAN(book);
+		if(row == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("修改失败").build();
+		}
+		return builder.errcode(Errcode.Success).msg("修改成功").build();
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> deleteFUKUAN(RequestObject<EmptyTag, MoneyBook> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<TpCgmoneybook> book = requestObject.getData().getMoneybook();
+		TpCgcontractmt tpmt = new TpCgcontractmt();
+		tpmt.setcId(book.get(0).getcConmtid());
+		List<TpCgcontractmt> conmt = tpCgcontractmtMapper.selectById(tpmt);//根据合同ID  查询合同主表
+		BigDecimal money = new BigDecimal(conmt.get(0).getcSw01());//合同已付金额
+		BigDecimal nomoney = new BigDecimal(conmt.get(0).getcSw02());//合同未付金额
+		BigDecimal bookmoney;
+		for(TpCgmoneybook moneybook : book) {
+			bookmoney = new BigDecimal(moneybook.getcClearmoney());//申请金额
+			if("0".equals(moneybook.getcRethings())) {
+				money = money.subtract(bookmoney);
+				nomoney = nomoney.add(bookmoney);
+			}
+			if("1".equals(moneybook.getcRethings())) {
+				money = money.add(bookmoney);
+				nomoney = nomoney.subtract(bookmoney);
+			}
+		}
+		
+		conmt.get(0).setcSw01(ri.formatForTwo(money));
+		conmt.get(0).setcSw02(ri.formatForTwo(nomoney));
+		
+		
+		//判断已付金额是否为0  为0时 合同未付款
+		if(money.compareTo(BigDecimal.ZERO) == 0) {
+			conmt.get(0).setcSignstep("0");
+		}else {
+			conmt.get(0).setcSignstep("2");
+		}
+		int row0 = 0;
+		row0 = tpCgcontractmtMapper.updateByPrimaryKeySelective(conmt.get(0));//修改金额
+		if (row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").build();
+		}
+		int row = tpCgmoneybookMapper.deleteFUKUAN(requestObject.getData().getMoneybook());
+		if(row == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("删除失败").build();
+		}
+		return builder.errcode(Errcode.Success).msg("删除成功").build();
+	}
+
+}

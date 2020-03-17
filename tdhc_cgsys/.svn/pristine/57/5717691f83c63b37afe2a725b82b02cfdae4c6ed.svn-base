@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code_fb_cg.mapper.TpCgcontractmtMapper">
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpCgcontractmt">
+    <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_CONNUM" jdbcType="VARCHAR" property="cConnum" />
+    <result column="C_CLUDECOM" jdbcType="VARCHAR" property="cCludecom" />
+    <result column="C_CLUDEADDR" jdbcType="VARCHAR" property="cCludeaddr" />
+    <result column="C_SUPPLIER" jdbcType="VARCHAR" property="cSupplier" />
+    <result column="C_CONMONEY" jdbcType="VARCHAR" property="cConmoney" />
+    <result column="C_PAYWAY" jdbcType="VARCHAR" property="cPayway" />
+    <result column="C_CHECKWAY" jdbcType="VARCHAR" property="cCheckway" />
+    <result column="C_TRANSWAY" jdbcType="VARCHAR" property="cTransway" />
+    <result column="C_SIGNSTEP" jdbcType="VARCHAR" property="cSignstep" /><!-- 作废状态 -->
+    <result column="C_FORINLAND" jdbcType="TIMESTAMP" property="cForinland" />
+    <result column="C_FOROUTLAND" jdbcType="TIMESTAMP" property="cForoutland" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_STATE" jdbcType="VARCHAR" property="cState" />
+    <result column="C_DR" jdbcType="TIMESTAMP" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="TIMESTAMP" property="cTimestamp" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" /><!-- 实付金额 -->
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" /><!-- 未付金额 -->
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" /><!-- 船号 -->
+    <result column="C_SW04" jdbcType="TIMESTAMP" property="cSw04" /><!-- 出船日期 -->
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" /><!-- 外贸号 -->
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" /><!-- 作废人 -->
+    <result column="C_SW07" jdbcType="TIMESTAMP" property="cSw07" /><!-- 作废时间 -->
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+    <result column="C_SW11" jdbcType="VARCHAR" property="cSw11" />
+    <result column="C_SW12" jdbcType="VARCHAR" property="cSw12" />
+    <result column="C_SW13" jdbcType="VARCHAR" property="cSw13" /><!-- 发货单状态 -->
+    <result column="C_SW14" jdbcType="VARCHAR" property="cSw14" />
+    <result column="C_SW15" jdbcType="VARCHAR" property="cSw15" /><!-- 合同类别 -->
+    <result column="C_SW16" jdbcType="TIMESTAMP" property="cSw16" /><!-- 分类时间 -->
+    <result column="C_SW17" jdbcType="VARCHAR" property="cSw17" />
+    <result column="C_SW18" jdbcType="TIMESTAMP" property="cSw18" />
+    <result column="C_SW19" jdbcType="VARCHAR" property="cSw19" />
+    <result column="C_SW20" jdbcType="VARCHAR" property="cSw20" />
+    <result column="C_SW21" jdbcType="VARCHAR" property="cSw21" />
+    <result column="C_SW22" jdbcType="TIMESTAMP" property="cSw22" />
+    <result column="C_SW23" jdbcType="VARCHAR" property="cSw23" />
+    <result column="C_SW24" jdbcType="VARCHAR" property="cSw24" />
+    <result column="C_SW25" jdbcType="VARCHAR" property="cSw25" />
+    <result column="C_SW26" jdbcType="TIMESTAMP" property="cSw26" />
+    <result column="C_SW27" jdbcType="TIMESTAMP" property="cSw27" />
+    <result column="C_CONLINE" jdbcType="VARCHAR" property="cConline" />
+    <result column="C_GETTIME" jdbcType="TIMESTAMP" property="cGettime" />
+    <result column="C_CLUDETIME" jdbcType="TIMESTAMP" property="cCludetime" />
+    <result column="C_ORMTID" jdbcType="VARCHAR" property="cOrmtid" />
+    <result column="C_ORSTID" jdbcType="VARCHAR" property="cOrstid" />
+    <result column="C_OUTCONNUM" jdbcType="VARCHAR" property="cOutconnum" />
+    <result column="C_SIGNPLACE" property="cSignplace" jdbcType="VARCHAR" />
+    <result column="C_SW28" jdbcType="VARCHAR" property="cSw28" />
+    <result column="C_CHACONNUM" jdbcType="VARCHAR" property="cChaconnum" />
+    <result column="C_SW29" jdbcType="VARCHAR" property="cSw29" />
+    <result column="C_SW30" jdbcType="VARCHAR" property="cSw30" />
+    <result column="C_SECONNUM" jdbcType="VARCHAR" property="cSeconnum" />
+    <result column="C_DELIVDATE" jdbcType="VARCHAR" property="cDelivdate" />
+  </resultMap>
+  <resultMap id="BaseResultMap2" type="code_fb_cg.request.ConMtAndSt">
+  <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_MTID" jdbcType="VARCHAR" property="cMtid" />
+    <result column="C_GOODSNAME" jdbcType="VARCHAR" property="cGoodsname" />
+    <result column="C_SPEC" jdbcType="VARCHAR" property="cSpec" />
+    <result column="C_UNIT" jdbcType="VARCHAR" property="cUnit" />
+    <result column="C_PRICE" jdbcType="VARCHAR" property="cPrice" />
+    <result column="C_CONLINE" jdbcType="VARCHAR" property="cConline" />
+    <result column="C_GOODSNUM" jdbcType="VARCHAR" property="cGoodsnum" />
+    <result column="C_GOODSCASE" jdbcType="VARCHAR" property="cGoodscase" />
+    <result column="C_SUMPRICE" jdbcType="VARCHAR" property="cSumprice" />
+    <result column="C_BEFOREARRTIME" jdbcType="TIMESTAMP" property="cBeforearrtime" />
+    <result column="C_ARRGOODSEX" jdbcType="VARCHAR" property="cArrgoodsex" />
+    <result column="C_ARRGOODSTIME" jdbcType="VARCHAR" property="cArrgoodstime" />
+    <result column="C_GROUDTOTALNUM" jdbcType="VARCHAR" property="cGroudtotalnum" />
+    <result column="C_RESIDUENUM" jdbcType="VARCHAR" property="cResiduenum" />
+    <result column="C_ARRALLYORN" jdbcType="VARCHAR" property="cArrallyorn" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_STATE" jdbcType="VARCHAR" property="cState" />
+    <result column="C_CHECKYORN" jdbcType="VARCHAR" property="cCheckyorn" />
+    <result column="C_QUADEALLINE" jdbcType="VARCHAR" property="cQuadealline" />
+    <result column="C_ORID" jdbcType="VARCHAR" property="cOrid" />
+    <result column="C_DR" jdbcType="TIMESTAMP" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="VARCHAR" property="cTimestamp" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_CONNUM" jdbcType="VARCHAR" property="cConnum" />
+    <result column="C_CLUDECOM" jdbcType="VARCHAR" property="cCludecom" />
+    <result column="C_CLUDEADDR" jdbcType="VARCHAR" property="cCludeaddr" />
+    <result column="C_SUPPLIER" jdbcType="VARCHAR" property="cSupplier" />
+    <result column="C_CONMONEY" jdbcType="VARCHAR" property="cConmoney" />
+    <result column="C_PAYWAY" jdbcType="VARCHAR" property="cPayway" />
+    <result column="C_CHECKWAY" jdbcType="VARCHAR" property="cCheckway" />
+    <result column="C_TRANSWAY" jdbcType="VARCHAR" property="cTransway" />
+    <result column="C_SIGNSTEP" jdbcType="VARCHAR" property="cSignstep" /><!-- 作废状态 -->
+    <result column="C_FORINLAND" jdbcType="TIMESTAMP" property="cForinland" />
+    <result column="C_FOROUTLAND" jdbcType="TIMESTAMP" property="cForoutland" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" /><!-- 实付金额 -->
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" /><!-- 未付金额 -->
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" /><!-- 船号 -->
+    <result column="C_SW04" jdbcType="TIMESTAMP" property="cSw04" /><!-- 出船日期 -->
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" /><!-- 外贸号 -->
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" /><!-- 作废人 -->
+    <result column="C_SW07" jdbcType="TIMESTAMP" property="cSw07" /><!-- 作废时间 -->
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+    <result column="C_SW11" jdbcType="VARCHAR" property="cSw11" />
+    <result column="C_SW12" jdbcType="VARCHAR" property="cSw12" />
+    <result column="C_SW13" jdbcType="VARCHAR" property="cSw13" /><!-- 发货单状态 -->
+    <result column="C_GETTIME" jdbcType="TIMESTAMP" property="cGettime" />
+    <result column="C_CLUDETIME" jdbcType="TIMESTAMP" property="cCludetime" />
+    <result column="C_ORMTID" jdbcType="VARCHAR" property="cOrmtid" />
+    <result column="C_ORSTID" jdbcType="VARCHAR" property="cOrstid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    C_ID, C_CONNUM, C_CLUDECOM, C_CLUDEADDR, C_SUPPLIER, C_CONMONEY, C_PAYWAY, C_CHECKWAY, 
+    C_TRANSWAY, C_SIGNSTEP, C_FORINLAND, C_FOROUTLAND, C_REMARK, C_STATE, C_DR, C_TIMESTAMP, 
+    C_CREATER, C_CREATETIME, C_MODIFIER, C_MODIFYTIME, C_SW01, C_SW02, C_SW03, C_SW04, 
+    C_SW05, C_SW06, C_SW07, C_SW08, C_SW09, C_SW10, C_CONLINE, C_GETTIME, C_CLUDETIME, 
+    C_ORMTID, C_ORSTID, C_SW11, C_SW12, C_SW13, C_SW14, C_SW15, C_SW16, C_SW17, C_SW18,
+    C_SW19, C_SW20,C_SW21,C_SW22,C_SW23, C_SW24, C_SW25, C_SW26, C_SW27,C_OUTCONNUM, 
+    C_SIGNPLACE, C_SW28, C_CHACONNUM, C_SW29, C_SECONNUM, C_SW30, C_DELIVDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_ID = #{cId,jdbcType=VARCHAR}
+    and C_SW14 = '0'
+  </select>
+  <select id="selectNotArrival" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_CHECKWAY = '0'
+    and C_SW14 = '0'
+  </select>
+  <!-- 类别关联合同 -->
+   <select id="S1S21" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_SW15 = #{cSw15,jdbcType=VARCHAR}
+  </select>
+  <!-- 验收单质保金查询 -->
+  <select id="M1S22S"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_SW24  IS NOT NULL
+    OR C_SW25 IS NOT NULL
+  </select>
+  <!-- 归类查询 -->
+   <select id="M1S21Q" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    WHERE 1=1
+    <if test="tbGuildRequest.cSw20 != null and tbGuildRequest.cSw20.size>0">
+    AND C_SW20 IN
+    	<foreach collection="tbGuildRequest.cSw20" item="item" index="index" open="(" close=")" separator=",">
+    	#{item}
+    	</foreach>
+    </if>
+     <if test="tbGuildRequest.cCheckway != null and tbGuildRequest.cCheckway.size>0">
+    AND C_CHECKWAY IN
+    	<foreach collection="tbGuildRequest.cCheckway" item="item" index="index" open="(" close=")" separator=",">
+    	#{item}
+    	</foreach>
+    </if>
+    AND C_CONNUM LIKE UPPER(CONCAT('%',CONCAT(#{tbGuildRequest.cConnum,jdbcType=VARCHAR},'%')))
+    <if test="tbGuildata.name != null and tbGuildata.name != ''">
+    AND C_SW15 = #{tbGuildata.name,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!-- 统计没有预计到货时间的物资 -->
+  <select id="selectwdh" parameterType="code_fb_cg.entity.TpCgcontractmt" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_DR is null
+    <if test="(startTime != null and endTime != null)">
+  		and C_CREATETIME BETWEEN #{startTime}AND #{endTime}
+  	</if>
+  </select>
+  <!-- 统计合同总数 -->
+  <select id="selectContmtSum"  resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where C_SW14 = '0'
+  </select>
+  <!-- 统计合同总量 -->
+  <select id="selectContmtNumBy"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime}AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  </select>
+  <!-- 统计已完成的合同总量 -->
+   <select id="completedContSum"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	and C_STATE = '1'
+  </select>
+   <!-- 统计已到货的合同总量 -->
+   <select id="arrGoodsSum"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	and C_CHECKWAY = '1'
+  </select>
+  <!-- 统计已付清的合同量 -->
+   <select id="payContSum"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	and C_SIGNSTEP = '1'
+  </select>
+   <!-- 统计已付清的合同量 -->
+   <select id="kaipContSum"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	and C_TRANSWAY = '1'
+  </select>
+  <!-- 统计延迟、提前合同量 -->
+   <select id="deplayContSum"  parameterType="code_fb_cg.response.HompageRequest" resultMap="BaseResultMap">
+  	select 
+		<include refid="Base_Column_List" />  	
+  	from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	and C_SW12 IS NOT NULL
+  </select>
+  <!-- 新版 -->
+  <!-- 项目合同统计量 -->
+  <select id="itemNameHTSum"  resultType="code_fb_cg.entity.TpCgorderstInfo">
+  select a.htNum htNum,b.wchtNum wchtNum,c.wwchtNum wwchtNum,a.ydhNum ydhNum,a.wdhNum wdhNum,a.bfdhNum bfdhNum,a.wkpNum wkpNum,a.bfkpNum bfkpNum,a.ykqpNum ykqpNum,a.wfkNum wfkNum,a.bffkNum bffkNum,
+	a.ykqfkNum ykqfkNum, d.sjMoney sjMoney,e.ccNum ccNum, f.nhtNum nhtNum
+	from(
+	select count(1)htNum,count(case when t2.c_checkway = '0' then 't2.c_checkway' end)as wdhNum,
+	count(case when t2.c_checkway ='1' then 't2.c_checkway' end)as ydhNum ,
+	count(case when t2.c_checkway = '2' then 't2.c_checkway'end) as bfdhNum,
+	count(case when t2.c_transway='0' then 't2.c_transway' end)as wkpNum,
+	count(case when t2.c_transway ='1' then 't2.c_transway' end)as bfkpNum,
+	count(case when t2.c_transway='2' then 't2.c_transway'end) as ykqpNum,
+	count(case when t2.c_signstep = '0' then 't2.c_signstep'end)as wfkNum,
+	count(case when t2.c_signstep='1' then 't2.c_signstep'end)as bffkNum,
+	count(case when t2.c_signstep ='2' then 't2.c_signstep' end)as ykqfkNum
+	from TP_CGCONTRACTMT t2 
+	WHERE 1=1
+	 <if test="itemName != null and itemName !=''">
+	 	AND t2.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	 </if>
+	 <if test="(startTime != null and endTime != null)">
+	 	AND t2.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	  )a,
+	(
+	select count(1)wchtNum from TP_CGCONTRACTMT t3 WHERE 1=1 AND t3.c_state = '1'
+	 <if test="itemName != null and itemName !=''">
+	 	AND t3.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	 </if>
+	  <if test="(startTime != null and endTime != null)">
+	 	AND t3.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	)b,
+	(
+	select count(1)wwchtNum from TP_CGCONTRACTMT t4 WHERE 1=1 AND  t4.c_state = '3'
+	<if test="itemName != null and itemName !=''">
+	 	AND t4.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	 </if>
+	  <if test="(startTime != null and endTime != null)">
+	 	AND t4.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	)c,
+	(
+	select sum(t.c_conmoney)sjMoney from TP_CGCONTRACTMT t WHERE 1=1 AND t.c_state IS NOT NULL
+	<if test="itemName != null and itemName !=''">
+	 	AND t.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	 </if>
+	  <if test="(startTime != null and endTime != null)">
+	 	AND t.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	)d,
+	(
+	select count(1)ccNum from TP_CGOUTLIBRAY t 
+	WHERE 1=1
+	<if test="itemName != null and itemName !=''">
+	 	AND t.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	 </if>
+	  <if test="(startTime != null and endTime != null)">
+	 	AND t.C_CREATETIME BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	)e,
+	 (
+	  select count(1)nhtNum from TP_CGCONTRACTMTT tt 
+	  WHERE 1=1
+	  <if test="itemName != null and itemName !=''">
+	    AND tt.c_connum LIKE CONCAT('%',CONCAT(trim(#{itemName, jdbcType=VARCHAR}),'%'))
+	  </if>
+	   <if test="(startTime != null and endTime != null)">
+	 	AND tt.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	    AND tt.C_STATEXXL != 'xxk06'
+  	)f
+  </select>
+ <!--  合同项采购员统计 -->
+ <select id="searchHTManorSum" resultType="code_fb_cg.entity.TpCgorderstInfo">
+ 	select a.htNum,a.wdhNum,a.bfdhNum,a.ydhNum,a.wkpNum,a.bfkpNum,a.ykqpNum,a.wfkNum,a.bffkNum,a.ykqfkNum,a.cManor,a.wchtNum, a.wwchtNum,a.sjMoney sjMoney from
+	(
+	select count(1)htNum,count(case when t2.c_checkway = '0' then 't2.c_checkway' end)as wdhNum,
+	count(case when t2.c_checkway ='1'then 't2.c_checkway' end)as bfdhNum,
+	count(case when t2.c_checkway = '2' then 't2.c_checkway'end) as ydhNum,
+	count(case when t2.c_transway='0'then 't2.c_transway' end)as wkpNum,
+	count(case when t2.c_transway ='1' then 't2.c_transway' end)as bfkpNum,
+	count(case when t2.c_transway='2'then 't2.c_transway'end) as ykqpNum,
+	count(case when t2.c_signstep = '0'then 't2.c_signstep'end)as wfkNum,
+	count(case when t2.c_signstep='1' then 't2.c_signstep'end)as bffkNum,
+	count(case when t2.c_signstep ='2' then 't2.c_signstep' end)as ykqfkNum,
+	count(case when t2.c_state = '1' then 't2.c_state' end)as wchtNum,
+	count(case when t2.c_state = '3' then 't2.c_state' end)as wwchtNum,
+	sum(t2.c_conmoney)sjMoney,
+	t2.c_sw10 cManor
+	from TP_CGCONTRACTMT t2 
+	WHERE 1=1
+	<if test="(startTime != null and endTime != null)">
+	 	AND t2.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	 <if test=" cManor != null and cManor.length != 0 ">
+		AND t2.C_SW10 IN   <!-- 采购员 -->
+		   <foreach collection="cManor" item="item" index="index" open="(" separator="," close=")" >
+			 #{item}  
+		   </foreach>
+		</if>
+	 AND t2.c_state IS NOT NULL
+	 GROUP BY  t2.c_sw10 
+	)a
+ </select>
+  
+  <!-- 合同总项统计 -->
+  <select id="searchHTSum" resultType="code_fb_cg.entity.TpCgorderstInfo">
+  select a.htNum,a.wdhNum,a.bfdhNum,a.ydhNum,a.wkpNum,a.bfkpNum,a.ykqpNum,a.wfkNum,a.bffkNum,a.ykqfkNum,a.wchtNum,a.wwchtNum,
+  a.sjMoney,b.nhtNum , b.nhtMoney from
+  (
+  	select count(1)htNum,count(case when t2.c_checkway = '0' then 't2.c_checkway' end)as wdhNum,
+	count(case when t2.c_checkway ='1'then 't2.c_checkway' end)as bfdhNum,
+	count(case when t2.c_checkway = '2' then 't2.c_checkway'end) as ydhNum,
+	count(case when t2.c_transway='0'then 't2.c_transway' end)as wkpNum,
+	count(case when t2.c_transway ='1' then 't2.c_transway' end)as bfkpNum,
+	count(case when t2.c_transway='2'then 't2.c_transway'end) as ykqpNum,
+	count(case when t2.c_signstep = '0'then 't2.c_signstep'end)as wfkNum,
+	count(case when t2.c_signstep='1' then 't2.c_signstep'end)as bffkNum,
+	count(case when t2.c_signstep ='2' then 't2.c_signstep' end)as ykqfkNum,
+	count(case when t2.c_state = '1' then 't2.c_state' end)as wchtNum,
+	count(case when t2.c_state = '3' then 't2.c_state' end)as wwchtNum,
+	sum(t2.c_conmoney)sjMoney
+	FROM TP_CGCONTRACTMT t2 
+	WHERE 1=1
+	<if test="(startTime != null and endTime != null)">
+	 	AND t2.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	 AND t2.c_state IS NOT NULL
+	)a,
+	(
+	 select count(1)nhtNum, sum(tt.c_conmoney)nhtMoney from TP_CGCONTRACTMTT tt 
+  	WHERE 1=1
+  	<if test="(startTime != null and endTime != null)">
+	 	AND tt.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+    AND tt.C_STATEXXL != 'xxk06'
+	)b 
+	
+  </select>
+  <!-- 签订公司统计 -->
+  <select id="searchXFSum" resultType="code_fb_cg.entity.TpCgorderstInfo">
+  select a.htNum,a.wdhNum,a.bfdhNum,a.ydhNum,a.wkpNum,a.bfkpNum,a.ykqpNum,a.wfkNum,a.bffkNum,a.ykqfkNum,a.cCludecom,a.wchtNum, a.wwchtNum,a.sjMoney sjMoney 
+  ,b.nhtNum nhtNum, b.nhtMoney nhtMoney FROM
+	(
+	select count(1)htNum,count(case when t2.c_checkway = '0' then 't2.c_checkway' end)as wdhNum,
+	count(case when t2.c_checkway ='1'then 't2.c_checkway' end)as bfdhNum,
+	count(case when t2.c_checkway = '2' then 't2.c_checkway'end) as ydhNum,
+	count(case when t2.c_transway='0'then 't2.c_transway' end)as wkpNum,
+	count(case when t2.c_transway ='1' then 't2.c_transway' end)as bfkpNum,
+	count(case when t2.c_transway='2'then 't2.c_transway'end) as ykqpNum,
+	count(case when t2.c_signstep = '0'then 't2.c_signstep'end)as wfkNum,
+	count(case when t2.c_signstep='1' then 't2.c_signstep'end)as bffkNum,
+	count(case when t2.c_signstep ='2' then 't2.c_signstep' end)as ykqfkNum,
+	count(case when t2.c_state = '1' then 't2.c_state' end)as wchtNum,
+	count(case when t2.c_state = '3' then 't2.c_state' end)as wwchtNum,
+	sum(t2.c_conmoney)sjMoney,t2.c_cludecom cCludecom
+	from TP_CGCONTRACTMT t2 
+	WHERE 1=1
+	<if test="(startTime != null and endTime != null)">
+	 	AND t2.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+	 AND t2.c_state IS NOT NULL
+	GROUP BY t2.c_cludecom
+	)a,
+	(
+	 select count(1)nhtNum, sum(tt.c_conmoney)nhtMoney from TP_CGCONTRACTMTT tt 
+  	WHERE 1=1
+  	<if test="(startTime != null and endTime != null)">
+	 	AND tt.c_cludetime BETWEEN #{startTime} AND #{endTime}
+	 </if>
+    AND tt.C_STATEXXL != 'xxk06'
+	)b 
+  </select>
+  
+  <!-- 根据各种条件统计 -->
+   <select id="countContSum"  parameterType="code_fb_cg.response.HompageRequest" resultType="code_fb_cg.response.HomePageResponse">
+  	select count(distinct C_CONNUM) as tpCgcontractmtSum  from TP_CGCONTRACTMT
+  	where  1=1 
+  	and C_SW14 = '0'
+  	<if test="(hompageRequest.startTime != null and hompageRequest.endTime != null)">
+  		and C_CREATETIME BETWEEN #{hompageRequest.startTime} AND #{hompageRequest.endTime}
+  	</if>
+  	<if test="hompageRequest.cManor !=null and hompageRequest.cManor != ''">
+  		and C_SW10 = trim(#{hompageRequest.cManor, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	<if test="hompageRequest.cTransway !=null and hompageRequest.cTransway != ''">
+  		and C_TRANSWAY = trim(#{hompageRequest.cTransway, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	<if test="hompageRequest.cSignstep !=null and hompageRequest.cSignstep != ''">
+  		and C_SIGNSTEP = trim(#{hompageRequest.cSignstep, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	<if test="hompageRequest.cCheckway !=null and hompageRequest.cCheckway != ''">
+  		and C_CHECKWAY = trim(#{hompageRequest.cCheckway, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  	<if test="hompageRequest.cState !=null and hompageRequest.cState != ''">
+  		and C_STATE = trim(#{hompageRequest.cState, jdbcType=VARCHAR})<!-- 采购员 -->
+  	</if>
+  </select>
+  <!-- 采购助理查询合同 -->
+  <select id="selectCGZL" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_SW10 IN (${ss})
+    and C_SW14 = '0'
+    	<if test="startTime != null">
+			AND C_CREATETIME &gt; = #{startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="endTime != null">
+			AND C_CREATETIME &lt;= #{endTime,jdbcType=TIMESTAMP}
+		</if>
+  </select>
+  <!-- 主任查询功能 -->
+  <select id="selectCGZR" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_SW10 IN (${ss})
+    and C_SW14 = '0'
+    	<if test="startTime != null">
+			AND C_CREATETIME &gt; = #{startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="endTime != null">
+			AND C_CREATETIME &lt;= #{endTime,jdbcType=TIMESTAMP}
+		</if>
+  </select>
+  <!-- 经理查询功能 -->
+  <select id="selectCGJL" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_SW10 IN (${ss})
+    and C_SW14 = '0'
+    	<if test="startTime != null">
+			AND C_CREATETIME &gt; = #{startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="endTime != null">
+			AND C_CREATETIME &lt;= #{endTime,jdbcType=TIMESTAMP}
+		</if>
+  </select>
+  <!-- 查询所有合同号 -->
+  <select id="selectNUM" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    C_CONNUM,C_CONNUM
+    from TP_CGCONTRACTMT
+    where C_SW14 = '0'
+  </select>
+  <!-- 查询现有的所有供应商 -->
+  <select id="selectSUPPLIER" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select distinct
+    C_SUPPLIER,C_SUPPLIER
+    from TP_CGCONTRACTMT
+    where C_SW14 = '0'
+  </select>
+  <select id="selectByMTST" parameterType="java.lang.String" resultMap="BaseResultMap2">
+    select 
+    m.C_DR,m.C_ID,m.C_CONNUM,m.C_SUPPLIER,m.C_CLUDEADDR,m.C_CLUDECOM,m.C_CONMONEY,m.C_PAYWAY,m.C_CLUDETIME,
+    s.C_SW02,s.C_ORID,s.C_ARRALLYORN,s.C_RESIDUENUM,s.C_GROUDTOTALNUM,
+    s.C_GOODSNUM,s.C_GOODSNUM,s.C_MTID,s.C_GOODSNAME,s.C_SPEC,s.C_UNIT,s.C_CONLINE,s.C_REMARK
+    from TP_CGCONTRACTMT m, TP_CGCONTRACTST s
+    WHERE 1 = 1
+    AND m.c_connum = s.c_connum
+    AND s.C_STATE IN(0,1,3,5)
+    AND s.C_DR = 0
+    and m.C_SW14 = '0'
+    <if test="cConnum != null" >
+       AND  m.C_CONNUM like upper('%' || trim(#{cConnum,jdbcType=VARCHAR}) || '%')
+  	</if>
+    <if test="cSw10 != null" >
+       AND  m.C_SW10 like '%' || trim(#{cSw10,jdbcType=VARCHAR}) || '%'
+  	</if>
+    <if test="cGoodsname != null" >
+       AND  s.C_GOODSNAME like '%' || trim(#{cGoodsname,jdbcType=VARCHAR}) || '%'
+  	</if>
+  	<if test="cRemark != null and cRemark != ''" >
+       AND  s.C_REMARK like '%' || trim(#{cRemark,jdbcType=VARCHAR}) || '%'
+  	</if>
+  </select>
+  <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_ID = #{cId,jdbcType=VARCHAR}
+    and C_SW14 = '0'
+  </select>
+  <!-- 查询合同号是否已存在 -->
+  <select id="selectByConnum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_CONNUM = UPPER(trim(#{cConnum,jdbcType=VARCHAR}))
+    and C_SW14 = '0'
+  </select>
+  
+  <select id="selectByCpayway" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGCONTRACTMT
+    where C_PAYWAY like '%' || trim(#{cPayway,jdbcType=VARCHAR}) || '%'
+    AND C_TRANSWAY in ('1','2')
+    and C_SW14 = '0'
+  </select>
+  
+  <update id="deleteUpdate" parameterType="java.lang.String">
+    update TP_CGCONTRACTMT
+    set C_SW14 = '1'
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <!-- 清除类别 -->
+   <update id="updateGuiL" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    set C_SW15 = null,
+    	C_SW16 = null
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <!-- 取消合同 -->
+  <update id="updateGuiLlist" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+      set C_SW15 = null,
+    	C_SW16 = null
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+   <update id="updatelist" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    <set>
+      <if test="item.cConnum != null">
+        C_CONNUM = #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCludecom != null">
+        C_CLUDECOM = #{item.cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCludeaddr != null">
+        C_CLUDEADDR = #{item.cCludeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSupplier != null">
+        C_SUPPLIER = #{item.cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConmoney != null">
+        C_CONMONEY = #{item.cConmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cPayway != null">
+        C_PAYWAY = #{item.cPayway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCheckway != null">
+        C_CHECKWAY = #{item.cCheckway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTransway != null">
+        C_TRANSWAY = #{item.cTransway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSignstep != null">
+        C_SIGNSTEP = #{item.cSignstep,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cForinland != null">
+        C_FORINLAND = #{item.cForinland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cForoutland != null">
+        C_FOROUTLAND = #{item.cForoutland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="citem.Remark != null">
+        C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cState != null">
+        C_STATE = #{item.cState,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null">
+        C_DR = #{item.cDr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cTimestamp != null">
+        C_TIMESTAMP = #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCreater != null">
+        C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null">
+        C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null">
+        C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null">
+        C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw01 != null">
+        C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null">
+        C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null">
+        C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null">
+        C_SW04 = #{item.cSw04,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw05 != null">
+        C_SW05 = #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null">
+        C_SW06 = #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null">
+        C_SW07 = #{item.cSw07,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw08 != null">
+        C_SW08 = #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null">
+        C_SW09 = #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null">
+        C_SW10 = #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null">
+        C_SW11 = #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null">
+        C_SW12 = #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw15 != null">
+        C_SW15 = #{item.cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw16 != null">
+        C_SW16 = #{item.cSw16,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw17 != null">
+        C_SW17 = #{item.cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw18 != null">
+        C_SW18 = #{item.cSw18,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw19 != null">
+        C_SW19 = #{item.cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw20 != null">
+        C_SW20 = #{item.cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw21 != null">
+        C_SW21 = #{item.cSw21,jdbcType=VARCHAR},
+      </if>
+        <if test="item.cSw24 != null">
+        C_SW24 = #{item.cSw24,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw25 != null">
+        C_SW25 = #{item.cSw25,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw26 != null">
+        C_SW26 = #{item.cSw26,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw27 != null">
+        C_SW27 = #{item.cSw27,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw28 != null">
+        C_SW28 = #{item.cSw28,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw29 != null">
+        C_SW29 = #{item.cSw29,jdbcType=TIMESTAMP},
+      </if>
+        <if test="item.cSw30 != null">
+        C_SW30 = #{item.cSw30,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw22 != null">
+        C_SW22 = #{item.cSw22,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cConline != null">
+        C_CONLINE = #{item.cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cGettime != null">
+        C_GETTIME = #{item.cGettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCludetime != null">
+        C_CLUDETIME = #{item.cCludetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cOrmtid != null">
+        C_ORMTID = #{item.cOrmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrstid != null">
+        C_ORSTID = #{item.cOrstid,jdbcType=VARCHAR},
+      </if>
+       <if test="item.cSignplace != null" >
+		C_SIGNPLACE = #{item.cSignplace,jdbcType=VARCHAR},
+  	 </if>
+       <if test="item.cChaconnum != null" >
+		C_CHACONNUM = #{item.cChaconnum,jdbcType=VARCHAR},
+  	 </if>
+       <if test="item.cSeconnum != null" >
+		C_SECONNUM = #{item.cSeconnum,jdbcType=VARCHAR},
+  	 </if>
+    </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <!-- 合同标记状态修改 -->
+   <update id="M1S11UCG_MNHT_M1S12"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="tpCgcontractmtt" index="index" item="item" open="begin" separator=";">  
+	        update TP_CGCONTRACTMT
+	         <set >
+				 <if test="item.cSw14 != null" >
+					C_SW17 = #{item.cSw14,jdbcType=VARCHAR},
+			 	 </if>
+  			</set>
+  			WHERE 1 = 1 
+				AND  C_CONNUM = #{item.cConnum,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+  <!-- 修改金额 -->
+  <update id="updateJSXY" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    <set >
+		 <if test="cSw01 != null" >
+			C_SW01 = #{cSw01,jdbcType=VARCHAR},
+		 </if>
+		  <if test="cSw02 != null" >
+			C_SW02 = #{cSw02,jdbcType=VARCHAR},
+		 </if>
+		 <if test="cSw28 != null" >
+			C_SW28 = #{cSw28,jdbcType=VARCHAR},
+		 </if>
+		 <if test="cConmoney != null" >
+			C_CONMONEY = #{cConmoney,jdbcType=VARCHAR},
+		 </if>
+	</set>
+    where C_CONNUM = #{cConnum,jdbcType=VARCHAR}
+  </update>
+   <!-- 合同标记状态修改 -->
+   <update id="M1S11UCG_MNHT_M1S13"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="tpCgcontractmtt" index="index" item="item" open="begin" separator=";">  
+	        update TP_CGCONTRACTMT
+	         <set >
+				 <if test="item.cSw14 != null" >
+					C_SW17 = #{item.cSw14,jdbcType=VARCHAR},
+			 	 </if>
+			 	 C_SW18 = NULL,
+  			</set>
+  			WHERE 1 = 1 
+				AND  C_CONNUM = #{item.cConnum,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TP_CGCONTRACTMT
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    insert into TP_CGCONTRACTMT (C_ID, C_CONNUM, C_CLUDECOM, 
+      C_CLUDEADDR, C_SUPPLIER, C_CONMONEY, 
+      C_PAYWAY, C_CHECKWAY, C_TRANSWAY, 
+      C_SIGNSTEP, C_FORINLAND, C_FOROUTLAND, 
+      C_REMARK, C_STATE, C_DR, 
+      C_TIMESTAMP, C_CREATER, C_CREATETIME, 
+      C_MODIFIER, C_MODIFYTIME, C_SW01, 
+      C_SW02, C_SW03, C_SW04, 
+      C_SW05, C_SW06, C_SW07, 
+      C_SW08, C_SW09, C_SW10,  C_SW11, C_SW12,
+      C_CONLINE, C_GETTIME, C_CLUDETIME, 
+      C_ORMTID, C_ORSTID)
+    values (#{cId,jdbcType=VARCHAR}, #{cConnum,jdbcType=VARCHAR}, #{cCludecom,jdbcType=VARCHAR}, 
+      #{cCludeaddr,jdbcType=VARCHAR}, #{cSupplier,jdbcType=VARCHAR}, #{cConmoney,jdbcType=VARCHAR}, 
+      #{cPayway,jdbcType=VARCHAR}, #{cCheckway,jdbcType=VARCHAR}, #{cTransway,jdbcType=VARCHAR}, 
+      #{cSignstep,jdbcType=VARCHAR}, #{cForinland,jdbcType=TIMESTAMP}, #{cForoutland,jdbcType=TIMESTAMP}, 
+      #{cRemark,jdbcType=VARCHAR}, #{cState,jdbcType=VARCHAR}, #{cDr,jdbcType=TIMESTAMP}, 
+      #{cTimestamp,jdbcType=TIMESTAMP}, #{cCreater,jdbcType=VARCHAR}, #{cCreatetime,jdbcType=TIMESTAMP}, 
+      #{cModifier,jdbcType=VARCHAR}, #{cModifytime,jdbcType=TIMESTAMP}, #{cSw01,jdbcType=VARCHAR}, 
+      #{cSw02,jdbcType=VARCHAR}, #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=TIMESTAMP}, 
+      #{cSw05,jdbcType=VARCHAR}, #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=TIMESTAMP}, 
+      #{cSw08,jdbcType=VARCHAR}, #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR}, 
+      #{cSw11,jdbcType=VARCHAR}, #{cSw12,jdbcType=VARCHAR}, 
+      #{cConline,jdbcType=VARCHAR}, #{cGettime,jdbcType=TIMESTAMP}, #{cCludetime,jdbcType=TIMESTAMP}, 
+      #{cOrmtid,jdbcType=VARCHAR}, #{cOrstid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    insert into TP_CGCONTRACTMT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="cCludecom != null">
+        C_CLUDECOM,
+      </if>
+      <if test="cCludeaddr != null">
+        C_CLUDEADDR,
+      </if>
+      <if test="cSupplier != null">
+        C_SUPPLIER,
+      </if>
+      <if test="cConmoney != null">
+        C_CONMONEY,
+      </if>
+      <if test="cPayway != null">
+        C_PAYWAY,
+      </if>
+      <if test="cCheckway != null">
+        C_CHECKWAY,
+      </if>
+      <if test="cTransway != null">
+        C_TRANSWAY,
+      </if>
+      <if test="cSignstep != null">
+        C_SIGNSTEP,
+      </if>
+      <if test="cForinland != null">
+        C_FORINLAND,
+      </if>
+      <if test="cForoutland != null">
+        C_FOROUTLAND,
+      </if>
+      <if test="cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="cState != null">
+        C_STATE,
+      </if>
+      <if test="cDr != null">
+        C_DR,
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="cSw10 != null">
+        C_SW10,
+      </if>
+      <if test="cSw11 != null">
+        C_SW11,
+      </if>
+      <if test="cSw12 != null">
+        C_SW12,
+      </if>
+      <if test="cSw14 != null">
+        C_SW14,
+      </if>
+      <if test="cConline != null">
+        C_CONLINE,
+      </if>
+      <if test="cGettime != null">
+        C_GETTIME,
+      </if>
+      <if test="cCludetime != null">
+        C_CLUDETIME,
+      </if>
+      <if test="cOrmtid != null">
+        C_ORMTID,
+      </if>
+      <if test="cOrstid != null">
+        C_ORSTID,
+      </if>
+       <if test="cSignplace != null" >
+		C_SIGNPLACE,
+	  </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cConnum != null">
+        #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cCludecom != null">
+        #{cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="cCludeaddr != null">
+        #{cCludeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cSupplier != null">
+        #{cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmoney != null">
+        #{cConmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cPayway != null">
+        #{cPayway,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheckway != null">
+        #{cCheckway,jdbcType=VARCHAR},
+      </if>
+      <if test="cTransway != null">
+        #{cTransway,jdbcType=VARCHAR},
+      </if>
+      <if test="cSignstep != null">
+        #{cSignstep,jdbcType=VARCHAR},
+      </if>
+      <if test="cForinland != null">
+        #{cForinland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cForoutland != null">
+        #{cForoutland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cState != null">
+        #{cState,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        #{cDr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cTimestamp != null">
+        #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreater != null">
+        #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null">
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw11 != null">
+        #{cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw12 != null">
+        #{cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw14 != null">
+        #{cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="cConline != null">
+        #{cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="cGettime != null">
+        #{cGettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCludetime != null">
+        #{cCludetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cOrmtid != null">
+        #{cOrmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrstid != null">
+        #{cOrstid,jdbcType=VARCHAR},
+      </if>
+       <if test="cSignplace != null" >
+		#{cSignplace,jdbcType=VARCHAR},
+  	</if>
+    </trim>
+  </insert>
+<!-- 动态SQL 批量添加-->  
+  <insert id="M1S12ACG_MNHT_M1S1" parameterType="java.util.List">
+   <foreach close=";end;" collection="cgMnhtM1s1" index="index" item="item" open="begin" separator=";">  
+    insert into TP_CGCONTRACTMT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="item.cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="item.cCludecom != null">
+        C_CLUDECOM,
+      </if>
+      <if test="item.cCludeaddr != null">
+        C_CLUDEADDR,
+      </if>
+      <if test="item.cSupplier != null">
+        C_SUPPLIER,
+      </if>
+      <if test="item.cConmoney != null">
+        C_CONMONEY,
+      </if>
+      <if test="item.cPayway != null">
+        C_PAYWAY,
+      </if>
+      <if test="item.cCheckway != null">
+        C_CHECKWAY,
+      </if>
+      <if test="item.cTransway != null">
+        C_TRANSWAY,
+      </if>
+      <if test="item.cSignstep != null">
+        C_SIGNSTEP,
+      </if>
+      <if test="item.cForinland != null">
+        C_FORINLAND,
+      </if>
+      <if test="item.cForoutland != null">
+        C_FOROUTLAND,
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="item.cState != null">
+        C_STATE,
+      </if>
+      <if test="item.cDr != null">
+        C_DR,
+      </if>
+      <if test="item.cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="item.cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="item.cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="item.cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="item.cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="item.cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="item.cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="item.cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="item.cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="item.cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="item.cSw10 != null">
+        C_SW10,
+      </if>
+      <if test="item.cSw11 != null">
+        C_SW11,
+      </if>
+      <if test="item.cSw12 != null">
+        C_SW12,
+      </if>
+      <if test="item.cConline != null">
+        C_CONLINE,
+      </if>
+      <if test="item.cGettime != null">
+        C_GETTIME,
+      </if>
+      <if test="item.cCludetime != null">
+        C_CLUDETIME,
+      </if>
+      <if test="item.cOrmtid != null">
+        C_ORMTID,
+      </if>
+      <if test="item.cOrstid != null">
+        C_ORSTID,
+      </if>
+      <if test="item.cOutconnum != null">
+         C_OUTCONNUM,
+      </if>
+     <if test="item.cSignplace != null" >
+		C_SIGNPLACE,
+	  </if>
+	  <if test="item.cDelivdate != null" >
+		C_DELIVDATE,
+	  </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="item.cId != null">
+         #{item.cId,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null">
+         #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCludecom != null">
+         #{item.cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCludeaddr != null">
+         #{item.cCludeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSupplier != null">
+         #{item.cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConmoney != null">
+         #{item.cConmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cPayway != null">
+         #{item.cPayway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCheckway != null">
+         #{item.cCheckway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTransway != null">
+         #{item.cTransway,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSignstep != null">
+         #{item.cSignstep,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cForinland != null">
+         #{item.cForinland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cForoutland != null">
+         #{item.cForoutland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cRemark != null">
+         #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cState != null">
+         #{item.cState,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null">
+         #{item.cDr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cTimestamp != null">
+         #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCreater != null">
+         #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null">
+         #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null">
+         #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null">
+         #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw01 != null">
+         #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null">
+         #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null">
+         #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null">
+         #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null">
+         #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null">
+         #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null">
+         #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null">
+         #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null">
+         #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null">
+         #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null">
+         #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null">
+         #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConline != null">
+         #{item.cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cGettime != null">
+         #{item.cGettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCludetime != null">
+         #{item.cCludetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cOrmtid != null">
+         #{item.cOrmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrstid != null">
+         #{item.cOrstid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOutconnum != null">
+         #{item.cOutconnum,jdbcType=VARCHAR},
+      </if>
+       <if test="item.cSignplace != null" >
+		#{item.cSignplace,jdbcType=VARCHAR},
+  	</if>
+       <if test="item.cDelivdate != null" >
+		#{item.cDelivdate,jdbcType=VARCHAR},
+  	</if>
+    </trim>
+    </foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    <set>
+      <if test="cConnum != null">
+        C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cCludecom != null">
+        C_CLUDECOM = #{cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="cCludeaddr != null">
+        C_CLUDEADDR = #{cCludeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="cSupplier != null">
+        C_SUPPLIER = #{cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmoney != null">
+        C_CONMONEY = #{cConmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cPayway != null">
+        C_PAYWAY = #{cPayway,jdbcType=VARCHAR},
+      </if>
+      <if test="cCheckway != null">
+        C_CHECKWAY = #{cCheckway,jdbcType=VARCHAR},
+      </if>
+      <if test="cTransway != null">
+        C_TRANSWAY = #{cTransway,jdbcType=VARCHAR},
+      </if>
+      <if test="cSignstep != null">
+        C_SIGNSTEP = #{cSignstep,jdbcType=VARCHAR},
+      </if>
+      <if test="cForinland != null">
+        C_FORINLAND = #{cForinland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cForoutland != null">
+        C_FOROUTLAND = #{cForoutland,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cState != null">
+        C_STATE = #{cState,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        C_DR = #{cDr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreater != null">
+        C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null">
+        C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        C_SW04 = #{cSw04,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw05 != null">
+        C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        C_SW07 = #{cSw07,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw08 != null">
+        C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw11 != null">
+        C_SW11 = #{cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw12 != null">
+        C_SW12 = #{cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw15 != null">
+        C_SW15 = #{cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw16 != null">
+        C_SW16 = #{cSw16,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw17 != null">
+        C_SW17 = #{cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw18 != null">
+        C_SW18 = #{cSw18,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw19 != null">
+        C_SW19 = #{cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw20 != null">
+        C_SW20 = #{cSw20,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw21 != null">
+        C_SW21 = #{cSw21,jdbcType=VARCHAR},
+      </if>
+        <if test="cSw24 != null">
+        C_SW24 = #{cSw24,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw25 != null">
+        C_SW25 = #{cSw25,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw26 != null">
+        C_SW26 = #{cSw26,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw27 != null">
+        C_SW27 = #{cSw27,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw28 != null">
+        C_SW28 = #{cSw28,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw29 != null">
+        C_SW29 = #{cSw29,jdbcType=TIMESTAMP},
+      </if>
+        <if test="cSw30 != null">
+        C_SW30 = #{cSw30,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw22 != null">
+        C_SW22 = #{cSw22,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cConline != null">
+        C_CONLINE = #{cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="cGettime != null">
+        C_GETTIME = #{cGettime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCludetime != null">
+        C_CLUDETIME = #{cCludetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cOrmtid != null">
+        C_ORMTID = #{cOrmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrstid != null">
+        C_ORSTID = #{cOrstid,jdbcType=VARCHAR},
+      </if>
+       <if test="cSignplace != null" >
+		C_SIGNPLACE = #{cSignplace,jdbcType=VARCHAR},
+  	 </if>
+       <if test="cChaconnum != null" >
+		C_CHACONNUM = #{cChaconnum,jdbcType=VARCHAR},
+  	 </if>
+       <if test="cSeconnum != null" >
+		C_SECONNUM = #{cSeconnum,jdbcType=VARCHAR},
+  	 </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    set C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      C_CLUDECOM = #{cCludecom,jdbcType=VARCHAR},
+      C_CLUDEADDR = #{cCludeaddr,jdbcType=VARCHAR},
+      C_SUPPLIER = #{cSupplier,jdbcType=VARCHAR},
+      C_CONMONEY = #{cConmoney,jdbcType=VARCHAR},
+      C_PAYWAY = #{cPayway,jdbcType=VARCHAR},
+      C_CHECKWAY = #{cCheckway,jdbcType=VARCHAR},
+      C_TRANSWAY = #{cTransway,jdbcType=VARCHAR},
+      C_SIGNSTEP = #{cSignstep,jdbcType=VARCHAR},
+      C_FORINLAND = #{cForinland,jdbcType=TIMESTAMP},
+      C_FOROUTLAND = #{cForoutland,jdbcType=TIMESTAMP},
+      C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      C_STATE = #{cState,jdbcType=VARCHAR},
+      C_DR = #{cDr,jdbcType=TIMESTAMP},
+      C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{cSw04,jdbcType=TIMESTAMP},
+      C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{cSw07,jdbcType=TIMESTAMP},
+      C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      C_SW11 = #{cSw11,jdbcType=VARCHAR},
+      C_SW12 = #{cSw12,jdbcType=VARCHAR},
+      C_CONLINE = #{cConline,jdbcType=VARCHAR},
+      C_GETTIME = #{cGettime,jdbcType=TIMESTAMP},
+      C_CLUDETIME = #{cCludetime,jdbcType=TIMESTAMP},
+      C_ORMTID = #{cOrmtid,jdbcType=VARCHAR},
+      C_ORSTID = #{cOrstid,jdbcType=VARCHAR}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateMoney" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    set
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      <if test="cState != null">
+      	C_STATE = #{cState,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmoney != null">
+      	C_CONMONEY = trim(#{cConmoney,jdbcType=VARCHAR}),
+      </if>
+      C_SW02 = trim(#{cSw02,jdbcType=VARCHAR})
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateSTATE" parameterType="code_fb_cg.entity.TpCgcontractmt">
+    update TP_CGCONTRACTMT
+    set
+      C_STATE = '1'
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <!-- 取消合同 -->
+  <update id="updateQXHT" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    set
+      C_STATE = '2',
+      C_SW14 = '1'
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <!-- 合同作废 -->
+  <update id="updateContractZF" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    set
+      C_SIGNSTEP = '1',
+      C_SW06 = trim(#{item.cSw06,jdbcType=VARCHAR}),
+      C_SW08 = trim(#{item.cSw08,jdbcType=VARCHAR}),
+      C_SW07 = trim(#{item.cSw07,jdbcType=TIMESTAMP})
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  
+  <!-- 一键到齐 -->
+  <update id="YJdaohuo" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    set
+      C_CHECKWAY = '1',
+      C_GETTIME = #{item.cGettime,jdbcType=TIMESTAMP},
+      C_SW12 = #{item.cSw12,jdbcType=TIMESTAMP},
+      C_STATE = trim(#{item.cState,jdbcType=VARCHAR})
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <!-- 一键发票 -->
+  <update id="YJfapiao" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    set
+      C_TRANSWAY = '1',
+      C_STATE = trim(#{item.cState,jdbcType=VARCHAR})
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <!-- 一键付清 -->
+  <update id="YJfuqing" parameterType="java.util.List">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    update TP_CGCONTRACTMT
+    set
+      C_CONMONEY = #{item.cConmoney,jdbcType=VARCHAR},
+      C_SW01 = trim(#{item.cSw01,jdbcType=VARCHAR}),
+      C_SW02 = trim(#{item.cSw02,jdbcType=VARCHAR}),
+      C_SIGNSTEP = trim(#{item.cSignstep,jdbcType=VARCHAR}),
+      C_STATE = trim(#{item.cState,jdbcType=VARCHAR})
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+</mapper>

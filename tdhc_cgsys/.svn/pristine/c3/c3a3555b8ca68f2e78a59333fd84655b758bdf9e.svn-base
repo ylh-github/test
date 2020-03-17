@@ -1,0 +1,140 @@
+package code_fb_cg.controller;
+
+
+
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import code_fb.entity.CG_Q001_S1S2;
+import code_fb.request.CG_Q001_Request_S1S2;
+import code_fb_cg.entity.TpCgordermt;
+import code_fb_cg.entity.TpCgorderst;
+import code_fb_cg.request.AllotForData;
+import code_fb_cg.request.CG_Q001_Request_M1S2;
+import code_fb_cg.request.StRequest;
+import code_fb_cg.request.TpCgorderstRequest;
+import code_fb_cg.request.YDJ_Req;
+import code_fb_cg.service.TpCgorderstService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+import vip.toda.piper.auth.web.client.annotation.RequireUser;
+
+@Controller
+@RequestMapping("CG_q002")
+public class TpCgorderstController {
+
+	@Autowired
+	private TpCgorderstService orstService;
+	//根据主表 查询子表
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/s1s21q",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>> selectS1S2(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgorderstRequest> requestObject){ 
+		/*LinkedHashMap<String, String> link = (LinkedHashMap<String, String>) requestObject.getData().get(0);
+		TpCgordermt tpcg = new TpCgordermt();
+		tpcg.setcOrdernum(link.get("cOrdernum"));
+		tpcg.setName(user.getUserName());*/
+		return orstService.selectS1S2(requestObject.getData(), requestObject.getSession());
+	} 
+	
+	/**
+	 * M1S22Q查询按钮
+	 * @param requestObject
+	 * @return
+	 */
+	@RequestMapping(value="/M2S11Q", method=RequestMethod.POST)
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>>M1S22Q(@RequestBody RequestObject<EmptyTag, CG_Q001_Request_M1S2> requestObject){ 
+		return orstService.M2S11Q(requestObject.getData(),requestObject.getSession()); 
+	} 
+	//查询子表
+	@RequestMapping(value="/selectst",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>> selectst(@RequestBody RequestObject<EmptyTag, StRequest> requestObject){ 
+		return orstService.selectForOrderSt(requestObject);
+	} 
+	//分配前的条件查询
+	@RequestMapping(value="/selForAllot",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>> selectOrderStForAllot(@RequestBody RequestObject<EmptyTag, AllotForData> requestObject){ 
+		return orstService.selectOrderStForAllot(requestObject);
+	} 
+	
+	//选择需要预登记的项目
+	@RequestMapping(value="/before_serDel",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgordermt>> before_serDel(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, YDJ_Req> requestObject){ 
+		return orstService.before_serDel(user,requestObject);
+	} 
+	@RequestMapping(value="/GOODSNAMEQ",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>> selectGOODSNAMEQ(){ 
+		return orstService.selectGOODSNAMEQ();
+	} 
+	//拆分功能
+	@RequestMapping(value="/S1S21UCF",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> S1S21UCF(@RequestBody RequestObject<EmptyTag, StRequest> requestObject){ 
+		return orstService.S1S21UCF(requestObject);
+	} 
+	//取消购买
+	@RequestMapping(value="/S1S21Ubuy",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public ResponseObject<EmptyTag, EmptyData> S1S21Ubuy(@RequestParamUser User user, @RequestBody RequestObject<EmptyTag,CG_Q001_Request_S1S2> requestObject){
+		List<CG_Q001_S1S2> list = requestObject.getData().getCgQ001S1s2();
+		for(CG_Q001_S1S2 s1s2 : list) {
+			s1s2.setcModifier(user.getUserName());
+			s1s2.setcModifytime(new Date());
+			s1s2.setcRemark(requestObject.getData().getCgQ001S1s2().get(0).getcRemark());
+		}
+		return orstService.S1S21Ubuy(requestObject.getData(), requestObject.getSession());
+	}	
+	//撤销取消购买
+	@RequestMapping(value="/againbuy",method=RequestMethod.POST) 
+	@ResponseBody
+	@RequireUser
+	public ResponseObject<EmptyTag, EmptyData> S1S21Uagainbuy(@RequestParamUser User user, @RequestBody RequestObject<EmptyTag,CG_Q001_Request_S1S2> requestObject){
+		List<CG_Q001_S1S2> list = requestObject.getData().getCgQ001S1s2();
+		for(CG_Q001_S1S2 s1s2 : list) {
+			s1s2.setcModifier(user.getUserName());
+			s1s2.setcModifytime(new Date());
+			s1s2.setcRemark(requestObject.getData().getCgQ001S1s2().get(0).getcRemark());
+		}
+		return orstService.S1S21Uagainbuy(requestObject.getData(), requestObject.getSession());
+	}
+	/**
+	 * 查询待转合同页面数据
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value="/M2S11QDZ", method=RequestMethod.POST)
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgorderst>>M1S22QDZ(@RequestParamUser User user){ 
+		return orstService.M2S11QDZ(user); 
+	} 
+	//添加到待转合同页面
+	@RequestMapping(value="/S1S21XZ",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> S1S21XZ(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, YDJ_Req> requestObject){ 
+		return orstService.S1S21XZ(user,requestObject);
+	} 
+	//从待转合同页面撤回到请购单页面
+	@RequestMapping(value="/S1S21CH",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> S1S21CH(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, YDJ_Req> requestObject){ 
+		return orstService.S1S21CH(user,requestObject);
+	} 
+}

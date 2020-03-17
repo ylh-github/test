@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <title>报表管理</title>
+    <!-- DevExtreme 依赖 -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/dx.common.css" /> -->
+    <link rel="stylesheet" type="text/css" href="js/dx.common.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/dx.light.css" /> -->
+    <!--  <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/dx.all2.js"></script>
+    <script type="text/javascript" src="js/dx.all1.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script src="js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="js/localization/dx.messages.zh.js"></script>
+    <script src="js1/baob.js"></script>
+    <style>
+        .dx-datagrid-headers .dx-datagrid-table .dx-row>td{
+            border-bottom: 1px solid #ddd;
+        }
+        .dx-datagrid-rowsview .dx-row{
+            border-bottom: 1px solid #ddd;
+        }
+        .dx-widget {
+            color: #3a5fad !important;
+        }
+        .dx-button{
+            color:#3a5fad !important;
+            border:#337ab7;
+        }
+        .dx-button-mode-contained{
+            color: #337ab7 !important;
+            background: rgb(246, 249, 255) !important
+        }
+        .dx-button-mode-contained.dx-button-danger.dx-state-hover {
+            background-color: #337ab7 !important;
+            border-color: rgb(246, 249, 255) !important;
+        }
+        .dx-icon-search:before {
+            /* content: "\f027"; */
+            color:#337ab7 !important;
+        }
+        .dx-datagrid-export-button .dx-icon-export-to:before {
+            color:#337ab7 !important;
+            
+        }
+        .dx-datagrid-export-button .dx-icon-export-to{
+            font-size:20px;
+            padding: 0 10px;
+        }
+        .dx-tagbox .dx-texteditor-input{
+            border:0;
+        }
+        .red{
+            background:#ffefef;
+        }
+        .fenz{
+            background:#e5eaff;
+        }
+        .beny{
+            background:#fffde5;
+        }
+        .benz{
+            background:#f9e5ff;
+        }
+        .yellow{
+            background:yellow;
+        }
+        .huiz{
+            background:#e5ffee;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:50px;padding: 2px;">
+        <div id="searchFormM1"></div>
+    </div>
+    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false,">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:100%;padding: 0px;">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:40px;padding: 5px;background:#f6f9ff">
+                        <div id="operateFormM1S1"></div>
+                    </div>
+                    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                        <div id="gridContainer"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- 导出模态框 -->
+    <div id="add-edit-popup-container">
+        <div id="add-edit-form-container">
+        </div>
+    </div>
+    <div id="addGangGrid" style='width:100%;margin:0 auto'></div>
+</body>
+
+</html>

@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code_fb_cg.mapper.TpCgorderbeforeMapper">
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpCgorderbefore">
+    <result column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_ORMTID" jdbcType="VARCHAR" property="cOrmtid" />
+    <result column="C_ORSTID" jdbcType="VARCHAR" property="cOrstid" />
+    <result column="C_GOODSNAME" jdbcType="VARCHAR" property="cGoodsname" />
+    <result column="C_SPEC" jdbcType="VARCHAR" property="cSpec" />
+    <result column="C_UNIT" jdbcType="VARCHAR" property="cUnit" />
+    <result column="C_SUPPLIER" jdbcType="VARCHAR" property="cSupplier" />
+    <result column="C_CLUDECOM" jdbcType="VARCHAR" property="cCludecom" />
+    <result column="C_PIRCE" jdbcType="VARCHAR" property="cPirce" />
+    <result column="C_SUM" jdbcType="VARCHAR" property="cSum" />
+    <result column="C_ORMAN" jdbcType="VARCHAR" property="cOrman" />
+    <result column="C_ORDEPT" jdbcType="VARCHAR" property="cOrdept" />
+    <result column="C_PHONE" jdbcType="VARCHAR" property="cPhone" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_STATE" jdbcType="VARCHAR" property="cState" />
+    <result column="C_DR" jdbcType="VARCHAR" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="TIMESTAMP" property="cTimestamp" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" />
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" />
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" />
+    <result column="C_SW04" jdbcType="VARCHAR" property="cSw04" />
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" />
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" />
+    <result column="C_SW07" jdbcType="VARCHAR" property="cSw07" />
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+  </resultMap>
+    <resultMap id="BaseResultMap_st" type="code_fb_cg.entity.TpCgorderst">
+    <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_NO" jdbcType="VARCHAR" property="cNo" />
+    <result column="C_MUSTNEED" jdbcType="VARCHAR" property="cMustneed" />
+    <result column="C_TYPENAME" jdbcType="VARCHAR" property="cTypename" />
+    <result column="C_GOODSNAME" jdbcType="VARCHAR" property="cGoodsname" />
+    <result column="C_SPEC" jdbcType="VARCHAR" property="cSpec" />
+    <result column="C_UNIT" jdbcType="VARCHAR" property="cUnit" />
+    <result column="C_NUM" jdbcType="VARCHAR" property="cNum" />
+    <result column="C_ARRTIME" jdbcType="VARCHAR" property="cArrtime" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_STATE" jdbcType="VARCHAR" property="cState" />
+    <result column="C_DR" jdbcType="VARCHAR" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="TIMESTAMP" property="cTimestamp" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" />
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" />
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" />
+    <result column="C_SW04" jdbcType="VARCHAR" property="cSw04" />
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" />
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" />
+    <result column="C_SW07" jdbcType="VARCHAR" property="cSw07" />
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+    <result column="C_ORDEALLINE" jdbcType="TIMESTAMP" property="cOrdealline" />
+    <result column="C_DEPTOR" jdbcType="VARCHAR" property="cDeptor" />
+    <result column="C_MANOR" jdbcType="VARCHAR" property="cManor" />
+    <result column="C_PHONE" jdbcType="VARCHAR" property="cPhone" />
+    <result column="C_ALLOTSTATE" jdbcType="VARCHAR" property="cAllotstate" />
+    <result column="C_ALLOTMAN" jdbcType="VARCHAR" property="cAllotman" />
+    <result column="C_ALLOTTIME" jdbcType="TIMESTAMP" property="cAllottime" />
+    <result column="C_PLANOR" jdbcType="VARCHAR" property="cPlanor" />
+    <result column="C_POLITIME" jdbcType="TIMESTAMP" property="cPolitime" />
+    <result column="C_POLINORMTIME" jdbcType="VARCHAR" property="cPolinormtime" />
+    <result column="C_MTID" jdbcType="VARCHAR" property="cMtid" />
+    <result column="C_PLANTIME" jdbcType="TIMESTAMP" property="cPlantime" />
+        <result column="C_COMNAME" jdbcType="VARCHAR" property="cComname" />
+            <result column="C_ORDERNUM" jdbcType="VARCHAR" property="cOrdernum" />
+  </resultMap>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpCgorderbefore">
+    insert into TP_CGORDERBEFORE (C_ID, C_ORMTID, C_ORSTID, 
+      C_GOODSNAME, C_SPEC, C_UNIT, 
+      C_SUPPLIER, C_CLUDECOM, C_PIRCE, 
+      C_SUM, C_ORMAN, C_ORDEPT, 
+      C_PHONE, C_REMARK, C_STATE, 
+      C_DR, C_TIMESTAMP, C_CREATER, 
+      C_CREATETIME, C_MODIFIER, C_MODIFYTIME, 
+      C_SW01, C_SW02, C_SW03, 
+      C_SW04, C_SW05, C_SW06, 
+      C_SW07, C_SW08, C_SW09, 
+      C_SW10)
+    values (#{cId,jdbcType=VARCHAR}, #{cOrmtid,jdbcType=VARCHAR}, #{cOrstid,jdbcType=VARCHAR}, 
+      #{cGoodsname,jdbcType=VARCHAR}, #{cSpec,jdbcType=VARCHAR}, #{cUnit,jdbcType=VARCHAR}, 
+      #{cSupplier,jdbcType=VARCHAR}, #{cCludecom,jdbcType=VARCHAR}, #{cPirce,jdbcType=VARCHAR}, 
+      #{cSum,jdbcType=VARCHAR}, #{cOrman,jdbcType=VARCHAR}, #{cOrdept,jdbcType=VARCHAR}, 
+      #{cPhone,jdbcType=VARCHAR}, #{cRemark,jdbcType=VARCHAR}, #{cState,jdbcType=VARCHAR}, 
+      #{cDr,jdbcType=VARCHAR}, #{cTimestamp,jdbcType=TIMESTAMP}, #{cCreater,jdbcType=VARCHAR}, 
+      #{cCreatetime,jdbcType=TIMESTAMP}, #{cModifier,jdbcType=VARCHAR}, #{cModifytime,jdbcType=TIMESTAMP}, 
+      #{cSw01,jdbcType=VARCHAR}, #{cSw02,jdbcType=VARCHAR}, #{cSw03,jdbcType=VARCHAR}, 
+      #{cSw04,jdbcType=VARCHAR}, #{cSw05,jdbcType=VARCHAR}, #{cSw06,jdbcType=VARCHAR}, 
+      #{cSw07,jdbcType=VARCHAR}, #{cSw08,jdbcType=VARCHAR}, #{cSw09,jdbcType=VARCHAR}, 
+      #{cSw10,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" >
+    insert into TP_CGORDERBEFORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="st.cMtid != null">
+        C_ORMTID,
+      </if>
+      <if test="st.cId != null">
+        C_ORSTID,
+      </if>
+      <if test="st.cGoodsname != null">
+        C_GOODSNAME,
+      </if>
+      <if test="st.cSpec != null">
+        C_SPEC,
+      </if>
+      <if test="st.cUnit != null">
+        C_UNIT,
+      </if>
+      <if test="be.cSupplier != null">
+        C_SUPPLIER,
+      </if>
+      <if test="be.cCludecom != null">
+        C_CLUDECOM,
+      </if>
+      <if test="be.cPirce != null">
+        C_PIRCE,
+      </if>
+      <if test="st.cNum != null">
+        C_SUM,
+      </if>
+      <if test="st.cManor != null">
+        C_ORMAN,
+      </if>
+      <if test="be.cOrdept != null">
+        C_ORDEPT,
+      </if>
+      <if test="st.cPhone != null">
+        C_PHONE,
+      </if>
+      <if test="be.cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="be.cState != null">
+        C_STATE,
+      </if>
+      <if test="be.cDr != null">
+        C_DR,
+      </if>
+      <if test="be.cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="be.cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="be.cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="be.cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="be.cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="be.cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="be.cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="st.cSw04 != null">
+        C_SW03,
+      </if>
+      <if test="be.cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="be.cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="be.cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="be.cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="be.cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="be.cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="be.cSw10 != null">
+        C_SW10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        C_ID_SEQ.NEXTVAL,
+      <if test="st.cMtid != null">
+        #{st.cMtid,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cId != null">
+        #{st.cId,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cGoodsname != null">
+        #{st.cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cSpec != null">
+        #{st.cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cUnit != null">
+        #{st.cUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSupplier != null">
+        #{be.cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cCludecom != null">
+        #{be.cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cPirce != null">
+        #{be.cPirce,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cNum != null">
+        #{st.cNum,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cManor != null">
+        #{st.cManor,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cOrdept != null">
+        #{be.cOrdept,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cPhone != null">
+        #{st.cPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cRemark != null">
+        #{be.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cState != null">
+        #{be.cState,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cDr != null">
+        #{be.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cTimestamp != null">
+        #{be.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="be.cCreater != null">
+        #{be.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cCreatetime != null">
+        #{be.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="be.cModifier != null">
+        #{be.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cModifytime != null">
+        #{be.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="be.cSw01 != null">
+        #{be.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw02 != null">
+        #{be.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="st.cSw04 != null">
+        #{st.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw04 != null">
+        #{be.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw05 != null">
+        #{be.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw06 != null">
+        #{be.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw07 != null">
+        #{be.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw08 != null">
+        #{be.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw09 != null">
+        #{be.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="be.cSw10 != null">
+        #{be.cSw10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertAdd" >
+  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+    insert into TP_CGORDERBEFORE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="item.cOrmtid != null">
+        C_ORMTID,
+      </if>
+      <if test="item.cOrstid != null">
+        C_ORSTID,
+      </if>
+      <if test="item.cGoodsname != null">
+        C_GOODSNAME,
+      </if>
+      <if test="item.cSpec != null">
+        C_SPEC,
+      </if>
+      <if test="item.cUnit != null">
+        C_UNIT,
+      </if>
+      <if test="item.cSupplier != null">
+        C_SUPPLIER,
+      </if>
+      <if test="item.cCludecom != null">
+        C_CLUDECOM,
+      </if>
+      <if test="item.cPirce != null">
+        C_PIRCE,
+      </if>
+      <if test="item.cSum != null">
+        C_SUM,
+      </if>
+      <if test="item.cOrman != null">
+        C_ORMAN,
+      </if>
+      <if test="item.cOrdept != null">
+        C_ORDEPT,
+      </if>
+      <if test="item.cPhone != null">
+        C_PHONE,
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="item.cState != null">
+        C_STATE,
+      </if>
+      <if test="item.cDr != null">
+        C_DR,
+      </if>
+      <if test="item.cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="item.cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="item.cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="item.cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="item.cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="item.cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="item.cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="item.cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="item.cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="item.cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="item.cSw10 != null">
+        C_SW10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        C_ID_SEQ.NEXTVAL,
+      <if test="item.cOrmtid != null">
+        #{item.cOrmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrstid != null">
+        #{item.cOrstid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cGoodsname != null">
+        #{item.cGoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSpec != null">
+        #{item.cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cUnit != null">
+        #{item.cUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSupplier != null">
+        #{item.cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCludecom != null">
+        #{item.cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cPirce != null">
+        #{item.cPirce,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSum != null">
+        #{item.cSum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrman != null">
+        #{item.cOrman,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cOrdept != null">
+        #{item.cOrdept,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cPhone != null">
+        #{item.cPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRemark != null">
+        #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cState != null">
+        #{item.cState,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null">
+        #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTimestamp != null">
+        #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCreater != null">
+        #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null">
+        #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null">
+        #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null">
+        #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw01 != null">
+        #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null">
+        #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null">
+        #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null">
+        #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null">
+        #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null">
+        #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null">
+        #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null">
+        #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null">
+        #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null">
+        #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </foreach>
+  </insert>
+  
+  <select id="getByCondition" parameterType="code_fb_cg.request.TpCgorderbeforeCondition" resultMap="BaseResultMap">
+  
+  	SELECT 
+  	  C_ID, C_ORMTID, C_ORSTID, 
+      C_GOODSNAME, C_SPEC, C_UNIT, 
+      C_SUPPLIER, C_CLUDECOM, C_PIRCE, 
+      C_SUM, C_ORMAN, C_ORDEPT, 
+      C_PHONE, C_REMARK, C_STATE, 
+      C_DR, C_TIMESTAMP, C_CREATER, 
+      C_CREATETIME, C_MODIFIER, C_MODIFYTIME, 
+      C_SW01, C_SW02, C_SW03, 
+      C_SW04, C_SW05, C_SW06, 
+      C_SW07, C_SW08, C_SW09, 
+      C_SW10
+  	FROM
+  	TP_CGORDERBEFORE 
+  	WHERE 1=1 
+  		AND C_State = '0' <!-- 只查未采购 -->
+  	<if test="cGoodsname != null">
+  		AND C_GOODSNAME LIKE '%' || #{cGoodsname} || '%'
+  	</if>
+  	<if test="cSpec != null">
+  		AND  C_SPEC LIKE '%' || #{cSpec} || '%'
+  	</if>
+  	<if test="cOrman != null">
+  		AND C_ORMAN LIKE '%' || #{cOrman} || '%'
+  	</if>
+  	<if test="cOrmtid != null">
+  		AND C_ORMTID LIKE '%' || #{cOrmtid} || '%'
+   	</if>
+  	<if test="cSw02 != null">
+  		AND C_SW02 LIKE '%' || #{cSw02} || '%'
+   	</if>
+  </select>
+  
+  
+  <select id="isOrContract" parameterType="string" resultMap="BaseResultMap">
+  	SELECT 
+  	  C_ID, C_ORMTID, C_ORSTID, 
+      C_GOODSNAME, C_SPEC, C_UNIT, 
+      C_SUPPLIER, C_CLUDECOM, C_PIRCE, 
+      C_SUM, C_ORMAN, C_ORDEPT, 
+      C_PHONE, C_REMARK, C_STATE, 
+      C_DR, C_TIMESTAMP, C_CREATER, 
+      C_CREATETIME, C_MODIFIER, C_MODIFYTIME, 
+      C_SW01, C_SW02, C_SW03, 
+      C_SW04, C_SW05, C_SW06, 
+      C_SW07, C_SW08, C_SW09, 
+      C_SW10
+  	FROM TP_CGORDERBEFORE
+  	WHERE
+  	C_STATE = #{cState}
+  	AND C_ID = #{cId}
+  </select>
+  <update id="updateForZHT"  parameterType="code_fb_cg.entity.TpCgorderbefore" >	
+	  update TP_CGORDERBEFORE
+	  set
+		C_STATE = '1'
+	  WHERE
+		C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <!-- 删除预登记 -->
+  <delete id="deleteBefore" parameterType="java.util.List">
+	  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+	    delete from TP_CGORDERBEFORE
+	    where C_ID = #{item.cId,jdbcType=VARCHAR}
+	    and C_ORSTID = #{item.cOrstid,jdbcType=VARCHAR}
+      </foreach>
+  </delete>
+  <!-- 预登记后修改字表状态 -->
+  
+    <!-- 更改物资的状态：0未登记 1转合同-->
+    <update id="update_st_Cstate"  parameterType="code_fb_cg.entity.TpCgorderbefore" >	
+	  update TP_CGORDERST
+	  set
+		C_STATE = '1'
+	  WHERE
+		C_ID = #{cOrstid,jdbcType=VARCHAR}
+  </update>
+    <update id="update_st_Cstate2"  parameterType="code_fb_cg.entity.TpCgorderbefore" >	
+	  update TP_CGORDERST
+	  set
+		C_STATE = '0',
+		C_SW10 = ''
+	  WHERE
+		C_ID = #{cOrstid,jdbcType=VARCHAR}
+  </update>
+  <select id="IFORNOT_tpCgordermt_Cstate" parameterType="string" resultMap="BaseResultMap">
+  	SELECT 
+  	  C_ID 
+  	FROM TP_CGORDERst
+  	WHERE
+  	C_STATE = '0'
+  	AND 
+  	C_MTID = #{cOrmtid}
+  </select>
+    <update id="update_tpCgordermt_Cstate"  parameterType="code_fb_cg.entity.TpCgorderbefore" >	
+	  update TP_CGORDERMt
+	  set
+		C_STATE = '1'
+	  WHERE
+		C_ID = #{cOrmtid}
+  </update>
+    <update id="update_tpCgordermt_Cstate2"  parameterType="code_fb_cg.entity.TpCgorderbefore" >	
+	  update TP_CGORDERMt
+	  set
+		C_STATE = '0'
+	  WHERE
+		C_ID = #{cOrmtid}
+  </update>
+</mapper>

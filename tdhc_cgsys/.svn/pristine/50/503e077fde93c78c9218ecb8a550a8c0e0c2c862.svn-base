@@ -1,0 +1,63 @@
+package code_fb_cg.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import code_fb.entity.CLAUSE_M1S1;
+
+public class ClauseUtil {
+
+	public List<CLAUSE_M1S1>  addClause(List<CLAUSE_M1S1> clauseM1s1) {
+		List<CLAUSE_M1S1> list = new ArrayList<CLAUSE_M1S1>();
+		for (CLAUSE_M1S1 clause_M1S1 : clauseM1s1) {
+			CLAUSE_M1S1 clause = new CLAUSE_M1S1();
+			//合同类型
+			clause.setcContypeTpCgclausedata(clause_M1S1.getcContypeTpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw01TpCgclausedata(clause_M1S1.getcSw01TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw02TpCgclausedata(clause_M1S1.getcSw02TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw03TpCgclausedata(clause_M1S1.getcSw03TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw04TpCgclausedata(clause_M1S1.getcSw04TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw05TpCgclausedata(clause_M1S1.getcSw05TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw06TpCgclausedata(clause_M1S1.getcSw06TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw07TpCgclausedata(clause_M1S1.getcSw07TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw08TpCgclausedata(clause_M1S1.getcSw08TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw09TpCgclausedata(clause_M1S1.getcSw09TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw10TpCgclausedata(clause_M1S1.getcSw10TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw11TpCgclausedata(clause_M1S1.getcSw11TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw12TpCgclausedata(clause_M1S1.getcSw12TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw13TpCgclausedata(clause_M1S1.getcSw13TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw14TpCgclausedata(clause_M1S1.getcSw14TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw15TpCgclausedata(clause_M1S1.getcSw15TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw16TpCgclausedata(clause_M1S1.getcSw16TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw17TpCgclausedata(clause_M1S1.getcSw17TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw18TpCgclausedata(clause_M1S1.getcSw18TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw19TpCgclausedata(clause_M1S1.getcSw19TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw20TpCgclausedata(clause_M1S1.getcSw20TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw21TpCgclausedata(clause_M1S1.getcSw21TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw22TpCgclausedata(clause_M1S1.getcSw22TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw23TpCgclausedata(clause_M1S1.getcSw23TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw24TpCgclausedata(clause_M1S1.getcSw24TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw25TpCgclausedata(clause_M1S1.getcSw25TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw26TpCgclausedata(clause_M1S1.getcSw26TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw27TpCgclausedata(clause_M1S1.getcSw27TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw28TpCgclausedata(clause_M1S1.getcSw28TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw29TpCgclausedata(clause_M1S1.getcSw29TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw30TpCgclausedata(clause_M1S1.getcSw30TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw31TpCgclausedata(clause_M1S1.getcSw31TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw32TpCgclausedata(clause_M1S1.getcSw32TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw33TpCgclausedata(clause_M1S1.getcSw33TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw34TpCgclausedata(clause_M1S1.getcSw34TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw35TpCgclausedata(clause_M1S1.getcSw35TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw36TpCgclausedata(clause_M1S1.getcSw36TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw37TpCgclausedata(clause_M1S1.getcSw37TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw38TpCgclausedata(clause_M1S1.getcSw38TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw39TpCgclausedata(clause_M1S1.getcSw39TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw40TpCgclausedata(clause_M1S1.getcSw40TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw41TpCgclausedata(clause_M1S1.getcSw41TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			clause.setcSw42TpCgclausedata(clause_M1S1.getcSw42TpCgclausedata().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			list.add(clause);
+		}
+		return list;
+	}
+
+}

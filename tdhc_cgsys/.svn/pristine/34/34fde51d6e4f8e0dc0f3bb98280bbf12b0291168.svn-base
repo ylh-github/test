@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="code_fb_cg.mapper.TbGuildataMapper" >
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TbGuildata" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+    <result column="UPDATER" property="updater" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="DELETER" property="deleter" jdbcType="VARCHAR" />
+    <result column="DELETE_TIME" property="deleteTime" jdbcType="DATE" />
+    <result column="DELETED" property="deleted" jdbcType="VARCHAR" />
+    <result column="TIMESTAMP" property="timestamp" jdbcType="DATE" />
+    <result column="C_SW01" property="cSw01" jdbcType="VARCHAR" />
+    <result column="C_SW02" property="cSw02" jdbcType="VARCHAR" />
+    <result column="C_SW03" property="cSw03" jdbcType="VARCHAR" />
+    <result column="C_SW04" property="cSw04" jdbcType="VARCHAR" />
+    <result column="C_SW05" property="cSw05" jdbcType="VARCHAR" />
+    <result column="C_SW06" property="cSw06" jdbcType="VARCHAR" />
+    <result column="C_SW07" property="cSw07" jdbcType="VARCHAR" />
+    <result column="C_SW08" property="cSw08" jdbcType="VARCHAR" />
+    <result column="C_SW09" property="cSw09" jdbcType="VARCHAR" />
+    <result column="C_SW10" property="cSw10" jdbcType="VARCHAR" />
+    <result column="C_SW11" property="cSw11" jdbcType="VARCHAR" />
+    <result column="C_SW12" property="cSw12" jdbcType="VARCHAR" />
+    <result column="C_SW13" property="cSw13" jdbcType="VARCHAR" />
+    <result column="C_SW14" property="cSw14" jdbcType="VARCHAR" />
+    <result column="C_SW15" property="cSw15" jdbcType="VARCHAR" />
+    <result column="C_SW16" property="cSw16" jdbcType="VARCHAR" />
+    <result column="C_SW17" property="cSw17" jdbcType="VARCHAR" />
+    <result column="C_SW18" property="cSw18" jdbcType="VARCHAR" />
+    <result column="C_SW19" property="cSw19" jdbcType="VARCHAR" />
+    <result column="C_SW20" property="cSw20" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, CODE, NAME, CREATOR, CREATE_TIME, UPDATER, UPDATE_TIME, DELETER, DELETE_TIME, 
+    DELETED, TIMESTAMP, C_SW01, C_SW02, C_SW03, C_SW04, C_SW05, C_SW06, C_SW07, C_SW08, 
+    C_SW09, C_SW10, C_SW11, C_SW12, C_SW13, C_SW14, C_SW15, C_SW16, C_SW17, C_SW18, C_SW19, 
+    C_SW20
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="code_fb_cg.entity.TbGuildataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TB_GUILDATA
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+   <select id="selectInfo" resultMap="BaseResultMap" parameterType="code_fb_cg.entity.TbGuildata" >
+    select
+    <include refid="Base_Column_List" />
+    from TB_GUILDATA WHRER 1=1
+    <if test = "name != null and name != ''">
+    AND NAME = #{name,jdbcType=VARCHAR}
+    </if>
+  </select>
+   <select id="getInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from TB_GUILDATA 
+  </select>
+  <delete id="deleteByExample" parameterType="code_fb_cg.entity.TbGuildataExample" >
+    delete from TB_GUILDATA
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="code_fb_cg.entity.TbGuildata" >
+    insert into TB_GUILDATA (ID, CODE, NAME, 
+      CREATOR, CREATE_TIME, UPDATER, 
+      UPDATE_TIME, DELETER, DELETE_TIME, 
+      DELETED, TIMESTAMP, C_SW01, 
+      C_SW02, C_SW03, C_SW04, 
+      C_SW05, C_SW06, C_SW07, 
+      C_SW08, C_SW09, C_SW10, 
+      C_SW11, C_SW12, C_SW13, 
+      C_SW14, C_SW15, C_SW16, 
+      C_SW17, C_SW18, C_SW19, 
+      C_SW20)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{updater,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{deleter,jdbcType=VARCHAR}, #{deleteTime,jdbcType=DATE}, 
+      #{deleted,jdbcType=VARCHAR}, #{timestamp,jdbcType=DATE}, #{cSw01,jdbcType=VARCHAR}, 
+      #{cSw02,jdbcType=VARCHAR}, #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=VARCHAR}, 
+      #{cSw05,jdbcType=VARCHAR}, #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=VARCHAR}, 
+      #{cSw08,jdbcType=VARCHAR}, #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR}, 
+      #{cSw11,jdbcType=VARCHAR}, #{cSw12,jdbcType=VARCHAR}, #{cSw13,jdbcType=VARCHAR}, 
+      #{cSw14,jdbcType=VARCHAR}, #{cSw15,jdbcType=VARCHAR}, #{cSw16,jdbcType=VARCHAR}, 
+      #{cSw17,jdbcType=VARCHAR}, #{cSw18,jdbcType=VARCHAR}, #{cSw19,jdbcType=VARCHAR}, 
+      #{cSw20,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TbGuildata" >
+    insert into TB_GUILDATA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updater != null" >
+        UPDATER,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="deleter != null" >
+        DELETER,
+      </if>
+      <if test="deleteTime != null" >
+        DELETE_TIME,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="timestamp != null" >
+        TIMESTAMP,
+      </if>
+      <if test="cSw01 != null" >
+        C_SW01,
+      </if>
+      <if test="cSw02 != null" >
+        C_SW02,
+      </if>
+      <if test="cSw03 != null" >
+        C_SW03,
+      </if>
+      <if test="cSw04 != null" >
+        C_SW04,
+      </if>
+      <if test="cSw05 != null" >
+        C_SW05,
+      </if>
+      <if test="cSw06 != null" >
+        C_SW06,
+      </if>
+      <if test="cSw07 != null" >
+        C_SW07,
+      </if>
+      <if test="cSw08 != null" >
+        C_SW08,
+      </if>
+      <if test="cSw09 != null" >
+        C_SW09,
+      </if>
+      <if test="cSw10 != null" >
+        C_SW10,
+      </if>
+      <if test="cSw11 != null" >
+        C_SW11,
+      </if>
+      <if test="cSw12 != null" >
+        C_SW12,
+      </if>
+      <if test="cSw13 != null" >
+        C_SW13,
+      </if>
+      <if test="cSw14 != null" >
+        C_SW14,
+      </if>
+      <if test="cSw15 != null" >
+        C_SW15,
+      </if>
+      <if test="cSw16 != null" >
+        C_SW16,
+      </if>
+      <if test="cSw17 != null" >
+        C_SW17,
+      </if>
+      <if test="cSw18 != null" >
+        C_SW18,
+      </if>
+      <if test="cSw19 != null" >
+        C_SW19,
+      </if>
+      <if test="cSw20 != null" >
+        C_SW20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="deleter != null" >
+        #{deleter,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=DATE},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null" >
+        #{timestamp,jdbcType=DATE},
+      </if>
+      <if test="cSw01 != null" >
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null" >
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null" >
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null" >
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null" >
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null" >
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null" >
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null" >
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null" >
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null" >
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw11 != null" >
+        #{cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw12 != null" >
+        #{cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw13 != null" >
+        #{cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw14 != null" >
+        #{cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw15 != null" >
+        #{cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw16 != null" >
+        #{cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw17 != null" >
+        #{cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw18 != null" >
+        #{cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw19 != null" >
+        #{cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw20 != null" >
+        #{cSw20,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="code_fb_cg.entity.TbGuildataExample" resultType="java.lang.Integer" >
+    select count(*) from TB_GUILDATA
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update TB_GUILDATA
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creator != null" >
+        CREATOR = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      </if>
+      <if test="record.updater != null" >
+        UPDATER = #{record.updater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=DATE},
+      </if>
+      <if test="record.deleter != null" >
+        DELETER = #{record.deleter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteTime != null" >
+        DELETE_TIME = #{record.deleteTime,jdbcType=DATE},
+      </if>
+      <if test="record.deleted != null" >
+        DELETED = #{record.deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timestamp != null" >
+        TIMESTAMP = #{record.timestamp,jdbcType=DATE},
+      </if>
+      <if test="record.cSw01 != null" >
+        C_SW01 = #{record.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw02 != null" >
+        C_SW02 = #{record.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw03 != null" >
+        C_SW03 = #{record.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw04 != null" >
+        C_SW04 = #{record.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw05 != null" >
+        C_SW05 = #{record.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw06 != null" >
+        C_SW06 = #{record.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw07 != null" >
+        C_SW07 = #{record.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw08 != null" >
+        C_SW08 = #{record.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw09 != null" >
+        C_SW09 = #{record.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw10 != null" >
+        C_SW10 = #{record.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw11 != null" >
+        C_SW11 = #{record.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw12 != null" >
+        C_SW12 = #{record.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw13 != null" >
+        C_SW13 = #{record.cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw14 != null" >
+        C_SW14 = #{record.cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw15 != null" >
+        C_SW15 = #{record.cSw15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw16 != null" >
+        C_SW16 = #{record.cSw16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw17 != null" >
+        C_SW17 = #{record.cSw17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw18 != null" >
+        C_SW18 = #{record.cSw18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw19 != null" >
+        C_SW19 = #{record.cSw19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cSw20 != null" >
+        C_SW20 = #{record.cSw20,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update TB_GUILDATA
+    set ID = #{record.id,jdbcType=VARCHAR},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      CREATOR = #{record.creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      UPDATER = #{record.updater,jdbcType=VARCHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=DATE},
+      DELETER = #{record.deleter,jdbcType=VARCHAR},
+      DELETE_TIME = #{record.deleteTime,jdbcType=DATE},
+      DELETED = #{record.deleted,jdbcType=VARCHAR},
+      TIMESTAMP = #{record.timestamp,jdbcType=DATE},
+      C_SW01 = #{record.cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{record.cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{record.cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{record.cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{record.cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{record.cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{record.cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{record.cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{record.cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{record.cSw10,jdbcType=VARCHAR},
+      C_SW11 = #{record.cSw11,jdbcType=VARCHAR},
+      C_SW12 = #{record.cSw12,jdbcType=VARCHAR},
+      C_SW13 = #{record.cSw13,jdbcType=VARCHAR},
+      C_SW14 = #{record.cSw14,jdbcType=VARCHAR},
+      C_SW15 = #{record.cSw15,jdbcType=VARCHAR},
+      C_SW16 = #{record.cSw16,jdbcType=VARCHAR},
+      C_SW17 = #{record.cSw17,jdbcType=VARCHAR},
+      C_SW18 = #{record.cSw18,jdbcType=VARCHAR},
+      C_SW19 = #{record.cSw19,jdbcType=VARCHAR},
+      C_SW20 = #{record.cSw20,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

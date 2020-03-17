@@ -1,0 +1,246 @@
+package code_fb_cg.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgorderstInfo;
+import code_fb_cg.mapper.TpCgcontractmtMapper;
+import code_fb_cg.mapper.TpCgordermtMapper;
+import code_fb_cg.mapper.TpCgorderstMapper;
+import code_fb_cg.response.HomePageResponse;
+import code_fb_cg.response.HompageRequest;
+import code_fb_cg.service.HomePageService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+/**
+ * 首页serviceimpl
+ * @author lhb
+ * @时间：2019年3月5日下午3:45:27
+ */
+@Service
+public class HomePageServiceImpl implements HomePageService{
+
+	@Autowired
+	private TpCgcontractmtMapper tpCgcontractmtMapper;
+	
+	@Autowired
+	private TpCgordermtMapper tpCgordermtMapper;
+	@Autowired
+	private TpCgorderstMapper tpCgorderstMapper;
+	public ResponseObject<EmptyTag, HomePageResponse> selecttpCgordermtSum(
+			RequestObject<EmptyTag, EmptyData> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse selecttpCgordermtSum = tpCgordermtMapper.selecttpCgordermtSum();
+		return builder.data(selecttpCgordermtSum).errcode(Errcode.Success).build();
+	}
+	//无条件统计
+	public ResponseObject<EmptyTag, HomePageResponse> selectContmtSum(
+			RequestObject<EmptyTag, EmptyData> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse selectContmtSum = tpCgcontractmtMapper.selectContmtSum();
+		return builder.data(selectContmtSum).errcode(Errcode.Success).build();
+	}
+	//有条件统计合同数量
+	public ResponseObject<EmptyTag, HomePageResponse> selectContmtNum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse selectContmtNumBy = tpCgcontractmtMapper.selectContmtNumBy(requestObject.getData());
+		return builder.data(selectContmtNumBy).errcode(Errcode.Success).build();
+	}
+	//已完成的合同数量
+	public ResponseObject<EmptyTag, HomePageResponse> completedContSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		// TODO Auto-generated method stub
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse completedContSum = tpCgcontractmtMapper.completedContSum(requestObject.getData());
+		return builder.data(completedContSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> arrGoodsSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse arrGoodsSum = tpCgcontractmtMapper.arrGoodsSum(requestObject.getData());
+		return builder.data(arrGoodsSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> payContSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse payContSum = tpCgcontractmtMapper.payContSum(requestObject.getData());
+		return builder.data(payContSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> kaipContSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		// TODO Auto-generated method stub
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse kaipContSum = tpCgcontractmtMapper.kaipContSum(requestObject.getData());
+		return builder.data(kaipContSum).errcode(Errcode.Success).build();
+	}
+	
+	public ResponseObject<EmptyTag, HomePageResponse> deplayContSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		// TODO Auto-generated method stub
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse deplayContSum = new HomePageResponse();
+		List<TpCgcontractmt> tmtlist = tpCgcontractmtMapper.deplayContSum(requestObject.getData());
+		int i = 0;
+		int j = 0;
+		for(TpCgcontractmt tmt : tmtlist) {
+			int csw = Integer.parseInt(tmt.getcSw12().substring(0, tmt.getcSw12().lastIndexOf("天")));
+			if(csw > 0) {
+				i++;
+			}
+			if(csw < 0) {
+				j++;
+			}
+		}
+		deplayContSum.setTpCgcontractmtSum(i);
+		deplayContSum.setTpCgcontractNum(j);
+		return builder.data(deplayContSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> countContSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		// TODO Auto-generated method stub
+		tpCgcontractmtMapper.countContSum(requestObject.getData());
+		return null;
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> tpCgorderstSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse tpCgorderstSum = tpCgorderstMapper.tpCgorderstSum(requestObject.getData());
+		return builder.data(tpCgorderstSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> selecttpCgorderstSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		HomePageResponse tpCgorderstSum = tpCgorderstMapper.selecttpCgorderstSum(requestObject.getData());
+		return builder.data(tpCgorderstSum).errcode(Errcode.Success).build();
+	}
+	public ResponseObject<EmptyTag, HomePageResponse> yeartpCgorderstSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+//		List<TpCgorderst> listrst = tpCgorderstMapper.yeartpCgorderstSum(requestObject.getData());
+		HomePageResponse yeartpCgorderstSum = new HomePageResponse();
+//		int[] monthSum = new int[12];
+//		int month = 0;
+//		for(TpCgorderst rst : listrst) {
+//			Date date = rst.getcCreatetime();
+//			Calendar cal = Calendar.getInstance();
+//			cal.setTime(date);
+//			month = cal.get(Calendar.MONTH);
+//			if(month == 0) {
+//				monthSum[0]++;
+//			}
+//			if(month == 1) {
+//				monthSum[1]++;
+//			}
+//			if(month == 2) {
+//				monthSum[2]++;
+//			}
+//			if(month == 3) {
+//				monthSum[3]++;
+//			}
+//			if(month == 4) {
+//				monthSum[4]++;
+//			}
+//			if(month == 5) {
+//				monthSum[5]++;
+//			}
+//			if(month == 6) {
+//				monthSum[6]++;
+//			}
+//			if(month == 7) {
+//				monthSum[7]++;
+//			}
+//			if(month == 8) {
+//				monthSum[8]++;
+//			}
+//			if(month == 9) {
+//				monthSum[9]++;
+//			}
+//			if(month == 10) {
+//				monthSum[10]++;
+//			}
+//			if(month == 11) {
+//				monthSum[11]++;
+//			}			
+//		}
+//		System.out.println(monthSum);
+		  
+		//数据
+		int [] monthSum  = new int[] {0,0,0,0,0,0,0,0,0,0,0,0};
+//		//categories
+//		int[]  monthNum = new int [12];
+
+		List<HomePageResponse> yeartpCgorderstSum2 = tpCgorderstMapper.yeartpCgorderstSum2(requestObject.getData());
+		int size = yeartpCgorderstSum2.size();
+		System.out.println("长度：："+size);
+		for (int j = 0; j < size; j++) {
+			int monthNum1 = yeartpCgorderstSum2.get(j).getMonthNum()-1;
+			monthSum[monthNum1] = yeartpCgorderstSum2.get(j).geteMonthSum();
+//			monthNum[i] = yeartpCgorderstSum2.get(i).getMonthNum();
+			System.out.println(monthSum[monthNum1]);
+		}
+		
+		yeartpCgorderstSum.setMonthSum(monthSum);
+//		yeartpCgorderstSum.setMonthdes(monthNum);
+		return builder.data(yeartpCgorderstSum).errcode(Errcode.Success).build();
+	}
+	@Override
+	public ResponseObject<EmptyTag, HomePageResponse> itemNameSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+//		requestObject.getData().getHompageObject().get(0).getStartTime();
+//		requestObject.getData().getHompageObject().get(0).getEndTime();
+		List<TpCgorderstInfo> infoList = new ArrayList<>();
+		for (String ItemName : requestObject.getData().getHompageObject().get(0).getItemName()) {
+//			TpCgorderstInfo tpCgorderstInfo = new TpCgorderstInfo();
+			List<TpCgorderstInfo> itemNameSum = tpCgorderstMapper.itemNameSum(requestObject.getData().getHompageObject().get(0).getStartTime(),
+					requestObject.getData().getHompageObject().get(0).getEndTime(),
+					ItemName);
+			itemNameSum.get(0).setItemName(ItemName);
+			infoList.add(itemNameSum.get(0));
+		}
+		int cNo = 0;
+		for (TpCgorderstInfo tpCgorderstInfo : infoList) {
+			cNo++;
+			tpCgorderstInfo.setcNo(cNo);
+		}
+		
+		return builder.data(infoList).msg("查询成功！！！").errcode(Errcode.Success).build();
+	}
+	@Override
+	public ResponseObject<EmptyTag, HomePageResponse> seacherManorQGXSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<TpCgorderstInfo> seacherManorQGXSum = tpCgorderstMapper.seacherManorQGXSum(requestObject.getData().getHompageObject().get(0).getStartTime(),
+					requestObject.getData().getHompageObject().get(0).getEndTime());
+		int cNo = 0;
+		for (TpCgorderstInfo tpCgorderstInfo : seacherManorQGXSum) {
+			cNo++;
+			tpCgorderstInfo.setcNo(cNo);
+		}
+		return builder.data(seacherManorQGXSum).msg("查询成功！！！").errcode(Errcode.Success).build();
+	}
+	@Override
+	public ResponseObject<EmptyTag, HomePageResponse> seacherSum(
+			RequestObject<EmptyTag, HompageRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<TpCgorderstInfo> seacherSum = tpCgorderstMapper.seacherSum(requestObject.getData().getHompageObject().get(0).getStartTime(),
+				requestObject.getData().getHompageObject().get(0).getEndTime());
+		int cNo = 0;
+		for (TpCgorderstInfo tpCgorderstInfo : seacherSum) {
+			cNo++;
+			tpCgorderstInfo.setcNo(cNo);
+		}
+		return builder.data(seacherSum).msg("查询成功！！！").errcode(Errcode.Success).build();
+	}
+
+}

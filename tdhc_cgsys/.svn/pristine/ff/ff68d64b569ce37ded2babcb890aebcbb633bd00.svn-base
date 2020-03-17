@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="code_fb.mapper.CG_A001_Mapper">
+	<resultMap id="C001ResultMap"
+		type="code_fb.entity.CG_A001_C001">
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMDES" property="cSubitemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMID" property="cSubitemid"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="M1S1ResultMap"
+		type="code_fb.entity.CG_A001_M1S1">
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+		<result column="C_ID" property="cId" jdbcType="VARCHAR" />
+		<result column="C_ORDER" property="cOrder" jdbcType="DECIMAL" />
+		<result column="C_CREATETIME" property="cCreatetime"
+			jdbcType="TIMESTAMP" />
+		<result column="C_ITEMID" property="cItemid" jdbcType="VARCHAR" />
+		<result column="C_TIMESTAMP" property="cTimestamp"
+			jdbcType="TIMESTAMP" />
+		<result column="C_GROUP" property="cGroup" jdbcType="VARCHAR" />
+		<result column="C_MODIFIER" property="cModifier"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+		<result column="C_CREATER" property="cCreater"
+			jdbcType="VARCHAR" />
+		<result column="C_MODIFYDATE" property="cModifydate"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<resultMap id="S1S2ResultMap"
+		type="code_fb.entity.CG_A001_S1S2">
+		<result column="C_ID" property="cId" jdbcType="VARCHAR" />
+		<result column="C_SUBITEMDES" property="cSubitemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_ITEMDES" property="cItemdes"
+			jdbcType="VARCHAR" />
+		<result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+		<result column="C_ORDER" property="cOrder" jdbcType="DECIMAL" />
+		<result column="C_CREATETIME" property="cCreatetime"
+			jdbcType="TIMESTAMP" />
+		<result column="C_ITEMID" property="cItemid" jdbcType="VARCHAR" />
+		<result column="C_TIMESTAMP" property="cTimestamp"
+			jdbcType="TIMESTAMP" />
+		<result column="C_GROUP" property="cGroup" jdbcType="VARCHAR" />
+		<result column="C_MODIFIER" property="cModifier"
+			jdbcType="VARCHAR" />
+		<result column="C_ENABLED" property="cEnabled"
+			jdbcType="VARCHAR" />
+		<result column="C_SUBITEMID" property="cSubitemid"
+			jdbcType="VARCHAR" />
+		<result column="C_CREATER" property="cCreater"
+			jdbcType="VARCHAR" />
+		<result column="C_MODIFYDATE" property="cModifydate"
+			jdbcType="TIMESTAMP" />
+		<result column="C_VALUE" property="cValue" jdbcType="VARCHAR" />
+		<result column="C_SW01" property="cSw01" jdbcType="VARCHAR" />
+		<result column="C_SW02" property="cSw02" jdbcType="VARCHAR" />
+		<result column="C_SW03" property="cSw03" jdbcType="VARCHAR" />
+		<result column="C_SW04" property="cSw04" jdbcType="VARCHAR" />
+		<result column="C_SW05" property="cSw05" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="C0011QCG_A001_C001"
+		parameterType="code_fb.entity.CG_A001_C001" resultMap="C001ResultMap">
+		select
+		TP_CGAUTHORITY.C_SUBITEMID
+		,
+		TP_CGAUTHORITY.C_ITEMDES
+		,
+		TP_CGAUTHORITY.C_SUBITEMDES
+		,
+		TP_CGAUTHORITY.C_ENABLED
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		AND TP_CGAUTHORITY.C_SUBITEMDES IS NOT NULL
+		AND TP_CGAUTHORITY.C_SUBITEMID IS NOT NULL
+		<if test="cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '' || #{cItemdes,jdbcType=VARCHAR} ||
+			''
+		</if>
+		<if test="cEnabled != null">
+			AND TP_CGAUTHORITY.C_ENABLED like '' || #{cEnabled,jdbcType=VARCHAR} ||
+			''
+		</if>
+	</select>
+	<select id="M1S11QCG_A001_M1S1"
+		parameterType="code_fb.entity.CG_A001_M1S1" resultMap="M1S1ResultMap">
+		select
+		TP_CGAUTHORITY.C_ITEMDES ,
+		TP_CGAUTHORITY.C_ITEMID ,
+		TP_CGAUTHORITY.C_GROUP ,
+		TP_CGAUTHORITY.C_ORDER ,
+		TP_CGAUTHORITY.C_ENABLED ,
+		TP_CGAUTHORITY.C_DR ,
+		TP_CGAUTHORITY.C_CREATER ,
+		TP_CGAUTHORITY.C_MODIFYDATE ,
+		TP_CGAUTHORITY.C_MODIFIER ,
+		TP_CGAUTHORITY.C_CREATETIME ,
+		TP_CGAUTHORITY.C_TIMESTAMP ,
+		TP_CGAUTHORITY.C_ID
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		AND TP_CGAUTHORITY.C_SUBITEMDES IS NULL
+		AND TP_CGAUTHORITY.C_SUBITEMID IS NULL
+		<if test="cgA001M1s1.cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '%' ||
+			#{cgA001M1s1.cItemdes,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="cgA001M1s1.cItemid != null">
+			AND TP_CGAUTHORITY.C_ITEMID like '%' ||
+			#{cgA001M1s1.cItemid,jdbcType=VARCHAR} || '%'
+		</if>
+	</select>
+	<insert id="M1S11ACG_A001_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001M1s1" index="index"
+			item="item" open="begin" separator=";">
+			insert into TP_CGAUTHORITY
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="item.cItemdes != null">
+					C_ITEMDES
+				</if>
+				<if test="item.cItemid != null">,
+					C_ITEMID
+				</if>
+				<if test="item.cCreater != null">,
+					C_CREATER
+				</if>
+				<if test="item.cCreatetime != null">,
+					C_CREATETIME
+				</if>
+				<if test="item.cGroup != null">,
+					C_GROUP
+				</if>
+				<if test="item.cOrder != null">,
+					C_ORDER
+				</if>
+				<if test="item.cEnabled != null">,
+					C_ENABLED
+				</if>
+				,
+				C_ID
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="item.cItemdes != null">
+					#{item.cItemdes,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cItemid != null">,
+					#{item.cItemid,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cCreater != null">,
+					#{item.cCreater,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cCreatetime != null">,
+					#{item.cCreatetime,jdbcType=TIMESTAMP}
+				</if>
+				<if test="item.cGroup != null">,
+					#{item.cGroup,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cOrder != null">,
+					#{item.cOrder,jdbcType=DECIMAL}
+				</if>
+				<if test="item.cEnabled != null">,
+					#{item.cEnabled,jdbcType=VARCHAR}
+				</if>
+				,
+				C_ID_AU_SEQ.NEXTVAL
+			</trim>
+		</foreach>
+	</insert>
+	<update id="M1S11UCG_A001_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001M1s1" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cItemdes != null">
+					C_ITEMDES = #{item.cItemdes,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cItemid != null">
+					C_ITEMID = #{item.cItemid,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cGroup != null">
+					C_GROUP = #{item.cGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cOrder != null">
+					C_ORDER = #{item.cOrder,jdbcType=DECIMAL},
+				</if>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cId != null">
+					C_ID = #{item.cId,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreater != null">
+					C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreatetime != null">
+					C_CREATETIME = #{item.cCreatetime,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<delete id="M1S11DCG_A001_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001M1s1" index="index"
+			item="item" open="begin" separator=";">
+			delete from TP_CGAUTHORITY
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+	<update id="M1S12MSGCG_A001_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001M1s1" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<update id="M1S12MSGCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw01 != null">
+					C_SW01 = #{item.cSw01,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw02 != null">
+					C_SW02 = #{item.cSw02,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw03 != null">
+					C_SW03 = #{item.cSw03,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw04 != null">
+					C_SW04 = #{item.cSw04,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw05 != null">
+					C_SW05 = #{item.cSw05,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<update id="M1S13MSGCG_A001_M1S1" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001M1s1" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<update id="M1S13MSGCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+				</if>
+				<if test="item.cSw01 != null">
+					C_SW01 = #{item.cSw01,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw02 != null">
+					C_SW02 = #{item.cSw02,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw03 != null">
+					C_SW03 = #{item.cSw03,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw04 != null">
+					C_SW04 = #{item.cSw04,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw05 != null">
+					C_SW05 = #{item.cSw05,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<select id="S1S21QCG_A001_S1S2"
+		parameterType="code_fb.entity.CG_A001_S1S2" resultMap="S1S2ResultMap">
+		select
+		TP_CGAUTHORITY.C_ID,
+		TP_CGAUTHORITY.C_ENABLED,
+		TP_CGAUTHORITY.C_VALUE,
+		TP_CGAUTHORITY.C_ORDER,
+		TP_CGAUTHORITY.C_GROUP,
+		TP_CGAUTHORITY.C_SUBITEMDES,
+		TP_CGAUTHORITY.C_SUBITEMID,
+		TP_CGAUTHORITY.C_ITEMDES,
+		TP_CGAUTHORITY.C_ITEMID,
+		TP_CGAUTHORITY.C_CREATER,
+		TP_CGAUTHORITY.C_DR,
+		TP_CGAUTHORITY.C_MODIFYDATE,
+		TP_CGAUTHORITY.C_MODIFIER,
+		TP_CGAUTHORITY.C_CREATETIME,
+		TP_CGAUTHORITY.C_SW01,
+		TP_CGAUTHORITY.C_SW02,
+		TP_CGAUTHORITY.C_SW03,
+		TP_CGAUTHORITY.C_SW04,
+		TP_CGAUTHORITY.C_SW05,
+		TP_CGAUTHORITY.C_TIMESTAMP
+
+		from TP_CGAUTHORITY
+		WHERE 1=1
+		AND TP_CGAUTHORITY.C_SUBITEMDES IS NOT NULL
+		AND TP_CGAUTHORITY.C_SUBITEMID IS NOT NULL
+		<if test="cgA001S1s2.cItemdes != null">
+			AND TP_CGAUTHORITY.C_ITEMDES like '' ||
+			#{cgA001S1s2.cItemdes,jdbcType=VARCHAR} || ''
+		</if>
+		<if test="cgA001S1s2.cItemid != null">
+			AND TP_CGAUTHORITY.C_ITEMID like '' ||
+			#{cgA001S1s2.cItemid,jdbcType=VARCHAR} || ''
+		</if>
+	</select>
+	<insert id="S1S21ACG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			insert into TP_CGAUTHORITY
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				C_ID
+				<if test="item.cEnabled != null">,
+					C_ENABLED
+				</if>
+				<if test="item.cValue != null">,
+					C_VALUE
+				</if>
+				<if test="item.cOrder != null">,
+					C_ORDER
+				</if>
+				<if test="item.cGroup != null">,
+					C_GROUP
+				</if>
+				<if test="item.cSubitemdes != null">,
+					C_SUBITEMDES
+				</if>
+				<if test="item.cSubitemid != null">,
+					C_SUBITEMID
+				</if>
+				<if test="item.cItemdes != null">,
+					C_ITEMDES
+				</if>
+				<if test="item.cItemid != null">,
+					C_ITEMID
+				</if>
+				<if test="item.cCreater != null">,
+					C_CREATER
+				</if>
+				<if test="item.cCreatetime != null">,
+					C_CREATETIME
+				</if>
+				<if test="item.cSw01 != null">,
+					C_SW01
+				</if>
+				<if test="item.cSw02 != null">,
+					C_SW02
+				</if>
+				<if test="item.cSw03 != null">,
+					C_SW03
+				</if>
+				<if test="item.cSw04 != null">,
+					C_SW04
+				</if>
+				<if test="item.cSw05 != null">,
+					C_SW05
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				C_ID_AU_SEQ.NEXTVAL
+				<if test="item.cEnabled != null">,
+					#{item.cEnabled,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cValue != null">,
+					#{item.cValue,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cOrder != null">,
+					#{item.cOrder,jdbcType=DECIMAL}
+				</if>
+				<if test="item.cGroup != null">,
+					#{item.cGroup,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSubitemdes != null">,
+					#{item.cSubitemdes,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSubitemid != null">,
+					#{item.cSubitemid,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cItemdes != null">,
+					#{item.cItemdes,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cItemid != null">,
+					#{item.cItemid,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cCreater != null">,
+					#{item.cCreater,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cCreatetime != null">,
+					#{item.cCreatetime,jdbcType=TIMESTAMP}
+				</if>
+				<if test="item.cSw01 != null">,
+					#{item.cSw01,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw02 != null">,
+					#{item.cSw02,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw03 != null">,
+					#{item.cSw03,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw04 != null">,
+					#{item.cSw04,jdbcType=VARCHAR}
+				</if>
+				<if test="item.cSw05 != null">,
+					#{item.cSw05,jdbcType=VARCHAR}
+				</if>
+			</trim>
+		</foreach>
+	</insert>
+	<update id="S1S21UCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cId != null">
+					C_ID = #{item.cId,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cValue != null">
+					C_VALUE = #{item.cValue,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cOrder != null">
+					C_ORDER = #{item.cOrder,jdbcType=DECIMAL},
+				</if>
+				<if test="item.cGroup != null">
+					C_GROUP = #{item.cGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSubitemdes != null">
+					C_SUBITEMDES = #{item.cSubitemdes,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSubitemid != null">
+					C_SUBITEMID = #{item.cSubitemid,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cItemdes != null">
+					C_ITEMDES = #{item.cItemdes,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreater != null">
+					C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreatetime != null">
+					C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cItemid != null">
+					C_ITEMID = #{item.cItemid,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSw01 != null">
+					C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSw02 != null">
+					C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSw03 != null">
+					C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSw04 != null">
+					C_SW04 = #{item.cSw04,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cSw05 != null">
+					C_SW05 = #{item.cSw05,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<delete id="S1S21DCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			delete from TP_CGAUTHORITY
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+	<update id="S1S22MSGCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<update id="S1S23MSGCG_A001_S1S2" parameterType="java.util.List">
+		<foreach close=";end;" collection="cgA001S1s2" index="index"
+			item="item" open="begin" separator=";">
+			update TP_CGAUTHORITY
+			<set>
+				<if test="item.cEnabled != null">
+					C_ENABLED = #{item.cEnabled,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifier != null">
+					C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cModifydate != null">
+					C_MODIFYDATE = #{item.cModifydate,jdbcType=TIMESTAMP}
+				</if>
+			</set>
+			WHERE
+			C_ID = #{item.cId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+</mapper>

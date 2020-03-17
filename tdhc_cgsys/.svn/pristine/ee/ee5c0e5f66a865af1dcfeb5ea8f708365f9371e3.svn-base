@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="code_fb_cg.mapper.TpCgmoneyinvbookMapper">
+  <resultMap id="BaseResultMap" type="code_fb_cg.entity.TpCgmoneyinvbook">
+    <id column="C_ID" jdbcType="VARCHAR" property="cId" />
+    <result column="C_CONMTID" jdbcType="VARCHAR" property="cConmtid" />
+    <result column="C_CONSTID" jdbcType="VARCHAR" property="cConstid" />
+    <result column="C_CONNUM" jdbcType="VARCHAR" property="cConnum" />
+    <result column="C_CONLINE" jdbcType="VARCHAR" property="cConline" />
+    <result column="C_SUPPLIER" jdbcType="VARCHAR" property="cSupplier" />
+    <result column="C_SPEC" jdbcType="VARCHAR" property="cSpec" />
+    <result column="C_ALLNUM" jdbcType="VARCHAR" property="cAllnum" />
+    <result column="C_UNIT" jdbcType="VARCHAR" property="cUnit" />
+    <result column="C_MONEY" jdbcType="VARCHAR" property="cMoney" />
+    <result column="C_REFUNDRATES" jdbcType="VARCHAR" property="cRefundrates" />
+    <result column="C_CUSDEID" jdbcType="VARCHAR" property="cCusdeid" />
+    <result column="C_CUSDETIME" jdbcType="TIMESTAMP" property="cCusdetime" />
+    <result column="C_SAILLINGS" jdbcType="VARCHAR" property="cSaillings" />
+    <result column="C_INVTIME" jdbcType="TIMESTAMP" property="cInvtime" />
+    <result column="C_CONNECTTIME" jdbcType="TIMESTAMP" property="cConnecttime" />
+    <result column="C_EXBACKTIME" jdbcType="TIMESTAMP" property="cExbacktime" />
+    <result column="C_CREATER" jdbcType="VARCHAR" property="cCreater" />
+    <result column="C_CREATETIME" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="C_MODIFIER" jdbcType="VARCHAR" property="cModifier" />
+    <result column="C_MODIFYTIME" jdbcType="TIMESTAMP" property="cModifytime" />
+    <result column="C_REMARK" jdbcType="VARCHAR" property="cRemark" />
+    <result column="C_STATE" jdbcType="VARCHAR" property="cState" />
+    <result column="C_DR" jdbcType="VARCHAR" property="cDr" />
+    <result column="C_TIMESTAMP" jdbcType="TIMESTAMP" property="cTimestamp" />
+    <result column="C_SW01" jdbcType="VARCHAR" property="cSw01" />
+    <result column="C_SW02" jdbcType="VARCHAR" property="cSw02" />
+    <result column="C_SW03" jdbcType="VARCHAR" property="cSw03" />
+    <result column="C_SW04" jdbcType="VARCHAR" property="cSw04" />
+    <result column="C_SW05" jdbcType="VARCHAR" property="cSw05" />
+    <result column="C_SW06" jdbcType="VARCHAR" property="cSw06" />
+    <result column="C_SW07" jdbcType="VARCHAR" property="cSw07" />
+    <result column="C_SW08" jdbcType="VARCHAR" property="cSw08" />
+    <result column="C_SW09" jdbcType="VARCHAR" property="cSw09" />
+    <result column="C_SW10" jdbcType="VARCHAR" property="cSw10" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    C_ID, C_CONMTID, C_CONSTID, C_CONNUM, C_CONLINE, C_SUPPLIER, C_SPEC, C_ALLNUM, C_UNIT, 
+    C_MONEY, C_REFUNDRATES, C_CUSDEID, C_CUSDETIME, C_SAILLINGS, C_INVTIME, C_CONNECTTIME, 
+    C_EXBACKTIME, C_CREATER, C_CREATETIME, C_MODIFIER, C_MODIFYTIME, C_REMARK, C_STATE, 
+    C_DR, C_TIMESTAMP, C_SW01, C_SW02, C_SW03, C_SW04, C_SW05, C_SW06, C_SW07, C_SW08, 
+    C_SW09, C_SW10
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGMONEYINVBOOK
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </select>
+  <!-- 合同管理页面联动查询 -->
+  <select id="selectConmtid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TP_CGMONEYINVBOOK
+    where C_CONMTID = #{cConmtid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TP_CGMONEYINVBOOK
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <!-- 合同管理添加发票 -->
+  <insert id="ADDfapiao" parameterType="code_fb_cg.entity.TpCgmoneyinvbook">
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">
+    insert into TP_CGMONEYINVBOOK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        C_ID,
+      <if test="item.cConmtid != null">
+        C_CONMTID,
+      </if>
+      <if test="item.cMoney != null">
+        C_MONEY,
+      </if>
+      <if test="item.cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="item.cState != null">
+        C_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      C_ID_SEQ.NEXTVAL,
+      <if test="item.cConmtid != null">
+        #{item.cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cMoney != null">
+        #{item.cMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null">
+        #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRemark != null">
+        #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cState != null">
+        #{item.cState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    </foreach>
+  </insert>
+  <insert id="insert" parameterType="code_fb_cg.entity.TpCgmoneyinvbook">
+    insert into TP_CGMONEYINVBOOK (C_ID, C_CONMTID, C_CONSTID, 
+      C_CONNUM, C_CONLINE, C_SUPPLIER, 
+      C_SPEC, C_ALLNUM, C_UNIT, 
+      C_MONEY, C_REFUNDRATES, C_CUSDEID, 
+      C_CUSDETIME, C_SAILLINGS, C_INVTIME, 
+      C_CONNECTTIME, C_EXBACKTIME, C_CREATER, 
+      C_CREATETIME, C_MODIFIER, C_MODIFYTIME, 
+      C_REMARK, C_STATE, C_DR, 
+      C_TIMESTAMP, C_SW01, C_SW02, 
+      C_SW03, C_SW04, C_SW05, 
+      C_SW06, C_SW07, C_SW08, 
+      C_SW09, C_SW10)
+    values (#{cId,jdbcType=VARCHAR}, #{cConmtid,jdbcType=VARCHAR}, #{cConstid,jdbcType=VARCHAR}, 
+      #{cConnum,jdbcType=VARCHAR}, #{cConline,jdbcType=VARCHAR}, #{cSupplier,jdbcType=VARCHAR}, 
+      #{cSpec,jdbcType=VARCHAR}, #{cAllnum,jdbcType=VARCHAR}, #{cUnit,jdbcType=VARCHAR}, 
+      #{cMoney,jdbcType=VARCHAR}, #{cRefundrates,jdbcType=VARCHAR}, #{cCusdeid,jdbcType=VARCHAR}, 
+      #{cCusdetime,jdbcType=TIMESTAMP}, #{cSaillings,jdbcType=VARCHAR}, #{cInvtime,jdbcType=TIMESTAMP}, 
+      #{cConnecttime,jdbcType=TIMESTAMP}, #{cExbacktime,jdbcType=TIMESTAMP}, #{cCreater,jdbcType=VARCHAR}, 
+      #{cCreatetime,jdbcType=TIMESTAMP}, #{cModifier,jdbcType=VARCHAR}, #{cModifytime,jdbcType=TIMESTAMP}, 
+      #{cRemark,jdbcType=VARCHAR}, #{cState,jdbcType=VARCHAR}, #{cDr,jdbcType=VARCHAR}, 
+      #{cTimestamp,jdbcType=TIMESTAMP}, #{cSw01,jdbcType=VARCHAR}, #{cSw02,jdbcType=VARCHAR}, 
+      #{cSw03,jdbcType=VARCHAR}, #{cSw04,jdbcType=VARCHAR}, #{cSw05,jdbcType=VARCHAR}, 
+      #{cSw06,jdbcType=VARCHAR}, #{cSw07,jdbcType=VARCHAR}, #{cSw08,jdbcType=VARCHAR}, 
+      #{cSw09,jdbcType=VARCHAR}, #{cSw10,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="code_fb_cg.entity.TpCgmoneyinvbook">
+    insert into TP_CGMONEYINVBOOK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        C_ID,
+      </if>
+      <if test="cConmtid != null">
+        C_CONMTID,
+      </if>
+      <if test="cConstid != null">
+        C_CONSTID,
+      </if>
+      <if test="cConnum != null">
+        C_CONNUM,
+      </if>
+      <if test="cConline != null">
+        C_CONLINE,
+      </if>
+      <if test="cSupplier != null">
+        C_SUPPLIER,
+      </if>
+      <if test="cSpec != null">
+        C_SPEC,
+      </if>
+      <if test="cAllnum != null">
+        C_ALLNUM,
+      </if>
+      <if test="cUnit != null">
+        C_UNIT,
+      </if>
+      <if test="cMoney != null">
+        C_MONEY,
+      </if>
+      <if test="cRefundrates != null">
+        C_REFUNDRATES,
+      </if>
+      <if test="cCusdeid != null">
+        C_CUSDEID,
+      </if>
+      <if test="cCusdetime != null">
+        C_CUSDETIME,
+      </if>
+      <if test="cSaillings != null">
+        C_SAILLINGS,
+      </if>
+      <if test="cInvtime != null">
+        C_INVTIME,
+      </if>
+      <if test="cConnecttime != null">
+        C_CONNECTTIME,
+      </if>
+      <if test="cExbacktime != null">
+        C_EXBACKTIME,
+      </if>
+      <if test="cCreater != null">
+        C_CREATER,
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME,
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER,
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME,
+      </if>
+      <if test="cRemark != null">
+        C_REMARK,
+      </if>
+      <if test="cState != null">
+        C_STATE,
+      </if>
+      <if test="cDr != null">
+        C_DR,
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP,
+      </if>
+      <if test="cSw01 != null">
+        C_SW01,
+      </if>
+      <if test="cSw02 != null">
+        C_SW02,
+      </if>
+      <if test="cSw03 != null">
+        C_SW03,
+      </if>
+      <if test="cSw04 != null">
+        C_SW04,
+      </if>
+      <if test="cSw05 != null">
+        C_SW05,
+      </if>
+      <if test="cSw06 != null">
+        C_SW06,
+      </if>
+      <if test="cSw07 != null">
+        C_SW07,
+      </if>
+      <if test="cSw08 != null">
+        C_SW08,
+      </if>
+      <if test="cSw09 != null">
+        C_SW09,
+      </if>
+      <if test="cSw10 != null">
+        C_SW10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cConmtid != null">
+        #{cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConstid != null">
+        #{cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConnum != null">
+        #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cConline != null">
+        #{cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="cSupplier != null">
+        #{cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpec != null">
+        #{cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="cAllnum != null">
+        #{cAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cUnit != null">
+        #{cUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cMoney != null">
+        #{cMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefundrates != null">
+        #{cRefundrates,jdbcType=VARCHAR},
+      </if>
+      <if test="cCusdeid != null">
+        #{cCusdeid,jdbcType=VARCHAR},
+      </if>
+      <if test="cCusdetime != null">
+        #{cCusdetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSaillings != null">
+        #{cSaillings,jdbcType=VARCHAR},
+      </if>
+      <if test="cInvtime != null">
+        #{cInvtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cConnecttime != null">
+        #{cConnecttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cExbacktime != null">
+        #{cExbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreater != null">
+        #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cState != null">
+        #{cState,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null">
+        #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null">
+        #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        #{cSw10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="code_fb_cg.entity.TpCgmoneyinvbook">
+    update TP_CGMONEYINVBOOK
+    <set>
+      <if test="cConmtid != null">
+        C_CONMTID = #{cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConstid != null">
+        C_CONSTID = #{cConstid,jdbcType=VARCHAR},
+      </if>
+      <if test="cConnum != null">
+        C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cConline != null">
+        C_CONLINE = #{cConline,jdbcType=VARCHAR},
+      </if>
+      <if test="cSupplier != null">
+        C_SUPPLIER = #{cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpec != null">
+        C_SPEC = #{cSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="cAllnum != null">
+        C_ALLNUM = #{cAllnum,jdbcType=VARCHAR},
+      </if>
+      <if test="cUnit != null">
+        C_UNIT = #{cUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cMoney != null">
+        C_MONEY = #{cMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefundrates != null">
+        C_REFUNDRATES = #{cRefundrates,jdbcType=VARCHAR},
+      </if>
+      <if test="cCusdeid != null">
+        C_CUSDEID = #{cCusdeid,jdbcType=VARCHAR},
+      </if>
+      <if test="cCusdetime != null">
+        C_CUSDETIME = #{cCusdetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSaillings != null">
+        C_SAILLINGS = #{cSaillings,jdbcType=VARCHAR},
+      </if>
+      <if test="cInvtime != null">
+        C_INVTIME = #{cInvtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cConnecttime != null">
+        C_CONNECTTIME = #{cConnecttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cExbacktime != null">
+        C_EXBACKTIME = #{cExbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cCreater != null">
+        C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cModifier != null">
+        C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="cModifytime != null">
+        C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cRemark != null">
+        C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="cState != null">
+        C_STATE = #{cState,jdbcType=VARCHAR},
+      </if>
+      <if test="cDr != null">
+        C_DR = #{cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="cTimestamp != null">
+        C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cSw01 != null">
+        C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw02 != null">
+        C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw03 != null">
+        C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw04 != null">
+        C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw05 != null">
+        C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw06 != null">
+        C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw07 != null">
+        C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw08 != null">
+        C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw09 != null">
+        C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="cSw10 != null">
+        C_SW10 = #{cSw10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="code_fb_cg.entity.TpCgmoneyinvbook">
+    update TP_CGMONEYINVBOOK
+    set C_CONMTID = #{cConmtid,jdbcType=VARCHAR},
+      C_CONSTID = #{cConstid,jdbcType=VARCHAR},
+      C_CONNUM = #{cConnum,jdbcType=VARCHAR},
+      C_CONLINE = #{cConline,jdbcType=VARCHAR},
+      C_SUPPLIER = #{cSupplier,jdbcType=VARCHAR},
+      C_SPEC = #{cSpec,jdbcType=VARCHAR},
+      C_ALLNUM = #{cAllnum,jdbcType=VARCHAR},
+      C_UNIT = #{cUnit,jdbcType=VARCHAR},
+      C_MONEY = #{cMoney,jdbcType=VARCHAR},
+      C_REFUNDRATES = #{cRefundrates,jdbcType=VARCHAR},
+      C_CUSDEID = #{cCusdeid,jdbcType=VARCHAR},
+      C_CUSDETIME = #{cCusdetime,jdbcType=TIMESTAMP},
+      C_SAILLINGS = #{cSaillings,jdbcType=VARCHAR},
+      C_INVTIME = #{cInvtime,jdbcType=TIMESTAMP},
+      C_CONNECTTIME = #{cConnecttime,jdbcType=TIMESTAMP},
+      C_EXBACKTIME = #{cExbacktime,jdbcType=TIMESTAMP},
+      C_CREATER = #{cCreater,jdbcType=VARCHAR},
+      C_CREATETIME = #{cCreatetime,jdbcType=TIMESTAMP},
+      C_MODIFIER = #{cModifier,jdbcType=VARCHAR},
+      C_MODIFYTIME = #{cModifytime,jdbcType=TIMESTAMP},
+      C_REMARK = #{cRemark,jdbcType=VARCHAR},
+      C_STATE = #{cState,jdbcType=VARCHAR},
+      C_DR = #{cDr,jdbcType=VARCHAR},
+      C_TIMESTAMP = #{cTimestamp,jdbcType=TIMESTAMP},
+      C_SW01 = #{cSw01,jdbcType=VARCHAR},
+      C_SW02 = #{cSw02,jdbcType=VARCHAR},
+      C_SW03 = #{cSw03,jdbcType=VARCHAR},
+      C_SW04 = #{cSw04,jdbcType=VARCHAR},
+      C_SW05 = #{cSw05,jdbcType=VARCHAR},
+      C_SW06 = #{cSw06,jdbcType=VARCHAR},
+      C_SW07 = #{cSw07,jdbcType=VARCHAR},
+      C_SW08 = #{cSw08,jdbcType=VARCHAR},
+      C_SW09 = #{cSw09,jdbcType=VARCHAR},
+      C_SW10 = #{cSw10,jdbcType=VARCHAR}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="uodateFAPIAO" parameterType="java.util.List">
+  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+    update TP_CGMONEYINVBOOK
+    <set>
+      <if test="item.cConmtid != null">
+        C_CONMTID = #{item.cConmtid,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cMoney != null">
+        C_MONEY = #{item.cMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cConnum != null">
+        C_CONNUM = #{item.cConnum,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRemark != null">
+        C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cState != null">
+        C_STATE = #{item.cState,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{item.cId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <delete id="deleteFAPIAO" parameterType="java.util.List">
+	  <foreach collection="list" index="index" item="item" open="begin" separator=";" close=";end;">
+	    delete from TP_CGMONEYINVBOOK
+	    where C_ID = #{item.cId,jdbcType=VARCHAR}
+	  </foreach>
+  </delete>
+</mapper>

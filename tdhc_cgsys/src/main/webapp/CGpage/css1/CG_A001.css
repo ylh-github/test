@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#bg {
+  padding: 10px;
+}
+.box{
+  display: flex;
+}
+#left{
+  margin: 0 5px 0 0;
+  float: left;
+  flex: 1;
+  border:1px solid #ccc;
+  position: relative;
+}
+#left>span {
+    position: absolute;
+    top: -10px;
+    font-size: 14px;
+    width: 80px;
+    height: 20px;
+    background: #eeefff;
+    text-align: center;
+    line-height: 20px;
+    /* margin-top: -10px; */
+}
+#right{
+  margin: 0 0 0 5px;
+  float: right;
+  flex: 1;
+  border:1px solid #ccc;
+
+}
+#searchFormM1, #searchFormM2 {
+    box-sizing: border-box;
+   width: 100%;
+    min-width: 1300px;
+    padding: 5px 5px;
+    background: #E7EBEE;
+    box-shadow: 1px 2px 5px -2px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+
+}
+#operateFormM1S1, #operateFormS1S2 {
+   width: 100%;
+    /*min-width: 1300px;*/
+    height: 40px;
+    padding: 5px 5px;
+    background: #E7EBEE;
+    box-shadow: 1px 2px 5px -2px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+
+}
+.clearfix::after{
+    content:"";
+    clear:both;
+    display: block;
+}

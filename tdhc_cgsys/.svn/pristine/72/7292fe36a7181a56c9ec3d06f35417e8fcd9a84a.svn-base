@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_ZXQD_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_ZXQD_M1S1" >
+	 <result column="C_BOXER" property="cBoxer" jdbcType="VARCHAR" />
+	 <result column="C_BOXNO" property="cBoxno" jdbcType="VARCHAR" />
+	 <result column="C_BOXSPEC" property="cBoxspec" jdbcType="VARCHAR" />
+	 <result column="C_BOXWEIGHT" property="cBoxweight" jdbcType="VARCHAR" />
+	 <result column="C_BRAND" property="cBrand" jdbcType="VARCHAR" />
+	 <result column="C_CARSHIPNO" property="cCarshipno" jdbcType="VARCHAR" />
+	 <result column="C_CONNUM" property="cConnum" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTER" property="cContacter" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTERR" property="cContacterr" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTTELL" property="cContacttell" jdbcType="VARCHAR" />
+	 <result column="C_CONTPHONE" property="cContphone" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+	 <result column="C_DRIVER" property="cDriver" jdbcType="VARCHAR" />
+	 <result column="C_FATHERID" property="cFatherid" jdbcType="VARCHAR" />
+	 <result column="C_FREISTA" property="cFreista" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_GWEIGHT" property="cGweight" jdbcType="VARCHAR" />
+	 <result column="C_HIGH" property="cHigh" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_LEADSNO" property="cLeadsno" jdbcType="VARCHAR" />
+	 <result column="C_LONG" property="cLong" jdbcType="VARCHAR" />
+	 <result column="C_MARK" property="cMark" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_NEWLEADSNO" property="cNewleadsno" jdbcType="VARCHAR" />
+	 <result column="C_NO" property="cNo" jdbcType="VARCHAR" />
+	 <result column="C_NUM" property="cNum" jdbcType="VARCHAR" />
+	 <result column="C_NWEIGHT" property="cNweight" jdbcType="VARCHAR" />
+	 <result column="C_ORDERNUM" property="cOrdernum" jdbcType="VARCHAR" />
+	 <result column="C_PACKAGING" property="cPackaging" jdbcType="VARCHAR" />
+	 <result column="C_PACKINGNUM" property="cPackingnum" jdbcType="VARCHAR" />
+	 <result column="C_PACKUNIT" property="cPackunit" jdbcType="VARCHAR" />
+	 <result column="C_PORT" property="cPort" jdbcType="VARCHAR" />
+	 <result column="C_PORTPER" property="cPortper" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_SENDADDRESS" property="cSendaddress" jdbcType="VARCHAR" />
+	 <result column="C_SENDCOMP" property="cSendcomp" jdbcType="VARCHAR" />
+	 <result column="C_SHIPADD" property="cShipadd" jdbcType="VARCHAR" />
+	 <result column="C_SMALLNUM" property="cSmallnum" jdbcType="VARCHAR" />
+	 <result column="C_SMALLUNIT" property="cSmallunit" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_SW01" property="cSw01" jdbcType="VARCHAR" />
+	 <result column="C_SW02" property="cSw02" jdbcType="VARCHAR" />
+	 <result column="C_SW03" property="cSw03" jdbcType="VARCHAR" />
+	 <result column="C_SW04" property="cSw04" jdbcType="VARCHAR" />
+	 <result column="C_SW05" property="cSw05" jdbcType="VARCHAR" />
+	 <result column="C_SW06" property="cSw06" jdbcType="VARCHAR" />
+	 <result column="C_SW07" property="cSw07" jdbcType="VARCHAR" />
+	 <result column="C_SW08" property="cSw08" jdbcType="VARCHAR" />
+	 <result column="C_SW09" property="cSw09" jdbcType="VARCHAR" />
+	 <result column="C_SW10" property="cSw10" jdbcType="VARCHAR" />
+	 <result column="C_SW11" property="cSw11" jdbcType="VARCHAR" />
+	 <result column="C_SW12" property="cSw12" jdbcType="VARCHAR" />
+	 <result column="C_SW13" property="cSw13" jdbcType="VARCHAR" />
+	 <result column="C_SW14" property="cSw14" jdbcType="VARCHAR" />
+	 <result column="C_SW15" property="cSw15" jdbcType="VARCHAR" />
+	 <result column="C_TGWEIGHT" property="cTgweight" jdbcType="VARCHAR" />
+	 <result column="C_TNWEIGHT" property="cTnweight" jdbcType="VARCHAR" />
+	 <result column="C_UNIT" property="cUnit" jdbcType="VARCHAR" />
+	 <result column="C_VOLUME" property="cVolume" jdbcType="VARCHAR" />
+	 <result column="C_WIDE" property="cWide" jdbcType="VARCHAR" />
+	 <result column="C_YARD" property="cYard" jdbcType="VARCHAR" />
+	 <result column="C_BOXDATE" property="cBoxdate" jdbcType="TIMESTAMP" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_DRIVERDATE" property="cDriverdate" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_RECEDATE" property="cRecedate" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_YARDDATE" property="cYarddate" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QCG_ZXQD_M1S1" parameterType="code_fb.entity.CG_ZXQD_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_PACKINGLIST.C_BOXNO C_BOXNO 
+,
+TP_PACKINGLIST.C_BOXSPEC C_BOXSPEC 
+,
+TP_PACKINGLIST.C_BOXWEIGHT C_BOXWEIGHT 
+,
+TP_PACKINGLIST.C_LEADSNO C_LEADSNO 
+,
+TP_PACKINGLIST.C_NEWLEADSNO C_NEWLEADSNO 
+,
+TP_PACKINGLIST.C_PORT C_PORT 
+,
+TP_PACKINGLIST.C_PORTPER C_PORTPER 
+,
+TP_PACKINGLIST.C_SHIPADD C_SHIPADD 
+,
+TP_PACKINGLIST.C_BOXER C_BOXER 
+,
+TP_PACKINGLIST.C_BOXDATE C_BOXDATE 
+,
+TP_PACKINGLIST.C_CONTACTERR C_CONTACTERR 
+,
+TP_PACKINGLIST.C_FREISTA C_FREISTA 
+,
+TP_PACKINGLIST.C_DRIVER C_DRIVER 
+,
+TP_PACKINGLIST.C_DRIVERDATE C_DRIVERDATE 
+,
+TP_PACKINGLIST.C_YARD C_YARD 
+,
+TP_PACKINGLIST.C_YARDDATE C_YARDDATE 
+,
+TP_PACKINGLIST.C_CONTACTER C_CONTACTER 
+,
+TP_PACKINGLIST.C_RECEDATE C_RECEDATE 
+,
+TP_PACKINGLIST.C_CONNUM C_CONNUM 
+,
+TP_PACKINGLIST.C_SENDCOMP C_SENDCOMP 
+,
+TP_PACKINGLIST.C_SENDADDRESS C_SENDADDRESS 
+,
+TP_PACKINGLIST.C_CONTPHONE C_CONTPHONE 
+,
+TP_PACKINGLIST.C_CARSHIPNO C_CARSHIPNO 
+,
+TP_PACKINGLIST.C_ORDERNUM C_ORDERNUM 
+,
+TP_PACKINGLIST.C_CONTACTTELL C_CONTACTTELL 
+,
+TP_PACKINGLIST.C_FATHERID C_FATHERID 
+,
+TP_PACKINGLIST.C_ID C_ID 
+,
+TP_PACKINGLIST.C_NO C_NO 
+,
+TP_PACKINGLIST.C_MARK C_MARK 
+,
+TP_PACKINGLIST.C_GOODSNAME C_GOODSNAME 
+,
+TP_PACKINGLIST.C_BRAND C_BRAND 
+,
+TP_PACKINGLIST.C_SPEC C_SPEC 
+,
+TP_PACKINGLIST.C_SMALLNUM C_SMALLNUM 
+,
+TP_PACKINGLIST.C_SMALLUNIT C_SMALLUNIT 
+,
+TP_PACKINGLIST.C_PACKINGNUM C_PACKINGNUM 
+,
+TP_PACKINGLIST.C_PACKUNIT C_PACKUNIT 
+,
+TP_PACKINGLIST.C_PACKAGING C_PACKAGING 
+,
+TP_PACKINGLIST.C_GWEIGHT C_GWEIGHT 
+,
+TP_PACKINGLIST.C_NWEIGHT C_NWEIGHT 
+,
+TP_PACKINGLIST.C_LONG C_LONG 
+,
+TP_PACKINGLIST.C_WIDE C_WIDE 
+,
+TP_PACKINGLIST.C_HIGH C_HIGH 
+,
+TP_PACKINGLIST.C_VOLUME C_VOLUME 
+,
+TP_PACKINGLIST.C_TGWEIGHT C_TGWEIGHT 
+,
+TP_PACKINGLIST.C_TNWEIGHT C_TNWEIGHT 
+,
+TP_PACKINGLIST.C_NUM C_NUM 
+,
+TP_PACKINGLIST.C_UNIT C_UNIT 
+,
+TP_PACKINGLIST.C_REMARK C_REMARK 
+,
+TP_PACKINGLIST.C_STATE C_STATE 
+,
+TP_PACKINGLIST.C_DR C_DR 
+,
+TP_PACKINGLIST.C_TIMESTAMP C_TIMESTAMP 
+,
+TP_PACKINGLIST.C_CREATER C_CREATER 
+,
+TP_PACKINGLIST.C_CREATETIME C_CREATETIME 
+,
+TP_PACKINGLIST.C_MODIFIER C_MODIFIER 
+,
+TP_PACKINGLIST.C_MODIFYTIME C_MODIFYTIME 
+,
+TP_PACKINGLIST.C_SW01 C_SW01 
+,
+TP_PACKINGLIST.C_SW02 C_SW02 
+,
+TP_PACKINGLIST.C_SW03 C_SW03 
+,
+TP_PACKINGLIST.C_SW04 C_SW04 
+,
+TP_PACKINGLIST.C_SW05 C_SW05 
+,
+TP_PACKINGLIST.C_SW06 C_SW06 
+,
+TP_PACKINGLIST.C_SW07 C_SW07 
+,
+TP_PACKINGLIST.C_SW08 C_SW08 
+,
+TP_PACKINGLIST.C_SW09 C_SW09 
+,
+TP_PACKINGLIST.C_SW10 C_SW10 
+,
+TP_PACKINGLIST.C_SW11 C_SW11 
+,
+TP_PACKINGLIST.C_SW12 C_SW12 
+,
+TP_PACKINGLIST.C_SW13 C_SW13 
+,
+TP_PACKINGLIST.C_SW14 C_SW14 
+,
+TP_PACKINGLIST.C_SW15 C_SW15 
+
+ from TP_PACKINGLIST
+ WHERE 1=1 
+   <if test="cgZxqdM1s1.cBoxno != null" >
+       AND  TP_PACKINGLIST.C_BOXNO like '%' || #{cgZxqdM1s1.cBoxno,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgZxqdM1s1.cConnum != null" >
+       AND  TP_PACKINGLIST.C_CONNUM like '%' || #{cgZxqdM1s1.cConnum,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgZxqdM1s1.cCarshipno != null" >
+       AND  TP_PACKINGLIST.C_CARSHIPNO like '%' || #{cgZxqdM1s1.cCarshipno,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <insert id="M1S11ACG_ZXQD_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgZxqdM1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TP_PACKINGLIST
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cBoxno != null" >
+		C_BOXNO,
+  </if>
+	 <if test="item.cBoxspec != null" >
+		C_BOXSPEC,
+  </if>
+	 <if test="item.cBoxweight != null" >
+		C_BOXWEIGHT,
+  </if>
+	 <if test="item.cLeadsno != null" >
+		C_LEADSNO,
+  </if>
+	 <if test="item.cNewleadsno != null" >
+		C_NEWLEADSNO,
+  </if>
+	 <if test="item.cPort != null" >
+		C_PORT,
+  </if>
+	 <if test="item.cPortper != null" >
+		C_PORTPER,
+  </if>
+	 <if test="item.cShipadd != null" >
+		C_SHIPADD,
+  </if>
+	 <if test="item.cBoxer != null" >
+		C_BOXER,
+  </if>
+	 <if test="item.cBoxdate != null" >
+		C_BOXDATE,
+  </if>
+	 <if test="item.cContacterr != null" >
+		C_CONTACTERR,
+  </if>
+	 <if test="item.cFreista != null" >
+		C_FREISTA,
+  </if>
+	 <if test="item.cDriver != null" >
+		C_DRIVER,
+  </if>
+	 <if test="item.cDriverdate != null" >
+		C_DRIVERDATE,
+  </if>
+	 <if test="item.cYard != null" >
+		C_YARD,
+  </if>
+	 <if test="item.cYarddate != null" >
+		C_YARDDATE,
+  </if>
+	 <if test="item.cContacter != null" >
+		C_CONTACTER,
+  </if>
+	 <if test="item.cRecedate != null" >
+		C_RECEDATE,
+  </if>
+	 <if test="item.cConnum != null" >
+		C_CONNUM,
+  </if>
+	 <if test="item.cSendcomp != null" >
+		C_SENDCOMP,
+  </if>
+	 <if test="item.cSendaddress != null" >
+		C_SENDADDRESS,
+  </if>
+	 <if test="item.cContphone != null" >
+		C_CONTPHONE,
+  </if>
+	 <if test="item.cCarshipno != null" >
+		C_CARSHIPNO,
+  </if>
+	 <if test="item.cOrdernum != null" >
+		C_ORDERNUM,
+  </if>
+	 <if test="item.cContacttell != null" >
+		C_CONTACTTELL,
+  </if>
+	 <if test="item.cFatherid != null" >
+		C_FATHERID,
+  </if>
+  C_ID ,
+	 <if test="item.cNo != null" >
+		C_NO,
+  </if>
+	 <if test="item.cMark != null" >
+		C_MARK,
+  </if>
+	 <if test="item.cGoodsname != null" >
+		C_GOODSNAME,
+  </if>
+	 <if test="item.cBrand != null" >
+		C_BRAND,
+  </if>
+	 <if test="item.cSpec != null" >
+		C_SPEC,
+  </if>
+	 <if test="item.cSmallnum != null" >
+		C_SMALLNUM,
+  </if>
+	 <if test="item.cSmallunit != null" >
+		C_SMALLUNIT,
+  </if>
+	 <if test="item.cPackingnum != null" >
+		C_PACKINGNUM,
+  </if>
+	 <if test="item.cPackunit != null" >
+		C_PACKUNIT,
+  </if>
+	 <if test="item.cPackaging != null" >
+		C_PACKAGING,
+  </if>
+	 <if test="item.cGweight != null" >
+		C_GWEIGHT,
+  </if>
+	 <if test="item.cNweight != null" >
+		C_NWEIGHT,
+  </if>
+	 <if test="item.cLong != null" >
+		C_LONG,
+  </if>
+	 <if test="item.cWide != null" >
+		C_WIDE,
+  </if>
+	 <if test="item.cHigh != null" >
+		C_HIGH,
+  </if>
+	 <if test="item.cVolume != null" >
+		C_VOLUME,
+  </if>
+	 <if test="item.cTgweight != null" >
+		C_TGWEIGHT,
+  </if>
+	 <if test="item.cTnweight != null" >
+		C_TNWEIGHT,
+  </if>
+	 <if test="item.cNum != null" >
+		C_NUM,
+  </if>
+	 <if test="item.cUnit != null" >
+		C_UNIT,
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK,
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE,
+  </if>
+	 <if test="item.cDr != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestamp != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME,
+  </if>
+	 <if test="item.cSw01 != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02 != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03 != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04 != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05 != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06 != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07 != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08 != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09 != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10 != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11 != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12 != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13 != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14 != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15 != null" >
+		C_SW15,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cBoxno != null" >
+		#{item.cBoxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxspec != null" >
+		#{item.cBoxspec,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxweight != null" >
+		#{item.cBoxweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cLeadsno != null" >
+		#{item.cLeadsno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNewleadsno != null" >
+		#{item.cNewleadsno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPort != null" >
+		#{item.cPort,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPortper != null" >
+		#{item.cPortper,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cShipadd != null" >
+		#{item.cShipadd,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxer != null" >
+		#{item.cBoxer,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxdate != null" >
+		#{item.cBoxdate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cContacterr != null" >
+		#{item.cContacterr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFreista != null" >
+		#{item.cFreista,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDriver != null" >
+		#{item.cDriver,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDriverdate != null" >
+		#{item.cDriverdate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cYard != null" >
+		#{item.cYard,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cYarddate != null" >
+		#{item.cYarddate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cContacter != null" >
+		#{item.cContacter,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRecedate != null" >
+		#{item.cRecedate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cConnum != null" >
+		#{item.cConnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendcomp != null" >
+		#{item.cSendcomp,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendaddress != null" >
+		#{item.cSendaddress,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContphone != null" >
+		#{item.cContphone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCarshipno != null" >
+		#{item.cCarshipno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrdernum != null" >
+		#{item.cOrdernum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacttell != null" >
+		#{item.cContacttell,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFatherid != null" >
+		#{item.cFatherid,jdbcType=VARCHAR},
+  </if>
+		C_ID_PACKING.NEXTVAL,
+	 <if test="item.cNo != null" >
+		#{item.cNo,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMark != null" >
+		#{item.cMark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsname != null" >
+		#{item.cGoodsname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBrand != null" >
+		#{item.cBrand,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpec != null" >
+		#{item.cSpec,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSmallnum != null" >
+		#{item.cSmallnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSmallunit != null" >
+		#{item.cSmallunit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackingnum != null" >
+		#{item.cPackingnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackunit != null" >
+		#{item.cPackunit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackaging != null" >
+		#{item.cPackaging,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGweight != null" >
+		#{item.cGweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNweight != null" >
+		#{item.cNweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cLong != null" >
+		#{item.cLong,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWide != null" >
+		#{item.cWide,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cHigh != null" >
+		#{item.cHigh,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cVolume != null" >
+		#{item.cVolume,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTgweight != null" >
+		#{item.cTgweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTnweight != null" >
+		#{item.cTnweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNum != null" >
+		#{item.cNum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnit != null" >
+		#{item.cUnit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemark != null" >
+		#{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		#{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDr != null" >
+		#{item.cDr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestamp != null" >
+		#{item.cTimestamp,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreater != null" >
+		#{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		#{item.cCreatetime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifier != null" >
+		#{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytime != null" >
+		#{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01 != null" >
+		#{item.cSw01,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02 != null" >
+		#{item.cSw02,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03 != null" >
+		#{item.cSw03,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04 != null" >
+		#{item.cSw04,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05 != null" >
+		#{item.cSw05,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06 != null" >
+		#{item.cSw06,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07 != null" >
+		#{item.cSw07,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08 != null" >
+		#{item.cSw08,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09 != null" >
+		#{item.cSw09,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10 != null" >
+		#{item.cSw10,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11 != null" >
+		#{item.cSw11,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12 != null" >
+		#{item.cSw12,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13 != null" >
+		#{item.cSw13,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14 != null" >
+		#{item.cSw14,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15 != null" >
+		#{item.cSw15,jdbcType=VARCHAR},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UCG_ZXQD_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgZxqdM1s1" index="index" item="item" open="begin" separator=";">  
+	        update TP_PACKINGLIST
+	         <set >
+	 <if test="item.cBoxno != null" >
+		C_BOXNO = #{item.cBoxno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxspec != null" >
+		C_BOXSPEC = #{item.cBoxspec,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxweight != null" >
+		C_BOXWEIGHT = #{item.cBoxweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cLeadsno != null" >
+		C_LEADSNO = #{item.cLeadsno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNewleadsno != null" >
+		C_NEWLEADSNO = #{item.cNewleadsno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPort != null" >
+		C_PORT = #{item.cPort,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPortper != null" >
+		C_PORTPER = #{item.cPortper,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cShipadd != null" >
+		C_SHIPADD = #{item.cShipadd,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxer != null" >
+		C_BOXER = #{item.cBoxer,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBoxdate != null" >
+		C_BOXDATE = #{item.cBoxdate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cContacterr != null" >
+		C_CONTACTERR = #{item.cContacterr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFreista != null" >
+		C_FREISTA = #{item.cFreista,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDriver != null" >
+		C_DRIVER = #{item.cDriver,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDriverdate != null" >
+		C_DRIVERDATE = #{item.cDriverdate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cYard != null" >
+		C_YARD = #{item.cYard,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cYarddate != null" >
+		C_YARDDATE = #{item.cYarddate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cContacter != null" >
+		C_CONTACTER = #{item.cContacter,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRecedate != null" >
+		C_RECEDATE = #{item.cRecedate,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cConnum != null" >
+		C_CONNUM = #{item.cConnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendcomp != null" >
+		C_SENDCOMP = #{item.cSendcomp,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendaddress != null" >
+		C_SENDADDRESS = #{item.cSendaddress,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContphone != null" >
+		C_CONTPHONE = #{item.cContphone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCarshipno != null" >
+		C_CARSHIPNO = #{item.cCarshipno,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrdernum != null" >
+		C_ORDERNUM = #{item.cOrdernum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacttell != null" >
+		C_CONTACTTELL = #{item.cContacttell,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFatherid != null" >
+		C_FATHERID = #{item.cFatherid,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cId != null" >
+		C_ID = #{item.cId,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNo != null" >
+		C_NO = #{item.cNo,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMark != null" >
+		C_MARK = #{item.cMark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsname != null" >
+		C_GOODSNAME = #{item.cGoodsname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBrand != null" >
+		C_BRAND = #{item.cBrand,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpec != null" >
+		C_SPEC = #{item.cSpec,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSmallnum != null" >
+		C_SMALLNUM = #{item.cSmallnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSmallunit != null" >
+		C_SMALLUNIT = #{item.cSmallunit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackingnum != null" >
+		C_PACKINGNUM = #{item.cPackingnum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackunit != null" >
+		C_PACKUNIT = #{item.cPackunit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPackaging != null" >
+		C_PACKAGING = #{item.cPackaging,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGweight != null" >
+		C_GWEIGHT = #{item.cGweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNweight != null" >
+		C_NWEIGHT = #{item.cNweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cLong != null" >
+		C_LONG = #{item.cLong,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWide != null" >
+		C_WIDE = #{item.cWide,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cHigh != null" >
+		C_HIGH = #{item.cHigh,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cVolume != null" >
+		C_VOLUME = #{item.cVolume,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTgweight != null" >
+		C_TGWEIGHT = #{item.cTgweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTnweight != null" >
+		C_TNWEIGHT = #{item.cTnweight,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNum != null" >
+		C_NUM = #{item.cNum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnit != null" >
+		C_UNIT = #{item.cUnit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE = #{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDr != null" >
+		C_DR = #{item.cDr,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestamp != null" >
+		C_TIMESTAMP = #{item.cTimestamp,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01 != null" >
+		C_SW01 = #{item.cSw01,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02 != null" >
+		C_SW02 = #{item.cSw02,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03 != null" >
+		C_SW03 = #{item.cSw03,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04 != null" >
+		C_SW04 = #{item.cSw04,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05 != null" >
+		C_SW05 = #{item.cSw05,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06 != null" >
+		C_SW06 = #{item.cSw06,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07 != null" >
+		C_SW07 = #{item.cSw07,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08 != null" >
+		C_SW08 = #{item.cSw08,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09 != null" >
+		C_SW09 = #{item.cSw09,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10 != null" >
+		C_SW10 = #{item.cSw10,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11 != null" >
+		C_SW11 = #{item.cSw11,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12 != null" >
+		C_SW12 = #{item.cSw12,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13 != null" >
+		C_SW13 = #{item.cSw13,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14 != null" >
+		C_SW14 = #{item.cSw14,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15 != null" >
+		C_SW15 = #{item.cSw15,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DCG_ZXQD_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgZxqdM1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_PACKINGLIST
+ WHERE 1 = 1 
+		and C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

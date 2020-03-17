@@ -1,0 +1,383 @@
+package code_fb_cg.util;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import code_fb.entity.CG_XXLY_M1S1;
+import code_fb.request.CG_XXLY_Request_M1S1;
+import code_fb_cg.entity.CG_XXK_Request;
+import code_fb_cg.entity.TbDocumeform;
+import code_fb_cg.entity.TbDocumeformson;
+import transfer.RandomId;
+import vip.toda.piper.auth.web.client.User;
+
+public class XxkUtil {
+	/**
+	 * 添加到信息卡
+	 * @param user
+	 * @param cg_XXLY_Request_M1S1
+	 * @return 
+	 */
+	public CG_XXLY_M1S1 addCgXxlyM1s1(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1) {
+		CG_XXLY_M1S1 cg_XXLY_M1S1 = new CG_XXLY_M1S1();
+		RandomId ri = new RandomId();
+		String id = ri.getRandomId();
+		cg_XXLY_M1S1.setcIdTbDocumeform(id);//主键
+		//内贸合同号
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcConnumTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcConnumTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcConnumTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcConnumTbDocumeform());
+		}
+		//内贸金额（RMB）
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcConmoneyTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcConmoneyTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcConmoneyTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcConmoneyTbDocumeform());
+		}
+		//印尼）品名
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcNameTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcNameTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcNameTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcNameTbDocumeform());
+//		}
+		//外贸合同号
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutconnumTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcOutconnumTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcOutconnumTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutconnumTbDocumeform());
+		}
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutmoneyTbDocumeform() == null) {
+			
+		}
+		//外贸金额（USD）
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutmoneyTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcOutmoneyTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcOutmoneyTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutmoneyTbDocumeform());
+		}
+		//（印尼）税号
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcComtaxnumberTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcComtaxnumberTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcComtaxnumberTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcComtaxnumberTbDocumeform());
+//		}
+		//供应商
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcSupplierTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcSupplierTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcSupplierTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcSupplierTbDocumeform());
+		}
+		//重量
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcWeightTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcWeightTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcWeightTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcWeightTbDocumeform());
+		}
+		//（印尼）BM
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcBmTbDocumeform() ==null) {
+//			cg_XXLY_M1S1.setcBmTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcBmTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcBmTbDocumeform());
+//		}
+		//开票市
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcInvoicecTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcInvoicecTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcInvoicecTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcInvoicecTbDocumeform());
+		}
+		//（印尼）PPN
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcPpnTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcPpnTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcPpnTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcPpnTbDocumeform());
+//		}
+		//（供应商）联系电话
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcComphoneTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcComphoneTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcComphoneTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcComphoneTbDocumeform());
+		}
+		//（印尼）PPH
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcPphTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcPphTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcPphTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcPphTbDocumeform());
+//		}
+		//出口商
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcExporterTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcExporterTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcExporterTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcExporterTbDocumeform());
+		}
+		//是否适合办产地证
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcWhecooTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcWhecooTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcWhecooTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcWhecooTbDocumeform());
+//		}
+		//（印尼）合计税率
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcTotaltaxrTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcTotaltaxrTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcTotaltaxrTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcTotaltaxrTbDocumeform());
+//		}
+		//收货单位
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcShnameTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcShnameTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcShnameTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcShnameTbDocumeform());
+		}
+		System.out.println("收货单位：：："+cg_XXLY_M1S1.getcShnameTbDocumeform());
+		//印尼进口端管制条件
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcIndimportTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcIndimportTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcIndimportTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcIndimportTbDocumeform());
+//		}
+		//（印尼）协定税率
+//		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcAgreedtaxTbDocumeform() == null) {
+//			cg_XXLY_M1S1.setcAgreedtaxTbDocumeform("");
+//		}else {
+//			cg_XXLY_M1S1.setcAgreedtaxTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcAgreedtaxTbDocumeform());
+//		}
+		//货币（RMB）
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcMoneyrmbDocumeform() == null) {
+			cg_XXLY_M1S1.setcMoneyrmbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcMoneyrmbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcMoneyrmbDocumeform());
+		}
+		//货币（USD）
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcMoneyusdDocumeform() == null) {
+			cg_XXLY_M1S1.setcMoneyusdDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcMoneyusdDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcMoneyusdDocumeform());
+		}
+		//内贸采购业务主办
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcInpbsTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcInpbsTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcInpbsTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcInpbsTbDocumeform());
+		}
+		//外贸业务主办
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutpbsTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcOutpbsTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcOutpbsTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcOutpbsTbDocumeform());
+		}
+		//中国出口报关审核人
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcChiedeTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcChiedeTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcChiedeTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcChiedeTbDocumeform());
+		}
+		//印度尼西亚进口报关审核人
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcIndidaTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcIndidaTbDocumeform("");
+		}else {
+			cg_XXLY_M1S1.setcIndidaTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcIndidaTbDocumeform());
+		}
+		//数据录用单证制作人签收
+		if(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcDataedpTbDocumeform() == null) {
+			cg_XXLY_M1S1.setcDataedpTbDocumeform(user.getUserName());
+		}else {
+			cg_XXLY_M1S1.setcDataedpTbDocumeform(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcDataedpTbDocumeform());
+		}
+		//创建人
+		cg_XXLY_M1S1.setcCreaterTbDocumeform(user.getUserName());
+		//创建时间
+		cg_XXLY_M1S1.setcCreatetimeTbDocumeform(new Date());
+//		//制作人完成状态---部分完成
+//		cg_XXLY_M1S1.setcCheckstateTbDocumeform("mk004");
+		return cg_XXLY_M1S1;
+	}
+	
+	/**
+	 * 信息卡子表添加
+	 * @param user
+	 * @param cg_XXLY_Request_M1S1
+	 * @param addcgXxlyM1s1
+	 * @return 
+	 */
+
+	public List<TbDocumeformson> addTbDocumeformson(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1, CG_XXLY_M1S1 addcgXxlyM1s1) {
+		TbDocumeformson tbd = new TbDocumeformson();
+		List<TbDocumeformson> listTbDf = new ArrayList<TbDocumeformson>();
+		for (CG_XXK_Request element : cg_XXLY_Request_M1S1.getCgXXK_Request()) {
+			tbd.setcFatherid(addcgXxlyM1s1.getcIdTbDocumeform());//主键
+			tbd.setcConnum(addcgXxlyM1s1.getcConnumTbDocumeform());//内贸合同
+			tbd.setcOutconnum(addcgXxlyM1s1.getcOutconnumTbDocumeform());//外贸合同
+			tbd.setcCreater(user.getUserName());//创建时间
+			tbd.setcCreatetime(new Date());//创建人
+			//品名
+//			if(element.getcGoodsname() ==null) {
+//				tbd.setcGoodsname("");
+//			}else {
+//				tbd.setcGoodsname(element.getcGoodsname());
+//			}
+			if(element.getcSw08() == null) {
+				tbd.setcGoodsname("");
+			}else {
+				tbd.setcGoodsname(element.getcSw08());
+			}
+			//规格/型号
+			if(element.getcSpec() ==null) {
+				tbd.setcSpec("");
+			}else {
+				tbd.setcSpec(element.getcSpec());
+			}
+			//商品和服务分类简称
+			if(element.getcTypenameTbDocumeform() == null) {
+				tbd.setcTypename("");
+			}else {
+				tbd.setcTypename(element.getcTypenameTbDocumeform());
+			}
+			//数量
+			if(element.getcGoodsnum() == null ) {
+				tbd.setcNum("0");
+			}else {
+				tbd.setcNum(element.getcGoodsnum());
+			}
+			//单位
+			if(element.getcUnit() == null) {
+				tbd.setcUnit("");
+			}else {
+				tbd.setcUnit(element.getcUnit());
+			}
+			//法定单位
+			if(element.getcStaunitTbDocumeform() == null) {
+				tbd.setcStaunit("");
+			}else {
+				tbd.setcStaunit(element.getcStaunitTbDocumeform());
+			}
+			//HS编码
+			if(element.getcHscodeTbDocumeform() == null) {
+				tbd.setcHscode("");
+			}else {
+				tbd.setcHscode(element.getcHscodeTbDocumeform());
+			}
+			//监管条件
+			if(element.getcSupervisionTbDocumeform() == null) {
+				tbd.setcSupervision("");
+			}else {
+				tbd.setcSupervision(element.getcSupervisionTbDocumeform());
+			}
+			//退税率
+			if(element.getcTaxrateTbDocumeform() == null) {
+				tbd.setcTaxrate("");
+			}else {
+				tbd.setcTaxrate(element.getcTaxrateTbDocumeform());
+			}
+			//申报要素
+			if(element.getcDeclarationTbDocumeform() == null) {
+				tbd.setcDeclaration("");
+			}else {
+				tbd.setcDeclaration(element.getcDeclarationTbDocumeform());
+			}
+			
+			//品名
+			if(element.getcName() == null) {
+				tbd.setcName("");
+			}else {
+				tbd.setcName(element.getcName());
+			}
+			//税号
+			if(element.getcComtaxnumber() == null) {
+				tbd.setcComtaxnumber("");
+			}else {
+				tbd.setcComtaxnumber(element.getcComtaxnumber());
+			}
+			//BM
+			if(element.getcBm() == null) {
+				tbd.setcBm("");
+			}else {
+				tbd.setcBm(element.getcBm());
+			}
+			//PPN
+			if(element.getcPpn() == null) {
+				tbd.setcPpn("");
+			}else {
+				tbd.setcPpn(element.getcPpn());
+			}
+			//PPH
+			if(element.getcPph() == null) {
+				tbd.setcPph("");
+			}else {
+				tbd.setcPph(element.getcPph());
+			}
+			//合计税率
+			if(element.getcTotaltaxr() == null) {
+				tbd.setcTotaltaxr("");
+			}else {
+				tbd.setcTotaltaxr(element.getcTotaltaxr());
+			}
+			//协定税率
+			if(element.getcAgreedtax() == null) {
+				tbd.setcAgreedtax("");
+			}else {
+				tbd.setcAgreedtax(element.getcAgreedtax());
+			}
+			//入印尼受限否
+			if(element.getcIndimport() == null) {
+				tbd.setcIndimport(element.getcIndimport());
+			}else {
+				tbd.setcIndimport(element.getcIndimport());
+			}
+			//办地产正否
+			if(element.getcWhecoo() == null) {
+				tbd.setcWhecoo("");
+			}else {
+				tbd.setcWhecoo(element.getcWhecoo());
+			}
+			
+			listTbDf.add(tbd);
+			
+		}
+		return listTbDf;
+	}
+/**
+ * 修改信息卡主表
+ * @param user
+ * @param tbDocumeList
+ * @return
+ */
+	public TbDocumeform updateXxk(User user, List<TbDocumeformson> tbDocumeList) {
+		TbDocumeform tbDocumeform = new TbDocumeform();
+		for (TbDocumeformson list : tbDocumeList) {
+			//合同号
+			tbDocumeform.setcConnum(list.getcConnum());
+			//内贸合同金额
+			tbDocumeform.setcConmoney(list.getcConmoney());
+			//外贸合同
+			tbDocumeform.setcOutconnum(list.getcOutconnum());
+			//外贸合同金额
+			tbDocumeform.setcOutmoney(list.getcOutmoney());
+			//供应商
+			tbDocumeform.setcSupplier(list.getcSupplier());
+			//开票市
+			tbDocumeform.setcInvoicec(list.getcInvoicec());
+			//联系电话
+			tbDocumeform.setcComphone(list.getcComphone());
+			//出口商
+			tbDocumeform.setcExporter(list.getcExporter());
+			//收货单位
+			tbDocumeform.setcShname(list.getcShname());
+			//内贸采购业务主办
+			tbDocumeform.setcInpbs(list.getcInpbs());
+			//外贸业务主办
+			tbDocumeform.setcOutpbs(list.getcOutpbs());
+			//印度尼西亚进口报关审核人
+			tbDocumeform.setcIndida(list.getcIndida());
+			//数据录用单证制作人
+			tbDocumeform.setcDataedp(list.getcDataedp());
+			//修改人
+			tbDocumeform.setcModifier(user.getUserName());
+			//修改时间
+			tbDocumeform.setcModifytime(new Date());
+		}
+		return tbDocumeform;
+		
+	}
+
+}

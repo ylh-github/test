@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.FH_02_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.FH_02_M1S1" >
+	 <result column="C_CREATETIME_TP_FHINVOICE" property="cCreatetimeTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TP_FHINVOICE" property="cModifytimeTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TP_FHINVOICE" property="cTimestampTpFhinvoice" jdbcType="TIMESTAMP" />
+	 <result column="C_CONNUM_TP_FHINVOICE" property="cConnumTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CONSIGNEE_TP_FHINVOICE" property="cConsigneeTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TP_FHINVOICE" property="cCreaterTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_DR_TP_FHINVOICE" property="cDrTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_FHDWNAME_TP_FHINVOICE" property="cFhdwnameTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_FHINVOICEID_TP_FHINVOICE" property="cFhinvoiceidTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_FHINVOICE" property="cIdTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TP_FHINVOICE" property="cModifierTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHADDRESS_TP_FHINVOICE" property="cShaddressTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHDWIP_TP_FHINVOICE" property="cShdwipTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SHNAME_TP_FHINVOICE" property="cShnameTpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TP_FHINVOICE" property="cSw01TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TP_FHINVOICE" property="cSw02TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TP_FHINVOICE" property="cSw03TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TP_FHINVOICE" property="cSw04TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TP_FHINVOICE" property="cSw05TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TP_FHINVOICE" property="cSw06TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TP_FHINVOICE" property="cSw07TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TP_FHINVOICE" property="cSw08TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TP_FHINVOICE" property="cSw09TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TP_FHINVOICE" property="cSw10TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TP_FHINVOICE" property="cSw11TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TP_FHINVOICE" property="cSw12TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TP_FHINVOICE" property="cSw13TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TP_FHINVOICE" property="cSw14TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TP_FHINVOICE" property="cSw15TpFhinvoice" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TP_FHMATEIALS" property="cCreatetimeTpFhmateials" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TP_FHMATEIALS" property="cModifytimeTpFhmateials" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TP_FHMATEIALS" property="cTimestampTpFhmateials" jdbcType="TIMESTAMP" />
+	 <result column="C_CONNUM_TP_FHMATEIALS" property="cConnumTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TP_FHMATEIALS" property="cCreaterTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_DR_TP_FHMATEIALS" property="cDrTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_FHINVOICEID_TP_FHMATEIALS" property="cFhinvoiceidTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME_TP_FHMATEIALS" property="cGoodsnameTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_HSCODE_TP_FHMATEIALS" property="cHscodeTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_ID_TP_FHMATEIALS" property="cIdTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TP_FHMATEIALS" property="cModifierTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_NUM_TP_FHMATEIALS" property="cNumTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_PRICE_TP_FHMATEIALS" property="cPriceTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_REALNAME_TP_FHMATEIALS" property="cRealnameTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_REALSPEC_TP_FHMATEIALS" property="cRealspecTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SPEC_TP_FHMATEIALS" property="cSpecTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_STATE_TP_FHMATEIALS" property="cStateTpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TP_FHMATEIALS" property="cSw01TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TP_FHMATEIALS" property="cSw02TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TP_FHMATEIALS" property="cSw03TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TP_FHMATEIALS" property="cSw04TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TP_FHMATEIALS" property="cSw05TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TP_FHMATEIALS" property="cSw06TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TP_FHMATEIALS" property="cSw07TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TP_FHMATEIALS" property="cSw08TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TP_FHMATEIALS" property="cSw09TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TP_FHMATEIALS" property="cSw10TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TP_FHMATEIALS" property="cSw11TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TP_FHMATEIALS" property="cSw12TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TP_FHMATEIALS" property="cSw13TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TP_FHMATEIALS" property="cSw14TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TP_FHMATEIALS" property="cSw15TpFhmateials" jdbcType="VARCHAR" />
+	 <result column="C_UNIT_TP_FHMATEIALS" property="cUnitTpFhmateials" jdbcType="VARCHAR" />
+ </resultMap>
+ <select id="M1S11QFH_02_M1S1" parameterType="code_fb.entity.FH_02_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_FHINVOICE.C_FHDWNAME C_FHDWNAME_TP_FHINVOICE 
+,
+TP_FHINVOICE.C_SHADDRESS C_SHADDRESS_TP_FHINVOICE 
+,
+TP_FHINVOICE.C_SHNAME C_SHNAME_TP_FHINVOICE 
+,
+TP_FHINVOICE.C_CONNUM C_CONNUM_TP_FHINVOICE 
+,
+TP_FHMATEIALS.C_NUM C_NUM_TP_FHMATEIALS 
+,
+TP_FHINVOICE.C_ID C_ID_TP_FHINVOICE 
+,
+TP_FHMATEIALS.C_ID C_ID_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_UNIT C_UNIT_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_REALSPEC C_REALSPEC_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_REALNAME C_REALNAME_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_SPEC C_SPEC_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_GOODSNAME C_GOODSNAME_TP_FHMATEIALS 
+,
+TP_FHMATEIALS.C_FHINVOICEID C_FHINVOICEID_TP_FHMATEIALS
+,
+TP_FHMATEIALS.C_STATE C_STATE_TP_FHMATEIALS  
+
+ from TP_FHINVOICE,TP_FHMATEIALS
+ WHERE 1 = 1
+ AND TP_FHMATEIALS.C_STATE=0
+   <if test="fh02M1s1.cConnumTpFhinvoice != null" >
+       AND  TP_FHINVOICE.C_CONNUM like '%' || #{fh02M1s1.cConnumTpFhinvoice,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <update id="M1S12MSGFH_02_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="fh02M1s1" index="index" item="item" open="begin" separator=";">  
+	         update TP_FHMATEIALS
+	         <set >
+	 <if test="item.cStateTpFhmateials  != null" >
+		C_STATE = #{item.cStateTpFhmateials,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+	 
+ 	AND		C_ID = #{item.cIdTpFhmateials,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <update id="M1S13MSGFH_02_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="fh02M1s1" index="index" item="item" open="begin" separator=";">  
+	           update TP_FHMATEIALS
+	         <set >
+	 <if test="item.cStateTpFhmateials  != null" >
+		C_STATE = #{item.cStateTpFhmateials,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+	 
+ 	AND		C_ID = #{item.cIdTpFhmateials,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+ </mapper>

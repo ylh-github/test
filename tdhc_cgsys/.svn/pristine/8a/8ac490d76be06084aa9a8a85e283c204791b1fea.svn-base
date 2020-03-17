@@ -1,0 +1,44 @@
+
+ package code_fb.mapper;
+ import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_H001_C001 ;
+import code_fb.entity.CG_H001_C002 ;
+import code_fb.entity.CG_H001_C003 ;
+import code_fb.entity.CG_H001_C004 ;
+import code_fb.entity.CG_H001_C005 ;
+import code_fb.entity.CG_H001_M1S1 ;
+import code_fb.entity.CG_H001_S1S2 ;
+import code_fb.request.H001request;
+import code_fb.request.H002request; 
+ @Repository("cgH001Mapper")
+ public interface CG_H001_Mapper {
+ List<CG_H001_C001> C0011QCG_H001_C001( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_H001_C002> C0021QCG_H001_C002( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_H001_C003> C0031QCG_H001_C003( @Param("cEnabled") String cEnabled, @Param("cItemdes") String cItemdes);
+ List<CG_H001_C004> C0041QCG_H001_C004( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_H001_C005> C0051QCG_H001_C005( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_H001_M1S1> M1S11QCG_H001_M1S1( @Param("h002request")H002request h002request);
+ //根据请购单号查询合同
+ List<CG_H001_M1S1> M1S11QCG_H001_M1S1BycOrdernum( @Param("h002request")H002request h002request);
+ List<CG_H001_M1S1> M1S11QCG_H001_M1S11( @Param("h002request")H002request h002request);
+ List<CG_H001_M1S1> M1S11QCG_H001_M1S111( @Param("h002request")H002request h002request);
+ List<CG_H001_M1S1> M1S11QBJ( @Param("h002request")H002request h002request);
+ int M1S11ACG_H001_M1S1(@Param("cgH001M1s1") List<CG_H001_M1S1> cgH001M1s1);
+ int M1S11UCG_H001_M1S1(@Param("cgH001M1s1") List<CG_H001_M1S1> cgH001M1s1);
+ int M1S11DCG_H001_M1S1(@Param("cgH001M1s1") List<CG_H001_M1S1> cgH001M1s1);
+ //逻辑删除
+ int M1S11DUpdate(@Param("cgH001M1s1") List<CG_H001_M1S1> cgH001M1s1);
+ List<CG_H001_S1S2> S1S21QCG_H001_S1S2( @Param("cgH001S1s2")CG_H001_S1S2 cgH001S1s2);
+ int S1S21ACG_H001_S1S2(@Param("cgH001S1s2") List<CG_H001_S1S2> cgH001S1s2);
+ int S1S21UCG_H001_S1S2(@Param("cgH001S1s2") List<CG_H001_S1S2> cgH001S1s2);
+ int S1S21UCG_H001_S1S21(@Param("cgH001S1s2") CG_H001_S1S2 cgH001S1s2);
+ int S1S21UCG_DELETE(@Param("cgH001S1s2") List<CG_H001_S1S2> cgH001S1s2);
+ int S1S21DCG_H001_S1S2(@Param("cgH001S1s2") List<CG_H001_S1S2> cgH001S1s2);
+ int S1S22MSGCG_H001_S1S2(@Param("cgH001S1s2") List<CG_H001_S1S2> cgH001S1s2);
+ int count(@Param("cConnum")String cConnum);
+ int updateState(@Param("cConnum")String cConnum);
+ }

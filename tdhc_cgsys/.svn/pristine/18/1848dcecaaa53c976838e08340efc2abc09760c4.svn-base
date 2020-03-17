@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <title>永青大物流统计</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href="assets/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="assets/css1/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css1/dx.carmine.compact.css" />
+    <link rel="stylesheet" href="assets/css/index_03.css">
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="assets/js/dx.web.js"></script>
+    <script src="assets/js/cake.js"></script>
+    <script src="assets/js/moment-with-locales.js"></script>
+    
+    
+    <script src="assets/js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="assets/js/localization/dx.messages.zh.js"></script>
+    
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/echarts.common.min.js"></script>
+    <script src="assets/js/foundation-datepicker.js"></script>
+    <script src="assets/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="assets/js/chartjs_04.js"></script>
+</head>
+<style>
+    img {
+        display: block;
+        width: 50px;
+        height: 56px;
+        /* margin-left: 42%; */
+        margin-left: calc(100% / 2 - 25px);
+    }
+
+    .dx-button-has-text .dx-button-content {
+        background: #244586
+    }
+
+    .dx-icon-search:before,
+    .dx-button-text {
+        color: #fff
+    }
+</style>
+
+<body>
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <ul class="row" style="background:#fff;margin-bottom:20px">
+                <li class="blue">
+                    <img src="./assets/img/Qing.png" alt="">
+                    <small>请购单</small>
+                    <h3 id="requisition"></h3>
+                </li>
+                <li class="orange">
+                    <img src="./assets/img/hetong.png" alt="">
+                    <small> 已签合同</small>
+                    <h3 id="contract"></h3>
+                </li>
+                <li class="pink">
+                    <img src="./assets/img/fukuan-2.png" alt="">
+
+                    <small> 合同款已付清</small>
+                    <h3 id="payment"></h3>
+                </li>
+                <li class="plum">
+                    <img src="./assets/img/fapiaoguanli.png" alt="">
+
+                    <small>合同发票已开齐</small>
+                    <h3 id="invoice"></h3>
+                </li>
+                <li class="green">
+                    <img src="./assets/img/navicon-cgdhd.png" alt="">
+
+                    <small>合同货到齐</small>
+                    <h3 id="arrival"></h3>
+                </li>
+            </ul>
+
+            <div class="row">
+                <div class="panel panel-default chartJs">
+                    <div class="panel-heading">
+                        <div class="card-title">
+                            <div class="title">请购单按月量</div>
+                        </div>
+                    </div>
+                    <div id="searchFormM3" style="width: 95%;margin: 0 auto;margin-top:5px"></div>
+                    <div class="panel-body">
+                        <form class="form-inline">
+                        </form>
+                        <div id="month-chart" style="min-height:450px;min-width: 450px"></div>
+                    </div>
+                </div>
+                <!-- </ div >-->
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default chartJs">
+                        <div class="panel-heading">
+                            <div class="card-title">
+                                <div class="title">合同总情况</div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-inline">
+                                <div id="searchFormM1" style="width: 91%;margin: 0 auto;margin-top:5px"></div>
+                            </form>
+                            <div id="line-chart" style="min-height:450px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default chartJs">
+                        <div class="panel-heading">
+                            <div class="card-title">
+                                <div class="title">采购员合同</div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-inline">
+                                <div id="searchFormM2" style="width: 91%;margin: 0 auto;margin-top:5px"></div>
+                            </form>
+                            <div id="bar-chart" style="min-height:450px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+</body>
+
+</html>

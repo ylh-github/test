@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CGC_11_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CGC_11_M1S1" >
+	 <result column="C_CREATER_TB_CGCLAUSEDATA" property="cCreaterTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_CGCLAUSEDATA" property="cDrTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ENABLED_TB_CGCLAUSEDATA" property="cEnabledTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMDES_TB_CGCLAUSEDATA" property="cFaitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMID_TB_CGCLAUSEDATA" property="cFaitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_GROUP_TB_CGCLAUSEDATA" property="cGroupTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_CGCLAUSEDATA" property="cIdTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMDES_TB_CGCLAUSEDATA" property="cItemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMID_TB_CGCLAUSEDATA" property="cItemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_CGCLAUSEDATA" property="cModifierTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ORDER_TB_CGCLAUSEDATA" property="cOrderTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMDES_TB_CGCLAUSEDATA" property="cSubitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMID_TB_CGCLAUSEDATA" property="cSubitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_CGCLAUSEDATA" property="cSw01TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_CGCLAUSEDATA" property="cSw02TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_CGCLAUSEDATA" property="cSw03TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_CGCLAUSEDATA" property="cSw04TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_CGCLAUSEDATA" property="cSw05TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_CGCLAUSEDATA" property="cSw06TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_CGCLAUSEDATA" property="cSw07TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_CGCLAUSEDATA" property="cSw08TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_CGCLAUSEDATA" property="cSw09TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_CGCLAUSEDATA" property="cSw10TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_CGCLAUSEDATA" property="cSw11TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_CGCLAUSEDATA" property="cSw12TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_CGCLAUSEDATA" property="cSw13TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_CGCLAUSEDATA" property="cSw14TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_CGCLAUSEDATA" property="cSw15TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW16_TB_CGCLAUSEDATA" property="cSw16TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW17_TB_CGCLAUSEDATA" property="cSw17TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW18_TB_CGCLAUSEDATA" property="cSw18TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW19_TB_CGCLAUSEDATA" property="cSw19TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW20_TB_CGCLAUSEDATA" property="cSw20TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_VALUE_TB_CGCLAUSEDATA" property="cValueTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_CGCLAUSEDATA" property="cCreatetimeTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYDATE_TB_CGCLAUSEDATA" property="cModifydateTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_CGCLAUSEDATA" property="cTimestampTbCgclausedata" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <resultMap id="M2S2ResultMap" type="code_fb.entity.CGC_11_M2S2" >
+	 <result column="C_CREATER_TB_CGCLAUSEDATA" property="cCreaterTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_CGCLAUSEDATA" property="cDrTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ENABLED_TB_CGCLAUSEDATA" property="cEnabledTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMDES_TB_CGCLAUSEDATA" property="cFaitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMID_TB_CGCLAUSEDATA" property="cFaitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_GROUP_TB_CGCLAUSEDATA" property="cGroupTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_CGCLAUSEDATA" property="cIdTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMDES_TB_CGCLAUSEDATA" property="cItemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMID_TB_CGCLAUSEDATA" property="cItemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_CGCLAUSEDATA" property="cModifierTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ORDER_TB_CGCLAUSEDATA" property="cOrderTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMDES_TB_CGCLAUSEDATA" property="cSubitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMID_TB_CGCLAUSEDATA" property="cSubitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_CGCLAUSEDATA" property="cSw01TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_CGCLAUSEDATA" property="cSw02TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_CGCLAUSEDATA" property="cSw03TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_CGCLAUSEDATA" property="cSw04TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_CGCLAUSEDATA" property="cSw05TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_CGCLAUSEDATA" property="cSw06TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_CGCLAUSEDATA" property="cSw07TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_CGCLAUSEDATA" property="cSw08TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_CGCLAUSEDATA" property="cSw09TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_CGCLAUSEDATA" property="cSw10TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_CGCLAUSEDATA" property="cSw11TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_CGCLAUSEDATA" property="cSw12TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_CGCLAUSEDATA" property="cSw13TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_CGCLAUSEDATA" property="cSw14TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_CGCLAUSEDATA" property="cSw15TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW16_TB_CGCLAUSEDATA" property="cSw16TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW17_TB_CGCLAUSEDATA" property="cSw17TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW18_TB_CGCLAUSEDATA" property="cSw18TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW19_TB_CGCLAUSEDATA" property="cSw19TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW20_TB_CGCLAUSEDATA" property="cSw20TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_VALUE_TB_CGCLAUSEDATA" property="cValueTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_CGCLAUSEDATA" property="cCreatetimeTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYDATE_TB_CGCLAUSEDATA" property="cModifydateTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_CGCLAUSEDATA" property="cTimestampTbCgclausedata" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <resultMap id="M3S3ResultMap" type="code_fb.entity.CGC_11_M3S3" >
+	 <result column="C_CREATER_TB_CGCLAUSEDATA" property="cCreaterTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_CGCLAUSEDATA" property="cDrTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ENABLED_TB_CGCLAUSEDATA" property="cEnabledTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMDES_TB_CGCLAUSEDATA" property="cFaitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_FAITEMID_TB_CGCLAUSEDATA" property="cFaitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_GROUP_TB_CGCLAUSEDATA" property="cGroupTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_CGCLAUSEDATA" property="cIdTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMDES_TB_CGCLAUSEDATA" property="cItemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ITEMID_TB_CGCLAUSEDATA" property="cItemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_CGCLAUSEDATA" property="cModifierTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_ORDER_TB_CGCLAUSEDATA" property="cOrderTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMDES_TB_CGCLAUSEDATA" property="cSubitemdesTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SUBITEMID_TB_CGCLAUSEDATA" property="cSubitemidTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_CGCLAUSEDATA" property="cSw01TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_CGCLAUSEDATA" property="cSw02TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_CGCLAUSEDATA" property="cSw03TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_CGCLAUSEDATA" property="cSw04TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_CGCLAUSEDATA" property="cSw05TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_CGCLAUSEDATA" property="cSw06TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_CGCLAUSEDATA" property="cSw07TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_CGCLAUSEDATA" property="cSw08TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_CGCLAUSEDATA" property="cSw09TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_CGCLAUSEDATA" property="cSw10TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_CGCLAUSEDATA" property="cSw11TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_CGCLAUSEDATA" property="cSw12TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_CGCLAUSEDATA" property="cSw13TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_CGCLAUSEDATA" property="cSw14TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_CGCLAUSEDATA" property="cSw15TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW16_TB_CGCLAUSEDATA" property="cSw16TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW17_TB_CGCLAUSEDATA" property="cSw17TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW18_TB_CGCLAUSEDATA" property="cSw18TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW19_TB_CGCLAUSEDATA" property="cSw19TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_SW20_TB_CGCLAUSEDATA" property="cSw20TbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_VALUE_TB_CGCLAUSEDATA" property="cValueTbCgclausedata" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_CGCLAUSEDATA" property="cCreatetimeTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYDATE_TB_CGCLAUSEDATA" property="cModifydateTbCgclausedata" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_CGCLAUSEDATA" property="cTimestampTbCgclausedata" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QCGC_11_M1S1" parameterType="code_fb.entity.CGC_11_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ 	AND TB_CGCLAUSEDATA.C_FAITEMID IS NULL
+  	AND TB_CGCLAUSEDATA.C_FAITEMDES IS NULL
+  	AND TB_CGCLAUSEDATA.C_SUBITEMID IS NULL 
+  	AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NULL
+   <if test="cgc11M1s1.cItemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMID like '%' || #{cgc11M1s1.cItemidTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgc11M1s1.cItemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMDES like '%' || #{cgc11M1s1.cItemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+  
+  ORDER BY C_ITEMID_TB_CGCLAUSEDATA
+	</select> 
+	
+	
+	
+	<select id="selectContType" parameterType="code_fb.entity.CGC_11_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ 	AND TB_CGCLAUSEDATA.C_FAITEMID IS NULL
+  	AND TB_CGCLAUSEDATA.C_FAITEMDES IS NULL
+  	AND TB_CGCLAUSEDATA.C_SUBITEMID IS NULL 
+  	AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NULL
+  <!--  <if test="cgc11M1s1.cItemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMID like '%' || #{cgc11M1s1.cItemidTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgc11M1s1.cItemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMDES like '%' || #{cgc11M1s1.cItemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if> -->
+  
+  ORDER BY C_ITEMID_TB_CGCLAUSEDATA
+	</select> 
+	
+	
+	
+	 <insert id="M1S11ACGC_11_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_CGCLAUSEDATA
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES,
+  </if>
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID,
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES,
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID,
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES,
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP,
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER,
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED,
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE,
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE,
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16,
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17,
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18,
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19,
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20,
+  </if>
+  C_ID ,
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		#{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemidTbCgclausedata != null" >
+		#{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		#{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		#{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		#{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		#{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		#{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		#{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		#{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		#{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		#{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		#{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		#{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		#{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		#{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		#{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		#{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		#{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		#{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		#{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		#{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		#{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		#{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		#{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		#{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		#{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		#{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		#{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		#{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		#{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		#{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		#{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		#{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		#{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		#{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+		C_ID_CDATA.NEXTVAL,
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		#{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UCGC_11_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_CGCLAUSEDATA
+	         <set >
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES = #{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID = #{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES = #{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID = #{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES = #{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP = #{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER = #{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED = #{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE = #{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR = #{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP = #{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER = #{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME = #{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER = #{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE = #{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01 = #{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02 = #{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03 = #{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04 = #{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05 = #{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06 = #{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07 = #{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08 = #{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09 = #{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10 = #{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11 = #{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12 = #{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13 = #{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14 = #{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15 = #{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16 = #{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17 = #{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18 = #{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19 = #{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20 = #{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIdTbCgclausedata != null" >
+		C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID = #{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DCGC_11_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_CGCLAUSEDATA
+ WHERE 1 = 1 
+		and C_ITEMID = #{item.cItemidTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ <select id="M2S21QCGC_11_M2S2" parameterType="code_fb.entity.CGC_11_M2S2" resultMap="M2S2ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ AND TB_CGCLAUSEDATA.C_SUBITEMID  IS NULL
+ AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NULL
+   <if test="cgc11M2s2.cFaitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMID like '%' || #{cgc11M2s2.cFaitemidTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgc11M2s2.cFaitemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMDES like '%' || #{cgc11M2s2.cFaitemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+<!-- 添加大条款进行验证 -->	
+<select id="M2S21Q2CGC_11_M2S2" parameterType="code_fb.entity.CGC_11_M2S2" resultMap="M2S2ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ AND TB_CGCLAUSEDATA.C_SUBITEMID  IS NULL
+ AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NULL
+   <if test="cgc11M2s2.cFaitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMID  =  #{cgc11M2s2.cFaitemidTbCgclausedata,jdbcType=VARCHAR}  
+  </if>
+  <!--  <if test="cgc11M2s2.cFaitemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMDES like '%' || #{cgc11M2s2.cFaitemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if> -->
+	</select> 
+<!-- 合同类型联动大条款 -->
+<select id="S1S21QCGC_11_M1S1" parameterType="code_fb.entity.CGC_11_M1S1" resultMap="M2S2ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ AND TB_CGCLAUSEDATA.C_SUBITEMID  IS NULL
+ AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NULL
+ AND TB_CGCLAUSEDATA.C_FAITEMID IS NOT NULL
+ AND TB_CGCLAUSEDATA.C_FAITEMDES IS NOT NULL
+   <if test="cgc11M1s1.cItemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMID = #{cgc11M1s1.cItemidTbCgclausedata,jdbcType=VARCHAR}
+  </if>
+   <if test="cgc11M1s1.cItemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_ITEMDES = #{cgc11M1s1.cItemdesTbCgclausedata,jdbcType=VARCHAR}
+  </if>
+  ORDER BY TB_CGCLAUSEDATA.C_FAITEMID
+	</select> 
+	 <insert id="M2S21ACGC_11_M2S2"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M2s2" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_CGCLAUSEDATA
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE,
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16,
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17,
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18,
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19,
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20,
+  </if>
+  C_ID ,
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID,
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES,
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID,
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES,
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID,
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES,
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP,
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER,
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED,
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE,
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR,
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		#{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		#{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		#{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		#{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		#{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		#{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		#{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		#{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		#{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		#{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		#{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		#{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		#{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		#{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		#{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		#{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		#{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		#{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		#{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		#{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		#{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		#{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		#{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		#{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+		C_ID_CDATA.NEXTVAL,
+	 <if test="item.cItemidTbCgclausedata != null" >
+		#{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		#{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		#{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		#{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		#{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		#{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		#{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		#{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		#{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		#{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		#{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		#{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M2S21UCGC_11_M2S2"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M2s2" index="index" item="item" open="begin" separator=";">  
+	        update TB_CGCLAUSEDATA
+	         <set >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER = #{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP = #{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER = #{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE = #{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01 = #{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02 = #{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03 = #{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04 = #{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05 = #{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06 = #{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07 = #{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08 = #{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09 = #{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10 = #{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11 = #{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12 = #{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13 = #{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14 = #{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15 = #{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16 = #{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17 = #{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18 = #{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19 = #{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20 = #{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIdTbCgclausedata != null" >
+		C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID = #{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES = #{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID = #{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES = #{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID = #{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES = #{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP = #{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER = #{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED = #{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE = #{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR = #{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME = #{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M2S21DCGC_11_M2S2" >	
+	 <foreach close=";end;" collection="cgc11M2s2" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_CGCLAUSEDATA
+ WHERE 1 = 1 
+		and C_FAITEMID  = #{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR}
+		and C_ITEMID = #{item.cItemidTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ <select id="M3S31QCGC_11_M3S3" parameterType="code_fb.entity.CGC_11_M3S3" resultMap="M3S3ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="cgc11M3s3.cSubitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_SUBITEMID like '%' || #{cgc11M3s3.cSubitemidTbCgclausedata ,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="cgc11M3s3.cSubitemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_SUBITEMDES like '%' || #{cgc11M3s3.cSubitemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	
+	
+	<!-- 添加小条款时的验证 -->
+	<select id="M3S31Q3CGC_11_M3S3"   resultMap="M3S3ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+   <if test="cgc11M3s3.cSubitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_SUBITEMID  =  #{cgc11M3s3.cSubitemidTbCgclausedata ,jdbcType=VARCHAR}
+  </if>
+  <if test="cgc11M2s2.cFaitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMID  =  #{cgc11M2s2.cFaitemidTbCgclausedata,jdbcType=VARCHAR}
+  </if>
+  <!--  <if test="cgc11M3s3.cSubitemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_SUBITEMDES like '%' || #{cgc11M3s3.cSubitemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if> -->
+	</select> 
+	
+	
+	<!-- 大条款联动小条款 -->
+	<select id="S2S31QCGC_11_M3S3" parameterType="code_fb.entity.CGC_11_M2S2" resultMap="M3S3ResultMap"> 
+  select 
+TB_CGCLAUSEDATA.C_CREATER C_CREATER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_TIMESTAMP C_TIMESTAMP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFIER C_MODIFIER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_MODIFYDATE C_MODIFYDATE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW01 C_SW01_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW02 C_SW02_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW03 C_SW03_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW04 C_SW04_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW05 C_SW05_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW06 C_SW06_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW07 C_SW07_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW08 C_SW08_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW09 C_SW09_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW10 C_SW10_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW11 C_SW11_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW12 C_SW12_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW13 C_SW13_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW14 C_SW14_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW15 C_SW15_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW16 C_SW16_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW17 C_SW17_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW18 C_SW18_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW19 C_SW19_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SW20 C_SW20_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ID C_ID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMID C_ITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ITEMDES C_ITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMID C_FAITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_FAITEMDES C_FAITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMID C_SUBITEMID_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_SUBITEMDES C_SUBITEMDES_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_GROUP C_GROUP_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ORDER C_ORDER_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_ENABLED C_ENABLED_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_VALUE C_VALUE_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_DR C_DR_TB_CGCLAUSEDATA 
+,
+TB_CGCLAUSEDATA.C_CREATETIME C_CREATETIME_TB_CGCLAUSEDATA 
+
+ from TB_CGCLAUSEDATA
+ WHERE 1=1 
+ 	AND TB_CGCLAUSEDATA.C_SUBITEMID IS NOT NULL
+ 	AND TB_CGCLAUSEDATA.C_SUBITEMDES IS NOT NULL
+   <if test="cgc11M2s2.cFaitemidTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMID  = #{cgc11M2s2.cFaitemidTbCgclausedata ,jdbcType=VARCHAR} 
+  </if>
+ <!--   <if test="cgc11M2s2.cFaitemdesTbCgclausedata != null" >
+       AND  TB_CGCLAUSEDATA.C_FAITEMDES like '%' || #{cgc11M2s2.cFaitemdesTbCgclausedata,jdbcType=VARCHAR} || '%'
+  </if> -->
+	</select> 
+	 <insert id="M3S31ACGC_11_M3S3"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M3s3" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_CGCLAUSEDATA
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE,
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16,
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17,
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18,
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19,
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20,
+  </if>
+  C_ID ,
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID,
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES,
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID,
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES,
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID,
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES,
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP,
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER,
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED,
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE,
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR,
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		#{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		#{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		#{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		#{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		#{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		#{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		#{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		#{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		#{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		#{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		#{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		#{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		#{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		#{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		#{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		#{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		#{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		#{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		#{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		#{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		#{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		#{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		#{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		#{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+		C_ID_CDATA.NEXTVAL,
+	 <if test="item.cItemidTbCgclausedata != null" >
+		#{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		#{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		#{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		#{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		#{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		#{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		#{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		#{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		#{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		#{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		#{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		#{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M3S31UCGC_11_M3S3"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M3s3" index="index" item="item" open="begin" separator=";">  
+	        update TB_CGCLAUSEDATA
+	         <set >
+	 <if test="item.cCreaterTbCgclausedata != null" >
+		C_CREATER = #{item.cCreaterTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbCgclausedata != null" >
+		C_TIMESTAMP = #{item.cTimestampTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbCgclausedata != null" >
+		C_MODIFIER = #{item.cModifierTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifydateTbCgclausedata != null" >
+		C_MODIFYDATE = #{item.cModifydateTbCgclausedata,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbCgclausedata != null" >
+		C_SW01 = #{item.cSw01TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbCgclausedata != null" >
+		C_SW02 = #{item.cSw02TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbCgclausedata != null" >
+		C_SW03 = #{item.cSw03TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbCgclausedata != null" >
+		C_SW04 = #{item.cSw04TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbCgclausedata != null" >
+		C_SW05 = #{item.cSw05TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbCgclausedata != null" >
+		C_SW06 = #{item.cSw06TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbCgclausedata != null" >
+		C_SW07 = #{item.cSw07TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbCgclausedata != null" >
+		C_SW08 = #{item.cSw08TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbCgclausedata != null" >
+		C_SW09 = #{item.cSw09TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbCgclausedata != null" >
+		C_SW10 = #{item.cSw10TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbCgclausedata != null" >
+		C_SW11 = #{item.cSw11TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbCgclausedata != null" >
+		C_SW12 = #{item.cSw12TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbCgclausedata != null" >
+		C_SW13 = #{item.cSw13TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbCgclausedata != null" >
+		C_SW14 = #{item.cSw14TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbCgclausedata != null" >
+		C_SW15 = #{item.cSw15TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbCgclausedata != null" >
+		C_SW16 = #{item.cSw16TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw17TbCgclausedata != null" >
+		C_SW17 = #{item.cSw17TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw18TbCgclausedata != null" >
+		C_SW18 = #{item.cSw18TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw19TbCgclausedata != null" >
+		C_SW19 = #{item.cSw19TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw20TbCgclausedata != null" >
+		C_SW20 = #{item.cSw20TbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIdTbCgclausedata != null" >
+		C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemidTbCgclausedata != null" >
+		C_ITEMID = #{item.cItemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cItemdesTbCgclausedata != null" >
+		C_ITEMDES = #{item.cItemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemidTbCgclausedata != null" >
+		C_FAITEMID = #{item.cFaitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaitemdesTbCgclausedata != null" >
+		C_FAITEMDES = #{item.cFaitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemidTbCgclausedata != null" >
+		C_SUBITEMID = #{item.cSubitemidTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSubitemdesTbCgclausedata != null" >
+		C_SUBITEMDES = #{item.cSubitemdesTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGroupTbCgclausedata != null" >
+		C_GROUP = #{item.cGroupTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrderTbCgclausedata != null" >
+		C_ORDER = #{item.cOrderTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cEnabledTbCgclausedata != null" >
+		C_ENABLED = #{item.cEnabledTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cValueTbCgclausedata != null" >
+		C_VALUE = #{item.cValueTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbCgclausedata != null" >
+		C_DR = #{item.cDrTbCgclausedata,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbCgclausedata != null" >
+		C_CREATETIME = #{item.cCreatetimeTbCgclausedata,jdbcType=TIMESTAMP}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M3S31DCGC_11_M3S3"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgc11M3s3" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_CGCLAUSEDATA
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCgclausedata,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

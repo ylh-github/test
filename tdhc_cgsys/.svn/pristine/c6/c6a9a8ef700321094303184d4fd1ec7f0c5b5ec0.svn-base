@@ -1,0 +1,279 @@
+package code_fb_cg.service.impl;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import code_fb_cg.entity.TbCgcontract;
+import code_fb_cg.entity.TpCgauthority;
+import code_fb_cg.entity.TpCgcontractmtt;
+import code_fb_cg.entity.TpCgcontractstt;
+import code_fb_cg.entity.TpCgorderbefore;
+import code_fb_cg.entity.TpCgorderst;
+import code_fb_cg.mapper.TbCgcontractMapper;
+import code_fb_cg.mapper.TpCgauthorityMapper;
+import code_fb_cg.mapper.TpCgcontractmtMapper;
+import code_fb_cg.mapper.TpCgcontractmttMapper;
+import code_fb_cg.mapper.TpCgcontractstMapper;
+import code_fb_cg.mapper.TpCgcontractsttMapper;
+import code_fb_cg.mapper.TpCgmoneybookMapper;
+import code_fb_cg.mapper.TpCgmoneyinvbookMapper;
+import code_fb_cg.mapper.TpCgorderbeforeMapper;
+import code_fb_cg.mapper.TpCgordermtMapper;
+import code_fb_cg.mapper.TpCgorderstMapper;
+import code_fb_cg.mapper.TpCgreceivebookMapper;
+import code_fb_cg.request.ConMtAndSt;
+import code_fb_cg.request.ContractmtList2;
+import code_fb_cg.request.OrderMtAndSt;
+import code_fb_cg.request.ZJHTrequest;
+import code_fb_cg.service.TpCgcontractmttService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RandomId;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+@Service("tpCgcontractmttService")
+public class TpCgcontractmttServiceImpl implements TpCgcontractmttService {
+
+	@Autowired
+	private TpCgcontractmtMapper tpCgcontractmtMapper;
+	@Autowired
+	private TpCgcontractstMapper tpCgcontractstMapper;
+	@Autowired
+	private TpCgordermtMapper tpCgordermtMapper;
+	@Autowired
+	private TpCgorderstMapper tpCgorderstMapper;
+	@Autowired
+	private TpCgorderbeforeMapper tpCgorderbeforeMapper;
+	@Autowired
+	private TpCgauthorityMapper tpCgauthorityMapper;
+	@Autowired
+	private TpCgreceivebookMapper tpCgreceivebookMapper;
+	@Autowired
+	private TpCgmoneybookMapper tpCgmoneybookMapper;
+	@Autowired
+	private TpCgmoneyinvbookMapper tpCgmoneyinvbookMapper;
+	@Autowired
+	private TpCgcontractmttMapper tpCgcontractmttMapper;
+	@Autowired
+	private TpCgcontractsttMapper tpCgcontractsttMapper;
+	@Autowired
+	private TbCgcontractMapper tbCgcontractMapper;
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> ZJHT(RequestObject<EmptyTag, ZJHTrequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		//追加合同就是在合同物资中添加一条物资信息
+		RandomId ri = new RandomId();
+		String cConnum = requestObject.getData().getConList().get(0).getcConnum().replace(" ", "").replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", "");//合同号
+//		String cCludecom = requestObject.getData().getConList().get(0).getcCludecom();//签订公司
+//		Date cCludetime = requestObject.getData().getConList().get(0).getcCludetime();//签订时间
+//		String cSupplier = requestObject.getData().getConList().get(0).getcSupplier();//供应商
+//		String cSw10 = requestObject.getData().getConList().get(0).getcSw10();//采购员
+//		String cConmoney = ri.formatForTwo(new BigDecimal(requestObject.getData().getConList().get(0).getcConmoney()));//合同金额
+//		String cSw01 = ri.formatForTwo(new BigDecimal(requestObject.getData().getConList().get(0).getcSw01()));//已付款金额
+//		String cSw02 = ri.formatForTwo(new BigDecimal(requestObject.getData().getConList().get(0).getcSw02()));//未付款金额
+//		String cPayway = requestObject.getData().getConList().get(0).getcPayway();//付款方式
+//		Date cDr = requestObject.getData().getConList().get(0).getcDr();//预计到货时间
+//		String cSw09 = requestObject.getData().getConList().get(0).getcSw09();//送货地点
+		String cCreater = requestObject.getData().getConList().get(0).getcCreater();//创建人
+		//查询合同号是否已存在
+		List<TpCgcontractmtt> b = tpCgcontractmttMapper.selectByConnum(cConnum);
+		List<TpCgorderst> rstList = new ArrayList<TpCgorderst>();
+		for (OrderMtAndSt ms : requestObject.getData().getOrderList()) {
+			TpCgcontractstt cost = new TpCgcontractstt();
+			cost.setcMtid(requestObject.getData().getConList().get(0).getcId());
+			cost.setcGoodsname(ms.getcGoodsname());
+			cost.setcCuspec(ms.getcSpec());
+			if(ms.getcUnit() != null && ms.getcUnit() != "") {
+				String dw = ms.getcUnit().replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", "");
+				TpCgauthority thority = tpCgauthorityMapper.selectDanWei(dw, "DW");
+				if(thority != null) {
+					cost.setcUnit(dw);// 单位						
+				}else {
+					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+					return builder.msg("物资名称为:  "+ms.getcGoodsname()+"  的物资单位不在指定单位表中").errcode(Errcode.FailShowWarningMsg).build();	
+				}
+			}else {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("物资名称为:  "+ms.getcGoodsname()+"  的物资单位不能为空").errcode(Errcode.FailShowWarningMsg).build();	
+			}
+			//合同行号
+			b = tpCgcontractmttMapper.selectByConnum(requestObject.getData().getConList().get(0).getcConnum());
+			if(b.size()==1) {
+//				List<TpCgcontractst> num = new ArrayList<TpCgcontractst>();
+				List<TpCgcontractstt> num1  = tpCgcontractsttMapper.selectByColine(requestObject.getData().getConList().get(0).getcConnum());
+				List<TpCgcontractstt> num2  = tpCgcontractsttMapper.selectByCountState(requestObject.getData().getConList().get(0).getcConnum());
+				int len;
+				int len1;
+				int len2;
+				if(num2.size() == 0) {
+					len = Integer.parseInt(num1.get((num1.size()-1)).getcConline());
+				}else {
+					len2 = Integer.parseInt(num2.get((num2.size()-1)).getcConline());
+					if(num1.get((num1.size()-1)).getcConline().length() > 5) {
+						len1 = Integer.parseInt(num1.get((num1.size()-1)).getcConline().substring(0, 5));
+					}else {
+						len1 = Integer.parseInt(num1.get((num1.size()-1)).getcConline());
+					}
+					if(len1 > len2) {
+						len = len1;
+					}else {
+						len = len2;
+					}
+				}
+			
+//				if(num1.size() <= num2.size()) {
+//					num = num2;
+//				}else {
+//					num = num1;
+//				}
+//				for (int i = (num.size()-1); i < num.size(); i++) {
+//					String cn = num.get(i).getcConline();//已有物资的合同行号
+					//int len;
+//					if(cn.length() > 5) {
+//						len = Integer.parseInt(cn.substring(0, 5));//已有物资合同行号的数字格式
+//					}else {
+//						len = Integer.parseInt(cn);//已有物资合同行号的数字格式
+//					}
+					if(len<10) {
+						//合同行号
+						if((len+1)==10) {
+							cost.setcConline("000"+String.valueOf(len+1));
+						}else {
+							cost.setcConline("0000"+String.valueOf(len+1));
+						}
+					}
+					if(len>9 && len<100) {
+						//合同行号
+						if((len+1)==100) {
+							cost.setcConline("00"+String.valueOf(len+1));
+						}else {
+							cost.setcConline("000"+String.valueOf(len+1));
+						}
+					}
+					if(len>99 && len<1000) {
+						//合同行号
+						if((len+1)==1000) {
+							cost.setcConline("0"+String.valueOf(len+1));
+						}else {
+							cost.setcConline("00"+String.valueOf(len+1));
+						}
+					}
+					if(len>999 && len<10000) {
+						//合同行号
+						cost.setcConline("0"+String.valueOf(len+1));
+					}
+//				}
+			}
+			cost.setcGoodsnum(ms.getcNum());
+			cost.setcGroudtotalnum("0");
+			cost.setcResiduenum(ms.getcNum());
+			cost.setcArrallyorn("0");
+			cost.setcState("3");
+			cost.setcCheckyorn("0");
+			cost.setcDr("0");
+			cost.setcTimestamp(new Date());
+			cost.setcCreater(cCreater);
+			cost.setcCreatetime(new Date());
+			cost.setcOrid(ms.getcMtid());
+			cost.setcSw02(ms.getcId());
+			cost.setcSw03(ms.getcOrdernum());
+			cost.setcSw04("0");
+			cost.setcSw05(ms.getcNo());
+			cost.setcConnum(cConnum);
+			//修改物资的状态
+			TpCgorderst rst = new TpCgorderst();
+			rst.setcId(ms.getcId());
+			rst.setcState("1");
+			rst.setcSw10(cConnum);
+			rstList.add(rst);
+//			TpCgorderbefore list = new TpCgorderbefore();
+//			list.setcOrstid(ms.getcId());
+//			int row0 = tpCgorderbeforeMapper.update_st_Cstate(list.getcOrstid());
+//			if(row0 == 0) {
+//				return builder.msg("追加合同失败").errcode(Errcode.FailParameterError).build();	
+//			}
+			int row =tpCgcontractsttMapper.insertSelective(cost);
+			if(row == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("追加合同失败").errcode(Errcode.FailParameterError).build();	
+			}
+		}
+		if(rstList.size() > 0) {
+			int row0 = tpCgorderstMapper.updateTpCgorderst(rstList);
+			if (row0 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("追加合同失败").errcode(Errcode.FailParameterError).build();	
+			}
+		}
+		return builder.msg("追加合同成功").errcode(Errcode.Success).build();
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> SCHTWZ(RequestObject<EmptyTag, ZJHTrequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		for (ConMtAndSt cmas : requestObject.getData().getConList()) {
+			//还原物资状态为state = 0
+			TpCgorderbefore list = new TpCgorderbefore();
+			list.setcOrstid(cmas.getcSw02());//物资单号
+			int row0 = tpCgorderbeforeMapper.update_st_Cstate2(list.getcOrstid());
+			if(row0 == 0) {
+				return builder.msg("撤销合同物资失败").errcode(Errcode.FailParameterError).build();	
+			}
+			//根据合同号和合同行号查询物资信息
+			TpCgcontractstt cons = tpCgcontractsttMapper.selectNumber_Line(cmas.getcConnum(),cmas.getcConline());
+			int row1 = tpCgcontractsttMapper.deleteByPrimaryKey(cons.getcId());
+			if(row1 == 0) {
+				return builder.msg("撤销合同物资失败").errcode(Errcode.FailParameterError).build();	
+			}
+		}
+		return builder.msg("撤销合同物资成功").errcode(Errcode.Success).build();	
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11CX(RequestObject<EmptyTag, ContractmtList2> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<TpCgcontractmtt> tmtt = requestObject.getData().getTpCgcontractmtt();
+		for (TpCgcontractmtt tpCgcontractmtt : tmtt) {
+			List<TpCgcontractstt> tstt =tpCgcontractsttMapper.selectByColine(tpCgcontractmtt.getcConnum());
+			System.out.println(tstt.size());
+			if(tstt.size() > 0) {
+				for (TpCgcontractstt tpCgcontractstt : tstt) {
+					int row0 = tpCgorderbeforeMapper.update_st_Cstate2(tpCgcontractstt.getcSw02());
+					if(row0 == 0) {
+						TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+						return builder.msg("撤销合同失败").errcode(Errcode.FailParameterError).build();	
+					}
+					//撤回合同物资
+					int row1 = tpCgcontractsttMapper.deleteByPrimaryKey(tpCgcontractstt.getcId());
+					if(row1 == 0) {
+						TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+						return builder.msg("撤销合同失败").errcode(Errcode.FailParameterError).build();	
+					}
+				}		
+			}
+			//撤回合同主表信息，
+			int row2 = tpCgcontractmttMapper.deleteByPrimaryKey(tpCgcontractmtt.getcId());
+			if(row2 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("撤销合同失败").errcode(Errcode.FailParameterError).build();	
+			}
+			//撤回供应商，签订合同公司等信息
+			List<TbCgcontract> selectBycConnum = tbCgcontractMapper.selectBycConnum(tpCgcontractmtt);
+			if(selectBycConnum.size()>0) {
+				int deleteBycConnum = tbCgcontractMapper.deleteBycConnum(tpCgcontractmtt.getcConnum());
+				if(deleteBycConnum > 0) {
+					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+					return builder.msg("撤销合同失败").errcode(Errcode.FailParameterError).build();	
+				}
+			}
+		}
+		return builder.msg("撤销合同成功").errcode(Errcode.Success).build();	
+	}
+	
+}

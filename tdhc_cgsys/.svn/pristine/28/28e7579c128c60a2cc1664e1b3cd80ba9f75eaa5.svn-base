@@ -1,0 +1,50 @@
+
+ package code_fb.mapper;
+ import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_Q001_C001 ;
+import code_fb.entity.CG_Q001_C002 ;
+import code_fb.entity.CG_Q001_C003 ;
+import code_fb.entity.CG_Q001_C004 ;
+import code_fb.entity.CG_Q001_C005 ;
+import code_fb.entity.CG_Q001_C006 ;
+import code_fb.entity.CG_Q001_C007 ;
+import code_fb.entity.CG_Q001_C008 ;
+import code_fb.entity.CG_Q001_C009 ;
+import code_fb.entity.CG_Q001_C00A ;
+import code_fb.entity.CG_Q001_C00B ;
+import code_fb.entity.CG_Q001_M1S1 ;
+import code_fb.entity.CG_Q001_S1S2 ; 
+ @Repository("cgQ001Mapper")
+ public interface CG_Q001_Mapper {
+ List<CG_Q001_C001> C0011QCG_Q001_C001( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C002> C0021QCG_Q001_C002( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C003> C0031QCG_Q001_C003( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C004> C0041QCG_Q001_C004( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C005> C0051QCG_Q001_C005( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C006> C0061QCG_Q001_C006( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C007> C0071QCG_Q001_C007( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C008> C0081QCG_Q001_C008( @Param("cItemdes") String cItemdse, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C009> C0091QCG_Q001_C009( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C00A> C00A1QCG_Q001_C00A( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_C00B> C00B1QCG_Q001_C00B( @Param("cItemdes") String cItemdes, @Param("cEnabled") String cEnabled);
+ List<CG_Q001_M1S1> M1S11QCG_Q001_M1S1( @Param("cgQ001M1s1")CG_Q001_M1S1 cgQ001M1s1);
+ int M1S11ACG_Q001_M1S1(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+ int M1S11UCG_Q001_M1S1(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+ int M1S11DCG_Q001_M1S1(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+ int M1S13MSGCG_Q001_M1S1(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+ List<CG_Q001_S1S2> S1S21QCG_Q001_S1S2( @Param("cgQ001S1s2")CG_Q001_S1S2 cgQ001S1s2);
+ int S1S21ACG_Q001_S1S2(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+ int S1S21UCG_Q001_S1S2(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+ int S1S21DCG_Q001_S1S2(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+ int S1S21DUpdate(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+ //监管,转T类型
+ int S1S21S_Q001_S1S2(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+int M1S11DCG_Q001_S1S2(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+int M1S11DUPDATE(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+//取消提交，撤销转T类型
+int M1S13MSGCG_Q001_M1S12(@Param("cgQ001M1s1") List<CG_Q001_M1S1> cgQ001M1s1);
+ }

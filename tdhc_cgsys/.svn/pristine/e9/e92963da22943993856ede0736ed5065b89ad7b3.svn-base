@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:component-scan base-package="code_fb_cg" />
+	<context:component-scan
+		base-package="code_fb_customer" />
+		<context:component-scan
+		base-package="cn.tdhc" />
+	<context:component-scan base-package="cn.tdhc.publics">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="cn.tdhc.TB_ATTR_GROUP">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="cn.tdhc.TB_MATTER_GROUP">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="code_fb_cg">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="code_fb">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:component-scan base-package="cn.tdhc.quality">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	<!-- Spring的配置文件，这里主要配置和业务逻辑有关的 -->
+	<!--=================== 数据源，事务控制================-->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+
+	<!--================== 配置和MyBatis的整合=============== -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 指定mybatis全局配置文件的位置 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="dataSource" ref="pooledDataSource"></property>
+		<!-- 指定mybatis，mapper文件的位置 -->
+		<property name="mapperLocations">
+			 <list>
+                <value>classpath:code_fb/sql/*.xml</value>
+                <value>classpath:code_fb/*/sql/*.xml</value>
+                <value>classpath:code_fb_cg/sql/*.xml</value>
+                <value>classpath:code_fb_cg/*/sql/*.xml</value>
+                <value>classpath:cn/tdhc/TB_ATTR_GROUP/sql/*.xml</value>
+                <value>classpath:cn/tdhc/TB_MATTER_GROUP/sql/*.xml</value>
+                <value>classpath:cn/tdhc/publics/sql/*.xml</value>
+            </list>
+		
+		</property>
+	</bean>
+
+	<!-- 配置扫描器，将mybatis接口的实现加入到ioc容器中 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!--扫描所有dao接口的实现，加入到ioc容器中 -->    <!-- com.tdhcbj.common.mapper 炼钢通用mapper -->
+		<property name="basePackage" value="cn.tdhc.TB_ATTR_GROUP.mapper,
+											cn.tdhc.publics.mapper,
+											cn.tdhc.TB_MATTER_GROUP.mapper,
+											code_fb.mapper,
+											code_fb_cg.mapper"></property>
+	</bean>
+	
+	<!-- 配置一个可以执行批量的sqlSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
+	<!--=============================================  -->
+
+	<!-- ===============事务控制的配置 ================-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!--控制住数据源  -->
+		<property name="dataSource" ref="pooledDataSource"></property>
+	</bean>
+    <!-- 开启事务控制的注解支持 -->  
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <!--   这个时候，无论SERVICE里抛出运行时异常还是检查型异常，将共享同一事务，也就是说只要有异常，事务 -->
+ <!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    	<tx:attributes>
+    		 <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>  
+    	</tx:attributes>
+    </tx:advice> -->
+    
+	<!-- Spring配置文件的核心点（数据源、与mybatis的整合，事务控制） -->
+	
+	<!-- 定义文件解释器（文件上传） -->    
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">      
+	    <!-- 设置默认编码 -->    
+	    <property name="defaultEncoding" value="utf-8"></property>    
+	    <!-- 上传图片最大大小1M-->     
+	    <property name="maxUploadSize" value="1048576"></property>      
+	</bean> 
+	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>

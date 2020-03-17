@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <title>请购单转合同页面—拟合同动态版</title>
+    <!-- DevExtreme 依赖 -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+  <!--   <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script src="js1/CG_Q00511.js"></script>
+    <script src="js1/CG_Q005_copy.js"></script>
+
+</head>
+<style>
+    b{
+        font-size:16px
+    }
+    p{
+        font-size: 14px
+    }
+
+</style>
+
+<body class="easyui-layout">
+    <div class="easyui-layout" data-options="region:'west',title:'',split:true,hideCollapsedContent:false," style="width:50%;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:75px;padding: 5px;">
+                <div id="searchFormM2"></div>
+            </div>
+            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:45px;padding: 5px;">
+                        <div id="operateFormS1S2"></div>
+                    </div>
+                    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fit:true -->
+    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false,">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:75px;padding: 5px;">
+                <div id="searchFormM1"></div>
+            </div>
+            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:45px;padding: 5px;">
+                        <div id="operateFormM1S1"></div>
+                    </div>
+                    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                        <div id="dataGridS2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加导入按钮 -->
+    <div id="button7"></div>
+    <div id="import-content2">
+        <div id="file_upload2" style="margin-bottom:40px;">
+            <h3>请购单导入，文件格式(xls/xlsx)</h3>
+            <input type="file" id="upInput2" onchange="importf2(this)" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </div>
+        <div id="import_btn2"></div>
+    </div>
+
+
+    <!-- 添加模态框 -->
+    <div id="addmotai">
+        <div id="addForm" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+    </div>
+
+
+    <div id="notice-edit-popup-container">
+        <!-- 添加弹框的内容 -->
+        <div id="notice-edit-form-container">
+        </div>
+    </div>
+    <!-- 预登记模态框222 -->
+    <!-- 添加zhu弹框 -->
+    <div id="add-edit-popup-container">
+        <!-- 添加钢种的内容 -->
+        <div id="add-edit-form-container">
+        </div>
+    </div>
+    <div id="addGangGrid" style="margin-top: 10px"></div>
+
+
+    <!-- 添加子表弹框 -->
+    <div id="zi-edit-popup-container">
+        <!-- 添加子表的内容 -->
+        <div id="zi-edit-form-container">
+        </div>
+    </div>
+    <div id="ziGangGrid" style="margin-top: 10px"></div>
+
+
+    <!-- 添加合同模态框 -->
+    <div id="addmotai2">
+        <div style="height:100%;overflow-y: scroll;">
+            <h1 style="text-align:center;height:10px;margin-bottom: 50px">模&nbsp;&nbsp;拟&nbsp;&nbsp;合&nbsp;&nbsp;同</h1>
+           <!-- 合同模板类型 -->
+           <div id="contract_type" style="margin-bottom: 15px"></div>
+            <div id="addForm2" style="margin-bottom: 15px"></div>
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p>根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+            <b>第一条 标的名称、规格型号、计量单位、数量、价款</b>
+           <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+            <div id="addmoni2" style="margin-top:15px"></div>
+            <div id="clauseForm" style="margin-top:15px"></div>
+           <!--  <div id="calculation" style="margin-top:10px"></div> -->
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+           <!--  <br> -->
+           <!--  <b>第二条 质量技术标准、供方承诺</b> -->
+			<!--  <div id="Second_clause" style="margin-bottom: 15px"></div> -->
+            <!-- 质量技术标准、供方承诺 -->
+           <!--  <div id="technology" style="margin-top:10px"></div> -->
+<!-- 
+            <p>
+                3.供方保证基于本合同提供的产品或者服务，需方使用、制造、销售、出口等经营性活动不会侵犯任何第三方的知识产权；若发生上述情况，供方保证承担由此产生的法律责任；同时由于供方产品发生知识产权争议或纠纷对需方造成经济损失的，需方有权随时向供方提出赔偿要求。
+            </p>
+ -->
+          <!--   <b>第三条 包装方式</b> -->
+ 			<!--  <div id="Third_clause" style="margin-bottom: 15px"></div> -->
+            <!-- 供方包装 -->
+         <!--    <div id="packing" style="margin-top:10px"></div> -->
+
+            <!-- 备品备件 -->
+            <!-- <div id="sparePart" style="margin-top:10px"></div> -->
+
+          <!--   <br> -->
+            <!-- <b>第四条 资料单据给付要求</b> -->
+            <!-- <div id="Four_clause" style="margin-bottom: 15px"></div> -->
+       <!--      <p>
+                供方应在发货前7天内将送货清单、装箱清单、包装箱数据（长宽高、毛重、净重等具体信息）等资料以邮件形式送达需方并对单据及资料的完整性和真实性负责。如有需要，供方应协助需方提供海关编码、申报要素等资料。
+            </p>
+ -->
+           <!--  <br>
+            <b>第五条 交货方式及费用</b> -->
+            <!-- 交货期限、交货地点 -->
+           <div id="deadline" style="margin-top:10px"></div>
+			<div id="pice" style="margin-top:10px"></div>
+            <!--  <p>
+                3.运输方式及费用承担：供方负责（汽运、物流）方式货交目的地，并承担运输费、包装费、保险费等运输相关费用。
+            </p>
+            <p>
+                4.按单收货要求：货物交接时供方必须出示送货清单，清单上需注明合同编号及收货人，并保证所填的物品名称、规格型号与合同及实物铭牌一致，由需方仓库人员验收并签字确认，若因供方过失而造成需方仓库未能及时入库的，供方自行承担相关损失。
+            </p>
+
+            <br> -->
+           <!--  <b>第六条 付款方式</b> -->
+            <!-- <p>
+                预付 %，货到需方国内仓库验收合格后付 %，需方收到16%增值税专用发票后付 %。【下拉，增加一条自定义】
+            </p> -->
+           <!--  <div id="pice" style="margin-top:10px"></div>
+
+            <br>
+            <b>第七条 验收方式及异议提出期限</b>
+            <div id="place" style="margin-top:10px"></div>
+            <p>
+                2.验收标准：需方依据本合同对产品进行的验收只是对产品外观及相关附属配件是否齐备的检验，验收合格单的出具不视为需方确认本合同项下产品已符合本合同第二条约定的质量标准。对于验收达不到标准、不符合需方特殊使用要求的，需方有权拒付剩余款项并对供方处以相应考核。 
+            </p>
+            <p>
+                3.异议提出期：异议提出期限为一年，自货物初步验收合格之日起算。如有异议，供方应在接到需方书面异议后3日内书面答复需方，否则视为认可需方的异议。
+            </p>
+
+
+            <b>第八条 违约责任</b>
+            <p>
+                1.逾期交货：每逾期一天，供方应向需方支付合同总金额的3‰的违约金，需方有权直接在货款中抵扣该违约金。若逾期超过15天，需方有权单方面解除合同，并要求供方赔偿需方因其未履行约定而产生的一切损失和额外费用。
+            </p>
+            <p>
+                2.包装瑕疵：供方应对货物包装不符合合同约定，负责返修或从新包装并承担由此而支出的费用，另外供方应对因包装不当造成货损坏或灭失对需方承担赔偿责任。
+            </p>
+            <p>
+                3.货物瑕疵：需方在验收或实际使用的过程中发现产品不符合本合同规定，需方可要求供方重新提供、更换、或修理。直至交付的产品达到合同规定的要求。若供方未在需方给予的期限内更正的，视同逾期交货。违约金按逾期交货部分的货款计算，如违约金不足补偿需方损失的，则供方还应赔偿需方因此而遭受的实际损失。
+            </p>
+ -->
+
+           <!--  <b>第九条 不可抗力</b>
+            <p>
+                因火灾、战争、罢工、自然灾害等不可抗力因素而致本合同不能履行的，双方终止合同的履行，各自的损失各自承担。不可抗力因素消失后，双方需要继续履行合同的，由双方另行协商。因不可抗力终止合同履行的一方，应当于事件发生后5日内向对方提供有权部门出具的发生不可抗力事件的证明文件并及时通知对方。未履行通知义务而致损失扩大的，过错方应当承担赔偿责任。
+            </p>
+
+
+            <b>第十条 争议解决方式</b>
+            <p>
+                本合同履行过程中产生争议的，双方可协商解决。协商不成的，应向需方所在地人民法院提起诉讼。
+            </p>
+
+
+            <b>第十一条 廉洁声明</b>
+            <p>
+                供需双方承诺，恪守中华人民共和国法律法规关于反商业贿赂的规定，不以任何方式或名义向对方提供任何形式的商业贿赂，任何一方违反上述规定，守约方有权终止合同，并向违约方追究相应的经济损失。对于我司人员的监督，可通过以下渠道反馈：投诉电话：0593-6600159
+                投诉邮箱：lzjc@ynqsgt.com。
+            </p>
+
+
+            <b>第十二 其他</b>
+            <p>
+                1.本合同经双方授权代表签字并盖章后生效。本合同一式肆份，双方各持贰份，扫描件、传真件形式与本合同具有同等法律效力。
+            </p>
+            <p>
+                2.本合同未尽事宜，经双方协商一致后，可另行签订补充协议约定。
+            </p>
+            <p>
+                3.出国现场安装指导和提供其它技术服务期间，供方服务人员应遵守施工现场的规章制度以及尊重境外当地的民风民俗，如果由需方引起的安全事故由需方负责，如果由供方引起的安全事故由供方负责。需方不承担路途中的安全事故所造成的一切费用，需方只承担并负责安排现场安装指导和技术服务人员签证费、往返国际机票、在印尼期间安排在现场的住宿、膳食、交通等各种合理费用，其它费用如中国国内交通费、人身保险费、差旅补贴费、通信费、路途中所发生的一切费用由供方承担。如果由于合同设备本身的质量问题需要供方去现场处理，需方只承担并负责安排现场技术服务人员在现场工地的住宿、膳食、交通，其它一切费用由供方承担。
+            </p> -->
+
+
+
+            <div style="width:100%">
+
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+
+                </div>
+
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea2" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

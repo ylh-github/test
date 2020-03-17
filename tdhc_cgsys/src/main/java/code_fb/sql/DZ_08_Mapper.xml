@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.DZ_08_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.DZ_08_M1S1" >
+	 <result column="C_ACCOUNTNO_TB_SUPPLIER" property="cAccountnoTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_BANKNAME_TB_SUPPLIER" property="cBanknameTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TB_SUPPLIER" property="cCreaterTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_SUPPLIER" property="cDrTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_FAXNO_TB_SUPPLIER" property="cFaxnoTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_SUPPLIER" property="cIdTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_SUPPLIER" property="cModifierTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_REMARK_TB_SUPPLIER" property="cRemarkTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SUPADDRESS_TB_SUPPLIER" property="cSupaddressTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SUPPHONE_TB_SUPPLIER" property="cSupphoneTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SUPPLIER_TB_SUPPLIER" property="cSupplierTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_SUPPLIER" property="cSw01TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_SUPPLIER" property="cSw02TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_SUPPLIER" property="cSw03TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_SUPPLIER" property="cSw04TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_SUPPLIER" property="cSw05TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_SUPPLIER" property="cSw06TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_SUPPLIER" property="cSw07TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_SUPPLIER" property="cSw08TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_SUPPLIER" property="cSw09TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_SUPPLIER" property="cSw10TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_SUPPLIER" property="cSw11TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_SUPPLIER" property="cSw12TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_SUPPLIER" property="cSw13TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_SUPPLIER" property="cSw14TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_SUPPLIER" property="cSw15TbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_TAXNUMBER_TB_SUPPLIER" property="cTaxnumberTbSupplier" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_SUPPLIER" property="cCreatetimeTbSupplier" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TB_SUPPLIER" property="cModifytimeTbSupplier" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_SUPPLIER" property="cTimestampTbSupplier" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QDZ_08_M1S1" parameterType="code_fb.entity.DZ_08_M1S1" resultMap="M1S1ResultMap"> 
+  select  distinct
+TB_SUPPLIER.C_ID C_ID_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPADDRESS C_SUPADDRESS_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_BANKNAME C_BANKNAME_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_ACCOUNTNO C_ACCOUNTNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_TAXNUMBER C_TAXNUMBER_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPHONE C_SUPPHONE_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_FAXNO C_FAXNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_REMARK C_REMARK_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW01 C_SW01_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW02 C_SW02_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW03 C_SW03_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW04 C_SW04_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW05 C_SW05_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW06 C_SW06_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW07 C_SW07_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW08 C_SW08_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW09 C_SW09_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW10 C_SW10_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW11 C_SW11_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW12 C_SW12_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW13 C_SW13_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW14 C_SW14_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW15 C_SW15_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPLIER C_SUPPLIER_TB_SUPPLIER 
+
+ from TB_SUPPLIER
+ WHERE 1=1 
+  <!--  <if test="dz08M1s1.cIdTbSupplier != null" >
+       AND  TB_SUPPLIER.C_ID like '%' || #{dz08M1s1.cIdTbSupplier,jdbcType=VARCHAR} || '%'
+  </if> -->
+   <if test="dz08M1s1.cSupplierTbSupplier != null" >
+       AND  TB_SUPPLIER.C_SUPPLIER like '%' || trim(#{dz08M1s1.cSupplierTbSupplier,jdbcType=VARCHAR}) || '%'
+  </if>
+  ORDER BY TB_SUPPLIER.C_ID
+  
+	</select> 
+<select id="M1S11QDZ_08_CHECKM1S1" parameterType="code_fb.entity.DZ_08_M1S1" resultMap="M1S1ResultMap"> 
+  select  distinct
+TB_SUPPLIER.C_ID C_ID_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPADDRESS C_SUPADDRESS_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_BANKNAME C_BANKNAME_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_ACCOUNTNO C_ACCOUNTNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_TAXNUMBER C_TAXNUMBER_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPHONE C_SUPPHONE_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_FAXNO C_FAXNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_REMARK C_REMARK_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW01 C_SW01_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW02 C_SW02_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW03 C_SW03_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW04 C_SW04_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW05 C_SW05_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW06 C_SW06_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW07 C_SW07_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW08 C_SW08_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW09 C_SW09_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW10 C_SW10_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW11 C_SW11_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW12 C_SW12_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW13 C_SW13_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW14 C_SW14_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW15 C_SW15_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPLIER C_SUPPLIER_TB_SUPPLIER 
+
+ from TB_SUPPLIER
+ WHERE 1=1 
+  <!--  <if test="dz08M1s1.cIdTbSupplier != null" >
+       AND  TB_SUPPLIER.C_ID like '%' || #{dz08M1s1.cIdTbSupplier,jdbcType=VARCHAR} || '%'
+  </if> -->
+   <if test="dz08M1s1.cSupplierTbSupplier != null" >
+       AND  TB_SUPPLIER.C_SUPPLIER = trim(#{dz08M1s1.cSupplierTbSupplier,jdbcType=VARCHAR})
+  </if>
+	</select> 
+	
+ <select id="M1S11QSupplier" parameterType="java.lang.String" resultMap="M1S1ResultMap"> 
+  select 
+TB_SUPPLIER.C_ID C_ID_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPADDRESS C_SUPADDRESS_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_BANKNAME C_BANKNAME_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_ACCOUNTNO C_ACCOUNTNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_TAXNUMBER C_TAXNUMBER_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPHONE C_SUPPHONE_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_FAXNO C_FAXNO_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_REMARK C_REMARK_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW01 C_SW01_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SW02 C_SW02_TB_SUPPLIER 
+,
+TB_SUPPLIER.C_SUPPLIER C_SUPPLIER_TB_SUPPLIER 
+
+ from TB_SUPPLIER
+ WHERE 1=1 
+   <if test="supplier != null" >
+       AND  TB_SUPPLIER.C_SUPPLIER = #{supplier,jdbcType=VARCHAR} 
+  </if>
+	</select> 
+
+<!-- 查询供应商名称，下拉框 -->
+<select id="findSupplierInfo" parameterType="code_fb_cg.entity.TbSupplier" resultType="code_fb_cg.entity.TbSupplier"> 
+  select distinct C_SUPPLIER
+  from TB_SUPPLIER
+</select> 
+<!-- 供应商信息的填充 -->
+<select id="getSupplierInfo" parameterType="code_fb_cg.entity.TbSupplier" resultType="code_fb_cg.entity.TbSupplier"> 
+  select distinct 
+  t.C_SUPADDRESS, 
+  t.C_BANKNAME, 
+  t.C_ACCOUNTNO, 
+  t.C_TAXNUMBER, 
+  t.C_SUPPHONE, 
+  t.C_FAXNO, 
+  C_SW01,
+  C_SW02,
+  C_SW03,
+  C_SW04,
+  C_SW05,
+  C_SW06,
+  C_SW07,
+  C_SW08,
+  C_SW09,
+  C_SW10,
+  C_SW11,
+  C_SW12,
+  C_SW13,
+  C_SW14,
+  C_SW15,
+  t.C_SUPPLIER
+  from TB_SUPPLIER t where 1=1 
+   <if test="tbSupplier.cSupplier != null and  tbSupplier.cSupplier != '' " >
+       AND  t.C_SUPPLIER LIKE CONCAT('%',CONCAT(trim(#{tbSupplier.cSupplier,jdbcType=VARCHAR}),'%')) 
+  </if>
+</select> 
+
+	
+	 <insert id="M1S11ADZ_08_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="dz08M1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_SUPPLIER
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+		C_ID,
+	 <if test="item.cSupaddressTbSupplier != null" >
+		C_SUPADDRESS,
+  </if>
+	 <if test="item.cBanknameTbSupplier != null" >
+		C_BANKNAME,
+  </if>
+	 <if test="item.cAccountnoTbSupplier != null" >
+		C_ACCOUNTNO,
+  </if>
+	 <if test="item.cTaxnumberTbSupplier != null" >
+		C_TAXNUMBER,
+  </if>
+	 <if test="item.cSupphoneTbSupplier != null" >
+		C_SUPPHONE,
+  </if>
+	 <if test="item.cFaxnoTbSupplier != null" >
+		C_FAXNO,
+  </if>
+	 <if test="item.cRemarkTbSupplier != null" >
+		C_REMARK,
+  </if>
+	 <if test="item.cSupplierTbSupplier != null" >
+		C_SUPPLIER,
+  </if>
+  <if test="item.cSw05TbSupplier != null" >
+		C_SW05,
+  </if>
+  <if test="item.cSw06TbSupplier != null" >
+		C_SW06,
+  </if>
+  <if test="item.cSw07TbSupplier != null" >
+		C_SW07,
+  </if>
+  <if test="item.cSw08TbSupplier != null" >
+		C_SW08,
+  </if>
+  <if test="item.cSw09TbSupplier != null" >
+		C_SW09,
+  </if>
+  <if test="item.cSw01TbSupplier != null" >
+		C_SW01,
+  </if>
+  <if test="item.cSw02TbSupplier != null" >
+		C_SW02,
+  </if>
+  <if test="item.cTimestampTbSupplier != null" >
+        C_TIMESTAMP,
+      </if>
+      <if test="item.cCreaterTbSupplier != null" >
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetimeTbSupplier != null" >
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifierTbSupplier != null" >
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytimeTbSupplier != null" >
+        C_MODIFYTIME,
+      </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+		C_ID_SUPP.NEXTVAL,
+	 <if test="item.cSupaddressTbSupplier != null" >
+		#{item.cSupaddressTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBanknameTbSupplier != null" >
+		#{item.cBanknameTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cAccountnoTbSupplier != null" >
+		#{item.cAccountnoTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTaxnumberTbSupplier != null" >
+		#{item.cTaxnumberTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupphoneTbSupplier != null" >
+		#{item.cSupphoneTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cFaxnoTbSupplier != null" >
+		#{item.cFaxnoTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemarkTbSupplier != null" >
+		#{item.cRemarkTbSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupplierTbSupplier != null" >
+		#{item.cSupplierTbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw05TbSupplier != null" >
+		#{item.cSw05TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw06TbSupplier != null" >
+		#{item.cSw06TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw07TbSupplier != null" >
+		#{item.cSw07TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw08TbSupplier != null" >
+		#{item.cSw08TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw09TbSupplier != null" >
+		#{item.cSw09TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw01TbSupplier != null" >
+		#{item.cSw01TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cSw02TbSupplier != null" >
+		#{item.cSw02TbSupplier,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cTimestampTbSupplier != null" >
+        #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCreaterTbSupplier != null" >
+        #{item.cCreaterTbSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetimeTbSupplier != null" >
+        #{item.cCreatetimeTbSupplier,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifierTbSupplier != null" >
+        #{item.cModifierTbSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytimeTbSupplier != null" >
+        #{item.cModifytimeTbSupplier,jdbcType=TIMESTAMP},
+      </if>
+   </trim>
+       </foreach>
+  </insert>
+  
+	 <update id="M1S11UDZ_08_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="dz08M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_SUPPLIER
+	 <set >
+		<!--  <if test="item.cIdTbSupplier != null" >
+			C_ID = #{item.cIdTbSupplier,jdbcType=VARCHAR},
+		  </if> -->
+			 <if test="item.cSupaddressTbSupplier != null" >
+				C_SUPADDRESS = #{item.cSupaddressTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cBanknameTbSupplier != null" >
+				C_BANKNAME = #{item.cBanknameTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cAccountnoTbSupplier != null" >
+				C_ACCOUNTNO = #{item.cAccountnoTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cTaxnumberTbSupplier != null" >
+				C_TAXNUMBER = #{item.cTaxnumberTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cSupphoneTbSupplier != null" >
+				C_SUPPHONE = #{item.cSupphoneTbSupplier,jdbcType=VARCHAR},
+		  </if> 
+			 <if test="item.cFaxnoTbSupplier != null" >
+				C_FAXNO = #{item.cFaxnoTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cRemarkTbSupplier != null" >
+				C_REMARK = #{item.cRemarkTbSupplier,jdbcType=VARCHAR},
+		  </if>
+			 <if test="item.cSupplierTbSupplier != null" >
+				C_SUPPLIER = #{item.cSupplierTbSupplier,jdbcType=VARCHAR},
+		 	</if>
+		 	<if test="item.cSw01TbSupplier != null" >
+				C_SW01 = #{item.cSw01TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw02TbSupplier != null" >
+				C_SW02 = #{item.cSw02TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw03TbSupplier != null" >
+				C_SW03 = #{item.cSw03TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw04TbSupplier != null" >
+				C_SW04 = #{item.cSw04TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw05TbSupplier != null" >
+				C_SW05 = #{item.cSw05TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw06TbSupplier != null" >
+				C_SW06 = #{item.cSw06TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw07TbSupplier != null" >
+				C_SW07 = #{item.cSw07TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw08TbSupplier != null" >
+				C_SW08 = #{item.cSw08TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw09TbSupplier != null" >
+				C_SW09 = #{item.cSw09TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw10TbSupplier != null" >
+				C_SW10 = #{item.cSw10TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw11TbSupplier != null" >
+				C_SW11 = #{item.cSw11TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw12TbSupplier != null" >
+				C_SW12 = #{item.cSw12TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw13TbSupplier != null" >
+				C_SW13 = #{item.cSw13TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw14TbSupplier != null" >
+				C_SW14 = #{item.cSw14TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	<if test="item.cSw15TbSupplier != null" >
+				C_SW15 = #{item.cSw15TbSupplier,jdbcType=VARCHAR},
+		 	</if> 
+		 	
+	 </set> 
+	 WHERE   C_ID = #{item.cIdTbSupplier,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+  
+	 <delete id="M1S11DDZ_08_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="dz08M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_SUPPLIER
+ 			WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSupplier,jdbcType=VARCHAR}
+     </foreach>
+  </delete>
+	 <update id="M1S12MSGDZ_08_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="dz08M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_SUPPLIER
+	         <set >
+	 <if test="item.cRemarkTbSupplier != null" >
+		C_REMARK = #{item.cRemarkTbSupplier,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSupplier,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+  
+ <!--  批量导入 -->
+  <insert id="Import_SuppExcel" parameterType="java.util.List" >
+   <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    insert into TB_SUPPLIER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+        C_ID,
+      <if test="item.cSupplier != null" >
+        C_SUPPLIER,
+      </if>
+      <if test="item.cSupaddress != null" >
+        C_SUPADDRESS,
+      </if>
+      <if test="item.cBankname != null" >
+        C_BANKNAME,
+      </if>
+      <if test="item.cAccountno != null" >
+        C_ACCOUNTNO,
+      </if>
+      <if test="item.cTaxnumber != null" >
+        C_TAXNUMBER,
+      </if>
+      <if test="item.cSupphone != null" >
+        C_SUPPHONE,
+      </if>
+      <if test="item.cFaxno != null" >
+        C_FAXNO,
+      </if>
+      <if test="item.cRemark != null" >
+        C_REMARK,
+      </if>
+      <if test="item.cDr != null" >
+        C_DR,
+      </if>
+      <if test="item.cTimestamp != null" >
+        C_TIMESTAMP,
+      </if>
+      <if test="item.cCreater != null" >
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null" >
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifier != null" >
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytime != null" >
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cSw01 != null" >
+        C_SW01,
+      </if>
+      <if test="item.cSw02 != null" >
+        C_SW02,
+      </if>
+      <if test="item.cSw03 != null" >
+        C_SW03,
+      </if>
+      <if test="item.cSw04 != null" >
+        C_SW04,
+      </if>
+      <if test="item.cSw05 != null" >
+        C_SW05,
+      </if>
+      <if test="item.cSw06 != null" >
+        C_SW06,
+      </if>
+      <if test="item.cSw07 != null" >
+        C_SW07,
+      </if>
+      <if test="item.cSw08 != null" >
+        C_SW08,
+      </if>
+      <if test="item.cSw09 != null" >
+        C_SW09,
+      </if>
+      <if test="item.cSw10 != null" >
+        C_SW10,
+      </if>
+      <if test="item.cSw11 != null" >
+        C_SW11,
+      </if>
+      <if test="item.cSw12 != null" >
+        C_SW12,
+      </if>
+      <if test="item.cSw13 != null" >
+        C_SW13,
+      </if>
+      <if test="item.cSw14 != null" >
+        C_SW14,
+      </if>
+      <if test="item.cSw15 != null" >
+        C_SW15,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      C_ID_SUPP.NEXTVAL,
+      <if test="item.cSupplier != null" >
+        #{item.cSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSupaddress != null" >
+        #{item.cSupaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cBankname != null" >
+        #{item.cBankname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cAccountno != null" >
+        #{item.cAccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTaxnumber != null" >
+        #{item.cTaxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSupphone != null" >
+        #{item.cSupphone,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cFaxno != null" >
+        #{item.cFaxno,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cRemark != null" >
+        #{item.cRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null" >
+        #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTimestamp != null" >
+        #{item.cTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cCreater != null" >
+        #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null" >
+        #{item.cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cModifier != null" >
+        #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null" >
+        #{item.cModifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="item.cSw01 != null" >
+        #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null" >
+        #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null" >
+        #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null" >
+        #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null" >
+        #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null" >
+        #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null" >
+        #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null" >
+        #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null" >
+        #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null" >
+        #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null" >
+        #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null" >
+        #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw13 != null" >
+        #{item.cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw14 != null" >
+        #{item.cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw15 != null" >
+        cSw15,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    </foreach>
+  </insert>
+ </mapper>

@@ -1,0 +1,488 @@
+
+package code_fb.service.impl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import code_fb.entity.CG_CK_M1S1;
+import code_fb.mapper.CG_CK_Mapper;
+import code_fb.request.CG_CK_Request_M1S1;
+import code_fb.response.CG_CK_Response_M1S1;
+import code_fb.service.CG_CK_Service;
+import code_fb_cg.entity.TpCgcontractst;
+import code_fb_cg.mapper.TpCgcontractstMapper;
+import code_fb_customer.CG_CK_Customer;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RandomId;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+import vip.toda.piper.auth.web.client.User;
+
+@Service("cgCkService")
+public class CG_CK_ServiceImpl implements CG_CK_Service {
+	@Autowired
+	@Qualifier("cgCkMapper")
+	public CG_CK_Mapper frcDao;
+	@Autowired
+	public CG_CK_Customer cgCkCustomer;
+	@Autowired
+	private TpCgcontractstMapper tpCgcontractstMapper;
+
+	public ResponseObject<EmptyTag, CG_CK_Response_M1S1> M1S11Q(CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_CK_Response_M1S1 data = new CG_CK_Response_M1S1();
+		CG_CK_M1S1 cgck = new CG_CK_M1S1();
+		cgck.setcConnum(cgCkRequestM1s1.getList().get(0).getcConnum());
+		data.setCgCkM1s1(frcDao.M1S11QCG_CK_M1S1(cgck));
+		return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11A(User user, CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		int row0 = 0;
+		List<CG_CK_M1S1> cgCkM1s1 = cgCkRequestM1s1.getCgCkM1s1();
+		if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+			cgCkM1s1.get(0).setcOutsum(ri.formatToFour(new BigDecimal(cgCkM1s1.get(0).getcOutsum())));
+		}else {
+			cgCkM1s1.get(0).setcOutsum(ri.formatForTwo(new BigDecimal(cgCkM1s1.get(0).getcOutsum())));	
+		}
+		cgCkM1s1.get(0).setcMtid(cgCkRequestM1s1.getList().get(0).getcId());//获取合同主表主键
+		row0 = frcDao.M1S11ACG_CK_M1S1(cgCkM1s1);
+		if(row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+		}
+		TpCgcontractst tst = new TpCgcontractst();
+		TpCgcontractst tst2 = new TpCgcontractst();
+		tst.setcConnum(cgCkM1s1.get(0).getcConnum());
+		tst.setcConline(cgCkM1s1.get(0).getcConline());
+		List<TpCgcontractst> stList = tpCgcontractstMapper.selectByConSTone(tst);
+		BigDecimal outsum = new BigDecimal(cgCkM1s1.get(0).getcOutsum());//新增出库量
+		BigDecimal outsum2;//已有出库量
+		BigDecimal num;//订购数量
+		BigDecimal gnum;// 累计到货量
+		tst2.setcId(stList.get(0).getcId());
+		if(stList.get(0).getcSw09() != null && stList.get(0).getcSw09() != "") {
+			outsum2 = new BigDecimal(stList.get(0).getcSw09());
+			if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+				tst2.setcSw09(ri.formatToFour(outsum.add(outsum2)));				
+			}else {
+				tst2.setcSw09(ri.formatForTwo(outsum.add(outsum2)));
+			}
+		}else {
+			if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+				tst2.setcSw09(ri.formatToFour(outsum));				
+			}else {
+				tst2.setcSw09(ri.formatForTwo(outsum));
+			}
+		}
+		num = new BigDecimal(stList.get(0).getcGoodsnum());
+		outsum2 = new BigDecimal(tst2.getcSw09());
+		gnum = new BigDecimal(stList.get(0).getcGroudtotalnum());
+		if("1".equals(stList.get(0).getcState()) || "5".equals(stList.get(0).getcState())) {
+			if(outsum2.compareTo(gnum) == 0) {
+				tst2.setcSw11("1");
+			}else {
+				tst2.setcSw11("2");
+			}
+		}else {
+			if(gnum.compareTo(num) > 0) {
+				if(outsum2.compareTo(gnum) == 0) {
+					tst2.setcSw11("1");
+				}else {
+					tst2.setcSw11("2");
+				}
+			}
+			if(gnum.compareTo(num) == 0) {
+				if(outsum2.compareTo(gnum) == 0) {
+					tst2.setcSw11("1");
+				}else {
+					tst2.setcSw11("2");
+				}
+			}
+			if(gnum.compareTo(num) < 0) {
+				tst2.setcSw11("2");
+			}
+		}
+		int row1 = 0;
+		row1 = tpCgcontractstMapper.updateByPrimaryKeySelective(tst2);
+		if(row1 == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg("添加成功").session(session).build();
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11U(User user, CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		BigDecimal outsum;//修改前出库量
+		BigDecimal outsum2;//修改后出库量
+		BigDecimal out;//已出库量
+		BigDecimal num;//订购数量
+		BigDecimal gnum;// 累计到货量
+		List<CG_CK_M1S1> cgCkM1s1 = cgCkRequestM1s1.getCgCkM1s1();
+		List<CG_CK_M1S1> cgckList = frcDao.selectByCid(cgCkM1s1.get(0));
+		TpCgcontractst tst = new TpCgcontractst();
+		TpCgcontractst tst2 = new TpCgcontractst();
+		tst.setcConnum(cgCkM1s1.get(0).getcConnum());
+		tst.setcConline(cgCkM1s1.get(0).getcConline());
+		List<TpCgcontractst> stList = tpCgcontractstMapper.selectByConSTone(tst);
+		outsum = new BigDecimal(cgckList.get(0).getcOutsum());
+		outsum2 = new BigDecimal(cgCkM1s1.get(0).getcOutsum());
+		out = new BigDecimal(stList.get(0).getcSw09());
+		if(outsum.compareTo(outsum2) > 0) {//修改前出库量 > 修改后出库量
+			if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+				cgCkM1s1.get(0).setcOutsum(ri.formatToFour(outsum2));
+				tst2.setcSw09(ri.formatToFour(out.subtract(outsum.subtract(outsum2))));//出库量 - 差值
+			}else {
+				cgCkM1s1.get(0).setcOutsum(ri.formatForTwo(outsum2));
+				tst2.setcSw09(ri.formatForTwo(out.subtract(outsum.subtract(outsum2))));//出库量 - 差值
+			}
+		}else if(outsum.compareTo(outsum2) < 0) {//修改前出库量  < 修改后出库量
+			if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+				cgCkM1s1.get(0).setcOutsum(ri.formatToFour(outsum2));
+				tst2.setcSw09(ri.formatToFour(out.add(outsum2.subtract(outsum))));//出库量 + 差值
+			}else {
+				cgCkM1s1.get(0).setcOutsum(ri.formatForTwo(outsum2));
+				tst2.setcSw09(ri.formatForTwo(out.add(outsum2.subtract(outsum))));//出库量 + 差值
+			}
+		}else {//修改前出库量  == 修改后出库量
+			if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+				cgCkM1s1.get(0).setcOutsum(ri.formatToFour(outsum2));
+				tst2.setcSw09(ri.formatToFour(out));//出库量不变
+			}else {
+				cgCkM1s1.get(0).setcOutsum(ri.formatForTwo(outsum2));
+				tst2.setcSw09(ri.formatForTwo(out));//出库量不变
+			}
+		}
+		int row0 = 0;
+		row0 = frcDao.M1S11UCG_CK_M1S1(cgCkM1s1);
+		if(row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("修改失败").session(session).build();
+		}
+		int row1 =0;
+		num = new BigDecimal(stList.get(0).getcGoodsnum());
+		out = new BigDecimal(tst2.getcSw09());
+		gnum = new BigDecimal(stList.get(0).getcGroudtotalnum());
+		if("1".equals(stList.get(0).getcState()) || "5".equals(stList.get(0).getcState())) {
+			if(out.compareTo(gnum) == 0) {
+				tst2.setcSw11("1");
+			}else {
+				tst2.setcSw11("2");
+			}
+		}else {
+			if(gnum.compareTo(num) > 0) {
+				if(out.compareTo(gnum) == 0) {
+					tst2.setcSw11("1");
+				}else {
+					tst2.setcSw11("2");
+				}
+			}
+			if(gnum.compareTo(num) == 0) {
+				if(out.compareTo(gnum) == 0) {
+					tst2.setcSw11("1");
+				}else {
+					tst2.setcSw11("2");
+				}
+			}
+			if(gnum.compareTo(num) < 0 && out.compareTo(BigDecimal.ZERO) > 0) {
+				tst2.setcSw11("2");
+			}
+		}
+		tst2.setcId(stList.get(0).getcId());
+		row1 = tpCgcontractstMapper.updateByPrimaryKeySelective(tst2);
+		if(row1 == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("修改失败").session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg("修改成功").session(session).build();
+			
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11D(User user, CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		RandomId ri = new RandomId();
+		List<CG_CK_M1S1> cgCkM1s1 = cgCkRequestM1s1.getCgCkM1s1();
+		TpCgcontractst tst = new TpCgcontractst();
+		TpCgcontractst tst2 = new TpCgcontractst();
+		tst.setcConnum(cgCkM1s1.get(0).getcConnum());
+		List<TpCgcontractst> stList = tpCgcontractstMapper.selectByConSTone(tst);
+		BigDecimal outsum;//要删除的出库量
+		BigDecimal outsum2;//已有的出库量
+		for(CG_CK_M1S1 ck : cgCkM1s1) {
+			for(TpCgcontractst contractst : stList) {
+				if(ck.getcConline().equals(contractst.getcConline())) {
+					outsum = new BigDecimal(ck.getcOutsum());
+					outsum2 = new BigDecimal(contractst.getcSw09());
+					if(cgCkM1s1.get(0).getcUnit().equals("吨") || cgCkM1s1.get(0).getcUnit().equals("立方米") || cgCkM1s1.get(0).getcUnit().equals("米")) {
+						contractst.setcSw09(ri.formatToFour(outsum2.subtract(outsum)));
+					}else {
+						contractst.setcSw09(ri.formatForTwo(outsum2.subtract(outsum)));
+					}
+					outsum2 = new BigDecimal(contractst.getcSw09());
+					
+					if(outsum2.compareTo(BigDecimal.ZERO) == 0) {
+						contractst.setcSw11("0");
+						contractst.setcSw06("");
+					}else {
+						contractst.setcSw11("2");
+					}
+				}
+			}
+		}
+		int row0 = 0;
+		row0 = frcDao.M1S11DCG_CK_M1S1(cgCkM1s1);
+		if(row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("删除失败").session(session).build();
+		}
+		int row1 = 0;
+		row1 = tpCgcontractstMapper.S1S21DH(stList);
+		if(row1 == 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.errcode(Errcode.FailParameterError).msg("删除失败").session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg("删除成功").session(session).build();
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> S1S61DCC(User user, CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<CG_CK_M1S1> cgCkM1s1 = cgCkRequestM1s1.getCgCkM1s1();
+		List<CG_CK_M1S1> cgCklist = new ArrayList<CG_CK_M1S1>();
+		String ship = cgCkRequestM1s1.getShipnum().get(0).getcShipno();
+		boolean isok;
+		for(CG_CK_M1S1 m1s1 : cgCkM1s1) {
+			m1s1.setcShipno(ship);
+//			m1s1.setcOuttime(cgCkRequestM1s1.getShipnum().get(0).getcOuttime());
+			if(cgCklist.size() > 0) {
+				isok = true;
+				for(CG_CK_M1S1 ck : cgCklist) {
+					if(m1s1.getcConline().equals(ck.getcConline())) {
+						isok = !isok;
+						break;
+					}
+				}
+				if(isok) {
+					cgCklist.add(m1s1);
+				}
+			}else {
+				cgCklist.add(m1s1);
+			}
+		}
+		int row0 = frcDao.M1S11UCG_CK_M1S1(cgCkM1s1);
+		if(row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+		}
+		TpCgcontractst tst = new TpCgcontractst();
+		tst.setcConnum(cgCkM1s1.get(0).getcConnum());
+		List<TpCgcontractst> stList = tpCgcontractstMapper.selectByConSTone(tst);
+		List<TpCgcontractst> tstList = new ArrayList<TpCgcontractst>();
+		for(CG_CK_M1S1 ck : cgCklist) {
+			List<CG_CK_M1S1> m1s1list = frcDao.selectByConnumline(ck);
+			System.out.println("出库详情：0" + m1s1list.size());
+			if(m1s1list.size() == 1) {
+				for(TpCgcontractst tractst : stList) {
+					if(tractst.getcConline().equals(ck.getcConline())) {
+						tractst.setcSw06(m1s1list.get(0).getcShipno());
+						tstList.add(tractst);
+						break;
+					}
+				}
+			}else if(m1s1list.size() > 1) {
+				List<String> shipnoList = new ArrayList<String>();
+				for(CG_CK_M1S1 m1s1 : m1s1list) {
+					if(!shipnoList.contains(m1s1.getcShipno())) {//去重
+						shipnoList.add(m1s1.getcShipno());
+					}
+				}
+				System.out.println("船号："+shipnoList.size());
+				if(shipnoList.size() == 1) {
+					for(TpCgcontractst tractst : stList) {
+						if(tractst.getcConline().equals(ck.getcConline())) {
+							tractst.setcSw06(shipnoList.get(0));
+							tstList.add(tractst);
+							break;
+						}
+					}
+				}else if(shipnoList.size() > 1) {
+					String shipno = shipnoList.get(0);
+					for(int i = 1; i < shipnoList.size(); i++) {
+						shipno = shipno + "/" + shipnoList.get(i);
+					}
+					for(TpCgcontractst tractst : stList) {
+						if(tractst.getcConline().equals(ck.getcConline())) {
+							tractst.setcSw06(shipno);
+							tstList.add(tractst);
+							break;
+						}
+					}
+				}
+				
+				
+			}
+//			for(TpCgcontractst tractst : stList) {
+//				if(tractst.getcConline().equals(ck.getcConline())) {
+//					if(tractst.getcSw06() != null && tractst.getcSw06() != "") {
+//						if(tractst.getcSw06().indexOf("/") == -1) {
+//							if(!tractst.getcSw06().equals(ship)) {
+//								tractst.setcSw06(tractst.getcSw06() + "/" + ship);
+//							}
+//						}else {
+//							String[] shipno = tractst.getcSw06().split("/");
+//							isok = true;
+//							for(String st : shipno) {
+//								if(st.equals(ship)) {
+//									isok = !isok;
+//									break;
+//								}
+//							}
+//							if(isok) {
+//								tractst.setcSw06(tractst.getcSw06() + "/" + ship);
+//							}
+//						}
+//					}else {
+//						tractst.setcSw06(ship);
+//					}
+//					tstList.add(tractst);
+//				}
+//			}
+		}
+		if(tstList.size() > 0) {
+			int row1 = tpCgcontractstMapper.S1S21DH(tstList);
+			if(row1 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+			}
+		}
+		return builder.errcode(Errcode.Success).msg("添加成功").session(session).build();
+	}
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> S1S61GKH(User user, CG_CK_Request_M1S1 cgCkRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<CG_CK_M1S1> cgCkM1s1 = cgCkRequestM1s1.getCgCkM1s1();
+		List<CG_CK_M1S1> cgCklist = new ArrayList<CG_CK_M1S1>();
+		String framing = cgCkRequestM1s1.getShipnum().get(0).getcFramingno();
+		boolean isok;
+		for(CG_CK_M1S1 m1s1 : cgCkM1s1) {
+			
+			m1s1.setcFramingno(framing);
+			if(cgCklist.size() > 0) {
+				isok = true;
+				for(CG_CK_M1S1 ck : cgCklist) {
+					if(ck.getcConline().equals(m1s1.getcConline())) {
+						isok = false;
+						break;
+					}
+				}
+				if(isok) {
+					cgCklist.add(m1s1);
+				}
+			}else {
+				cgCklist.add(m1s1);
+			}
+		}
+		int row0 = frcDao.M1S11UCG_CK_M1S1(cgCkM1s1);
+		if(row0 == 0) {
+			return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+		}
+		TpCgcontractst tst = new TpCgcontractst();
+		tst.setcConnum(cgCkM1s1.get(0).getcConnum());
+		List<TpCgcontractst> stList = tpCgcontractstMapper.selectByConSTone(tst);
+		List<TpCgcontractst> tstList = new ArrayList<TpCgcontractst>();
+		List<String> framingnoList;
+		for(CG_CK_M1S1 ck : cgCklist) {
+			
+			List<CG_CK_M1S1> m1s1list = frcDao.selectByConnumline(ck);
+			System.out.println("出库详情：0" + m1s1list.size());
+			if(m1s1list.size() == 1) {
+				for(TpCgcontractst tractst : stList) {
+					if(tractst.getcConline().equals(ck.getcConline())) {
+						tractst.setcSw07(m1s1list.get(0).getcFramingno());
+						tstList.add(tractst);
+						break;
+					}
+				}
+			}else if(m1s1list.size() > 1) {
+				framingnoList = new ArrayList<String>();
+				for(CG_CK_M1S1 m1s1 : m1s1list) {
+					if(!framingnoList.contains(m1s1.getcFramingno())) {//去重
+						framingnoList.add(m1s1.getcFramingno());
+					}
+				}
+				if(framingnoList.size() == 1) {
+					for(TpCgcontractst tractst : stList) {
+						if(tractst.getcConline().equals(ck.getcConline())) {
+							tractst.setcSw07(framingnoList.get(0));
+							tstList.add(tractst);
+							break;
+						}
+					}
+				}else if(framingnoList.size() > 1) {
+					String framingno = framingnoList.get(0);
+					for(int i = 1; i < framingnoList.size(); i++) {
+						framingno = framingno + "/" + framingnoList.get(i);
+					}
+					for(TpCgcontractst tractst : stList) {
+						if(tractst.getcConline().equals(ck.getcConline())) {
+							tractst.setcSw07(framingno);
+							tstList.add(tractst);
+							break;
+						}
+					}
+				}
+				
+				
+			}
+			
+			
+			
+			
+//			
+//			for(TpCgcontractst tractst : stList) {
+//				if(tractst.getcConline().equals(ck.getcConline())) {					
+//					if(tractst.getcSw07() != null && tractst.getcSw07() != "") {
+//						if(tractst.getcSw07().indexOf("/") == -1) {
+//							if(!tractst.getcSw07().equals(framing)) {
+//								tractst.setcSw07(tractst.getcSw07() + "/" + framing);
+//							}			
+//						}else {
+//							String[] shipno = tractst.getcSw07().split("/");
+//							isok = true;
+//							for(String st : shipno) {
+//								if(st.equals(framing)) {
+//									isok = !isok;
+//									break;
+//								}
+//							}
+//							if(isok) {
+//								tractst.setcSw07(tractst.getcSw07() + "/" + framing);
+//							}
+//						}
+//					}else {
+//						tractst.setcSw07(framing);
+//					}
+//					tstList.add(tractst);
+//				}
+//			}
+		}
+		if(tstList.size() > 0) {
+			int row1 = tpCgcontractstMapper.S1S21DH(tstList);
+			if(row1 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("添加失败").session(session).build();
+			}
+		}
+		return builder.errcode(Errcode.Success).msg("添加成功").session(session).build();
+	}
+}

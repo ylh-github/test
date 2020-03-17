@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_C003_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_C003_M1S1" >
+	 <result column="C_DEPTAPPLY" property="cDeptapply" jdbcType="VARCHAR" />
+	 <result column="C_AUDITTIME" property="cAudittime" jdbcType="TIMESTAMP" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_COMNAME" property="cComname" jdbcType="VARCHAR" />
+	 <result column="C_ORDERNUM" property="cOrdernum" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_MANAPPLY" property="cManapply" jdbcType="VARCHAR" />
+	 <result column="C_MITTYPE" property="cMittype" jdbcType="VARCHAR" />
+	 <result column="C_AUDITMAN" property="cAuditman" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_MITMAN" property="cMitman" jdbcType="VARCHAR" />
+	 <result column="C_MITTIME" property="cMittime" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_TIMEAPPLY" property="cTimeapply" jdbcType="VARCHAR" />
+	 <result column="C_TIMETAKE" property="cTimetake" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_AUDITTYPE" property="cAudittype" jdbcType="VARCHAR" />
+ </resultMap>
+ <resultMap id="S1S2ResultMap" type="code_fb.entity.CG_C003_S1S2" >
+	 <result column="C_UNIT" property="cUnit" jdbcType="VARCHAR" />
+	 <result column="C_ORDEALLINE" property="cOrdealline" jdbcType="TIMESTAMP" />
+	 <result column="C_MANOR" property="cManor" jdbcType="VARCHAR" />
+	 <result column="C_PHONE" property="cPhone" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_MTID" property="cMtid" jdbcType="VARCHAR" />
+	 <result column="C_TYPENAME" property="cTypename" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_PLANOR" property="cPlanor" jdbcType="VARCHAR" />
+	 <result column="C_POLITIME" property="cPolitime" jdbcType="TIMESTAMP" />
+	 <result column="C_ALLOTSTATE" property="cAllotstate" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_NO" property="cNo" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTMAN" property="cAllotman" jdbcType="VARCHAR" />
+	 <result column="C_DEPTOR" property="cDeptor" jdbcType="VARCHAR" />
+	 <result column="C_MUSTNEED" property="cMustneed" jdbcType="VARCHAR" />
+	 <result column="C_NUM" property="cNum" jdbcType="VARCHAR" />
+	 <result column="C_ARRTIME" property="cArrtime" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTTIME" property="cAllottime" jdbcType="TIMESTAMP" />
+	 <result column="C_POLINORMTIME" property="cPolinormtime" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+ </resultMap>
+ <select id="M1S11QCG_C003_M1S1" parameterType="code_fb.entity.CG_C003_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGORDERMT.C_COMNAME 
+,
+TP_CGORDERMT.C_ORDERNUM 
+,
+TP_CGORDERMT.C_Planor,
+,
+TP_CGORDERMT.C_DEPTAPPLY 
+,
+TP_CGORDERMT.C_MANAPPLY 
+,
+TP_CGORDERMT.C_TIMEAPPLY 
+,
+TP_CGORDERMT.C_TIMETAKE 
+,
+TP_CGORDERMT.C_MITMAN 
+,
+TP_CGORDERMT.C_MITTYPE 
+,
+TP_CGORDERMT.C_MITTIME 
+,
+TP_CGORDERMT.C_AUDITTYPE 
+,
+TP_CGORDERMT.C_AUDITMAN 
+,
+TP_CGORDERMT.C_AUDITTIME 
+,
+TP_CGORDERMT.C_MODIFIER 
+,
+TP_CGORDERMT.C_MODIFYTIME 
+,
+TP_CGORDERMT.C_CREATETIME 
+,
+TP_CGORDERMT.C_CREATER 
+,
+TP_CGORDERMT.C_REMARK 
+,
+TP_CGORDERMT.C_STATE 
+,
+TP_CGORDERMT.C_ID 
+,
+TP_CGORDERMT.C_REMARK 
+
+ from TP_CGORDERMT
+ WHERE 1=1 
+	 <if test="cgC003M1s1.cComname != null" >
+		 AND  TP_CGORDERMT.C_COMNAME like '%' || #{cgC003M1s1.cComname,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC003M1s1.cOrdernum != null" >
+		 AND  TP_CGORDERMT.C_ORDERNUM like '%' || #{cgC003M1s1.cOrdernum,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC003M1s1.cDeptapply != null" >
+		 AND  TP_CGORDERMT.C_DEPTAPPLY like '%' || #{cgC003M1s1.cDeptapply,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC003M1s1.cManapply != null" >
+		 AND  TP_CGORDERMT.C_MANAPPLY like '%' || #{cgC003M1s1.cManapply,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC003M1s1.cAudittime != null" >
+		 AND  TP_CGORDERMT.C_AUDITTIME like '%' || #{cgC003M1s1.cAudittime,jdbcType=TIMESTAMP} || '%'
+  </if>
+	 <if test="cgC003M1s1.cCreatetime != null" >
+		 AND  TP_CGORDERMT.C_CREATETIME like '%' || #{cgC003M1s1.cCreatetime,jdbcType=TIMESTAMP} || '%'
+  </if>
+	</select> 
+ <select id="S1S21QCG_C003_S1S2" parameterType="code_fb.entity.CG_C003_S1S2" resultMap="S1S2ResultMap"> 
+  select 
+TP_CGORDERST.C_NO 
+,
+TP_CGORDERST.C_MUSTNEED 
+,
+TP_CGORDERST.C_TYPENAME 
+,
+TP_CGORDERST.C_SPEC 
+,
+TP_CGORDERST.C_NUM 
+,
+TP_CGORDERST.C_UNIT 
+,
+TP_CGORDERST.C_ARRTIME 
+,
+TP_CGORDERST.C_ORDEALLINE 
+,
+TP_CGORDERST.C_MANOR 
+,
+TP_CGORDERST.C_PHONE 
+,
+TP_CGORDERST.C_ALLOTSTATE 
+,
+TP_CGORDERST.C_ALLOTMAN 
+,
+TP_CGORDERST.C_ALLOTTIME 
+,
+TP_CGORDERST.C_PLANOR 
+,
+TP_CGORDERST.C_POLITIME 
+,
+TP_CGORDERST.C_POLINORMTIME 
+,
+TP_CGORDERST.C_CREATER 
+,
+TP_CGORDERST.C_MODIFIER 
+,
+TP_CGORDERST.C_MODIFYTIME 
+,
+TP_CGORDERST.C_GOODSNAME 
+,
+TP_CGORDERST.C_ID 
+,
+TP_CGORDERST.C_MTID 
+,
+TP_CGORDERST.C_DEPTOR 
+,
+TP_CGORDERST.C_CREATETIME 
+
+ from TP_CGORDERST
+ WHERE 1=1 
+ 	<if test="cgC003S1s2.cId != null" >
+ 	AND TP_CGORDERST.C_MTID = #{cgC003S1s2.cId,jdbcType=VARCHAR}
+    </if>
+	</select> 
+ </mapper>

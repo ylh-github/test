@@ -1,0 +1,64 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+
+import code_fb_cg.entity.TpCgauthority;
+
+public interface TpCgauthorityMapper {
+    int deleteByPrimaryKey(String cId);
+    int insert(TpCgauthority record);
+    int insertSelective(TpCgauthority record);
+    TpCgauthority selectByPrimaryKey(String cId);
+    int updateByPrimaryKeySelective(TpCgauthority record);
+    int updateByPrimaryKey(TpCgauthority record);
+    //M1S1启用
+    int M1S12U(@Param("cgA001M1s1")List<TpCgauthority> requestObject);
+    //M1S1启用
+    int M1S13U(@Param("cgA001M1s1")List<TpCgauthority> requestObject);
+    //M1S1启用
+    int S1S22U(@Param("cgA001S1s2")List<TpCgauthority> requestObject);
+    //M1S1启用
+    int S1S23U(@Param("cgA001S1s2")List<TpCgauthority> requestObject);
+    //全部启用调用
+    List<TpCgauthority> selectDESAndID(TpCgauthority requestObject);
+    //H001付款方式
+    List<TpCgauthority> selectH001FKFS(@Param("cItemdes")String cItemdes,@Param("cEnabled")String cEnabled);
+    //H001完成状态
+    List<TpCgauthority> selectH001WCZT(@Param("cItemdes")String cItemdes,@Param("cEnabled")String cEnabled);
+    
+    List<TpCgauthority> getDictionaryInfoWithItemNos(@Param("itemNo")String itemNo,@Param("subitemid")String subitemid);
+    //查询该助理是谁的助理
+    TpCgauthority selectCAIGOUZHULI(@Param("cSubitemid")String cSubitemid);
+    
+    //查询该主任的信息
+    TpCgauthority selectZHUREN(@Param("cSubitemid")String cSubitemid);
+    //查询该经理信息
+    TpCgauthority selectJINGLI(@Param("cSubitemid")String cSubitemid);
+    //查询谁有助理
+    List<TpCgauthority> selectWHOHAVEZL();
+    //该主任组都有谁
+    List<TpCgauthority> selectZRXIASHU(@Param("cSw01")String cSw01);
+    //该经理下属
+	List<TpCgauthority> selectJLXIASHU(@Param("cSw02")String cSw02);
+	//副总的下属
+	List<TpCgauthority> selectFZJLXIASHU(@Param("cSw03")String cSw03);
+	//经理的下属
+	List<TpCgauthority> getDictionaryInfoWithItemNos1(@Param("cSw02")String cSw02, @Param("cItemid")String cItemid);
+	//主任的下属
+	List<TpCgauthority> getDictionaryInfoWithItemNos2(@Param("cSw01")String cSw01, @Param("cItemid")String cItemid);
+	List<TpCgauthority> getDictionaryInfoWithItemNos3(@Param("cSw03")String cSw03, @Param("cItemid")String cItemid);
+	List<TpCgauthority> getDictionaryInfoWithItemNos4(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+	//查询是否是副总
+	List<TpCgauthority> selectFuZong(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+	//查询是否是经理
+	List<TpCgauthority> selectJingLi(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+	//查询是否是主任
+	List<TpCgauthority> selectZhuRen(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+	//查询是否是助理
+	TpCgauthority selectZhuLi(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+	//查询是否有有该单位
+	TpCgauthority selectDanWei(@Param("cSubitemdes")String cSubitemdes, @Param("cItemid")String cItemid);
+}

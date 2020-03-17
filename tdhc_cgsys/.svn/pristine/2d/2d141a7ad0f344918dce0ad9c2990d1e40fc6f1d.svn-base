@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#bg {
+  padding: 10px;
+}
+#searchFormM1, #searchFormM2 {
+  box-sizing: border-box;
+    width: 100%;
+    min-width: 1300px;
+    padding: 5px 5px;
+    background: #E7EBEE;
+    box-shadow: 1px 2px 5px -2px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+
+}
+#operateFormM1S1,.btn_top{
+    width: 100%;
+    width: 100%;
+    min-width: 1300px;
+    padding: 5px 5px;
+    background: #E7EBEE;
+    box-shadow: 1px 2px 5px -2px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    min-width: 1300px;
+
+}
+ #operateFormS2S3 , #operateFormS3S4{
+
+ }
+#dataGridS1,#dataGridS2{
+   
+}
+#box{
+    margin-top:20px;
+    padding-top: 10px; 
+    width: 100%;
+}   
+.boxtop{
+    margin-top:10px; 
+    
+    position: relative;
+    padding-top:10px; 
+    border: 1px solid #ccc;
+}
+.boxtop>span{
+    position: absolute;
+    left: 3px;
+    top: -10px;
+    font-size: 12px;
+}
+.boxbottom{
+    margin-top:10px; 
+
+    position: relative;
+    padding-top:10px; 
+    border: 1px solid #ccc;
+}
+.boxbottom>span{
+    position: absolute;
+    left: 3px;
+    top: -10px;
+    font-size: 12px;
+}
+.boxleft{
+    margin-top: 20px; 
+    position: relative;
+    padding-top:10px; 
+    border: 1px solid #ccc;
+    float: left;
+    width: 49%;
+}
+.boxleft>span{
+    position: absolute;
+    left: 3px;
+    top: -10px;
+    font-size: 12px;
+}
+.boxright{
+    position: relative;
+    padding-top:10px; 
+    margin-top: 20px; 
+    border: 1px solid #ccc;
+    float: right;
+    width: 49%;
+
+}
+.boxright>span{
+    position: absolute;
+    left: 3px;
+    top: -10px;
+    font-size: 12px;
+}
+#box-top{
+   margin-bottom: 20px;      
+}
+.left_box{
+
+    float: left;
+    width: 49%;
+}
+.right_box{
+    float: right;
+    width: 49%;
+}

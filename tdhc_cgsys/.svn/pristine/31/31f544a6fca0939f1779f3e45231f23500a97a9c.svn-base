@@ -1,0 +1,29 @@
+package code_fb_cg.service;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgmoneyinvbook;
+import code_fb_cg.request.ContractmtList2;
+import code_fb_cg.request.InvBookList;
+import code_fb_cg.request.RbookList;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+
+public interface TpCgmoneyinvbookService {
+
+	//合同管理页面添加发票
+	ResponseObject<EmptyTag, EmptyData> ADDfapiao(RequestObject<EmptyTag, RbookList> requestObject);
+	//发票的联动查询
+	ResponseObject<EmptyTag, List<TpCgmoneyinvbook>> selectConmtid(RequestObject<EmptyTag, ContractmtList2> requestObject);
+	
+	ResponseObject<EmptyTag, List<TpCgmoneyinvbook>> selectNullValue();
+	
+	ResponseObject<EmptyTag, List<TpCgmoneyinvbook>> selectTarate();
+	//合同管理发票修改
+	ResponseObject<EmptyTag, EmptyData> uodateFAPIAO(RequestObject<EmptyTag, InvBookList> requestObject);
+	//合同管理发票删除
+	ResponseObject<EmptyTag, EmptyData> deleteFAPIAO(RequestObject<EmptyTag, InvBookList> requestObject);
+	ResponseObject<EmptyTag, EmptyData> S1S31fapiao(RequestObject<EmptyTag, InvBookList> requestObject);
+}

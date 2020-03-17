@@ -1,0 +1,16 @@
+package code_fb_cg.request;
+
+public class MtRequest {
+
+	private String cOrdernum;
+
+
+	public String getcOrdernum() {
+		return cOrdernum;
+	}
+
+	public void setcOrdernum(String cOrdernum) {
+		this.cOrdernum = cOrdernum;
+	}
+
+}

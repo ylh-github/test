@@ -1,0 +1,116 @@
+
+ package code_fb.controller; 
+ import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import code_fb.request.DZ_08_Request_add;
+import code_fb.request.ZZ_01_Request_M1S1;
+import code_fb.request.ZZ_01_Request_add;
+import code_fb.response.ZZ_01_Response_M1S1;
+import code_fb.service.ZZ_01_Service;
+import code_fb_cg.entity.TbCludecompany;
+import code_fb_cg.entity.TbSupplier;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+import vip.toda.piper.auth.web.client.annotation.RequireUser; 
+
+ /**
+  * 需方公司维护
+ * @author lhb
+ * @时间：2019年2月22日下午4:22:24
+ */
+@Controller
+ @RequestMapping("ZZ_01")
+ public class ZZ_01_Controller {
+ @Autowired  
+ public ZZ_01_Service zz01Service;
+ /** 
+	 * M1S11查询按钮
+	 *  
+	 * */ 
+	@RequestMapping(value="/M1S11Q",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, ZZ_01_Response_M1S1>M1S11Q(@RequestBody RequestObject<EmptyTag, ZZ_01_Request_M1S1> requestObject){ 
+		return zz01Service.M1S11Q(requestObject.getData(),requestObject.getSession()); 
+	} 
+ /** 
+	 * M1S11增加按钮
+	 *  
+	 * */ 
+	@RequestMapping(value="/M1S11A",method=RequestMethod.POST) 
+	@ResponseBody 
+	public ResponseObject<EmptyTag, EmptyData> M1S11A(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag,ZZ_01_Request_M1S1> requestObject){
+	return zz01Service.M1S11A(user,requestObject.getData(),requestObject.getSession());
+	}
+ /** 
+	 * M1S11修改按钮
+	 *  
+	 * */ 
+	@RequestMapping(value="/M1S11U",method=RequestMethod.POST) 
+	@ResponseBody 
+	public ResponseObject<EmptyTag, EmptyData> M1S11U(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag,ZZ_01_Request_M1S1> requestObject){
+	return zz01Service.M1S11U(user,requestObject.getData(),requestObject.getSession());
+	}
+ /** 
+	 * M1S11删除按钮
+	 *  
+	 * */ 
+	@RequestMapping(value="/M1S11D",method=RequestMethod.POST) 
+	@ResponseBody 
+	public ResponseObject<EmptyTag, EmptyData> M1S11D(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag,ZZ_01_Request_M1S1> requestObject){
+	return zz01Service.M1S11D(user,requestObject.getData(),requestObject.getSession());
+	}
+	
+	/**
+	 * 导入
+	 * @param user
+	 * @param requestObject
+	 * @return
+	 */
+	@RequestMapping(value="/Import_CompExcel",method=RequestMethod.POST)
+	@RequireUser
+	@ResponseBody 
+	public ResponseObject<EmptyTag, EmptyData> Import_CompExcel(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, ZZ_01_Request_add> requestObject){
+		
+		for (TbCludecompany element : requestObject.getData().getTbCludecompany()) {
+			element.setcCreater(user.getUserName());
+			element.setcCreatetime(new Date());
+		}
+		return zz01Service.Import_CompExcel(requestObject, user);
+	
+	}
+	/**
+	 * 查询签订公司
+	 * @param requestObject
+	 * @return
+	 */
+	@RequestMapping(value="/findCompInfo", method=RequestMethod.POST)
+	@ResponseBody
+	public  ResponseObject<EmptyTag, List<TbCludecompany>> findCompInfo(@RequestBody RequestObject<EmptyTag, EmptyData> requestObject){ 
+		return zz01Service.findCompInfo(requestObject.getData(),requestObject.getSession()); 
+	} 
+	
+	/**
+	 * 签订公司信息的填充
+	 * @param requestObject
+	 * @return
+	 */
+	@RequestMapping(value="/getCompInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public  ResponseObject<EmptyTag, List<TbCludecompany>> getCompInfo(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TbCludecompany> requestObject){
+		System.out.println("签订公司==========::"+requestObject.getData().getcCludecom());
+		return zz01Service.getCompInfo(user,requestObject.getData(),requestObject.getSession()); 
+	} 
+	
+ }

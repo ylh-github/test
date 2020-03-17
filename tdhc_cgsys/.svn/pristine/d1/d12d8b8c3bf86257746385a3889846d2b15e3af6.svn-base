@@ -1,0 +1,19 @@
+package code_fb_cg.request;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgmoneybook;
+
+public class MoneyBook {
+
+	private List<TpCgmoneybook> moneybook;
+
+	public List<TpCgmoneybook> getMoneybook() {
+		return moneybook;
+	}
+
+	public void setMoneybook(List<TpCgmoneybook> moneybook) {
+		this.moneybook = moneybook;
+	}
+	
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>永青大物流统计</title>
+    <!-- <link href="assets/css/custom-styles.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/css1/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css1/dx.carmine.compact.css" />
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="assets/js/dx.web.js"></script>
+    <script src="assets/js/cake.js"></script>
+
+    <script src="assets/js/moment-with-locales.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/echarts.common.min.js"></script>
+
+    <script src="assets/js/foundation-datepicker.js"></script>
+    <script src="assets/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="assets/js/chartjs_01.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="page-inner">
+
+            <ul>
+                <li class="blue">
+                    <img src="./assets/img/Qing.png" alt="">
+                    <small>请购单</small>
+                    <h3 id="requisition"></h3>
+                </li>
+                <li class="orange">
+                    <img src="./assets/img/hetong.png" alt="">
+                    <small> 已签合同</small>
+                    <h3 id="contract"></h3>
+                </li>
+                <li class="pink">
+                    <img src="./assets/img/fukuan-2.png" alt="">
+
+                    <small> 合同款已付清</small>
+                    <h3 id="payment"></h3>
+                </li>
+                <li class="plum">
+                    <img src="./assets/img/fapiaoguanli.png" alt="">
+
+                    <small>合同发票已开齐</small>
+                    <h3 id="invoice"></h3>
+                </li>
+                <li class="green">
+                    <img src="./assets/img/navicon-cgdhd.png" alt="">
+
+                    <small>合同货到齐</small>
+                    <h3 id="arrival"></h3>
+                </li>
+            </ul>
+        </div>
+        <div id="center">
+            <div class="title">请购单按月量</div>
+            <div id="searchFormM3" style="width: 95%;margin: 0 auto;margin-top:5px"></div>
+            <div id="month-chart" style="min-height:450px"></div>
+        </div>
+        <div id="bottom">
+            <div id="left">
+                <div class="title">合同总情况</div>
+                <div id="searchFormM1" style="width: 91%;margin: 0 auto;margin-top:5px"></div>
+                <div id="line-chart" style="min-height:450px"></div>
+            </div>
+            <div id="right">
+                <div class="title">采购员合同</div>
+                <div id="searchFormM2" style="width: 91%;margin: 0 auto;margin-top:5px"></div>
+                <div id="bar-chart" style="min-height:450px"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

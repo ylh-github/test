@@ -1,0 +1,14 @@
+package code_fb_cg.controller;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * 合同条款维护
+ * @author lhb
+ * @时间：2019年3月14日下午3:52:12
+ */
+@Controller
+public class TbCgclausedataController {
+
+}
+

@@ -1,0 +1,37 @@
+package code_fb_cg.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import code_fb_cg.entity.TbGuildata;
+import code_fb_cg.entity.TbGuildataRequest;
+import code_fb_cg.mapper.TbGuildataMapper;
+import code_fb_cg.service.TbGuildataService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+
+@Service
+public class TbGuildataServiceImp implements TbGuildataService{
+
+	@Autowired
+	private TbGuildataMapper tbGuildataMapper;
+	@Override
+	public ResponseObject<EmptyTag, List<TbGuildata>> M1S11Q(RequestObject<EmptyTag, TbGuildataRequest> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<TbGuildata> selectInfo = tbGuildataMapper.selectInfo(requestObject.getData().getListData().get(0));
+		return builder.data(selectInfo).errcode(Errcode.Success).msg("查询成功！！").build();
+	}
+	@Override
+	public ResponseObject<EmptyTag, List<TbGuildata>> getInfo(RequestObject<EmptyTag, EmptyData> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<TbGuildata> info = tbGuildataMapper.getInfo();
+		return builder.data(info).errcode(Errcode.Success).msg("查询成功！！").build();
+	}
+
+}

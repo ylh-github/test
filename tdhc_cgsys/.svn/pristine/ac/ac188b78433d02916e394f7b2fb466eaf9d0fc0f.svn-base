@@ -1,0 +1,73 @@
+
+ package code_fb.service;
+ import java.util.List;
+
+import code_fb.request.DZ_08_Request_M1S1 ;
+import code_fb.request.DZ_08_Request_add;
+import code_fb.response.DZ_08_Response_M1S1 ;
+import code_fb_cg.entity.TbSupplier;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+
+ public interface DZ_08_Service {
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, DZ_08_Response_M1S1> M1S11Q(DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(User user,DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(User user,DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(User user,DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S12MSG(User user,DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ /**
+  * 导入
+  * @param requestObject
+  * @return
+  */
+ResponseObject<EmptyTag, EmptyData> Import_SuppExcel(RequestObject<EmptyTag, DZ_08_Request_add> requestObject);
+/**
+ * 查询供应商名
+ * @param user 
+ * @param emptyData
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, List<TbSupplier>> findSupplierInfo(EmptyData emptyData, String session);
+/**
+ * 供应商信息的填充
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, List<TbSupplier>> getSupplierInfo(TbSupplier data, String session);
+/**
+	 * 动态查询M1S11查询
+	 *
+	 * 
+	 * */
+ResponseObject<EmptyTag, DZ_08_Response_M1S1> M1S11QSupplier(DZ_08_Request_M1S1 dz08RequestM1s1,String session);
+ }

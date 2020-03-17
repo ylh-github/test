@@ -1,0 +1,21 @@
+package code_fb_cg.request;
+
+import java.util.List;
+
+import code_fb_cg.entity.TpCgordermt;
+import code_fb_cg.entity.TpCgordermt2;
+
+public class TpCgordermtM1S13 {
+
+	private List<TpCgordermt2> cgQ001M1s13;
+	
+
+	public List<TpCgordermt2> getCgQ001M1s13() {
+		return cgQ001M1s13;
+	}
+
+	public void setCgQ001M1s13(List<TpCgordermt2> cgQ001M1s13) {
+		this.cgQ001M1s13 = cgQ001M1s13;
+	}
+	
+}

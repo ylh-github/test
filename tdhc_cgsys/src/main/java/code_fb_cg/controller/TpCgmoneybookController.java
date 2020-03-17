@@ -1,0 +1,109 @@
+package code_fb_cg.controller;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgmoneybook;
+import code_fb_cg.request.ContractmtList2;
+import code_fb_cg.request.MoneyBook;
+import code_fb_cg.request.MoneyRequestDel;
+import code_fb_cg.service.TpCgmoneybookService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+import vip.toda.piper.auth.web.client.annotation.RequireUser;
+
+@Controller
+@RequestMapping("moneybook")
+public class TpCgmoneybookController {
+
+	@Autowired
+	private TpCgmoneybookService tpCgmoneybookService;
+	
+	@RequestMapping(value="/moneyList",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, List<TpCgmoneybook>> selectForMoneyBook(@RequestBody RequestObject<EmptyTag, List<TpCgcontractmt>> requestObject){ 
+		return tpCgmoneybookService.selectForMoneyBook(requestObject);
+	} 
+	@RequestMapping(value="/moneyListA",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> insertMoneyBook(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		for (TpCgmoneybook iterable_element : requestObject.getData().getMoneybook()) {
+			iterable_element.setcCreater(user.getUserName());
+			iterable_element.setcCreatetime(new Date());
+		}
+		return tpCgmoneybookService.insertMoneyBook(requestObject);
+	} 
+	
+	@RequestMapping(value="/moneyListD",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> delectById(@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		return tpCgmoneybookService.delectById(requestObject);
+	} 
+	@RequestMapping(value="/moneyListU",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> updateByPrimaryKey(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		for (TpCgmoneybook iterable_element : requestObject.getData().getMoneybook()) {
+			iterable_element.setcModifier(user.getUserName());
+			iterable_element.setcModifytime(new Date());
+		}
+		return tpCgmoneybookService.updateByPrimaryKey(requestObject);
+	} 
+	@RequestMapping(value="/updateMoneyFinashi",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> updateMoneyFinashi(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, ContractmtList2> requestObject){ 
+		for (TpCgcontractmt iterable_element : requestObject.getData().getList()) {
+			iterable_element.setcCreater(user.getUserName());
+			iterable_element.setcCreatetime(new Date());
+		}
+		return tpCgmoneybookService.updateMoneyFinashi(requestObject);
+	} 
+	@RequestMapping(value="/ADDfukuan",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> ADDfukuan(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		for (TpCgmoneybook iterable_element : requestObject.getData().getMoneybook()) {
+			iterable_element.setcCreater(user.getUserName());
+			iterable_element.setcCreatetime(new Date());
+		}
+		return tpCgmoneybookService.ADDfukuan(requestObject);
+	} 
+	@RequestMapping(value="/updateFUKUAN",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> updateFUKUAN(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		for (TpCgmoneybook iterable_element : requestObject.getData().getMoneybook()) {
+			iterable_element.setcCreater(user.getUserName());
+			iterable_element.setcCreatetime(new Date());
+		}
+		return tpCgmoneybookService.updateFUKUAN(requestObject);
+	} 
+	@RequestMapping(value="/deleteFUKUAN",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, EmptyData> deleteFUKUAN(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		return tpCgmoneybookService.deleteFUKUAN(requestObject);
+	} 
+	@RequestMapping(value="/derivedFUKUAN",method=RequestMethod.POST) 
+	@ResponseBody 
+	@RequireUser
+	public  ResponseObject<EmptyTag, List<TpCgmoneybook>> derivedFUKUAN(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, MoneyBook> requestObject){ 
+		return tpCgmoneybookService.derivedFUKUAN(requestObject);
+	} 
+}

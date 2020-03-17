@@ -1,0 +1,350 @@
+
+ package code_fb.service.impl;
+ import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb.entity.CG_XXLY_M1S1;
+import code_fb.mapper.CG_MNHT_Mapper;
+import code_fb.mapper.CG_XXLY_Mapper;
+import code_fb.request.CG_XXLY_Request_M1S1;
+import code_fb.response.CG_XXLY_Response_M1S1;
+import code_fb.service.CG_XXLY_Service;
+import code_fb_cg.entity.TbDocumeform;
+import code_fb_cg.entity.TbDocumeformson;
+import code_fb_cg.mapper.TbDocumeformMapper;
+import code_fb_cg.mapper.TbDocumeformsonMapper;
+import code_fb_cg.request.Xxk_Cont_Request;
+import code_fb_cg.util.XxkUtil;
+import code_fb_customer.CG_XXLY_Customer;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+import vip.toda.piper.auth.web.client.User; 
+ @Service("cgXxlyService")
+ public class CG_XXLY_ServiceImpl implements CG_XXLY_Service
+ {
+ 	@Autowired
+ 	@Qualifier("cgXxlyMapper")
+ 	public CG_XXLY_Mapper frcDao;
+   @Autowired
+   public  CG_XXLY_Customer cgXxlyCustomer;
+   @Autowired
+   private TbDocumeformsonMapper tbDocumeformsonMapper;
+   @Autowired
+   private TbDocumeformMapper tbDocumeformMapper;
+   @Autowired
+   private CG_MNHT_Mapper cgMnhtMapper;
+ public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S11Q(CG_XXLY_Request_M1S1 cgXxlyRequestM1s1, String session){
+ String msg="查询成功";
+ 	ResponseObjectBuilder builder  = ResponseObjectBuilder.create();
+ 	CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+ data.setTbDocumeform(tbDocumeformMapper.M1S11QCG_XXLY_M1S1(cgXxlyRequestM1s1.getTbDocumeform().get(0),
+		 cgXxlyRequestM1s1.getStartTime(), cgXxlyRequestM1s1.getEndTime()));
+ return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+ }
+ 
+ public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S15Q(CG_XXLY_Request_M1S1 cgXxlyRequestM1s1, String session) {
+	 String msg="查询成功";
+	 	ResponseObjectBuilder builder  = ResponseObjectBuilder.create();
+	 	CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+	 data.setTbDocumeform(tbDocumeformMapper.M1S11QCG_XXLY_M1S15Q(cgXxlyRequestM1s1.getTbDocumeform().get(0),
+			 cgXxlyRequestM1s1.getStartTime(), cgXxlyRequestM1s1.getEndTime()));
+	 return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+ }
+ 
+ 
+ 
+ 
+ public ResponseObject<EmptyTag, EmptyData> M1S11A(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1 ,String session){String msg=""; 
+
+ ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+ 	int row0 = 0;
+ List<CG_XXLY_M1S1>cgXxlyM1s1 = cgXxlyRequestM1s1.getCgXxlyM1s1();
+   String ss_ret0 = "";
+ 	ss_ret0 =  cgXxlyCustomer.check_M1S11A_CG_XXLY_M1S1(cgXxlyRequestM1s1);
+ if (ss_ret0.indexOf("success") != -1)
+ { 
+ if(ss_ret0.length() > 10){ 
+}
+
+ 	row0= frcDao.M1S11ACG_XXLY_M1S1(cgXxlyM1s1);
+ 	if(row0 < 0){
+ msg = msg+"CG_XXLY_M1S1保存成功" ;
+
+ 	return builder.errcode(Errcode.Success).msg(msg).session(session).build(); 
+ 	}else{
+ 		return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();	
+ 	}
+ }
+ else {
+ 		return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();	
+ }
+ }
+ public ResponseObject<EmptyTag, EmptyData> M1S11U(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1 ,String session){String msg=""; 
+
+ ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+ List<CG_XXLY_M1S1>cgXxlyM1s1 = cgXxlyRequestM1s1.getCgXxlyM1s1();
+ 	int row0 = 0;
+   String ss_ret0 = "";
+ 	ss_ret0 =  cgXxlyCustomer.check_M1S11U_CG_XXLY_M1S1(cgXxlyRequestM1s1);
+ if (ss_ret0.indexOf("success") != -1)
+ {
+ if(ss_ret0.length() > 10){ 
+  msg = ss_ret0; 
+}
+
+ 	row0= frcDao.M1S11UCG_XXLY_M1S1(cgXxlyM1s1);
+ 	if(row0 < 0) {
+ msg = msg+"CG_XXLY_M1S1修改成功" ;
+
+ 	return builder.errcode(Errcode.Success).msg(msg).session(session).build(); 
+ 	}else{
+ 	return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();	
+ 	}
+ }
+ 	else {
+ 		return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();	
+ }
+ }
+ public ResponseObject<EmptyTag, EmptyData> M1S11D(User user,CG_XXLY_Request_M1S1 cgXxlyRequestM1s1 ,String session){String msg=""; 
+
+ ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+ 	int row0 = 0;
+ List<CG_XXLY_M1S1>cgXxlyM1s1 = cgXxlyRequestM1s1.getCgXxlyM1s1();
+   String ss_ret0 = "";
+ 	ss_ret0 =  cgXxlyCustomer.check_M1S11D_CG_XXLY_M1S1(cgXxlyRequestM1s1);
+ if (ss_ret0.indexOf("success") != -1)
+ {
+ if(ss_ret0.length() > 10){ 
+  msg = ss_ret0; 
+}
+
+ 	row0= frcDao.M1S11DCG_XXLY_M1S1(cgXxlyM1s1);
+ 	if(row0 < 0) {
+ msg = msg+"CG_XXLY_M1S1删除成功" ;
+
+ 	}else{
+ 	return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();	
+ 	}
+ }
+ 	else
+ {
+ 		return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();	
+ }
+ 	return builder.errcode(Errcode.Success).msg(msg).session(session).build(); 
+ }
+@Transactional
+public ResponseObject<EmptyTag, EmptyData> M1S21A(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	XxkUtil xxkUtil = new XxkUtil();
+	try {
+		//根据外贸合同号和内贸合同进行查询是否存在，存在直接更新，不存在添加
+		List<CG_XXLY_M1S1> m1s11qcg_XXLY_M1S1 = frcDao.M1S11QCG_XXLY_M1S1(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1());
+		if(m1s11qcg_XXLY_M1S1.size()>0) {
+			//逻辑删除以前的数据
+			int m1s11ducg_XXLY_M1S1 = frcDao.M1S11DUCG_XXLY_M1S1(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1());
+			System.out.println("删除返回值："+m1s11ducg_XXLY_M1S1);
+			int deleteUpdate = tbDocumeformsonMapper.deleteUpdate(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1());
+			System.out.println("删除返回值"+deleteUpdate);
+		}
+		//1.先添加到信息卡主表中
+		CG_XXLY_M1S1 addcgXxlyM1s1 = xxkUtil.addCgXxlyM1s1(user, cg_XXLY_Request_M1S1);
+		List<CG_XXLY_M1S1> cgXxlyM1s1 = new ArrayList<CG_XXLY_M1S1>();
+		cgXxlyM1s1.add(addcgXxlyM1s1);
+		int mrow = frcDao.M1S11ACG_XXLY_M1S1(cgXxlyM1s1);
+		if(mrow >0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.msg("信息卡添加失败！！！").errcode(Errcode.FailParameterError).session(session).build();
+		}
+		//2.添加到信息卡子表中
+		List<TbDocumeformson> addTbDocumeformson = xxkUtil.addTbDocumeformson(user, cg_XXLY_Request_M1S1, addcgXxlyM1s1);
+		int insertSelective = tbDocumeformsonMapper.insertSelective(addTbDocumeformson);
+		if(insertSelective > 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.msg("信息卡添加失败！！！").errcode(Errcode.FailParameterError).session(session).build();
+		}
+		//3.修改拟合同中制作人完成状态
+		List<CG_MNHT_M1S1> cgMnhtM1s1 = new  ArrayList<CG_MNHT_M1S1>();
+		CG_MNHT_M1S1 cgMNHTM1S1 = new CG_MNHT_M1S1();
+		//内贸合同号
+		cgMNHTM1S1.setcConnum(cg_XXLY_Request_M1S1.getCg_XXLY_M1S1().getcConnumTbDocumeform());
+		//制作人完成状态---部分完成
+		cgMNHTM1S1.setcMadestate("mk004");
+		cgMnhtM1s1.add(cgMNHTM1S1);
+		int rown = cgMnhtMapper.M1S11UCG_MNHT_M1S2(cgMnhtM1s1);
+		if(rown > 0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return builder.msg("信息卡添加失败！！！").errcode(Errcode.FailParameterError).session(session).build();
+		}
+		return builder.msg("信息卡添加成功！！！").errcode(Errcode.Success).session(session).build();
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		throw new RuntimeException("添加失败！！！");
+	}
+	
+}
+
+public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21Q(Xxk_Cont_Request xxk_Cont_Request, String session) {
+	 String msg="查询成功";
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+	List<TbDocumeformson> m1s21q = tbDocumeformsonMapper.M1S21Q(xxk_Cont_Request.getTpCgcontractmt(), xxk_Cont_Request.getTpCgTime(), xxk_Cont_Request.getTpCgcontractmt());
+	System.out.println("返回的值：："+m1s21q.size());
+	data.setTbDocumeformson(m1s21q);
+		if(m1s21q.size() ==  0) {
+			return builder.data(data).msg("无信息卡信息请添加！！！！").errcode(Errcode.FailParameterError).session(session).build();
+		}
+	return builder.data(data).errcode(Errcode.Success).session(session).build();
+}
+
+
+public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21QS(Xxk_Cont_Request xxk_Cont_Request, String session) {
+	 String msg="查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+		List<TbDocumeformson> m1s21q = tbDocumeformsonMapper.M1S21QS(xxk_Cont_Request.getTpCgcontractmt(), xxk_Cont_Request.getTpCgTime(), xxk_Cont_Request.getTpCgcontractmt());
+		System.out.println("返回的值：："+m1s21q.size());
+		if(m1s21q.size()>0) {
+			data.setTbDocumeformson(m1s21q);
+			return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+		}
+		return builder.data(data).msg("无信息卡信息请添加！！！！").errcode(Errcode.FailParameterError).session(session).build();
+}
+
+public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21Q4(Xxk_Cont_Request xxk_Cont_Request, String session) {
+	 String msg="查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+		System.out.println("合同号：：：：："+xxk_Cont_Request.getTpCgcontractmt().getcConnum());
+		List<TbDocumeformson> m1s21q = tbDocumeformsonMapper.M1S21Q4(xxk_Cont_Request.getTpCgcontractmt(), xxk_Cont_Request.getTpCgTime(), xxk_Cont_Request.getCgMnhtM1s1().get(0));
+		
+		System.out.println("返回的值：："+m1s21q.size());
+		if(m1s21q.size()>0) {
+			data.setTbDocumeformson(m1s21q);
+			return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+		}
+		return builder.data(data).msg("无信息卡信息请添加！！！！").errcode(Errcode.FailParameterError).session(session).build();
+}
+public ResponseObject<EmptyTag, EmptyData> M1S11Submit(User user, CG_XXLY_Request_M1S1 xxk_Cont_Request, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	//1.更新拟合同的制作人完成状态
+	TbDocumeform tbDocumeform = new TbDocumeform();
+	for (CG_MNHT_M1S1 element : xxk_Cont_Request.getCgMnhtM1s1()) {
+		element.setcMadestate("mk002");//制作人完成状态--未审核
+		element.setcModifier(user.getUserName());
+		element.setcModifytime(new Date());
+		tbDocumeform.setcConnum(element.getcConnum());//合同号
+	}
+	int m1s11ucg_MNHT_M1S1 = cgMnhtMapper.M1S11UCG_MNHT_M1S1(xxk_Cont_Request.getCgMnhtM1s1());
+	System.out.println("修改返回值：："+m1s11ucg_MNHT_M1S1);
+	if(m1s11ucg_MNHT_M1S1>0) {
+		return builder.msg("信息卡信息提交失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	//2.更新信息卡的审核状态
+	tbDocumeform.setcCheckstate("xcc001");//审核状态--未审核
+	tbDocumeform.setcModifier(user.getUserName());
+	tbDocumeform.setcModifytime(new Date());
+	int updateBycCnnumSelective = tbDocumeformMapper.updateBycCnnumSelective(tbDocumeform);
+	System.out.println("单条修改返回值：："+updateBycCnnumSelective);
+	if(updateBycCnnumSelective >0 ) {
+		return builder.msg("信息卡信息提交失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	return builder.msg("信息卡信息提交成功！！！！").errcode(Errcode.Success).session(session).build();
+}
+public ResponseObject<EmptyTag, EmptyData> M1S21U(User user, CG_XXLY_Request_M1S1 xxk_Cont_Request, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	XxkUtil xxkUtil = new XxkUtil();
+	//修改信息卡主表
+	TbDocumeform updateXxk = xxkUtil.updateXxk(user,xxk_Cont_Request.getTbDocumeformson());
+	int updateBycCnnumSelective = tbDocumeformMapper.updateBycCnnumSelective(updateXxk);
+	System.out.println("单条修改：："+updateBycCnnumSelective);
+	if(updateBycCnnumSelective>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	//修改信息卡子表
+	int rown = tbDocumeformsonMapper.updateByPrimaryKeySelective2(xxk_Cont_Request.getTbDocumeformson());
+	if(rown>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	 return builder.msg("信息卡信息修改成功！！！！").errcode(Errcode.Success).session(session).build();
+}
+public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> getInfo(User user, Xxk_Cont_Request Xxk_Cont_Request, String session) {
+	 String msg="查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_XXLY_Response_M1S1 data = new CG_XXLY_Response_M1S1();
+		List<TbDocumeformson> info = tbDocumeformsonMapper.getInfo(Xxk_Cont_Request.getTpCgcontractmt());
+		if(info.size()>0) {
+			data.setTbDocumeformson(info);
+			return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+		}
+		return builder.data(data).msg("无信息卡信息请添加！！！！").errcode(Errcode.FailParameterError).session(session).build();
+}
+public ResponseObject<EmptyTag, CG_XXLY_Response_M1S1> M1S21UXXK(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1,
+		String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	//信息卡主表
+	TbDocumeform tbDocumeformData = cg_XXLY_Request_M1S1.getTbDocumeformData();
+	tbDocumeformData.setcModifier(user.getUserName());
+	tbDocumeformData.setcModifytime(new Date());
+	//信息卡子表
+	List<TbDocumeformson> tbDocumeformson = cg_XXLY_Request_M1S1.getTbDocumeformson();
+	for (TbDocumeformson tbDocume : tbDocumeformson) {
+		tbDocume.setcModifier(user.getUserName());
+		tbDocume.setcModifytime(new Date());
+		tbDocume.setcDataedp(user.getUserName());
+	}
+	//主表添加
+	int updateBycCnnumSelective = tbDocumeformMapper.updateBycCnnumSelective(tbDocumeformData);
+	if(updateBycCnnumSelective>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	//修改信息卡子表
+	int rown = tbDocumeformsonMapper.updateByPrimaryKeySelective2(tbDocumeformson);
+	if(rown>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	 return builder.msg("信息卡信息修改成功！！！！").errcode(Errcode.Success).session(session).build();
+}
+
+@Override
+public ResponseObject<EmptyTag, EmptyData> M1S11UP(User user, CG_XXLY_Request_M1S1 cg_XXLY_Request_M1S1, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	List<CG_MNHT_M1S1> listCG = new ArrayList<CG_MNHT_M1S1>();
+	for (TbDocumeform element : cg_XXLY_Request_M1S1.getTbDocumeform()) {
+		CG_MNHT_M1S1 cg_MNHT_M1S1 = new CG_MNHT_M1S1();
+		//部分完成
+		element.setcMadestate("mk004");
+		element.setcModifier(user.getUserName());
+		element.setcModifytime(new Date());
+		element.setcCheckstate("xcc001");
+		
+		cg_MNHT_M1S1.setcConnum(element.getcConnum());
+		cg_MNHT_M1S1.setcMadestate("mk004");
+		listCG.add(cg_MNHT_M1S1);
+	}
+	int rown = tbDocumeformMapper.updateByPrimaryKeySelective(cg_XXLY_Request_M1S1.getTbDocumeform().get(0));
+	if(rown>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	int rown2 = cgMnhtMapper.M1S11UCG_MNHT_M1S2(listCG);
+	if(rown2>0) {
+		return builder.msg("信息卡信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+	}
+	 return builder.msg("信息卡信息修改成功！！！！").errcode(Errcode.Success).session(session).build();
+}
+
+
+
+
+ }

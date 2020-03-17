@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_XXLY_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_XXLY_M1S1" >
+	 <result column="C_AGREEDTAX_TB_DOCUMEFORM" property="cAgreedtaxTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_BM_TB_DOCUMEFORM" property="cBmTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_CHIEDE_TB_DOCUMEFORM" property="cChiedeTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_COMPHONE_TB_DOCUMEFORM" property="cComphoneTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_COMTAXNUMBER_TB_DOCUMEFORM" property="cComtaxnumberTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_CONMONEY_TB_DOCUMEFORM" property="cConmoneyTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_CONNUM_TB_DOCUMEFORM" property="cConnumTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TB_DOCUMEFORM" property="cCreaterTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_DATAEDP_TB_DOCUMEFORM" property="cDataedpTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_DECLARATION_TB_DOCUMEFORM" property="cDeclarationTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_DOCUMEFORM" property="cDrTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_EXPORTER_TB_DOCUMEFORM" property="cExporterTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME_TB_DOCUMEFORM" property="cGoodsnameTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_HSCODE_TB_DOCUMEFORM" property="cHscodeTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_DOCUMEFORM" property="cIdTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_INDIDA_TB_DOCUMEFORM" property="cIndidaTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_INDIMPORT_TB_DOCUMEFORM" property="cIndimportTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_INPBS_TB_DOCUMEFORM" property="cInpbsTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_INVOICEC_TB_DOCUMEFORM" property="cInvoicecTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_DOCUMEFORM" property="cModifierTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_NAME_TB_DOCUMEFORM" property="cNameTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_NUM_TB_DOCUMEFORM" property="cNumTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_OUTCONNUM_TB_DOCUMEFORM" property="cOutconnumTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_OUTMONEY_TB_DOCUMEFORM" property="cOutmoneyTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_OUTPBS_TB_DOCUMEFORM" property="cOutpbsTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_PPH_TB_DOCUMEFORM" property="cPphTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_PPN_TB_DOCUMEFORM" property="cPpnTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_REMARK_TB_DOCUMEFORM" property="cRemarkTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SHNAME_TB_DOCUMEFORM" property="cShnameTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SPEC_TB_DOCUMEFORM" property="cSpecTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_STATE_TB_DOCUMEFORM" property="cStateTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_STAUNIT_TB_DOCUMEFORM" property="cStaunitTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SUPERVISION_TB_DOCUMEFORM" property="cSupervisionTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SUPPLIER_TB_DOCUMEFORM" property="cSupplierTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_DOCUMEFORM" property="cSw01TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_DOCUMEFORM" property="cSw02TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_DOCUMEFORM" property="cSw03TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_DOCUMEFORM" property="cSw04TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_DOCUMEFORM" property="cSw05TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_DOCUMEFORM" property="cSw06TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_DOCUMEFORM" property="cSw07TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_DOCUMEFORM" property="cSw08TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_DOCUMEFORM" property="cSw09TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_DOCUMEFORM" property="cSw10TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_DOCUMEFORM" property="cSw11TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_DOCUMEFORM" property="cSw12TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_DOCUMEFORM" property="cSw13TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_DOCUMEFORM" property="cSw14TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_DOCUMEFORM" property="cSw15TbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_TAXRATE_TB_DOCUMEFORM" property="cTaxrateTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_TOTALTAXR_TB_DOCUMEFORM" property="cTotaltaxrTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_TYPENAME_TB_DOCUMEFORM" property="cTypenameTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_UNIT_TB_DOCUMEFORM" property="cUnitTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_WEIGHT_TB_DOCUMEFORM" property="cWeightTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_WHECOO_TB_DOCUMEFORM" property="cWhecooTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_MONEYRMB_TB_DOCUMEFORM" property="cMoneyrmbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_MONEYUSD_TB_DOCUMEFORM" property="cMoneyusdDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_DOCUMEFORM" property="cCreatetimeTbDocumeform" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TB_DOCUMEFORM" property="cModifytimeTbDocumeform" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_DOCUMEFORM" property="cTimestampTbDocumeform" jdbcType="TIMESTAMP" />
+	 <result column="C_CHECKSTATE_TB_DOCUMEFORM" property="cCheckstateTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_INFOCARD_TB_DOCUMEFORM" property="cInfocardTbDocumeform" jdbcType="VARCHAR" />
+	 <result column="C_MADESTATE_TB_DOCUMEFORM" property="cMadestateTbDocumeform" jdbcType="VARCHAR" />
+	 
+ </resultMap>
+ <select id="M1S11QCG_XXLY_M1S1" parameterType="code_fb.entity.CG_XXLY_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_DOCUMEFORM.C_ID C_ID_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW02 C_SW02_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SPEC C_SPEC_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_NUM C_NUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_UNIT C_UNIT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_STAUNIT C_STAUNIT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_HSCODE C_HSCODE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TYPENAME C_TYPENAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SUPERVISION C_SUPERVISION_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TAXRATE C_TAXRATE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DECLARATION C_DECLARATION_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CONNUM C_CONNUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CONMONEY C_CONMONEY_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_NAME C_NAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTCONNUM  C_OUTCONNUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTMONEY C_OUTMONEY_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_COMTAXNUMBER C_COMTAXNUMBER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SUPPLIER C_SUPPLIER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_WEIGHT C_WEIGHT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_BM C_BM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INVOICEC C_INVOICEC_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_PPN C_PPN_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_COMPHONE C_COMPHONE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_PPH C_PPH_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_EXPORTER C_EXPORTER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_WHECOO C_WHECOO_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TOTALTAXR C_TOTALTAXR_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SHNAME C_SHNAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INDIMPORT C_INDIMPORT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_AGREEDTAX C_AGREEDTAX_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INPBS C_INPBS_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTPBS C_OUTPBS_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CHIEDE C_CHIEDE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INDIDA C_INDIDA_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DATAEDP C_DATAEDP_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_REMARK C_REMARK_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_STATE C_STATE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DR C_DR_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TIMESTAMP C_TIMESTAMP_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CREATER C_CREATER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CREATETIME C_CREATETIME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_MODIFIER C_MODIFIER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_MODIFYTIME C_MODIFYTIME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW03 C_SW03_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW04 C_SW04_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW05 C_SW05_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW06 C_SW06_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW07 C_SW07_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW08 C_SW08_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW09 C_SW09_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW10 C_SW10_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW11 C_SW11_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW12 C_SW12_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW13 C_SW13_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW14 C_SW14_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW15 C_SW15_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW01 C_SW01_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_GOODSNAME C_GOODSNAME_TB_DOCUMEFORM 
+
+ from TB_DOCUMEFORM
+ WHERE 1=1 
+   <if test="cgXxlyM1s1.cConnumTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_CONNUM like UPPER('%' || TRIM(#{cgXxlyM1s1.cConnumTbDocumeform,jdbcType=VARCHAR}) || '%')
+  </if>
+   <!-- <if test="cgXxlyM1s1.cGoodsnameTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_GOODSNAME like '%' || #{cgXxlyM1s1.cGoodsnameTbDocumeform,jdbcType=VARCHAR} || '%'
+  </if>
+    <if test="cgXxlyM1s1.cOutconnumTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_OUTCONNUM like '%' || #{cgXxlyM1s1.cOutconnumTbDocumeform,jdbcType=VARCHAR} || '%'
+  </if> -->
+  AND TB_DOCUMEFORM.C_DR  = '0'
+	</select> 
+	
+<select id="M1S11QCG_XXLY_M1S21" parameterType="code_fb.entity.CG_XXLY_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_DOCUMEFORM.C_ID C_ID_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW02 C_SW02_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SPEC C_SPEC_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_NUM C_NUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_UNIT C_UNIT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_STAUNIT C_STAUNIT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_HSCODE C_HSCODE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TYPENAME C_TYPENAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SUPERVISION C_SUPERVISION_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TAXRATE C_TAXRATE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DECLARATION C_DECLARATION_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CONNUM C_CONNUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CONMONEY C_CONMONEY_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_NAME C_NAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTCONNUM  C_OUTCONNUM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTMONEY C_OUTMONEY_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_COMTAXNUMBER C_COMTAXNUMBER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SUPPLIER C_SUPPLIER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_WEIGHT C_WEIGHT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_BM C_BM_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INVOICEC C_INVOICEC_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_PPN C_PPN_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_COMPHONE C_COMPHONE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_PPH C_PPH_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_EXPORTER C_EXPORTER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_WHECOO C_WHECOO_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TOTALTAXR C_TOTALTAXR_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SHNAME C_SHNAME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INDIMPORT C_INDIMPORT_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_AGREEDTAX C_AGREEDTAX_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INPBS C_INPBS_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_OUTPBS C_OUTPBS_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CHIEDE C_CHIEDE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_INDIDA C_INDIDA_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DATAEDP C_DATAEDP_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_REMARK C_REMARK_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_STATE C_STATE_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_DR C_DR_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_TIMESTAMP C_TIMESTAMP_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CREATER C_CREATER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_CREATETIME C_CREATETIME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_MODIFIER C_MODIFIER_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_MODIFYTIME C_MODIFYTIME_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW03 C_SW03_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW04 C_SW04_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW05 C_SW05_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW06 C_SW06_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW07 C_SW07_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW08 C_SW08_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW09 C_SW09_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW10 C_SW10_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW11 C_SW11_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW12 C_SW12_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW13 C_SW13_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW14 C_SW14_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW15 C_SW15_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_SW01 C_SW01_TB_DOCUMEFORM 
+,
+TB_DOCUMEFORM.C_GOODSNAME C_GOODSNAME_TB_DOCUMEFORM 
+
+ from TB_DOCUMEFORM
+ WHERE 1=1 
+   <if test="cgXxlyM1s1.cConnumTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_CONNUM  = UPPER(TRIM(#{cgXxlyM1s1.cConnumTbDocumeform,jdbcType=VARCHAR}))
+  </if>
+   <!-- <if test="cgXxlyM1s1.cGoodsnameTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_GOODSNAME like '%' || #{cgXxlyM1s1.cGoodsnameTbDocumeform,jdbcType=VARCHAR} || '%'
+  </if>
+    <if test="cgXxlyM1s1.cOutconnumTbDocumeform != null" >
+       AND  TB_DOCUMEFORM.C_OUTCONNUM like '%' || #{cgXxlyM1s1.cOutconnumTbDocumeform,jdbcType=VARCHAR} || '%'
+  </if> -->
+  AND TB_DOCUMEFORM.C_DR  = '0'
+</select> 
+	 <insert id="M1S11ACG_XXLY_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgXxlyM1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_DOCUMEFORM
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+		C_ID,
+	 <if test="item.cSw02TbDocumeform != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSpecTbDocumeform != null" >
+		C_SPEC,
+  </if>
+	 <if test="item.cNumTbDocumeform != null" >
+		C_NUM,
+  </if>
+	 <if test="item.cUnitTbDocumeform != null" >
+		C_UNIT,
+  </if>
+	 <if test="item.cStaunitTbDocumeform != null" >
+		C_STAUNIT,
+  </if>
+	 <if test="item.cHscodeTbDocumeform != null" >
+		C_HSCODE,
+  </if>
+	 <if test="item.cTypenameTbDocumeform != null" >
+		C_TYPENAME,
+  </if>
+	 <if test="item.cSupervisionTbDocumeform != null" >
+		C_SUPERVISION,
+  </if>
+	 <if test="item.cTaxrateTbDocumeform != null" >
+		C_TAXRATE,
+  </if>
+	 <if test="item.cDeclarationTbDocumeform != null" >
+		C_DECLARATION,
+  </if>
+	 <if test="item.cConnumTbDocumeform != null" >
+		C_CONNUM,
+  </if>
+	 <if test="item.cConmoneyTbDocumeform != null" >
+		C_CONMONEY,
+  </if>
+	 <if test="item.cNameTbDocumeform != null" >
+		C_NAME,
+  </if>
+	 <if test="item.cOutconnumTbDocumeform != null" >
+		C_OUTCONNUM,
+  </if>
+	 <if test="item.cOutmoneyTbDocumeform != null" >
+		C_OUTMONEY,
+  </if>
+	 <if test="item.cComtaxnumberTbDocumeform != null" >
+		C_COMTAXNUMBER,
+  </if>
+	 <if test="item.cSupplierTbDocumeform != null" >
+		C_SUPPLIER,
+  </if>
+	 <if test="item.cWeightTbDocumeform != null" >
+		C_WEIGHT,
+  </if>
+	 <if test="item.cBmTbDocumeform != null" >
+		C_BM,
+  </if>
+	 <if test="item.cInvoicecTbDocumeform != null" >
+		C_INVOICEC,
+  </if>
+	 <if test="item.cPpnTbDocumeform != null" >
+		C_PPN,
+  </if>
+	 <if test="item.cComphoneTbDocumeform != null" >
+		C_COMPHONE,
+  </if>
+	 <if test="item.cPphTbDocumeform != null" >
+		C_PPH,
+  </if>
+	 <if test="item.cExporterTbDocumeform != null" >
+		C_EXPORTER,
+  </if>
+	 <if test="item.cWhecooTbDocumeform != null" >
+		C_WHECOO,
+  </if>
+	 <if test="item.cTotaltaxrTbDocumeform != null" >
+		C_TOTALTAXR,
+  </if>
+	 <if test="item.cShnameTbDocumeform != null" >
+		C_SHNAME,
+  </if>
+	 <if test="item.cIndimportTbDocumeform != null" >
+		C_INDIMPORT,
+  </if>
+	 <if test="item.cAgreedtaxTbDocumeform != null" >
+		C_AGREEDTAX,
+  </if>
+	 <if test="item.cInpbsTbDocumeform != null" >
+		C_INPBS,
+  </if>
+	 <if test="item.cOutpbsTbDocumeform != null" >
+		C_OUTPBS,
+  </if>
+	 <if test="item.cChiedeTbDocumeform != null" >
+		C_CHIEDE,
+  </if>
+	 <if test="item.cIndidaTbDocumeform != null" >
+		C_INDIDA,
+  </if>
+	 <if test="item.cDataedpTbDocumeform != null" >
+		C_DATAEDP,
+  </if>
+	 <if test="item.cRemarkTbDocumeform != null" >
+		C_REMARK,
+  </if>
+	 <if test="item.cStateTbDocumeform != null" >
+		C_STATE,
+  </if>
+	 <if test="item.cDrTbDocumeform != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestampTbDocumeform != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cCreaterTbDocumeform != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetimeTbDocumeform != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifierTbDocumeform != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifytimeTbDocumeform != null" >
+		C_MODIFYTIME,
+  </if>
+	 <if test="item.cSw03TbDocumeform != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TbDocumeform != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TbDocumeform != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TbDocumeform != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TbDocumeform != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08TbDocumeform != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09TbDocumeform != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10TbDocumeform != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11TbDocumeform != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TbDocumeform != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TbDocumeform != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TbDocumeform != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TbDocumeform != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw01TbDocumeform != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cGoodsnameTbDocumeform != null" >
+		C_GOODSNAME,
+  </if>
+  
+   <if test="item.cMoneyrmbDocumeform != null" >
+		C_MONEYRMB,
+  </if>
+   <if test="item.cMoneyusdDocumeform != null" >
+		C_MONEYUSD,
+  </if>
+   <if test="item.cCheckstateTbDocumeform != null" >
+		C_CHECKSTATE,
+  </if>
+   <if test="item.cInfocardTbDocumeform != null" >
+        C_INFOCARD,
+    </if>
+     <if test="item.cMadestateTbDocumeform != null" >
+        C_MADESTATE,
+    </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+		<!-- C_ID_SEQ.NEXTVAL, -->
+	 <if test="item.cIdTbDocumeform != null" >
+        #{item.cIdTbDocumeform,jdbcType=VARCHAR},
+      </if>	
+	 <if test="item.cSw02TbDocumeform != null" >
+		#{item.cSw02TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpecTbDocumeform != null" >
+		#{item.cSpecTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNumTbDocumeform != null" >
+		#{item.cNumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnitTbDocumeform != null" >
+		#{item.cUnitTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStaunitTbDocumeform != null" >
+		#{item.cStaunitTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cHscodeTbDocumeform != null" >
+		#{item.cHscodeTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTypenameTbDocumeform != null" >
+		#{item.cTypenameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupervisionTbDocumeform != null" >
+		#{item.cSupervisionTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTaxrateTbDocumeform != null" >
+		#{item.cTaxrateTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDeclarationTbDocumeform != null" >
+		#{item.cDeclarationTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConnumTbDocumeform != null" >
+		#{item.cConnumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConmoneyTbDocumeform != null" >
+		#{item.cConmoneyTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNameTbDocumeform != null" >
+		#{item.cNameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutconnumTbDocumeform != null" >
+		#{item.cOutconnumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutmoneyTbDocumeform != null" >
+		#{item.cOutmoneyTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComtaxnumberTbDocumeform != null" >
+		#{item.cComtaxnumberTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupplierTbDocumeform != null" >
+		#{item.cSupplierTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWeightTbDocumeform != null" >
+		#{item.cWeightTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBmTbDocumeform != null" >
+		#{item.cBmTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cInvoicecTbDocumeform != null" >
+		#{item.cInvoicecTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPpnTbDocumeform != null" >
+		#{item.cPpnTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComphoneTbDocumeform != null" >
+		#{item.cComphoneTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPphTbDocumeform != null" >
+		#{item.cPphTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cExporterTbDocumeform != null" >
+		#{item.cExporterTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWhecooTbDocumeform != null" >
+		#{item.cWhecooTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTotaltaxrTbDocumeform != null" >
+		#{item.cTotaltaxrTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cShnameTbDocumeform != null" >
+		#{item.cShnameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIndimportTbDocumeform != null" >
+		#{item.cIndimportTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cAgreedtaxTbDocumeform != null" >
+		#{item.cAgreedtaxTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cInpbsTbDocumeform != null" >
+		#{item.cInpbsTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutpbsTbDocumeform != null" >
+		#{item.cOutpbsTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cChiedeTbDocumeform != null" >
+		#{item.cChiedeTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIndidaTbDocumeform != null" >
+		#{item.cIndidaTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDataedpTbDocumeform != null" >
+		#{item.cDataedpTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemarkTbDocumeform != null" >
+		#{item.cRemarkTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStateTbDocumeform != null" >
+		#{item.cStateTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbDocumeform != null" >
+		#{item.cDrTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbDocumeform != null" >
+		#{item.cTimestampTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTbDocumeform != null" >
+		#{item.cCreaterTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbDocumeform != null" >
+		#{item.cCreatetimeTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbDocumeform != null" >
+		#{item.cModifierTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytimeTbDocumeform != null" >
+		#{item.cModifytimeTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw03TbDocumeform != null" >
+		#{item.cSw03TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbDocumeform != null" >
+		#{item.cSw04TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbDocumeform != null" >
+		#{item.cSw05TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbDocumeform != null" >
+		#{item.cSw06TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbDocumeform != null" >
+		#{item.cSw07TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbDocumeform != null" >
+		#{item.cSw08TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbDocumeform != null" >
+		#{item.cSw09TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbDocumeform != null" >
+		#{item.cSw10TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbDocumeform != null" >
+		#{item.cSw11TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbDocumeform != null" >
+		#{item.cSw12TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbDocumeform != null" >
+		#{item.cSw13TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbDocumeform != null" >
+		#{item.cSw14TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbDocumeform != null" >
+		#{item.cSw15TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw01TbDocumeform != null" >
+		#{item.cSw01TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsnameTbDocumeform != null" >
+		#{item.cGoodsnameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cMoneyrmbDocumeform != null" >
+		#{item.cMoneyrmbDocumeform,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cMoneyusdDocumeform != null" >
+		#{item.cMoneyusdDocumeform,jdbcType=VARCHAR},
+  </if>
+  <if test="item.cCheckstateTbDocumeform != null" >
+		#{item.cCheckstateTbDocumeform,jdbcType=VARCHAR},
+  </if>
+   <if test="item.cInfocardTbDocumeform != null" >
+        #{item.cInfocardTbDocumeform,jdbcType=VARCHAR},
+    </if>
+     <if test="item.cMadestateTbDocumeform != null" >
+        #{item.cMadestateTbDocumeform,jdbcType=VARCHAR},
+    </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UCG_XXLY_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgXxlyM1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_DOCUMEFORM
+	         <set >
+	 <if test="item.cIdTbDocumeform != null" >
+		C_ID = #{item.cIdTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbDocumeform != null" >
+		C_SW02 = #{item.cSw02TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpecTbDocumeform != null" >
+		C_SPEC = #{item.cSpecTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNumTbDocumeform != null" >
+		C_NUM = #{item.cNumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnitTbDocumeform != null" >
+		C_UNIT = #{item.cUnitTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStaunitTbDocumeform != null" >
+		C_STAUNIT = #{item.cStaunitTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cHscodeTbDocumeform != null" >
+		C_HSCODE = #{item.cHscodeTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTypenameTbDocumeform != null" >
+		C_TYPENAME = #{item.cTypenameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupervisionTbDocumeform != null" >
+		C_SUPERVISION = #{item.cSupervisionTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTaxrateTbDocumeform != null" >
+		C_TAXRATE = #{item.cTaxrateTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDeclarationTbDocumeform != null" >
+		C_DECLARATION = #{item.cDeclarationTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConnumTbDocumeform != null" >
+		C_CONNUM = #{item.cConnumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConmoneyTbDocumeform != null" >
+		C_CONMONEY = #{item.cConmoneyTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNameTbDocumeform != null" >
+		C_NAME = #{item.cNameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutconnumTbDocumeform != null" >
+		C_OUTCONNUM = #{item.cOutconnumTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutmoneyTbDocumeform != null" >
+		C_OUTMONEY = #{item.cOutmoneyTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComtaxnumberTbDocumeform != null" >
+		C_COMTAXNUMBER = #{item.cComtaxnumberTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupplierTbDocumeform != null" >
+		C_SUPPLIER = #{item.cSupplierTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWeightTbDocumeform != null" >
+		C_WEIGHT = #{item.cWeightTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cBmTbDocumeform != null" >
+		C_BM = #{item.cBmTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cInvoicecTbDocumeform != null" >
+		C_INVOICEC = #{item.cInvoicecTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPpnTbDocumeform != null" >
+		C_PPN = #{item.cPpnTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComphoneTbDocumeform != null" >
+		C_COMPHONE = #{item.cComphoneTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPphTbDocumeform != null" >
+		C_PPH = #{item.cPphTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cExporterTbDocumeform != null" >
+		C_EXPORTER = #{item.cExporterTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cWhecooTbDocumeform != null" >
+		C_WHECOO = #{item.cWhecooTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTotaltaxrTbDocumeform != null" >
+		C_TOTALTAXR = #{item.cTotaltaxrTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cShnameTbDocumeform != null" >
+		C_SHNAME = #{item.cShnameTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIndimportTbDocumeform != null" >
+		C_INDIMPORT = #{item.cIndimportTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cAgreedtaxTbDocumeform != null" >
+		C_AGREEDTAX = #{item.cAgreedtaxTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cInpbsTbDocumeform != null" >
+		C_INPBS = #{item.cInpbsTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOutpbsTbDocumeform != null" >
+		C_OUTPBS = #{item.cOutpbsTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cChiedeTbDocumeform != null" >
+		C_CHIEDE = #{item.cChiedeTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cIndidaTbDocumeform != null" >
+		C_INDIDA = #{item.cIndidaTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDataedpTbDocumeform != null" >
+		C_DATAEDP = #{item.cDataedpTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemarkTbDocumeform != null" >
+		C_REMARK = #{item.cRemarkTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStateTbDocumeform != null" >
+		C_STATE = #{item.cStateTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbDocumeform != null" >
+		C_DR = #{item.cDrTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbDocumeform != null" >
+		C_TIMESTAMP = #{item.cTimestampTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cCreaterTbDocumeform != null" >
+		C_CREATER = #{item.cCreaterTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbDocumeform != null" >
+		C_CREATETIME = #{item.cCreatetimeTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbDocumeform != null" >
+		C_MODIFIER = #{item.cModifierTbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytimeTbDocumeform != null" >
+		C_MODIFYTIME = #{item.cModifytimeTbDocumeform,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw03TbDocumeform != null" >
+		C_SW03 = #{item.cSw03TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbDocumeform != null" >
+		C_SW04 = #{item.cSw04TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbDocumeform != null" >
+		C_SW05 = #{item.cSw05TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbDocumeform != null" >
+		C_SW06 = #{item.cSw06TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbDocumeform != null" >
+		C_SW07 = #{item.cSw07TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbDocumeform != null" >
+		C_SW08 = #{item.cSw08TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbDocumeform != null" >
+		C_SW09 = #{item.cSw09TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbDocumeform != null" >
+		C_SW10 = #{item.cSw10TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbDocumeform != null" >
+		C_SW11 = #{item.cSw11TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbDocumeform != null" >
+		C_SW12 = #{item.cSw12TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbDocumeform != null" >
+		C_SW13 = #{item.cSw13TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbDocumeform != null" >
+		C_SW14 = #{item.cSw14TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbDocumeform != null" >
+		C_SW15 = #{item.cSw15TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw01TbDocumeform != null" >
+		C_SW01 = #{item.cSw01TbDocumeform,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsnameTbDocumeform != null" >
+		C_GOODSNAME = #{item.cGoodsnameTbDocumeform,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbDocumeform,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DCG_XXLY_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgXxlyM1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_DOCUMEFORM
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTbDocumeform,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+  <!-- 逻辑删除 -->
+ <!--  <update id="M1S11DUCG_XXLY_M1S1"  parameterType="code_fb.entity.CG_XXLY_M1S1" >	
+	   UPDATE TB_DOCUMEFORM
+	    SET TB_DOCUMEFORM.C_DR  = '1'
+ 		WHERE   TB_DOCUMEFORM.C_CONNUM = #{cgXxlyM1s1.cConnumTbDocumeform,jdbcType=VARCHAR}
+ 		AND TB_DOCUMEFORM.C_OUTCONNUM = #{cgXxlyM1s1.cOutconnumTbDocumeform,jdbcType=VARCHAR}
+  </update> -->
+  <!-- 物理删除 -->
+  <delete id="M1S11DUCG_XXLY_M1S1"  parameterType="code_fb.entity.CG_XXLY_M1S1" >	
+	        delete from TB_DOCUMEFORM
+		 WHERE 1 = 1 
+		and TB_DOCUMEFORM.C_CONNUM = #{cgXxlyM1s1.cConnumTbDocumeform,jdbcType=VARCHAR}
+  </delete>
+ </mapper>

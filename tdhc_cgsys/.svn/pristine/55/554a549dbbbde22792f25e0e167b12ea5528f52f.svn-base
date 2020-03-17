@@ -1,0 +1,37 @@
+package code_fb_cg.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import code_fb_cg.entity.TpCgorderst;
+import code_fb_cg.mapper.TpCgorderstMapper;
+import code_fb_cg.request.HompageObject;
+import code_fb_cg.request.TpCgordermtM1S13;
+import code_fb_cg.service.TpCgorderstTJService;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+@Service
+public class TpCgorderstTJServiceImpl implements TpCgorderstTJService{
+
+	@Autowired
+	private TpCgorderstMapper tpCgorderstMapper;
+	
+	
+	@Override
+	public ResponseObject<EmptyTag, List<TpCgorderst>> searchTpCgorderstTJ(
+			RequestObject<EmptyTag, TpCgordermtM1S13> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		TpCgordermtM1S13 data = requestObject.getData();
+		System.out.println("开始时间:::"+data.getStartTime());
+		List<TpCgorderst> searchTpCgorderstTJ = tpCgorderstMapper.searchTpCgorderstTJ(data);
+		return builder.data(searchTpCgorderstTJ).msg("查询成功").errcode(Errcode.Success).build();
+	}
+
+
+
+}

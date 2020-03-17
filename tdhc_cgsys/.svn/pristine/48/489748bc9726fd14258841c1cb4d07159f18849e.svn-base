@@ -1,0 +1,21 @@
+package vip.toda.piper.data.common.cfg;
+
+public final class DbConfig {
+
+    private static String url = "jdbc:oracle:thin:@//127.0.0.1:1521/ORCL";
+    private static String username = "system";
+    private static String password = "lu1215";
+
+    public static String getUrl() {
+        return url;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+}

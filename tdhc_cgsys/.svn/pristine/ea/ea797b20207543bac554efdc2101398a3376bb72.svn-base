@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.GY_LOGIN_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.GY_LOGIN_M1S1" >
+	 <result column="C_CCOD_TB_SUPUSER" property="cCcodTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMACCOUNTNO_TB_SUPUSER" property="cComaccountnoTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMADDRESS_TB_SUPUSER" property="cComaddressTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMBANKNAME_TB_SUPUSER" property="cCombanknameTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMFAXNO_TB_SUPUSER" property="cComfaxnoTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMPHONE_TB_SUPUSER" property="cComphoneTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMPNAME_TB_SUPUSER" property="cCompnameTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMREMARK_TB_SUPUSER" property="cComremarkTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_COMTAXNUMBER_TB_SUPUSER" property="cComtaxnumberTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTER_TB_SUPUSER" property="cContacterTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTTELL_TB_SUPUSER" property="cContacttellTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TB_SUPUSER" property="cCreaterTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_SUPUSER" property="cDrTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_SUPUSER" property="cIdTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_SUPUSER" property="cModifierTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_PASSWORD_TB_SUPUSER" property="cPasswordTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_SUPUSER" property="cSw01TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_SUPUSER" property="cSw02TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_SUPUSER" property="cSw03TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_SUPUSER" property="cSw04TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_SUPUSER" property="cSw05TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_SUPUSER" property="cSw06TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_SUPUSER" property="cSw07TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_SUPUSER" property="cSw08TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_SUPUSER" property="cSw09TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_SUPUSER" property="cSw10TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_SUPUSER" property="cSw11TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_SUPUSER" property="cSw12TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_SUPUSER" property="cSw13TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_SUPUSER" property="cSw14TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_SUPUSER" property="cSw15TbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_USERNAM_TB_SUPUSER" property="cUsernamTbSupuser" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_SUPUSER" property="cCreatetimeTbSupuser" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TB_SUPUSER" property="cModifytimeTbSupuser" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_SUPUSER" property="cTimestampTbSupuser" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QGY_LOGIN_M1S1" parameterType="code_fb.entity.GY_LOGIN_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_SUPUSER.C_ID C_ID_TB_SUPUSER 
+,
+TB_SUPUSER.C_CONTACTTELL C_CONTACTTELL_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMADDRESS C_COMADDRESS_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMBANKNAME C_COMBANKNAME_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMACCOUNTNO C_COMACCOUNTNO_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMTAXNUMBER C_COMTAXNUMBER_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMPHONE C_COMPHONE_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMFAXNO C_COMFAXNO_TB_SUPUSER 
+,
+TB_SUPUSER.C_CCOD C_CCOD_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMREMARK C_COMREMARK_TB_SUPUSER 
+,
+TB_SUPUSER.C_USERNAM C_USERNAM_TB_SUPUSER 
+,
+TB_SUPUSER.C_PASSWORD C_PASSWORD_TB_SUPUSER 
+,
+TB_SUPUSER.C_DR C_DR_TB_SUPUSER 
+,
+TB_SUPUSER.C_TIMESTAMP C_TIMESTAMP_TB_SUPUSER 
+,
+TB_SUPUSER.C_CREATER C_CREATER_TB_SUPUSER 
+,
+TB_SUPUSER.C_CREATETIME C_CREATETIME_TB_SUPUSER 
+,
+TB_SUPUSER.C_MODIFIER C_MODIFIER_TB_SUPUSER 
+,
+TB_SUPUSER.C_MODIFYTIME C_MODIFYTIME_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW01 C_SW01_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW02 C_SW02_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW03 C_SW03_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW04 C_SW04_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW05 C_SW05_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW06 C_SW06_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW07 C_SW07_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW08 C_SW08_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW09 C_SW09_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW10 C_SW10_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW11 C_SW11_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW12 C_SW12_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW13 C_SW13_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW14 C_SW14_TB_SUPUSER 
+,
+TB_SUPUSER.C_SW15 C_SW15_TB_SUPUSER 
+,
+TB_SUPUSER.C_CONTACTER C_CONTACTER_TB_SUPUSER 
+,
+TB_SUPUSER.C_COMPNAME C_COMPNAME_TB_SUPUSER 
+
+ from TB_SUPUSER
+ WHERE 1=1 <if test="(startTime != null and endTime != null)">AND TB_SUPUSER.C_CREATETIME BETWEEN
+#{startTime}
+AND
+#{endTime}
+
+  </if>
+
+	</select> 
+	 <insert id="M1S11AGY_LOGIN_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gyLoginM1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_SUPUSER
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+		C_ID,
+	 <if test="item.cContacttellTbSupuser != null" >
+		C_CONTACTTELL,
+  </if> 
+
+	 <if test="item.cComaddressTbSupuser != null" >
+		C_COMADDRESS,
+  </if> 
+
+	 <if test="item.cCombanknameTbSupuser != null" >
+		C_COMBANKNAME,
+  </if> 
+
+	 <if test="item.cComaccountnoTbSupuser != null" >
+		C_COMACCOUNTNO,
+  </if> 
+
+	 <if test="item.cComtaxnumberTbSupuser != null" >
+		C_COMTAXNUMBER,
+  </if> 
+
+	 <if test="item.cComphoneTbSupuser != null" >
+		C_COMPHONE,
+  </if> 
+
+	 <if test="item.cComfaxnoTbSupuser != null" >
+		C_COMFAXNO,
+  </if> 
+
+	 <if test="item.cCcodTbSupuser != null" >
+		C_CCOD,
+  </if> 
+
+	 <if test="item.cComremarkTbSupuser != null" >
+		C_COMREMARK,
+  </if> 
+
+	 <if test="item.cUsernamTbSupuser != null" >
+		C_USERNAM,
+  </if> 
+
+	 <if test="item.cPasswordTbSupuser != null" >
+		C_PASSWORD,
+  </if> 
+
+	 <if test="item.cDrTbSupuser != null" >
+		C_DR,
+  </if> 
+
+	 <if test="item.cTimestampTbSupuser != null" >
+		C_TIMESTAMP,
+  </if> 
+
+	 <if test="item.cCreaterTbSupuser != null" >
+		C_CREATER,
+  </if> 
+
+	<!--  <if test="item.cCreatetimeTbSupuser != null" >
+		C_CREATETIME,
+  </if>  -->
+	C_CREATETIME,
+	 <if test="item.cModifierTbSupuser != null" >
+		C_MODIFIER,
+  </if> 
+
+	 <if test="item.cModifytimeTbSupuser != null" >
+		C_MODIFYTIME,
+  </if> 
+
+	 <if test="item.cSw01TbSupuser != null" >
+		C_SW01,
+  </if> 
+
+	 <if test="item.cSw02TbSupuser != null" >
+		C_SW02,
+  </if> 
+
+	 <if test="item.cSw03TbSupuser != null" >
+		C_SW03,
+  </if> 
+
+	 <if test="item.cSw04TbSupuser != null" >
+		C_SW04,
+  </if> 
+
+	 <if test="item.cSw05TbSupuser != null" >
+		C_SW05,
+  </if> 
+
+	 <if test="item.cSw06TbSupuser != null" >
+		C_SW06,
+  </if> 
+
+	 <if test="item.cSw07TbSupuser != null" >
+		C_SW07,
+  </if> 
+
+	 <if test="item.cSw08TbSupuser != null" >
+		C_SW08,
+  </if> 
+
+	 <if test="item.cSw09TbSupuser != null" >
+		C_SW09,
+  </if> 
+
+	 <if test="item.cSw10TbSupuser != null" >
+		C_SW10,
+  </if> 
+
+	 <if test="item.cSw11TbSupuser != null" >
+		C_SW11,
+  </if> 
+
+	 <if test="item.cSw12TbSupuser != null" >
+		C_SW12,
+  </if> 
+
+	 <if test="item.cSw13TbSupuser != null" >
+		C_SW13,
+  </if> 
+
+	 <if test="item.cSw14TbSupuser != null" >
+		C_SW14,
+  </if> 
+
+	 <if test="item.cSw15TbSupuser != null" >
+		C_SW15,
+  </if> 
+
+	 <if test="item.cContacterTbSupuser != null" >
+		C_CONTACTER,
+  </if> 
+
+	 <if test="item.cCompnameTbSupuser != null" >
+		C_COMPNAME,
+  </if> 
+
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+		C_ID_SUPPUS.NEXTVAL,
+	 <if test="item.cContacttellTbSupuser != null" >
+		#{item.cContacttellTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComaddressTbSupuser != null" >
+		#{item.cComaddressTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCombanknameTbSupuser != null" >
+		#{item.cCombanknameTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComaccountnoTbSupuser != null" >
+		#{item.cComaccountnoTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComtaxnumberTbSupuser != null" >
+		#{item.cComtaxnumberTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComphoneTbSupuser != null" >
+		#{item.cComphoneTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComfaxnoTbSupuser != null" >
+		#{item.cComfaxnoTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCcodTbSupuser != null" >
+		#{item.cCcodTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComremarkTbSupuser != null" >
+		#{item.cComremarkTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cUsernamTbSupuser != null" >
+		#{item.cUsernamTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cPasswordTbSupuser != null" >
+		#{item.cPasswordTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cDrTbSupuser != null" >
+		#{item.cDrTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cTimestampTbSupuser != null" >
+		#{item.cTimestampTbSupuser,jdbcType=TIMESTAMP},
+  </if> 
+
+	 <if test="item.cCreaterTbSupuser != null" >
+		#{item.cCreaterTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	<!--  <if test="item.cCreatetimeTbSupuser != null" >
+		#{item.cCreatetimeTbSupuser,jdbcType=TIMESTAMP},
+  </if>  -->
+  	SYSDATE,
+
+	 <if test="item.cModifierTbSupuser != null" >
+		#{item.cModifierTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cModifytimeTbSupuser != null" >
+		#{item.cModifytimeTbSupuser,jdbcType=TIMESTAMP},
+  </if> 
+
+	 <if test="item.cSw01TbSupuser != null" >
+		#{item.cSw01TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw02TbSupuser != null" >
+		#{item.cSw02TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw03TbSupuser != null" >
+		#{item.cSw03TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw04TbSupuser != null" >
+		#{item.cSw04TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw05TbSupuser != null" >
+		#{item.cSw05TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw06TbSupuser != null" >
+		#{item.cSw06TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw07TbSupuser != null" >
+		#{item.cSw07TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw08TbSupuser != null" >
+		#{item.cSw08TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw09TbSupuser != null" >
+		#{item.cSw09TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw10TbSupuser != null" >
+		#{item.cSw10TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw11TbSupuser != null" >
+		#{item.cSw11TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw12TbSupuser != null" >
+		#{item.cSw12TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw13TbSupuser != null" >
+		#{item.cSw13TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw14TbSupuser != null" >
+		#{item.cSw14TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw15TbSupuser != null" >
+		#{item.cSw15TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cContacterTbSupuser != null" >
+		#{item.cContacterTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCompnameTbSupuser != null" >
+		#{item.cCompnameTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UGY_LOGIN_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gyLoginM1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_SUPUSER
+	         <set >
+	 <if test="item.cIdTbSupuser != null" >
+		C_ID = #{item.cIdTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cContacttellTbSupuser != null" >
+		C_CONTACTTELL = #{item.cContacttellTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComaddressTbSupuser != null" >
+		C_COMADDRESS = #{item.cComaddressTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCombanknameTbSupuser != null" >
+		C_COMBANKNAME = #{item.cCombanknameTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComaccountnoTbSupuser != null" >
+		C_COMACCOUNTNO = #{item.cComaccountnoTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComtaxnumberTbSupuser != null" >
+		C_COMTAXNUMBER = #{item.cComtaxnumberTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComphoneTbSupuser != null" >
+		C_COMPHONE = #{item.cComphoneTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComfaxnoTbSupuser != null" >
+		C_COMFAXNO = #{item.cComfaxnoTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCcodTbSupuser != null" >
+		C_CCOD = #{item.cCcodTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cComremarkTbSupuser != null" >
+		C_COMREMARK = #{item.cComremarkTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cUsernamTbSupuser != null" >
+		C_USERNAM = #{item.cUsernamTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cPasswordTbSupuser != null" >
+		C_PASSWORD = #{item.cPasswordTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cDrTbSupuser != null" >
+		C_DR = #{item.cDrTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cTimestampTbSupuser != null" >
+		C_TIMESTAMP = #{item.cTimestampTbSupuser,jdbcType=TIMESTAMP},
+  </if> 
+
+	 <if test="item.cCreaterTbSupuser != null" >
+		C_CREATER = #{item.cCreaterTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCreatetimeTbSupuser != null" >
+		C_CREATETIME = #{item.cCreatetimeTbSupuser,jdbcType=TIMESTAMP},
+  </if> 
+
+	 <if test="item.cModifierTbSupuser != null" >
+		C_MODIFIER = #{item.cModifierTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cModifytimeTbSupuser != null" >
+		C_MODIFYTIME = #{item.cModifytimeTbSupuser,jdbcType=TIMESTAMP},
+  </if> 
+
+	 <if test="item.cSw01TbSupuser != null" >
+		C_SW01 = #{item.cSw01TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw02TbSupuser != null" >
+		C_SW02 = #{item.cSw02TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw03TbSupuser != null" >
+		C_SW03 = #{item.cSw03TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw04TbSupuser != null" >
+		C_SW04 = #{item.cSw04TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw05TbSupuser != null" >
+		C_SW05 = #{item.cSw05TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw06TbSupuser != null" >
+		C_SW06 = #{item.cSw06TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw07TbSupuser != null" >
+		C_SW07 = #{item.cSw07TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw08TbSupuser != null" >
+		C_SW08 = #{item.cSw08TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw09TbSupuser != null" >
+		C_SW09 = #{item.cSw09TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw10TbSupuser != null" >
+		C_SW10 = #{item.cSw10TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw11TbSupuser != null" >
+		C_SW11 = #{item.cSw11TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw12TbSupuser != null" >
+		C_SW12 = #{item.cSw12TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw13TbSupuser != null" >
+		C_SW13 = #{item.cSw13TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw14TbSupuser != null" >
+		C_SW14 = #{item.cSw14TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cSw15TbSupuser != null" >
+		C_SW15 = #{item.cSw15TbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cContacterTbSupuser != null" >
+		C_CONTACTER = #{item.cContacterTbSupuser,jdbcType=VARCHAR},
+  </if> 
+
+	 <if test="item.cCompnameTbSupuser != null" >
+		C_COMPNAME = #{item.cCompnameTbSupuser,jdbcType=VARCHAR},
+
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSupuser,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DGY_LOGIN_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gyLoginM1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_SUPUSER
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSupuser,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

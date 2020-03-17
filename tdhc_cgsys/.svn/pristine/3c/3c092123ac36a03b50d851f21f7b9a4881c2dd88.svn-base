@@ -1,0 +1,61 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractmtt;
+import code_fb_cg.entity.TpCgcontractmttExample;
+import code_fb_cg.request.ConMtAndSt;
+@Repository("tpCgcontractmttMapper")
+public interface TpCgcontractmttMapper {
+    int countByExample(TpCgcontractmttExample example);
+
+    int deleteByExample(TpCgcontractmttExample example);
+
+    int deleteByPrimaryKey(String cId);
+
+    int insert(TpCgcontractmtt record);
+
+    int insertSelective(TpCgcontractmtt addTpCgcontractmt);
+
+    List<TpCgcontractmtt> selectByExample(TpCgcontractmttExample example);
+
+    TpCgcontractmtt selectByPrimaryKey(String cId);
+
+    int updateByExampleSelective(@Param("record") TpCgcontractmtt record, @Param("example") TpCgcontractmttExample example);
+
+    int updateByExample(@Param("record") TpCgcontractmtt record, @Param("example") TpCgcontractmttExample example);
+
+    int updateByPrimaryKeySelective(TpCgcontractmtt record);
+
+    int updateByPrimaryKey(TpCgcontractmtt record);
+    /**
+     * 根据合同号查询是否存在
+     * @param getcConnum
+     * @return
+     */
+    List<TpCgcontractmtt> selectByConnum(@Param("cConnum") String getcConnum);
+	/**
+	 * 根据条件查询拟合同信息
+	 * @param data
+	 * @return
+	 */
+	List<ConMtAndSt> selectByMTSTT(@Param("conMtAndSt")ConMtAndSt conMtAndSt);
+/**
+ * 根据合同号修改合同信息
+ * @param addTpCgcontractmt
+ * @return
+ */
+	int  updateTpCgcontractmtt(TpCgcontractmtt addTpCgcontractmt);
+/**
+ * 查询拟合同信息
+ * @param cg_MNHT_M1S1
+ * @return
+ */
+	List<TpCgcontractmtt> selectInfo(@Param("cg_MNHT_M1S1")CG_MNHT_M1S1 cg_MNHT_M1S1);
+
+}

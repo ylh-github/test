@@ -1,0 +1,63 @@
+package code_fb_cg.request;
+
+import java.util.Date;
+import java.util.List;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractst;
+/**
+ * 合同物资对应请购单物资导入
+ * @author lhb
+ * @时间：2018年11月29日下午12:21:47
+ */
+public class ExcelCONST {
+
+	private List<TpCgcontractmt> stList;//选中的合同物资
+	private Date outdeltime;//到货时间/出库时间
+	private List<TpCgcontractst> excel;//excel表中数据
+	private List<TpCgcontractst> shipnum;
+	private String chipnos;//船号/到货地址
+	
+	
+
+	public String getChipnos() {
+		return chipnos;
+	}
+
+	public void setChipnos(String chipnos) {
+		this.chipnos = chipnos;
+	}
+
+	public Date getOutdeltime() {
+		return outdeltime;
+	}
+
+	public void setOutdeltime(Date outdeltime) {
+		this.outdeltime = outdeltime;
+	}
+
+	public List<TpCgcontractst> getExcel() {
+		return excel;
+	}
+
+	public void setExcel(List<TpCgcontractst> excel) {
+		this.excel = excel;
+	}
+
+	public List<TpCgcontractmt> getStList() {
+		return stList;
+	}
+
+	public void setStList(List<TpCgcontractmt> stList) {
+		this.stList = stList;
+	}
+
+	public List<TpCgcontractst> getShipnum() {
+		return shipnum;
+	}
+
+	public void setShipnum(List<TpCgcontractst> shipnum) {
+		this.shipnum = shipnum;
+	}
+
+}

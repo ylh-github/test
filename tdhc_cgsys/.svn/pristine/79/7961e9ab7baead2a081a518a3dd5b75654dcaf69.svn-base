@@ -1,0 +1,466 @@
+
+package code_fb.entity;
+import java.io.Serializable;
+import java.util.Date;
+/**
+ * 
+ *CG_XXLY 前台代码生成实体
+ * 
+ * @author Administrator
+ *
+ */
+public class CG_XXLY_M1S1 implements Serializable{	
+    /**
+	 * 
+	 */
+	public static final long serialVersionUID = 1L;
+	public String cAgreedtaxTbDocumeform;
+	public  String getcAgreedtaxTbDocumeform() {
+	return cAgreedtaxTbDocumeform;
+	}
+  public void setcAgreedtaxTbDocumeform ( String cAgreedtaxTbDocumeform) {
+    this.cAgreedtaxTbDocumeform = cAgreedtaxTbDocumeform ;
+	}
+	public String cBmTbDocumeform;
+	public  String getcBmTbDocumeform() {
+	return cBmTbDocumeform;
+	}
+  public void setcBmTbDocumeform ( String cBmTbDocumeform) {
+    this.cBmTbDocumeform = cBmTbDocumeform ;
+	}
+	public String cChiedeTbDocumeform;
+	public  String getcChiedeTbDocumeform() {
+	return cChiedeTbDocumeform;
+	}
+  public void setcChiedeTbDocumeform ( String cChiedeTbDocumeform) {
+    this.cChiedeTbDocumeform = cChiedeTbDocumeform ;
+	}
+	public String cComphoneTbDocumeform;
+	public  String getcComphoneTbDocumeform() {
+	return cComphoneTbDocumeform;
+	}
+  public void setcComphoneTbDocumeform ( String cComphoneTbDocumeform) {
+    this.cComphoneTbDocumeform = cComphoneTbDocumeform ;
+	}
+	public String cComtaxnumberTbDocumeform;
+	public  String getcComtaxnumberTbDocumeform() {
+	return cComtaxnumberTbDocumeform;
+	}
+  public void setcComtaxnumberTbDocumeform ( String cComtaxnumberTbDocumeform) {
+    this.cComtaxnumberTbDocumeform = cComtaxnumberTbDocumeform ;
+	}
+	public String cConmoneyTbDocumeform;
+	public  String getcConmoneyTbDocumeform() {
+	return cConmoneyTbDocumeform;
+	}
+  public void setcConmoneyTbDocumeform ( String cConmoneyTbDocumeform) {
+    this.cConmoneyTbDocumeform = cConmoneyTbDocumeform ;
+	}
+	public String cConnumTbDocumeform;
+	public  String getcConnumTbDocumeform() {
+	return cConnumTbDocumeform;
+	}
+  public void setcConnumTbDocumeform ( String cConnumTbDocumeform) {
+    this.cConnumTbDocumeform = cConnumTbDocumeform ;
+	}
+	public String cCreaterTbDocumeform;
+	public  String getcCreaterTbDocumeform() {
+	return cCreaterTbDocumeform;
+	}
+  public void setcCreaterTbDocumeform ( String cCreaterTbDocumeform) {
+    this.cCreaterTbDocumeform = cCreaterTbDocumeform ;
+	}
+	public String cDataedpTbDocumeform;
+	public  String getcDataedpTbDocumeform() {
+	return cDataedpTbDocumeform;
+	}
+  public void setcDataedpTbDocumeform ( String cDataedpTbDocumeform) {
+    this.cDataedpTbDocumeform = cDataedpTbDocumeform ;
+	}
+	public String cDeclarationTbDocumeform;
+	public  String getcDeclarationTbDocumeform() {
+	return cDeclarationTbDocumeform;
+	}
+  public void setcDeclarationTbDocumeform ( String cDeclarationTbDocumeform) {
+    this.cDeclarationTbDocumeform = cDeclarationTbDocumeform ;
+	}
+	public String cDrTbDocumeform;
+	public  String getcDrTbDocumeform() {
+	return cDrTbDocumeform;
+	}
+  public void setcDrTbDocumeform ( String cDrTbDocumeform) {
+    this.cDrTbDocumeform = cDrTbDocumeform ;
+	}
+	public String cExporterTbDocumeform;
+	public  String getcExporterTbDocumeform() {
+	return cExporterTbDocumeform;
+	}
+  public void setcExporterTbDocumeform ( String cExporterTbDocumeform) {
+    this.cExporterTbDocumeform = cExporterTbDocumeform ;
+	}
+	public String cGoodsnameTbDocumeform;
+	public  String getcGoodsnameTbDocumeform() {
+	return cGoodsnameTbDocumeform;
+	}
+  public void setcGoodsnameTbDocumeform ( String cGoodsnameTbDocumeform) {
+    this.cGoodsnameTbDocumeform = cGoodsnameTbDocumeform ;
+	}
+	public String cHscodeTbDocumeform;
+	public  String getcHscodeTbDocumeform() {
+	return cHscodeTbDocumeform;
+	}
+  public void setcHscodeTbDocumeform ( String cHscodeTbDocumeform) {
+    this.cHscodeTbDocumeform = cHscodeTbDocumeform ;
+	}
+	public String cIdTbDocumeform;
+	public  String getcIdTbDocumeform() {
+	return cIdTbDocumeform;
+	}
+  public void setcIdTbDocumeform ( String cIdTbDocumeform) {
+    this.cIdTbDocumeform = cIdTbDocumeform ;
+	}
+	public String cIndidaTbDocumeform;
+	public  String getcIndidaTbDocumeform() {
+	return cIndidaTbDocumeform;
+	}
+  public void setcIndidaTbDocumeform ( String cIndidaTbDocumeform) {
+    this.cIndidaTbDocumeform = cIndidaTbDocumeform ;
+	}
+	public String cIndimportTbDocumeform;
+	public  String getcIndimportTbDocumeform() {
+	return cIndimportTbDocumeform;
+	}
+  public void setcIndimportTbDocumeform ( String cIndimportTbDocumeform) {
+    this.cIndimportTbDocumeform = cIndimportTbDocumeform ;
+	}
+	public String cInpbsTbDocumeform;
+	public  String getcInpbsTbDocumeform() {
+	return cInpbsTbDocumeform;
+	}
+  public void setcInpbsTbDocumeform ( String cInpbsTbDocumeform) {
+    this.cInpbsTbDocumeform = cInpbsTbDocumeform ;
+	}
+	public String cInvoicecTbDocumeform;
+	public  String getcInvoicecTbDocumeform() {
+	return cInvoicecTbDocumeform;
+	}
+  public void setcInvoicecTbDocumeform ( String cInvoicecTbDocumeform) {
+    this.cInvoicecTbDocumeform = cInvoicecTbDocumeform ;
+	}
+	public String cModifierTbDocumeform;
+	public  String getcModifierTbDocumeform() {
+	return cModifierTbDocumeform;
+	}
+  public void setcModifierTbDocumeform ( String cModifierTbDocumeform) {
+    this.cModifierTbDocumeform = cModifierTbDocumeform ;
+	}
+	public String cNameTbDocumeform;
+	public  String getcNameTbDocumeform() {
+	return cNameTbDocumeform;
+	}
+  public void setcNameTbDocumeform ( String cNameTbDocumeform) {
+    this.cNameTbDocumeform = cNameTbDocumeform ;
+	}
+	public String cNumTbDocumeform;
+	public  String getcNumTbDocumeform() {
+	return cNumTbDocumeform;
+	}
+  public void setcNumTbDocumeform ( String cNumTbDocumeform) {
+    this.cNumTbDocumeform = cNumTbDocumeform ;
+	}
+	public String cOutconnumTbDocumeform;
+	public  String getcOutconnumTbDocumeform() {
+	return cOutconnumTbDocumeform;
+	}
+  public void setcOutconnumTbDocumeform ( String cOutconnumTbDocumeform) {
+    this.cOutconnumTbDocumeform = cOutconnumTbDocumeform ;
+	}
+	public String cOutmoneyTbDocumeform;
+	public  String getcOutmoneyTbDocumeform() {
+	return cOutmoneyTbDocumeform;
+	}
+  public void setcOutmoneyTbDocumeform ( String cOutmoneyTbDocumeform) {
+    this.cOutmoneyTbDocumeform = cOutmoneyTbDocumeform ;
+	}
+	public String cOutpbsTbDocumeform;
+	public  String getcOutpbsTbDocumeform() {
+	return cOutpbsTbDocumeform;
+	}
+  public void setcOutpbsTbDocumeform ( String cOutpbsTbDocumeform) {
+    this.cOutpbsTbDocumeform = cOutpbsTbDocumeform ;
+	}
+	public String cPphTbDocumeform;
+	public  String getcPphTbDocumeform() {
+	return cPphTbDocumeform;
+	}
+  public void setcPphTbDocumeform ( String cPphTbDocumeform) {
+    this.cPphTbDocumeform = cPphTbDocumeform ;
+	}
+	public String cPpnTbDocumeform;
+	public  String getcPpnTbDocumeform() {
+	return cPpnTbDocumeform;
+	}
+  public void setcPpnTbDocumeform ( String cPpnTbDocumeform) {
+    this.cPpnTbDocumeform = cPpnTbDocumeform ;
+	}
+	public String cRemarkTbDocumeform;
+	public  String getcRemarkTbDocumeform() {
+	return cRemarkTbDocumeform;
+	}
+  public void setcRemarkTbDocumeform ( String cRemarkTbDocumeform) {
+    this.cRemarkTbDocumeform = cRemarkTbDocumeform ;
+	}
+	public String cShnameTbDocumeform;
+	public  String getcShnameTbDocumeform() {
+	return cShnameTbDocumeform;
+	}
+  public void setcShnameTbDocumeform ( String cShnameTbDocumeform) {
+    this.cShnameTbDocumeform = cShnameTbDocumeform ;
+	}
+	public String cSpecTbDocumeform;
+	public  String getcSpecTbDocumeform() {
+	return cSpecTbDocumeform;
+	}
+  public void setcSpecTbDocumeform ( String cSpecTbDocumeform) {
+    this.cSpecTbDocumeform = cSpecTbDocumeform ;
+	}
+	public String cStateTbDocumeform;
+	public  String getcStateTbDocumeform() {
+	return cStateTbDocumeform;
+	}
+  public void setcStateTbDocumeform ( String cStateTbDocumeform) {
+    this.cStateTbDocumeform = cStateTbDocumeform ;
+	}
+	public String cStaunitTbDocumeform;
+	public  String getcStaunitTbDocumeform() {
+	return cStaunitTbDocumeform;
+	}
+  public void setcStaunitTbDocumeform ( String cStaunitTbDocumeform) {
+    this.cStaunitTbDocumeform = cStaunitTbDocumeform ;
+	}
+	public String cSupervisionTbDocumeform;
+	public  String getcSupervisionTbDocumeform() {
+	return cSupervisionTbDocumeform;
+	}
+  public void setcSupervisionTbDocumeform ( String cSupervisionTbDocumeform) {
+    this.cSupervisionTbDocumeform = cSupervisionTbDocumeform ;
+	}
+	public String cSupplierTbDocumeform;
+	public  String getcSupplierTbDocumeform() {
+	return cSupplierTbDocumeform;
+	}
+  public void setcSupplierTbDocumeform ( String cSupplierTbDocumeform) {
+    this.cSupplierTbDocumeform = cSupplierTbDocumeform ;
+	}
+	public String cSw01TbDocumeform;
+	public  String getcSw01TbDocumeform() {
+	return cSw01TbDocumeform;
+	}
+  public void setcSw01TbDocumeform ( String cSw01TbDocumeform) {
+    this.cSw01TbDocumeform = cSw01TbDocumeform ;
+	}
+	public String cSw02TbDocumeform;
+	public  String getcSw02TbDocumeform() {
+	return cSw02TbDocumeform;
+	}
+  public void setcSw02TbDocumeform ( String cSw02TbDocumeform) {
+    this.cSw02TbDocumeform = cSw02TbDocumeform ;
+	}
+	public String cSw03TbDocumeform;
+	public  String getcSw03TbDocumeform() {
+	return cSw03TbDocumeform;
+	}
+  public void setcSw03TbDocumeform ( String cSw03TbDocumeform) {
+    this.cSw03TbDocumeform = cSw03TbDocumeform ;
+	}
+	public String cSw04TbDocumeform;
+	public  String getcSw04TbDocumeform() {
+	return cSw04TbDocumeform;
+	}
+  public void setcSw04TbDocumeform ( String cSw04TbDocumeform) {
+    this.cSw04TbDocumeform = cSw04TbDocumeform ;
+	}
+	public String cSw05TbDocumeform;
+	public  String getcSw05TbDocumeform() {
+	return cSw05TbDocumeform;
+	}
+  public void setcSw05TbDocumeform ( String cSw05TbDocumeform) {
+    this.cSw05TbDocumeform = cSw05TbDocumeform ;
+	}
+	public String cSw06TbDocumeform;
+	public  String getcSw06TbDocumeform() {
+	return cSw06TbDocumeform;
+	}
+  public void setcSw06TbDocumeform ( String cSw06TbDocumeform) {
+    this.cSw06TbDocumeform = cSw06TbDocumeform ;
+	}
+	public String cSw07TbDocumeform;
+	public  String getcSw07TbDocumeform() {
+	return cSw07TbDocumeform;
+	}
+  public void setcSw07TbDocumeform ( String cSw07TbDocumeform) {
+    this.cSw07TbDocumeform = cSw07TbDocumeform ;
+	}
+	public String cSw08TbDocumeform;
+	public  String getcSw08TbDocumeform() {
+	return cSw08TbDocumeform;
+	}
+  public void setcSw08TbDocumeform ( String cSw08TbDocumeform) {
+    this.cSw08TbDocumeform = cSw08TbDocumeform ;
+	}
+	public String cSw09TbDocumeform;
+	public  String getcSw09TbDocumeform() {
+	return cSw09TbDocumeform;
+	}
+  public void setcSw09TbDocumeform ( String cSw09TbDocumeform) {
+    this.cSw09TbDocumeform = cSw09TbDocumeform ;
+	}
+	public String cSw10TbDocumeform;
+	public  String getcSw10TbDocumeform() {
+	return cSw10TbDocumeform;
+	}
+  public void setcSw10TbDocumeform ( String cSw10TbDocumeform) {
+    this.cSw10TbDocumeform = cSw10TbDocumeform ;
+	}
+	public Date cSw11TbDocumeform;
+	
+	public Date getcSw11TbDocumeform() {
+		return cSw11TbDocumeform;
+	}
+	public void setcSw11TbDocumeform(Date cSw11TbDocumeform) {
+		this.cSw11TbDocumeform = cSw11TbDocumeform;
+	}
+	public String cSw12TbDocumeform;
+	public  String getcSw12TbDocumeform() {
+	return cSw12TbDocumeform;
+	}
+  public void setcSw12TbDocumeform ( String cSw12TbDocumeform) {
+    this.cSw12TbDocumeform = cSw12TbDocumeform ;
+	}
+	public String cSw13TbDocumeform;
+	public  String getcSw13TbDocumeform() {
+	return cSw13TbDocumeform;
+	}
+  public void setcSw13TbDocumeform ( String cSw13TbDocumeform) {
+    this.cSw13TbDocumeform = cSw13TbDocumeform ;
+	}
+	public String cSw14TbDocumeform;
+	public  String getcSw14TbDocumeform() {
+	return cSw14TbDocumeform;
+	}
+  public void setcSw14TbDocumeform ( String cSw14TbDocumeform) {
+    this.cSw14TbDocumeform = cSw14TbDocumeform ;
+	}
+	public String cSw15TbDocumeform;
+	public  String getcSw15TbDocumeform() {
+	return cSw15TbDocumeform;
+	}
+  public void setcSw15TbDocumeform ( String cSw15TbDocumeform) {
+    this.cSw15TbDocumeform = cSw15TbDocumeform ;
+	}
+	public String cTaxrateTbDocumeform;
+	public  String getcTaxrateTbDocumeform() {
+	return cTaxrateTbDocumeform;
+	}
+  public void setcTaxrateTbDocumeform ( String cTaxrateTbDocumeform) {
+    this.cTaxrateTbDocumeform = cTaxrateTbDocumeform ;
+	}
+	public String cTotaltaxrTbDocumeform;
+	public  String getcTotaltaxrTbDocumeform() {
+	return cTotaltaxrTbDocumeform;
+	}
+  public void setcTotaltaxrTbDocumeform ( String cTotaltaxrTbDocumeform) {
+    this.cTotaltaxrTbDocumeform = cTotaltaxrTbDocumeform ;
+	}
+	public String cTypenameTbDocumeform;
+	public  String getcTypenameTbDocumeform() {
+	return cTypenameTbDocumeform;
+	}
+  public void setcTypenameTbDocumeform ( String cTypenameTbDocumeform) {
+    this.cTypenameTbDocumeform = cTypenameTbDocumeform ;
+	}
+	public String cUnitTbDocumeform;
+	public  String getcUnitTbDocumeform() {
+	return cUnitTbDocumeform;
+	}
+  public void setcUnitTbDocumeform ( String cUnitTbDocumeform) {
+    this.cUnitTbDocumeform = cUnitTbDocumeform ;
+	}
+	public String cWeightTbDocumeform;
+	public  String getcWeightTbDocumeform() {
+	return cWeightTbDocumeform;
+	}
+  public void setcWeightTbDocumeform ( String cWeightTbDocumeform) {
+    this.cWeightTbDocumeform = cWeightTbDocumeform ;
+	}
+	public String cWhecooTbDocumeform;
+	public  String getcWhecooTbDocumeform() {
+	return cWhecooTbDocumeform;
+	}
+  public void setcWhecooTbDocumeform ( String cWhecooTbDocumeform) {
+    this.cWhecooTbDocumeform = cWhecooTbDocumeform ;
+	}
+	public Date cCreatetimeTbDocumeform;
+	public  Date getcCreatetimeTbDocumeform() {
+	return cCreatetimeTbDocumeform;
+	}
+  public void setcCreatetimeTbDocumeform ( Date cCreatetimeTbDocumeform) {
+    this.cCreatetimeTbDocumeform = cCreatetimeTbDocumeform ;
+	}
+	public Date cModifytimeTbDocumeform;
+	public  Date getcModifytimeTbDocumeform() {
+	return cModifytimeTbDocumeform;
+	}
+  public void setcModifytimeTbDocumeform ( Date cModifytimeTbDocumeform) {
+    this.cModifytimeTbDocumeform = cModifytimeTbDocumeform ;
+	}
+	public Date cTimestampTbDocumeform;
+	public  Date getcTimestampTbDocumeform() {
+	return cTimestampTbDocumeform;
+	}
+  public void setcTimestampTbDocumeform ( Date cTimestampTbDocumeform) {
+    this.cTimestampTbDocumeform = cTimestampTbDocumeform ;
+	}
+  
+  private String cMoneyrmbDocumeform;
+  
+  private String cMoneyusdDocumeform;
+public String getcMoneyrmbDocumeform() {
+	return cMoneyrmbDocumeform;
+}
+public void setcMoneyrmbDocumeform(String cMoneyrmbDocumeform) {
+	this.cMoneyrmbDocumeform = cMoneyrmbDocumeform;
+}
+public String getcMoneyusdDocumeform() {
+	return cMoneyusdDocumeform;
+}
+public void setcMoneyusdDocumeform(String cMoneyusdDocumeform) {
+	this.cMoneyusdDocumeform = cMoneyusdDocumeform;
+}
+ private  String cCheckstateTbDocumeform;
+public String getcCheckstateTbDocumeform() {
+	return cCheckstateTbDocumeform;
+}
+public void setcCheckstateTbDocumeform(String cCheckstateTbDocumeform) {
+	this.cCheckstateTbDocumeform = cCheckstateTbDocumeform;
+}
+
+ private String cInfocardTbDocumeform;
+private String cMadestateTbDocumeform;
+public String getcInfocardTbDocumeform() {
+	return cInfocardTbDocumeform;
+}
+public void setcInfocardTbDocumeform(String cInfocardTbDocumeform) {
+	this.cInfocardTbDocumeform = cInfocardTbDocumeform;
+}
+public String getcMadestateTbDocumeform() {
+	return cMadestateTbDocumeform;
+}
+public void setcMadestateTbDocumeform(String cMadestateTbDocumeform) {
+	this.cMadestateTbDocumeform = cMadestateTbDocumeform;
+}
+
+
+ 
+  
+}

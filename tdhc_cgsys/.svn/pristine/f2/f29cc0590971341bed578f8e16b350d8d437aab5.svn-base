@@ -1,0 +1,40 @@
+package code_fb_cg.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import code_fb_cg.entity.TbGuildata;
+import code_fb_cg.entity.TbGuildataRequest;
+import code_fb_cg.service.TbGuildataService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+import vip.toda.piper.auth.web.client.annotation.RequireUser;
+
+@Controller
+@RequestMapping("/TbGuildata")
+public class TbGuildataController {
+
+	@Autowired
+	private TbGuildataService tbGuildataService;
+	
+	@RequestMapping(value="/getInfo",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TbGuildata>> getInfo(@RequestBody RequestObject<EmptyTag, EmptyData> requestObject){ 
+		return tbGuildataService.getInfo(requestObject);
+	} 
+	
+	@RequestMapping(value="/M1S11Q",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TbGuildata>> M1S11Q(@RequestBody RequestObject<EmptyTag, TbGuildataRequest> requestObject){ 
+		return tbGuildataService.M1S11Q(requestObject);
+	} 
+	
+}

@@ -1,0 +1,37 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb.entity.CG_MNHT_S1S2;
+import code_fb_cg.entity.TpSettlement;
+import code_fb_cg.entity.TpSettlementExample;
+@Repository("tpSettlementMapper")
+public interface TpSettlementMapper {
+    int countByExample(TpSettlementExample example);
+
+    int deleteByExample(TpSettlementExample example);
+
+    int deleteByPrimaryKey(String cId);
+
+    int insert(TpSettlement record);
+
+    int insertSelective(TpSettlement record);
+
+    List<TpSettlement> selectByExample(TpSettlementExample example);
+
+    TpSettlement selectByPrimaryKey(String cId);
+
+    int updateByExampleSelective(@Param("record") TpSettlement record, @Param("example") TpSettlementExample example);
+
+    int updateByExample(@Param("record") TpSettlement record, @Param("example") TpSettlementExample example);
+
+    int updateByPrimaryKeySelective(TpSettlement record);
+
+    int updateByPrimaryKey(TpSettlement record);
+
+	List<TpSettlement> selectBycConnum(@Param("cConnum")String getcConnum);
+}

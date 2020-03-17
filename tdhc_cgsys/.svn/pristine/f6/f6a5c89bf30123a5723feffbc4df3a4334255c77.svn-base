@@ -1,0 +1,106 @@
+package code_fb_cg.controller;
+
+import java.io.File;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import code_fb.request.CG_MNHT_Request_M1S1;
+import code_fb_cg.entity.TpConcatfj;
+import code_fb_cg.entity.TpSettlement;
+import code_fb_cg.entity.Upload;
+import code_fb_cg.service.FileUploadService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+@Controller
+@RequestMapping("/fileUpload")
+public class FileUploadController {
+	@Autowired
+	private FileUploadService  fileUploadService;	
+/**
+ * 上传文件
+ * @param request
+ * @param user
+ * @param uploadFile
+ * @param cConnum
+ * @return
+ * @throws Exception
+ */
+@RequestMapping(value="/registerUpload",method=RequestMethod.POST)
+@ResponseBody
+public ResponseObject<EmptyTag,EmptyData> registerUpload(HttpServletRequest request,@RequestParamUser User user,@RequestParam MultipartFile uploadFile,@RequestParam("cConnum") String cConnum) throws Exception{
+	RequestObject<EmptyTag, TpConcatfj> requestObject = new RequestObject<EmptyTag, TpConcatfj>();
+	TpConcatfj  tpConcatfj = new TpConcatfj();
+	tpConcatfj.setMultFile(uploadFile);
+	tpConcatfj.setcConnum(cConnum);
+	requestObject.setData(tpConcatfj);
+	ResponseObject<EmptyTag,EmptyData> registerUpload = fileUploadService.registerUpload(request,user,requestObject.getData(),requestObject.getSession());
+	return registerUpload;
+}
+/**
+ * 下载
+ * @param request
+ * @param filename
+ * @param model
+ * @return
+ * @throws Exception
+ */
+@RequestMapping(value="/download")
+public ResponseEntity<byte[]> download(HttpServletRequest request,
+		@RequestParam("filename")String filename,Model model)throws Exception{
+	String path = "D:\\upload";
+	//下载文件路径
+//	String path =request.getServletContext().getRealPath("/upload/");
+	File file = new File(path +File.separator +filename);
+	HttpHeaders headers =new HttpHeaders();
+	//下载显示的文件名，解决中文名称乱码问题
+	String downloadFileName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
+	//通知浏览器以（下载方式打开）打开文件
+	headers.setContentDispositionFormData("attachment", downloadFileName);
+	//application/octet-stream:二进制流数据（最常见的文件下载）。
+	headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+	return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers,HttpStatus.CREATED);
+}
+
+/**
+ * 联动查询
+ * @param requestObject
+ * @return
+ */
+@RequestMapping(value="/searchFile",method=RequestMethod.POST)
+@ResponseBody
+public ResponseObject<EmptyTag, List<TpConcatfj>> searchFile(@RequestBody RequestObject<EmptyTag, CG_MNHT_Request_M1S1> requestObject){
+	return fileUploadService.searchFile(requestObject,requestObject.getSession());
+}
+/**
+ * 删除
+ * @param requestObject
+ * @return
+ */
+@RequestMapping(value="/deleateFile",method=RequestMethod.POST)
+@ResponseBody
+public ResponseObject<EmptyTag, EmptyData> deleateFile(@RequestBody RequestObject<EmptyTag, CG_MNHT_Request_M1S1> requestObject){
+	return fileUploadService.deleateFile(requestObject,requestObject.getSession());
+}
+}

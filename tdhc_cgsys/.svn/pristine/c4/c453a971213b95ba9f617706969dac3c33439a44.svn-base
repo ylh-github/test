@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="utf-8">
+    <title>协议制作</title>
+    <!-- DevExtreme 依赖 -->
+    <!-- 文员页面 -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+    <!--   <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script src="js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="js/localization/dx.messages.zh.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script src="js1/CG_XYZZYM.js"></script>
+    <script src="js1/CG_MNHTJudgment.js"></script>
+    <script type="text/javascript">
+	function selectFile(file){
+		if(!file.files || !file.files[0]){
+			return ;
+		}
+	}
+	function uploadAction(){
+		var formData = new FormData();
+		var uploadFile = $('#uploadFile').get(0).files[0];
+		var cConnum = document.getElementById("c_Connum").vlaue;
+		formData.append("uploadFile",uploadFile);
+		formData.append("cConnum", cConnum);
+		console.log(uploadFile);
+		if("undefined" != typeof(uploadFile) && uploadFile != null && uploadFile != ""){
+			$.ajax({
+				url: Cake.Piper.getAuthUrl('http://10.107.3.254:8866/tdhc_cgsys/fileUpload/registerUpload'),
+				//dataType: 'json',   //返回格式为json           
+				async: true,//请求是否异步,默认为异步,这也是ajax重要特性          
+				data: formData,    //下拉框的参数值  queryCondition 上面有定义 cStlCla 后台给的固定的名         
+				type: 'post',   //请求方式 get 或者post ,         
+				cache: false, 
+				contentType: false, //不设置内容类型
+				processData: false, //不处理数据
+				success: function (data) {
+					console.log(data);
+					if (data.errcode == 0) {
+						DevExpress.ui.notify(data.msg, 'success', 3000)
+					} else {
+						DevExpress.ui.notify(data.msg, 'error', 3000)
+						return;
+					} 
+					window.S1S23_SSRT();
+					upload.hide(); 
+				},
+				error: function () {
+					DevExpress.ui.notify('网络或服务器故障,请稍后再试。', 'error', 3000);
+					// Cake.Ui.Toast.showError('网络或服务器故障,请稍后再试。')         
+					//e.cancel=true;         
+				}
+			})
+		}else{
+			DevExpress.ui.notify('选择的文件无效！请重新选择。', 'info', 3000);
+			return;
+		}
+	}
+	</script>
+   <style>
+        .bgc_FF0 {
+            background: pink;
+        }
+        
+        .bgc_aqua {
+            background: purple;
+        }
+        
+        .bgc_green {
+            background: palegreen;
+        }
+        
+        #addForm3 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        
+        .font14 {
+            font-size: 14px;
+        }
+        
+        #deadline3 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #pice3 span.dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #textarea4 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #addmotai4 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        
+        .BoxDilog {
+            width: 80%;
+            margin: 0 auto;
+            font-family: 宋体;
+            font-size: large;
+        }
+        
+        .stance {
+            margin: 10px 0;
+        }
+        
+        .title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .title h3 {
+            font-weight: bold;
+        }
+        
+        .footers {
+            text-align: center;
+        }
+        /*  #clauseForm4 textarea .dx-texteditor-text {
+		font-size: 14px;
+		} */
+        
+        #clauseForm4 .dx-textarea .dx-texteditor-input {
+            font-size: 14px;
+        }
+        
+        #clauseForm5 .dx-textarea .dx-texteditor-input {
+            font-size: 14px;
+        }
+        
+        #addForm5 input {
+            border: none;
+        }
+        
+        #textarea7 input {
+            border: none;
+        }
+        
+        #textarea8 input {
+            border: none;
+        }
+        
+        #addForm5 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        
+        #textarea7 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #textarea8 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="easyui-layout">
+      <!-- <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:45%;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',split:true,hideCollapsedContent:false" style="height:40px;padding: 2px">
+                        顶部查询条件
+                        <div id="searchFormM1"></div>
+                    </div>
+                    <div data-options="region:'center',title:''">
+                        <div class="easyui-layout" data-options="fit:true">
+                            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:45px;padding: 2px;">
+                                <div id="operateFormM1S1"></div>
+                            </div>
+                            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                                <div id="dataGridS1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+   <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:50%;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',split:true,hideCollapsedContent:false" style="height:40px;padding: 3px">
+                        <!-- 顶部查询条件 -->
+                        <div id="searchFormM1"></div>
+                    </div>
+                    <div data-options="region:'center',title:''">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center',title:'',split:false,hideCollapsedContent:false">
+        <div class="easyui-layout" data-options="fit:true,split:false,hideCollapsedContent:false">
+            <div data-options="region:'north',title:'',split:false,hideCollapsedContent:false" style="height:35px;padding: 2px">
+                <div id="searchFormM2"></div>
+            </div>
+            <div data-options="region:'center',title:'',split:false,hideCollapsedContent:false">
+                <div class="easyui-layout" data-options="fit:true,split:false,hideCollapsedContent:false">
+                    <!-- 选项卡主体 -->
+                    <div id="table3"></div>
+                    <div id="this-grid-container1">
+                        <!-- <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S2"></div>
+                        </div> -->
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS2"></div>
+                        </div>
+                    </div>
+                    <!-- 合同清单	-->
+                    <div id="this-grid-container3">
+                        <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S4"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS4"></div>
+                        </div>
+                    </div>
+                    <div id="this-grid-container5">
+                        <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S5"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS5"></div>
+                        </div>
+                    </div>
+                    <div id="this-grid-container6">
+                        <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S6"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS6"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:100%;">
+                        <div class="easyui-layout" data-options="fit:true">
+
+                            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                                <div id="dataGridS2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- 添加模态框 -->
+    <div id="addmotai">
+        <div id="addForm" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+    </div>
+    <!-- 修改模态框 -->
+    <div id="addmotai2">
+        <div id="addForm2" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure2"></div>
+        <div id="addcansel2"></div>
+    </div>
+    <!-- 添加模态框 -->
+    <div id="addmotai7">
+        <!-- <h1 style="text-align:center;height:10px;margin-bottom: 50px">
+            单&nbsp;&nbsp;证&nbsp;&nbsp;信&nbsp;&nbsp;息&nbsp;&nbsp;录&nbsp;&nbsp;用&nbsp;&nbsp;卡</h1> -->
+
+        <div style="height:550px;overflow-y: scroll;">
+	       <!--  <h3>出&nbsp;&nbsp;口&nbsp;&nbsp;端</h3> -->
+	        <div id="mAke" style="margin:15px 0 20px 0"></div>
+	       <!--  <h3>进&nbsp;&nbsp;口&nbsp;&nbsp;端</h3> -->
+	       <!--  <div id="mAke2" style="margin:15px 0 20px 0"></div> -->
+	        <div id="addFormMT"></div>
+        </div>
+        <!-- <div id="addsure"></div>
+        <div id="addcansel"></div> -->
+    </div>
+    <!-- 导入 模态框 -->
+    <div id='button6'></div>
+    <!-- 导入 模态框 -->
+    <div id="import-content">
+        <div id="file_upload" style="margin-bottom:40px;">
+            <h3>请购单导入，文件格式(xls/xlsx)</h3>
+            <input type="file" id="upInput" onchange="importf(this)" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </div>
+        <div id="import_btn"></div>
+    </div>
+    <div id='button7'></div>
+    <div id="import-content2">
+        <div id="file_upload2" style="margin-bottom:40px;">
+            <h3>请购单导入，文件格式(xls/xlsx)</h3>
+            <input type="file" id="upInput2" onchange="importf2(this)" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </div>
+        <div id="import_btn2"></div>
+    </div>
+    <div id='button8'></div>
+    <div id="import-content3">
+        <div id="file_upload3" style="margin-bottom:40px;">
+            <h3>请购单导入，文件格式(xls/xlsx)</h3>
+            <input type="file" id="upInput3" onchange="importf3(this)" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </div>
+        <div id="import_btn3"></div>
+    </div>
+    <!-- 导出模态框 -->
+    <div id="add-edit-popup-container">
+        <div id="add-edit-form-container">
+        </div>
+    </div>
+    <div id="addGangGrid" style="margin-top: 10px"></div>
+
+    <!-- 追加模态框 -->
+    <div id='addmotai13'>
+            <div style="height:100%;overflow-y: scroll;">
+                    <h1 style="text-align:center;height:10px;margin-bottom: 50px">请&emsp;购&emsp;物&emsp;资&emsp;信&emsp;息</h1>
+                    <div id="contract_type2" style="margin-bottom: 15px"></div>
+                    <div  id="addmoni13" style="margin-top:15px"></div>
+            </div>
+        
+    </div>
+    <!-- 添加合同模态框 -->
+
+    <div id="addmotai3">
+        <div style="height:100%;overflow-y: scroll;">
+            <h1 style="text-align:center;height:10px;margin-bottom: 50px;">模&nbsp;&nbsp;拟&nbsp;&nbsp;合&nbsp;&nbsp;同</h1>
+            <div id="addForm3" style="margin-bottom: 15px"></div>
+            <p style="font-size:14px">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+            <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b>
+            <div id="addmoni3" style="margin-top:15px"></div>
+            <p class="font14">
+                                    注：需方按上述合同金额完成支付后，无需再支付其他任何费用；货物需过磅、化验的，按实际双方确认数据结算；物资外表贴（挂）唛头上面的重量、体积（长*宽*高）要与实际重量、体积（长*宽*高）一致；实物铭牌名称规格必须和合同签订的一致。
+            </p>
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <br>
+            <b class="font14">第二条 质量技术标准、供方承诺</b>
+            <p class="font14">
+                1、该产品的质量技术标准应满足本合同的约定；合同未约定的，按行业标准执行；无行业标准的，按国家标准执行；需方对产品有特殊要求的按需方要求执行。若有签署技术协议的，技术协议与本合同约定不一致的，按有利于需方的条款执行。
+            </p>
+            <p class="font14">
+                2、产品保质期为（12）个月，自产品验收合格之日起计算，正常条件下使用，如出现问题，由供方负责免费更换或修理；更换或修理的部分，质保期自更换或修理完毕且经需方验收合格之日起重新计算。质保期内只要需方提出质量问题，供方必须在24小时内给予答复；如需方认为必要，供方应在7天内指派人员到现场解决问题，如果是产品本身存在质量问题，则因此产生的一切费用由供方自行承担，其他原因导致的产品问题由双方根据实际情况协商解决。质保期内供方借故推脱或无理由拒绝需方提出的维修、更换等服务请求，需方可以自行解决，并对维修或更换等服务以实际发生的费用或按市场价从质保金中扣除，若质保金不足以弥补需方所遭受的损失，需方有权要求供方另行支付不足部分。质保期内产品经维修或更换后仍无法达到质量标准，需方有权退货并向供方索赔。
+            </p>
+            <b class="font14">第三条 包装方式</b>
+            <p class="font14">
+                                          供方对产品及技术资料的包装、装运应符合需方编制的《供应商须知》（详见附件一）或需方提出的其他特殊要求。包装物由供方提供，使用完毕后不回收。对于采用实木或掺杂实木包装的，必须做熏蒸处理，并在木质包装上打上“熏蒸标识”或“IPPC标识”，《熏蒸证明》须随车由驾驶员携带到码头。若供方未按上述的要求进行包装装运的，需方有权处以其2000元/件的责任金。
+            </p>
+            <b class="font14">第四条 资料单据给付要求</b>
+            <p class="font14">
+                                         供方应在集港前10个工作日前将装箱清单、海关编码、申报要素、包装箱数据（长宽高、毛重、净重等具体信息）等相关资料以邮件形式送达需方指定人员；并发货前1天中午12：00前将《发货计划通知表》发到需方指定的邮箱，供方对上述单据及资料的及时性、完整性、真实性、规范性负责。若供方违反上述规定，应承担单据瑕疵引起的不利后果。
+            </p>
+
+            <br>
+            <b class="font14">第五条 交货方式及费用</b>
+            <!-- 交货期限、交货地点 -->
+            <div id="deadline3" style="margin-top:10px"></div>
+
+            <p class="font14">
+                3.运输方式及费用承担：供方负责（汽运、物流）方式货交目的地，并承担运输费、包装费、保险费等运输相关费用。
+            </p>
+            <p class="font14">
+                4.按单收货要求：货物交接时供方必须出示送货清单，清单上需注明合同编号及收货人，并保证所填的物品名称、规格型号与合同及实物铭牌一致，由需方仓库人员验收并签字确认，若因供方过失而造成需方仓库未能及时入库的，供方自行承担相关损失。
+            </p>
+
+            <br>
+            <b class="font14">第六条 结算</b>
+            <div id="pice3" style="margin-top:10px"></div>
+            <p class="font14">
+                2、供方应按需方要求开具合法有效的税率为13%的增值税专用发票；如本合同所涉增值税税率因法律、法规等相关政策变动而变更的，双方一致同意按照新政策执行。合同金额、物料价格、开票金额等根据新政策进行相应调整，具体计算方式如下：变更后合同金额（物料价格或开票金额）=原合同金额（物料价格或开票金额）÷（1+原税率）×（1+新税率）。
+            </p>
+            <br>
+            <!--  <b>第七条 验收方式及异议提出期限</b>
+            <div id="place" style="margin-top:10px"></div>
+            <p>
+                2.验收标准：需方依据本合同对产品进行的验收只是对产品外观及相关附属配件是否齐备的检验，验收合格单的出具不视为需方确认本合同项下产品已符合本合同第二条约定的质量标准。对于验收达不到标准、不符合需方特殊使用要求的，需方有权拒付剩余款项并对供方处以相应考核。 
+            </p>
+            <p>
+                3.异议提出期：异议提出期限为一年，自货物初步验收合格之日起算。如有异议，供方应在接到需方书面异议后3日内书面答复需方，否则视为认可需方的异议。
+            </p>
+ -->
+            <b class="font14">第七条 验收方式及所有权风险转移 </b>
+            <!-- <div id="place3" style="margin-top:10px"></div> -->
+            <P class="font14">
+                1、初步验收地点为需方国内仓库，安装调试验收地点为需方项目现场；需方依本合同对产品进行的验收只是对产品外观及相关附属配件是否齐备的初步检验，验收合格单的出具不视为需方确认产品已符合约定的质量标准；异议提出期限为一年，自货物初步验收合格之日起算，如有异议，供方应在接到需方书面异议后3日内做出书面答复，否则视为认可需方的异议。
+            </P>
+            <p>
+                2、所有权与风险转移：货物自需方仓库人员验收并签字确认后所有权与风险转移。
+            </p>
+			<b class="font14">第八条 出国指导安装调试事项</b>
+            <p>
+              	需方向供方提出安装（由供方负责安装的情况下）或安装指导、调试要求后，供方应在10日内派相关技术人员进行安装或安装指导、调试，并在合理期限内完成安装或安装指导、调试。出国现场安装指导和提供其他技术服务期间，供方服务人员应遵守施工现场的规章制度以及尊重境外当地的民风风俗，供方或供方人员遭受或造成的人身、财产损失由供方自行负责。需方承担并负责安排现场安装指导和技术服务人员往返国际机票、在出国期间安排在现场的住宿、膳食、交通等各种合理费用，其它费用如中国国内交通费、人身保险费、差旅补贴费、通信费、签证费、路途中所发生的一切费用由供方承担。如果由于合同设备本身的质量问题需要供方去现场处理，需方只承担并负责安排现场技术服务人员在现场工地的住宿、膳食、交通，其它一切费用由供方承担。
+            </p>
+            <b class="font14">第九条 违约责任</b>
+            <p class="font14">
+                1、非需方原因延迟到货的，每逾期一天，供方应向需方支付合同总金额5‰的违约金，并累计计算，需方有权直接在货款中抵扣该违约金；若逾期超过15天，需方有权单方面解除合同，并有权要求供方向其支付合同总金额30%的违约金，若该违约金不足以弥补需方的直接损失，需方有权继续向供方追偿。
+            </p>
+            <p class="font14">
+                2、供方承诺提供原厂正品，并对产品的品名、数量、规格、重量、技术要求等是否符合出口规范要求负责，如需方在验收或实际使用的过程中发现产品不符合本合同规定，需方可要求供方更换或予以修理，直至交付的产品达到合同规定的要求。若供方未在需方给予的期限内更正的，视同逾期交货。违约金按逾期交货部分的货款计算，如违约金不足以弥补需方的损失，则供方还应赔偿需方因此而遭受的直接损失。
+            </p>
+            <p class="font14">
+                3、因包装不当造成货物损坏或灭失的，需方有权拒收该部分货物；货物未存在质量问题的，供方应自付费用并在需方给予的更正期限内重新包装，否则视同逾期交货。若因供方包装不合格，如框架箱的材质强度、尺寸标准不合格、焊接点不牢固等原因导致的装卸、海运过程中给需方或第三方造成的人身、财产损失的，供方应承担赔偿责任。
+            </p>
+            <p class="font14">
+                4、供方已知悉进出口国对违禁品的相关法律法规，并保证其所供应的货物符合合同及进出口国的相关规定。在合同履行过程中，供方不得以任何形式夹带违禁物品，若供方存在瞒报或夹带行为，一经发现，视为供方违约，供方除向需方支付不低于RMB20万元的违约金外，还应根据违约行为的影响程度，承担其对需方造成的一切风险、责任和相关处罚费用，包括但不限于刑事责任、行政处罚、海关处罚、税金罚款、船舶滞期费、延期交货的不利后果等，若违约金及相关处罚费用均不足以弥补需方的损失，需方有权继续向供方追偿。
+            </p>
+
+            <b class="font14">第十条 不可抗力</b>
+            <p class="font14">
+                                         由于不能预见、不能避免和不能克服的自然原因或社会原因，致使本合同不能履行或者不能完全履行时，遇到上述不可抗力事件的一方，应立即书面通知合同其他方，并应在不可抗力事件发生后五日内，向合同其他方提供经不可抗力事件发生地区公证机构出具的证明合同不能履行或需要延期履行、部分履行的有效证明文件。未履行通知义务而致使对方损失扩大的，过错方应承担违约责任。因不可抗力事件影响本合同的履行时，供需双方可根据实际情况相应缩短、延长或终止合同，不属违约。
+            </p>
+            <b class="font14">第十一条 争议解决方式</b>
+            <p class="font14">
+                                         本合同履行过程中发生争议的，双方可协商解决。协商不成的，应向需方所在地人民法院提起诉讼，适用中国法律（港澳台除外）。双方支出的与诉讼有关的费用（包括但不限于律师费、差旅费、取证费、公证费、案件受理费）均由供方承担。
+            </p>
+            <b class="font14">第十二条 知识产权条款</b>
+            <p class="font14">
+                1、供方应保证需方所采购的产品免于遭受任何国内外第三方就知识产权（包括但不限于专利权、商标权、著作权及非专利技术）提起的诉讼、仲裁或任何请求。
+            </p>
+            <p class="font14">
+                2、如果发生因供方出售的产品或产品的一部分侵犯了他人知识产权而针对需方提起索赔或诉讼的情况，供方将自费进行辩护，并支付全部费用和由于该案最终判决/裁定而支付的赔偿金，以及赔偿需方因此而受到的一切损失。
+            </p>
+            <p class="font14">
+                3、供方应提供货物品牌的出口品牌授权，保证需方出口不受品牌授权限制，同时应提供货物的出口申报要素等信息。如供方不能履行本款，需方有权终止本合同，并退还已签收的货物，因此给需方造成的损失由供方承担，并应同时追究供方的逾期交货的违约责任。
+            </p>
+            <b class="font14">第十三条 保密条款</b>
+            <p class="font14">
+                                        供需双方均应保守在本合同签订及履行过程中所知悉的对方的商业秘密及信息，不得披露给任何第三人，包括但不限于双方尚未对外公开的、不为公众所知悉的秘密及信息。本保密条款的约定具有独立性，不受本合同履行、无效、终止的影响。
+            </p>
+            <!-- <p class="font14">
+                2、任何一方违反本约定，违约方应赔偿守约方的实际损失，并按本合同总价款的10%向守约方支付违约金，若该违约金不足以弥补对方的损失，守约方有权继续向违约方追偿。
+            </p> -->
+            <b class="font14">第十四条 廉洁声明</b>
+            <p class="font14">
+                供需双方承诺，恪守中华人民共和国法律法规关于反商业贿赂的规定，不以任何方式或名义向对方提供任何形式的商业贿赂，任何一方违反上述规定，守约方有权终止合同，对于我司人员的监督，可通过以下渠道反馈： 投诉电话：0593-6600159，投诉邮箱：lzjc@ynqsgt.com。
+            </p>
+            <b class="font14">第十五条 其他</b>
+            <p class="font14">
+                1、本合同经双方授权代表签字并盖章后生效。本合同一式4份，双方各持2份。附件为本合同的组成部分，与扫描件、传真件形式的合同和本合同具有同等法律效力。
+            </p>
+            <p class="font14">
+                2、本合同未尽事宜，经双方协商一致后，可另行签订补充协议约定。
+            </p>
+            <p class="font14">
+                附件一 《供应商须知》
+            </p>
+            <p class="font14">
+                ——以下无正文——
+            </p>
+            <div style="width:100%">
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea3" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea4" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增变更协议 -->
+    <div id="addmotai14">
+        <div style="height:100%;overflow-y: scroll;">
+            <!-- 合同模板类型 -->
+            <div id="contract_type14" style="margin-bottom: 15px"></div>
+            <!-- <div id="addForm4" style="margin-bottom: 15px"></div> -->
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif">&emsp;&emsp;供需双方经友好协商,一致同意将合同签订时间 <span id='span1'>2019-5-10</span> 签订合同号为 <input type="text" id='span2'>合同签订总金额: <input type="text" id='span3'>变更后合同总金额调整为: <input type="text" id='span4'> <input type="text" id='span5' value='同时开具13%增值税专用发票'> 双方经过平等协商,在真实、充分表达各自意愿的基础上就该合同的有关事宜,达成合同变更协议的条款如下: </p>
+            <!-- <p class="font14">   </p>
+            <p class="font14"></p> -->
+            <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif"> <b> 1.原合同内容</b></p>
+            <div id="addmoni10" style="margin:15px 0"></div>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif"><b>2.变更合同内容</b></p>
+            <div  id="addmoni11" style="margin:15px 0"></div>
+            <div  id="addmoni12" style="margin-top:15px"></div>
+            <!-- <div id="clauseForm4" style="margin-top:15px"></div>
+            <div id="deadline4" style="margin-top:10px"></div> -->
+            <!-- <div id="deadline41" style="margin-top:10px"></div> -->
+            <!-- <div id="pice4" style="margin-top:10px"></div>
+            <div style="width:100%">
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea6" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea5" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+     <!-- 新增结算协议 -->
+     <div id="addmotai15">
+        <div style="height:100%;overflow-y: scroll;">
+            <!-- 合同模板类型 -->
+            <div id="contract_type15" style="margin-bottom: 15px"></div>
+            <!-- <div id="addForm4" style="margin-bottom: 15px"></div> -->
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">&emsp;&emsp;供、需双方于<span id='sp1'>2019-5-10</span>,签订<input type="text" id='sp2' placeholder='合同名称'>的购销合同，合同号为: <input type="text" id='sp3'>,合同签订金额为RMB: <input type="text" id='sp4' style='width:80px'>元,合同到货金额为RMB <input type="text" id='sp5' value='' style='width:80px'>元,<span id='spshi'>合同变更协议后金额为RMB<input type="text" id='spshi1' value=''>元</span><input type="text" id='sp6' value=''> 双方经过友好协议,达成以下协议: </p>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">1、供方资源赔偿RMB<input type="text" id='sp11'>元<input type="text" id='sp12' value='作为对需方造成的损失'>,在合同<input type="text" id='sp13' value='调试款中'>一次性扣除,合同结算金额为RMB<input type="text" id='sp14' placeholder='计算金额'>元</p>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">2、<input type="text" id='sp21' value='供、需双方凭此协议各自计入营业外支持' style='width:80%'></p>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">3、<input type="text" id='sp31' value=''style='width:80%'></p>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">&emsp;&emsp;本协议作为原合同的补充,与原合同具有同等的法律效力，本协议一式肆份,供需方各贰分，签章生效</p>
+            <div style='float:right;margin-right:200px'>
+                <div id='addsure15'></div>
+                <div id='addcansel15'></div>
+            </div> -->
+        </div>
+    </div>
+     <!-- 新增作废协议 -->
+     <div id="addmotai16">
+        <div style="height:100%;overflow-y: scroll;">
+            <!-- 合同模板类型 -->
+            <div id="contract_type16" style="margin-bottom: 15px"></div>
+            <!-- <div id="addForm4" style="margin-bottom: 15px"></div> -->
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">&emsp;&emsp;经双方友好协商,一致同意取消<span id='zf1'>2019-5-10</span>签订合同编号为<input type="text" id='zf2' placeholder='合同号'>,合同签订金额为RMB <input type="text" id='zf3'>元,原合同中约定的双方的权利与义务在本协议生效后全部失效。 </p>
+            <p style="font-size: 16px;font-family:'Times New Roman', Times, serif; line-height:2;">&emsp;&emsp;本协议自双方签字盖章后即生效,正本一式肆份,双方各执贰份</p>
+            <div style='float:right;margin-right:200px'>
+                <div id='addsure16'></div>
+                <div id='addcansel16'></div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- 添加合同模态框 动态版 -->
+    <div id="addmotai4">
+            <div style="height:100%;overflow-y: scroll;">
+                <h1 style="text-align:center;height:10px;margin-bottom: 50px">模&nbsp;&nbsp;拟&nbsp;&nbsp;合&nbsp;&nbsp;同</h1>
+                <!-- 合同模板类型 -->
+                <div id="contract_type4" style="margin-bottom: 15px"></div>
+                <div id="addForm4" style="margin-bottom: 15px"></div>
+                <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+                <p class="font14">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+                <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b>
+                <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+                <div id="addmoni4" style="margin-top:15px"></div>
+                <div id="clauseForm4" style="margin-top:15px"></div>
+                <div id="deadline4" style="margin-top:10px"></div>
+                <!-- <div id="deadline41" style="margin-top:10px"></div> -->
+                <div id="pice4" style="margin-top:10px"></div>
+                <div style="width:100%">
+                    <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                        <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                        <div id="textarea6" style="margin-left:5px;margin-right:5px"></div>
+                        <p></p>
+                    </div>
+                    <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                        <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                        <div id="textarea5" style="margin-left:5px;margin-right:5px"></div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 添加合同模态框 动态版 -->
+    <div id="addmotai4">
+            <div style="height:100%;overflow-y: scroll;">
+                <h1 style="text-align:center;height:10px;margin-bottom: 50px">模&nbsp;&nbsp;拟&nbsp;&nbsp;合&nbsp;&nbsp;同</h1>
+                <!-- 合同模板类型 -->
+                <div id="contract_type4" style="margin-bottom: 15px"></div>
+                <div id="addForm4" style="margin-bottom: 15px"></div>
+                <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+                <p class="font14">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+                <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b>
+                <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+                <div id="addmoni4" style="margin-top:15px"></div>
+                <div id="clauseForm4" style="margin-top:15px"></div>
+                <div id="deadline4" style="margin-top:10px"></div>
+                <!-- <div id="deadline41" style="margin-top:10px"></div> -->
+                <div id="pice4" style="margin-top:10px"></div>
+                <div style="width:100%">
+                    <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                        <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                        <div id="textarea6" style="margin-left:5px;margin-right:5px"></div>
+                        <p></p>
+                    </div>
+                    <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                        <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                        <div id="textarea5" style="margin-left:5px;margin-right:5px"></div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 查看合同 -->
+    <div id="addmotai5">
+        <div style="height:100%;overflow-y: scroll;">
+            <h1 style="text-align:center;height:10px;margin-bottom: 50px">合&nbsp;&nbsp;同&nbsp;&nbsp;信&nbsp;&nbsp;息</h1>
+           <!-- 合同模板类型 -->
+           <div id="contract_type5" style="margin-bottom: 15px"></div>
+            <div id="addForm5" style="margin-bottom: 15px"></div>
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p class="font14">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+            <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b>
+           <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+            <div id="addmoni5" style="margin-top:15px"></div>
+            <div id="clauseForm5" style="margin-top:15px"></div>
+           <!--  <div id="deadline5" style="margin-top:10px"></div>
+			<div id="pice5" style="margin-top:10px"></div> -->
+            <div style="width:100%">
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea7" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea8" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div id="addmotai6">
+        <div style="height:100%;overflow-y: scroll;">
+            <h1 style="text-align:center;height:10px;margin-bottom: 50px">合&nbsp;&nbsp;同&nbsp;&nbsp;信&nbsp;&nbsp;息</h1>
+           <!-- 合同模板类型 -->
+          <!--  <div id="contract_type5" style="margin-bottom: 15px"></div> -->
+            <div id="addForm6" style="margin-bottom: 15px"></div>
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+         <!--    <p class="font14">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+            <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b> -->
+           <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+            <div id="addmoni6" style="margin-top:15px"></div>
+            <!-- <div id="clauseForm5" style="margin-top:15px"></div> -->
+           <!--  <div id="deadline5" style="margin-top:10px"></div>
+			<div id="pice5" style="margin-top:10px"></div> -->
+           <!--  <div style="width:100%">
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea7" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea8" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- 添加结算协议-->
+    <!-- <div id="addmotai6"></div> -->
+    <!-- <div id="dataGridS23">
+        <div class="title">
+            <h3>结算协议</h3>
+        </div>
+       %
+
+    </div> -->
+   <div id="addmotai31">
+       <div class="BoxDilog">
+                 <div class="title">
+                        <h3>结算协议</h3>
+                 </div>
+                <p class="stance">
+                    <b>买方:</b><input id="cCludecom" value="" type="text">
+                </p>
+                <p class="stance">
+                    <b>卖方:</b><input id="cSupplier" value="" type="text">
+                </p> 
+                <div class="content  stance">
+                     <div class="main">
+                      &nbsp; &nbsp;买、卖双方于 <input id="cCludetime" value="" type="text" placeholder="签订日期"> 签订<input id="cSw02" value="" type="text" placeholder="台面等材料的采购合同">，合同号为 <input  id='cConnum'  value="" type="text"> ，
+                            合同签订金额为 <input id="cConmoney" value="" type="text"> 元，到货总金额为 <input id="cGoodsmoney" value="" type="text"> 元。
+                            买方累计支付卖方 <input id="cPaymoney" value="" type="text">元，余款 <input id="cResidualq" value="" type="text">元买方尚未支付卖方。因 <input id="cCause" value="" type="text">买方造成损失，经双方友好协商决定，达成以下协议：  
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;1、卖方给予赔偿 <input id="cPcmoney" value="" type="text">元作为对买方的损失补偿，在 <input id="cKccause" value="" type="text" placeholder="合同余款（质保金）">中一次性扣除，即为 <input id="cZbmoney"  value="" type="text">元；合同结算金额为 <input id="cSettlemoney" value="" type="text">元。
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;2、<input id="cSw01" value="" type="text" placeholder="根据发票填写">  <br>
+                     &nbsp; &nbsp;本协议作为原合同的补充，与原合同具有同等的法律效力，除本协议变更的内容外，其他条款仍按原合同条款执行。本协议一式肆份，签章生效。
+                        </div>
+                </div>  
+                 
+                <p class="stance">
+                        <b>买方:</b><input id="cCludecom2" value="" type="text">
+                        <br>
+                        <b>买方代表：</b>
+                    </p>
+                    <br>
+                    <p class="stance">
+                        <b>卖方:</b><input id="cSupplier2" value="" type="text">
+                        <br>
+                        <b>卖方代表：</b>
+                    </p> 
+          <div  class="  stance">
+              <br>
+               <div class="footers">
+                    <div id="addcontract"></div>
+                    <div id="canselcontract"></div>
+               </div> 
+          </div>      
+       </div>
+   </div>
+     <!-- 上传附件 -->
+    <div id="upload-content">
+   <!--  action="../register2.action" -->
+       <form  enctype="multipart/form-data" method="post">
+	     	<input type="file" name="file" onchange="selectFile(this);" id="uploadFile" class="font14"><br/>
+	    	<span class="font14" style="display:none">合同号:</span><input type="text"  class="font14" id="c_Connum" value="" style="display:none"><br/>
+       		<button type="button" onclick="uploadAction()" class="font14">上传文件</button>
+   	 	</form>
+    </div>
+</body>
+
+</html>

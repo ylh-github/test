@@ -1,0 +1,61 @@
+
+package code_fb.service;
+ import java.util.List;
+
+import code_fb.request.ZZ_01_Request_M1S1;
+import code_fb.request.ZZ_01_Request_add;
+import code_fb.response.ZZ_01_Response_M1S1;
+import code_fb_cg.entity.TbCludecompany;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+
+ public interface ZZ_01_Service {
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, ZZ_01_Response_M1S1> M1S11Q(ZZ_01_Request_M1S1 zz01RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(User user,ZZ_01_Request_M1S1 zz01RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(User user,ZZ_01_Request_M1S1 zz01RequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(User user,ZZ_01_Request_M1S1 zz01RequestM1s1,String session);
+ /**
+  * 导入
+  * @param requestObject
+ * @param user 
+  * @return
+  */
+ResponseObject<EmptyTag, EmptyData> Import_CompExcel(RequestObject<EmptyTag, ZZ_01_Request_add> requestObject, User user);
+/**
+ * 查询签订公司
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, List<TbCludecompany>> findCompInfo(EmptyData data, String session);
+/**
+ * 签订公司信息的填充
+ * @param data
+ * @param session
+ * @return
+ */
+ResponseObject<EmptyTag, List<TbCludecompany>> getCompInfo(User user,TbCludecompany data, String session);
+ }

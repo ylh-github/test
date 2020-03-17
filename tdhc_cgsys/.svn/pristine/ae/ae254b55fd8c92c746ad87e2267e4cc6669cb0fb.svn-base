@@ -1,0 +1,830 @@
+
+package code_fb.service.impl;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb.entity.CG_MNHT_S1S2;
+import code_fb.mapper.CG_MNHT_Mapper;
+import code_fb.request.CG_MNHT_Request_M1S1;
+import code_fb.request.CG_MNHT_Request_S1S2;
+import code_fb.response.CG_MNHT_Response_M1S1;
+import code_fb.response.CG_MNHT_Response_S1S2;
+import code_fb.service.CG_MNHT_Service;
+import code_fb_cg.entity.TbCgcontract;
+import code_fb_cg.entity.TbDocumeform;
+import code_fb_cg.entity.TpCgauthority;
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractmtt;
+import code_fb_cg.entity.TpCgcontractstt;
+import code_fb_cg.entity.TpCgordermt;
+import code_fb_cg.mapper.TbCgcontractMapper;
+import code_fb_cg.mapper.TbDocumeformMapper;
+import code_fb_cg.mapper.TpCgauthorityMapper;
+import code_fb_cg.mapper.TpCgcontractmtMapper;
+import code_fb_cg.mapper.TpCgcontractmttMapper;
+import code_fb_cg.mapper.TpCgcontractstMapper;
+import code_fb_cg.mapper.TpCgcontractsttMapper;
+import code_fb_cg.mapper.TpCgorderbeforeMapper;
+import code_fb_cg.mapper.TpCgordermtMapper;
+import code_fb_cg.request.DelInformation;
+import code_fb_cg.request.TP_SimContract;
+import code_fb_cg.request.TpCgorderRequest;
+import code_fb_cg.request.Xxk_Cont_Request;
+import code_fb_cg.util.ContractUtil;
+import code_fb_customer.CG_MNHT_Customer;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.Errcode;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import transfer.ResponseObjectBuilder;
+import vip.toda.piper.auth.web.client.User;
+
+@Service("cgMnhtService")
+public class CG_MNHT_ServiceImpl implements CG_MNHT_Service {
+	@Autowired
+	@Qualifier("cgMnhtMapper")
+	public CG_MNHT_Mapper frcDao;
+	@Autowired
+	public CG_MNHT_Customer cgMnhtCustomer;
+	@Autowired
+	private TpCgorderbeforeMapper tpCgorderbeforeMapper;
+	@Autowired
+	private TpCgcontractmtMapper tpCgcontractmtMapper;
+	@Autowired
+	private TpCgcontractstMapper tpCgcontractstMapper;
+	@Autowired
+	private TpCgcontractsttMapper tpCgcontractsttMapper;
+	@Autowired
+	private TpCgordermtMapper tpCgordermtMapper;
+	@Autowired
+	private TpCgcontractmttMapper tpCgcontractmttMapper;
+	@Autowired
+	private TbCgcontractMapper tbCgcontractMapper;
+	@Autowired
+	private TbDocumeformMapper tbDocumeformMapper;
+	@Autowired
+	@Qualifier("tpCgauthorityMapper")
+	private TpCgauthorityMapper tpCgauthorityMapper;
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> M1S11Q(User user,CG_MNHT_Request_M1S1 cgMnhtRequestM1s1,
+			String session) {
+		String msg = "查询成功";
+		String getcSubitemid = "";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+//		TpCgauthority tpCgauthority = tpCgauthorityMapper.selectSubitemid(user.getUserName());
+		List<CG_MNHT_M1S1> m1s11qcg_MNHT_M1S1 = frcDao.M1S11QCG_MNHT_M1S1(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0),
+				cgMnhtRequestM1s1.getStartTime(), cgMnhtRequestM1s1.getEndTime(),getcSubitemid);
+		return builder.data(m1s11qcg_MNHT_M1S1).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+	public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> M1S11Q2(CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+		data.setCgMnhtM1s1(frcDao.M1S11Q2CG_MNHT_M1S1(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0),
+				cgMnhtRequestM1s1.getStartTime(), cgMnhtRequestM1s1.getEndTime()));
+		return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+	@Override
+	public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> M1S11Q3(CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+		List<CG_MNHT_M1S1> m1s11qcg_MNHT_M1S1 = frcDao.M1S11QCG_MNHT_M1S13(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0),
+				cgMnhtRequestM1s1.getStartTime(), cgMnhtRequestM1s1.getEndTime());
+		return builder.data(m1s11qcg_MNHT_M1S1).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11A(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1,
+			String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		try {
+			List<CG_MNHT_M1S1> cgMnhtM1s1 = cgMnhtRequestM1s1.getCgMnhtM1s1();
+			System.out.println(""+cgMnhtM1s1.get(0).getcConnum());
+			if(!cgMnhtM1s1.get(0).getcStatexxk().equals("xxk03")) {
+				return builder.errcode(Errcode.FailParameterError).msg("该合同信息卡审核未通过，不允许生成正式合同！！！！！").session(session).build();
+			}
+			//根据合同号查询正式数据库中的数据----判断是否重复
+			List<TpCgcontractmt> selectByConnum = tpCgcontractmtMapper.selectByConnum(cgMnhtM1s1.get(0).getcConnum());
+			if(selectByConnum.size()>0) {
+				return builder.errcode(Errcode.FailParameterError).msg("该合同已存在！！！！！").session(session).build();
+			}
+			//根据合同号查询拟合同的物质信息 然后添加到正式库的合同数据--list批量添加
+			List<TpCgcontractstt> s1s21q2cg_MNHT_S1S2 = tpCgcontractsttMapper.S1S21Q2CG_MNHT_S1S2(cgMnhtM1s1.get(0));
+			//添加正式库合同信息
+			int m1s12acg_MNHT_M1S1 = tpCgcontractmtMapper.M1S12ACG_MNHT_M1S1(cgMnhtM1s1);
+			System.out.println("添加合同的返回值：："+m1s12acg_MNHT_M1S1);
+			if(m1s12acg_MNHT_M1S1>0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("合同信息添加失败！！！").errcode(Errcode.FailParameterError).session(session).build();
+			}
+			//添加正式库物资信息
+			int m1s12acg_MNHT_M1S12 = tpCgcontractstMapper.M1S12ACG_MNHT_M1S1(s1s21q2cg_MNHT_S1S2);
+			if(m1s12acg_MNHT_M1S12 > 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("合同信息物资添加失败添加失败！！！").errcode(Errcode.FailParameterError).session(session).build();
+			}
+			System.out.println("添加合同物资的返回值:::"+m1s12acg_MNHT_M1S12);
+			cgMnhtM1s1.get(0).setcStatexxk("xxk06");
+			int row0 = frcDao.M1S11UCG_MNHT_M1S2(cgMnhtM1s1);
+			if (row0 > 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("添加失败！！！").session(session).build();
+			}
+			return builder.msg("合同添加成功！！！").errcode(Errcode.Success).session(session).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("添加失败！！！");
+		}
+		
+	}
+@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S11U(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1,
+			String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		try {
+			//查询拟合同和信息卡已存在的信息
+			List<TpCgcontractmtt> selectInfo = tpCgcontractmttMapper.selectInfo(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0));
+			List<TbDocumeform> seletByeCconnum = tbDocumeformMapper.seletByeCconnum(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0).getcConnum());
+			String cDenycauseCMT;
+			String cDenycauseXXT ;
+			int getcDenynum = selectInfo.get(0).getcDenynum();
+			getcDenynum++;
+			System.out.println("信息卡长度：："+seletByeCconnum.size());
+			if(selectInfo.get(0).getcDenycause() == null) {
+				cDenycauseCMT = "";
+			}else {
+				cDenycauseCMT = selectInfo.get(0).getcDenycause();
+			}
+			if(seletByeCconnum.size()<= 0 || seletByeCconnum.get(0).getcDenycause()  == null) {
+				cDenycauseXXT = "";
+			}else {
+				cDenycauseXXT = seletByeCconnum.get(0).getcDenycause();
+			}
+			SimpleDateFormat dateformat=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E");
+			  String  denyTime=dateformat.format(new Date());
+			List<TbDocumeform> tbDocumeformList = new ArrayList<TbDocumeform>();
+			//1.修改拟合同的驳回信息
+			List<CG_MNHT_M1S1> cgMnhtM1s1 = new ArrayList<CG_MNHT_M1S1>();
+			for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtRequestM1s1.getCgMnhtM1s1()) {
+				TbDocumeform tbDocumeform = new TbDocumeform();
+				CG_MNHT_M1S1 cgMNHTM1S1 = new CG_MNHT_M1S1();
+				//驳回人
+				cgMNHTM1S1.setcDenyer(user.getUserName());
+				//驳回时间
+				cgMNHTM1S1.setcDenytime(new Date());
+				//驳回状态---已驳回
+				cgMNHTM1S1.setcStatexxk("xxk05");
+				cgMNHTM1S1.setcMadestate("mk006");
+				cgMNHTM1S1.setcDenynum(getcDenynum);
+				//将拟合同中已存在的驳回原因和新增加的驳回原因进行合并
+				cgMNHTM1S1.setcDenycause(cDenycauseCMT+"驳回人:"+user.getUserName()+",时间:"+denyTime+",原因:"+cg_MNHT_M1S1.getCausecDeny()+";");//驳回原因
+				cgMNHTM1S1.setcConnum(cg_MNHT_M1S1.getcConnum());
+				//----信息卡主表
+				tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());//合同号
+				//将信息卡中已存在的驳回原因和新增加的驳回原因进行合并
+				tbDocumeform.setcDenycause(cDenycauseXXT+"驳回人:"+user.getUserName()+",时间:"+denyTime+",原因:"+cg_MNHT_M1S1.getCausecDeny()+";");//驳回原因
+				tbDocumeform.setcDenytime(new Date());//驳回时间
+				tbDocumeform.setcDenyer(user.getUserName());//驳回人
+				//制作人状态---驳回状态已驳回
+				tbDocumeform.setcMadestate("mk006");
+				tbDocumeform.setcDenynum(getcDenynum);
+				tbDocumeformList.add(tbDocumeform);
+				
+				cgMnhtM1s1.add(cgMNHTM1S1);
+			}
+			int row0 = frcDao.M1S11UCG_MNHT_M1S2(cgMnhtM1s1);
+			if (row0 > 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("反驳失败！！！").session(session).build();
+			}
+			
+			//2.修改信息卡的相关信息
+			
+			int updaterown= tbDocumeformMapper.updateTbDocumeform(tbDocumeformList);
+			if(updaterown >0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.errcode(Errcode.FailParameterError).msg("反驳失败！！！").session(session).build();
+			}
+			
+			return builder.errcode(Errcode.Success).msg("反驳成功！！！").session(session).build();	
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("添加失败！！！");
+		}
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> M1S11D(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1,
+			String session) {
+		String msg = "";
+
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		int row0 = 0;
+		List<CG_MNHT_M1S1> cgMnhtM1s1 = cgMnhtRequestM1s1.getCgMnhtM1s1();
+		String ss_ret0 = "";
+		ss_ret0 = cgMnhtCustomer.check_M1S11D_CG_MNHT_M1S1(cgMnhtRequestM1s1);
+		if (ss_ret0.indexOf("success") != -1) {
+			if (ss_ret0.length() > 10) {
+				msg = ss_ret0;
+			}
+
+			row0 = frcDao.M1S11DCG_MNHT_M1S1(cgMnhtM1s1);
+			if (row0 < 0) {
+				msg = msg + "CG_MNHT_M1S1删除成功";
+
+			} else {
+				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+			}
+		} else {
+			return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+	}
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_S1S2> S1S21Q(CG_MNHT_Request_S1S2 cgMnhtRequestS1s2,
+			String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_S1S2 s1s2 = new CG_MNHT_S1S2();
+		if(cgMnhtRequestS1s2.getCgMnhtM1s1().getcConnum() == null) {
+			s1s2.setcConnum("");
+		}else {
+			s1s2.setcConnum(cgMnhtRequestS1s2.getCgMnhtM1s1().getcConnum());
+		}
+		
+		s1s2.setcGoodsname(cgMnhtRequestS1s2.getcGoodsname());
+		CG_MNHT_Response_S1S2 data = new CG_MNHT_Response_S1S2();
+		data.setCgMnhtS1s2(frcDao.S1S21QCG_MNHT_S1S2(s1s2));
+		return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> S1S21A(User user, CG_MNHT_Request_S1S2 cgMnhtRequestS1s2,
+			String session) {
+		String msg = "";
+
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		int row0 = 0;
+		List<CG_MNHT_S1S2> cgMnhtS1s2 = cgMnhtRequestS1s2.getCgMnhtS1s2();
+		String ss_ret0 = "";
+		ss_ret0 = cgMnhtCustomer.check_S1S21A_CG_MNHT_S1S2(cgMnhtRequestS1s2);
+		if (ss_ret0.indexOf("success") != -1) {
+			if (ss_ret0.length() > 10) {
+			}
+
+			row0 = frcDao.S1S21ACG_MNHT_S1S2(cgMnhtS1s2);
+			if (row0 < 0) {
+				msg = msg + "CG_MNHT_S1S2保存成功";
+
+				return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+			} else {
+				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+			}
+		} else {
+			return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();
+		}
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> S1S21U(User user, CG_MNHT_Request_S1S2 cgMnhtRequestS1s2,
+			String session) {
+		String msg = "";
+
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<CG_MNHT_S1S2> cgMnhtS1s2 = cgMnhtRequestS1s2.getCgMnhtS1s2();
+		int row0 = 0;
+		String ss_ret0 = "";
+		ss_ret0 = cgMnhtCustomer.check_S1S21U_CG_MNHT_S1S2(cgMnhtRequestS1s2);
+		if (ss_ret0.indexOf("success") != -1) {
+			if (ss_ret0.length() > 10) {
+				msg = ss_ret0;
+			}
+
+			row0 = frcDao.S1S21UCG_MNHT_S1S2(cgMnhtS1s2);
+			if (row0 < 0) {
+				msg = msg + "CG_MNHT_S1S2修改成功";
+
+				return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+			} else {
+				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+			}
+		} else {
+			return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();
+		}
+	}
+
+	public ResponseObject<EmptyTag, EmptyData> S1S21D(User user, CG_MNHT_Request_S1S2 cgMnhtRequestS1s2,
+			String session) {
+		String msg = "";
+
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		int row0 = 0;
+		List<CG_MNHT_S1S2> cgMnhtS1s2 = cgMnhtRequestS1s2.getCgMnhtS1s2();
+		String ss_ret0 = "";
+		ss_ret0 = cgMnhtCustomer.check_S1S21D_CG_MNHT_S1S2(cgMnhtRequestS1s2);
+		if (ss_ret0.indexOf("success") != -1) {
+			if (ss_ret0.length() > 10) {
+				msg = ss_ret0;
+			}
+
+			row0 = frcDao.S1S21DCG_MNHT_S1S2(cgMnhtS1s2);
+			if (row0 < 0) {
+				msg = msg + "CG_MNHT_S1S2删除成功";
+
+			} else {
+				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+			}
+		} else {
+			return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+	}
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_S1S2> S1S21QConnum(CG_MNHT_Request_M1S1 cgMnhtRequestM1s1,
+			String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		cgMnhtRequestM1s1.getCgMnhtM1s1();
+		CG_MNHT_Response_S1S2 data = new CG_MNHT_Response_S1S2();
+		data.setCgMnhtS1s2(frcDao.S1S21QCG_MNHT(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0)));
+		return builder.data(data).msg("查询成功").errcode(Errcode.Success).session(session).build();
+	}
+
+//信息卡合同查询物资
+	public ResponseObject<EmptyTag, CG_MNHT_Response_S1S2> M1S1S12(
+			RequestObject<EmptyTag, Xxk_Cont_Request> requestObject) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_Response_S1S2 data = new CG_MNHT_Response_S1S2();
+		data.setCgXXK_Request(frcDao.M1S1S12(requestObject.getData().getTpCgcontractmt()));
+		return builder.data(data).msg("查询成功").errcode(Errcode.Success).session(requestObject.getSession()).build();
+	}
+
+	@Transactional
+	public ResponseObject<EmptyTag, EmptyData> S1S21CX(User user, CG_MNHT_Request_S1S2 cgMnhtRequestS1s2,
+			String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<CG_MNHT_S1S2> cgMnhtS1s2 = cgMnhtRequestS1s2.getCgMnhtS1s2();
+		for (CG_MNHT_S1S2 cg_MNHT_S1S2 : cgMnhtS1s2) {
+			int row0 = tpCgorderbeforeMapper.update_st_Cstate2(cg_MNHT_S1S2.getcSw02());
+			if(row0 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("撤销物资失败").errcode(Errcode.FailParameterError).build();	
+			}
+			int row1 = frcDao.S1S21DCG_MNHT_S1S2(cgMnhtS1s2);
+			if(row1 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("撤销物资失败").errcode(Errcode.FailParameterError).build();	
+			}
+		}
+		List<CG_MNHT_S1S2> list = frcDao.S1S21QCONNUM(cgMnhtS1s2.get(0));
+		if(list.size() == 0) {
+			int row2 = frcDao.M1S11DCG(cgMnhtS1s2.get(0).getcMtid());
+			if(row2 == 0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("撤销物资失败").errcode(Errcode.FailParameterError).build();	
+			}
+		}
+		return builder.errcode(Errcode.Success).msg("撤销物资成功").session(session).build();
+	}
+//信息卡审核通过
+	public ResponseObject<EmptyTag, EmptyData> M1S11U_XXK(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		//1.信息卡审核通过--拟合同
+		List<TbDocumeform> tbDocumeformList = new ArrayList<TbDocumeform>();
+		List<CG_MNHT_M1S1> cgMnhtM1s1 = new  ArrayList<CG_MNHT_M1S1>();
+		for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtRequestM1s1.getCgMnhtM1s1()) {
+			//拟合同 信息卡
+			CG_MNHT_M1S1 cgMNHTM1S1 = new CG_MNHT_M1S1();
+			TbDocumeform tbDocumeform = new TbDocumeform();
+			cgMNHTM1S1.setcConnum(cg_MNHT_M1S1.getcConnum());
+			//拟合同信息卡状态--审核通过
+			cgMNHTM1S1.setcStatexxk("xxk04");
+			cgMNHTM1S1.setcMadestate("mk005");
+			tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+			//制作人完成状态----已审核
+			tbDocumeform.setcMadestate("mk005");
+			tbDocumeform.setcCheckstate("xcc003");
+			tbDocumeform.setcChiede(user.getUserName());
+			tbDocumeformList.add(tbDocumeform);
+			cgMnhtM1s1.add(cgMNHTM1S1);
+		}
+		int row0 = frcDao.M1S11UCG_MNHT_M1S2(cgMnhtM1s1);
+		if (row0 >0) {
+			return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+		}
+		//2.修改信息卡制作人的制作状态---审核通过
+		int updateRown= tbDocumeformMapper.updateTbDocumeform(tbDocumeformList);
+		if(updateRown>0) {
+			return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg("审核通过！！！").session(session).build();
+//		int row0 = 0;
+//		String ss_ret0 = "";
+//		ss_ret0 = cgMnhtCustomer.check_M1S11U_CG_MNHT_M1S1(cgMnhtRequestM1s1);
+//		if (ss_ret0.indexOf("success") != -1) {
+//			if (ss_ret0.length() > 10) {
+//				msg = ss_ret0;
+//			}
+//
+//			row0 = frcDao.M1S11UCG_MNHT_M1S1(cgMnhtM1s1);
+//			if (row0 < 0) {
+//				msg = msg + "CG_MNHT_M1S1修改成功";
+//
+//				return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+//			} else {
+//				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+//			}
+//		} else {
+//			return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();
+//		}
+		
+	}
+	//拟合同提交
+	public ResponseObject<EmptyTag, EmptyData> M1S11U2(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		List<CG_MNHT_M1S1> cgMnhtM1s1 = cgMnhtRequestM1s1.getCgMnhtM1s1();
+		List<TbDocumeform> tbDocumeformList = new ArrayList<TbDocumeform>();
+		List<TbDocumeform> seletByeCconnum = tbDocumeformMapper.seletByeCconnum(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0).getcConnum());
+		//判断拟合同中的信息卡审核状态是否是已驳回-----1.修改拟合同中的信息卡审核状态（未审核），制作人完成状态--部分完成
+		System.out.println("信息卡审核状态:"+cgMnhtM1s1.get(0).getcStatexxk());
+		if(seletByeCconnum.size() <= 0 && cgMnhtM1s1.get(0).getcStatexxk().equals("xxk05")) {
+			for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtM1s1) {
+				TbDocumeform tbDocumeform = new TbDocumeform();
+				//制作人完成状态
+				cg_MNHT_M1S1.setcMadestate("mk001");
+				cg_MNHT_M1S1.setcStatexxk("xxk02");//未审核
+				//合同号
+				tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+				//制作人完成状态----部分完成
+				tbDocumeform.setcMadestate("mk001");
+				tbDocumeformList.add(tbDocumeform);
+			}
+		}else if(seletByeCconnum.size()>0 && cgMnhtM1s1.get(0).getcStatexxk().equals("xxk05")){
+			for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtM1s1) {
+				TbDocumeform tbDocumeform = new TbDocumeform();
+				//制作人完成状态
+				cg_MNHT_M1S1.setcMadestate("mk004");
+				cg_MNHT_M1S1.setcStatexxk("xxk02");//未审核
+				
+				//合同号
+				tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+				//制作人完成状态----部分完成
+				tbDocumeform.setcMadestate("mk004");
+				tbDocumeformList.add(tbDocumeform);
+			}
+		}else {
+			for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtM1s1) {
+				TbDocumeform tbDocumeform = new TbDocumeform();
+				//制作人完成状态
+				cg_MNHT_M1S1.setcMadestate("mk001");
+				cg_MNHT_M1S1.setcStatexxk("xxk02");//未审核
+				//合同号
+				tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+				//制作人完成状态----部分完成
+				tbDocumeform.setcMadestate("mk001");
+				tbDocumeformList.add(tbDocumeform);
+			}
+		}
+		int row0 = frcDao.M1S11UCG_MNHT_M1S1(cgMnhtM1s1);
+		if (row0 >0) {
+			return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+		}
+		//2.修改信息卡制作人的制作状态---未完成
+		int updateRown= tbDocumeformMapper.updateTbDocumeform(tbDocumeformList);
+		if(updateRown>0) {
+			return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+		}
+		return builder.errcode(Errcode.Success).msg("审核通过！！！").session(session).build();
+//		int row0 = 0;
+//		String ss_ret0 = "";
+//		ss_ret0 = cgMnhtCustomer.check_M1S11U_CG_MNHT_M1S1(cgMnhtRequestM1s1);
+//		if (ss_ret0.indexOf("success") != -1) {
+//			if (ss_ret0.length() > 10) {
+//				msg = ss_ret0;
+//			}
+//
+//			row0 = frcDao.M1S11UCG_MNHT_M1S1(cgMnhtM1s1);
+//			if (row0 < 0) {
+//				msg = msg + "CG_MNHT_M1S1修改成功";
+//
+//				return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+//			} else {
+//				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+//			}
+//		} else {
+//			return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();
+//		}
+		
+	}
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> M1S31Q(EmptyData emptyData, String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+//		System.out.println("信息卡状态：：："+cgMnhtRequestM1s1.getCgMnhtM1s1().get(0).getcStatexxk());
+		CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+		data.setCgMnhtM1s1(frcDao.M1S31QCG_MNHT_M1S1());
+		return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_S1S2> S3S32QConnum(CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		cgMnhtRequestM1s1.getCgMnhtM1s1();
+		CG_MNHT_Response_S1S2 data = new CG_MNHT_Response_S1S2();
+		data.setCgMnhtS1s2(frcDao.S1S21QCG_MNHT(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0)));
+		return builder.data(data).msg("查询成功").errcode(Errcode.Success).session(session).build();
+	}
+
+	public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> S3S32Q(CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		String msg = "查询成功";
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+		data.setCgMnhtM1s1(frcDao.M1S32QCG_MNHT_M1S1(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0)));
+		return builder.data(data).msg(msg).errcode(Errcode.Success).session(session).build();
+	}
+
+	
+@Transactional
+	public ResponseObject<EmptyTag, EmptyData> M1S21U(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+		ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+		try {
+			//查询拟合同和信息卡已存在的信息
+			List<TpCgcontractmtt> selectInfo = tpCgcontractmttMapper.selectInfo(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0));
+			List<TbDocumeform> seletByeCconnum = tbDocumeformMapper.seletByeCconnum(cgMnhtRequestM1s1.getCgMnhtM1s1().get(0).getcConnum());
+			String cBackcauseCMT;
+			String cBackcauseXXT ;
+			String msg = "";
+			int cBacknum = selectInfo.get(0).getcBackenum();
+			cBacknum++;
+			System.out.println("退单次数:"+cBacknum);
+			if(selectInfo.get(0).getcBackcause() == null) {
+				cBackcauseCMT = "";
+			}else {
+				cBackcauseCMT = selectInfo.get(0).getcBackcause();
+			}
+			if(seletByeCconnum.size()<= 0 && seletByeCconnum.get(0).getcBackcause()  == null) {
+				cBackcauseXXT = "";
+			}else {
+				cBackcauseXXT = seletByeCconnum.get(0).getcBackcause();
+			}
+			SimpleDateFormat dateformat=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E");
+			  String  denyTime=dateformat.format(new Date());
+			//1.拟合同退单状态
+			List<TbDocumeform> tbDocumeformList = new ArrayList<TbDocumeform>();
+			//2.信息卡的退单状态
+			List<CG_MNHT_M1S1> cgMnhtM1s1 = cgMnhtRequestM1s1.getCgMnhtM1s1();
+			for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtM1s1) {
+				TbDocumeform tbDocumeform = new TbDocumeform();
+				//退单人
+				cg_MNHT_M1S1.setcBacker(user.getUserName());
+				//退单时间
+				cg_MNHT_M1S1.setcBacktime(new Date());
+				//退单状态
+				cg_MNHT_M1S1.setcBackstate("td002");
+				cg_MNHT_M1S1.setcBackenum(cBacknum);
+				cg_MNHT_M1S1.setcBackcause(cBackcauseCMT+"退单人:"+user.getUserName()+",时间:"+denyTime+",原因:"+cg_MNHT_M1S1.getcBackecause()+";");//退单原因
+				//信息卡
+				tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+				tbDocumeform.setcBackstate("td002");
+				tbDocumeform.setcBackcause(cBackcauseXXT+"退单人:"+user.getUserName()+",时间:"+denyTime+",原因:"+cg_MNHT_M1S1.getcBackecause()+";");//驳回原因
+//				tbDocumeform.setcBackcause(cg_MNHT_M1S1.getcBackcause());
+				tbDocumeform.setcBackenum(cBacknum);
+				tbDocumeform.setcBacker(user.getUserName());
+				tbDocumeform.setcBacketime(new Date());
+				tbDocumeformList.add(tbDocumeform);
+			}
+			int m1s21ucg_MNHT_M1S1 = frcDao.M1S21UCG_MNHT_M1S1(cgMnhtM1s1);
+			if(m1s21ucg_MNHT_M1S1 >0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("退单失败！！！！！").errcode(Errcode.FailParameterError).session(session).build();
+			}
+			int updateRown = tbDocumeformMapper.updateTbDocumeform(tbDocumeformList);
+			if(updateRown>0) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return builder.msg("退单失败！！！！！").errcode(Errcode.FailParameterError).session(session).build();
+			}
+			
+			return builder.msg("退单成功！！！！！！！").errcode(Errcode.Success).session(session).build();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("退单失败！！！");
+		}
+	
+//		int row0 = 0;
+//		String ss_ret0 = "";
+//		ss_ret0 = cgMnhtCustomer.check_M1S11U_CG_MNHT_M1S1(cgMnhtRequestM1s1);
+//		if (ss_ret0.indexOf("success") != -1) {
+//			if (ss_ret0.length() > 10) {
+//				msg = ss_ret0;
+//			}
+//
+//			row0 = frcDao.M1S11UCG_MNHT_M1S1(cgMnhtM1s1);
+//			if (row0 < 0) {
+//				msg = msg + "CG_MNHT_M1S1修改成功";
+//
+//				return builder.errcode(Errcode.Success).msg(msg).session(session).build();
+//			} else {
+//				return builder.errcode(Errcode.FailParameterError).msg(msg).session(session).build();
+//			}
+//		} else {
+//			return builder.errcode(Errcode.FailParameterError).msg(ss_ret0).session(session).build();
+//		}
+		
+	}
+
+public ResponseObject<EmptyTag, CG_MNHT_Response_M1S1> M1S312Q(EmptyData emptyData, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+//	System.out.println("信息卡状态：：："+cgMnhtRequestM1s1.getCgMnhtM1s1().get(0).getcStatexxk());
+	CG_MNHT_Response_M1S1 data = new CG_MNHT_Response_M1S1();
+	data.setCgMnhtM1s1(frcDao.M1S312QCG_MNHT_M1S1());
+	return builder.data(data).msg("查询成功！！！").errcode(Errcode.Success).session(session).build();
+}
+@Transactional
+public ResponseObject<EmptyTag, EmptyData> updateContract(User user, TP_SimContract tP_SimContract, String session) {
+	ResponseObjectBuilder<EmptyTag, EmptyData> buidler = ResponseObjectBuilder.create();
+	
+	try {
+		DelInformation delInformation = new DelInformation();
+		TpCgcontractmt 	tpCgcontractmt  = new TpCgcontractmt();
+		System.out.println("合同号：：：：："+	tP_SimContract.getTpCgcontractmtt().getcConnum());
+		//1.获取合同主表的相关信息 判断该合同号是否存在
+		List<TpCgcontractmtt> selectByConnum = tpCgcontractmttMapper.selectByConnum(tP_SimContract.getTpCgcontractmtt().getcConnum());
+		System.out.println("合同号返回值：：："+selectByConnum.size());
+		if(selectByConnum.size()  < 0) {
+			return buidler.msg("该合同号不存在!!!").errcode(Errcode.FailParameterError).session(session).build();
+		}
+		tpCgcontractmt.setcCludecom(get_data_value(tP_SimContract.getTpCgcontractmt().getcCludecom(),"签订公司").replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+		/*System.out.println("签订公司:::::::"+tP_SimContract.getTpCgcontractmt().getcCludecom());
+		System.out.println("签订公司------"+tpCgcontractmt.getcCludecom());*/
+		if(tP_SimContract.getDelInformation().getcDelivplace()==null) {
+			tP_SimContract.getDelInformation().setcDelivplace("");
+		}else {
+			delInformation.setcDelivplace(get_data_subitemid(tP_SimContract.getDelInformation().getcDelivplace(),"交货地点").replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+		}
+		//工具类
+		ContractUtil contractUtil = new ContractUtil();
+		TpCgcontractmtt addTpCgcontractmt = contractUtil.updateTpCgcontractmt(user, tP_SimContract, delInformation, tpCgcontractmt);
+		System.out.println("签订公司--------"+addTpCgcontractmt.getcCludecom());
+		int updateTpCgcontractmtt = tpCgcontractmttMapper.updateTpCgcontractmtt(addTpCgcontractmt);
+		if(updateTpCgcontractmtt>0) {
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+			return buidler.msg("模拟合同中合同信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+		}
+		//3.获取辅助表的相关信息
+		 List<TbCgcontract> addTbCgcontract = contractUtil.uppdateTbCgcontract(user, tP_SimContract);
+		 System.out.println("交货地点========"+addTbCgcontract.get(0).getcDelivplace()+"交货期限：++++"+addTbCgcontract.get(0).getcDelivdate());
+		 System.out.println("合同号：：："+addTbCgcontract.get(0).getcConnum());
+			int insertrow = tbCgcontractMapper.updatebCgcontract(addTbCgcontract);
+			if(insertrow >1) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//事物回滚
+				return buidler.msg("模拟合同创建修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+			}
+		//2.获取子表的相关信息
+//		System.out.println("单价和总价：：：："+tP_SimContract.getTpCgorderRequest().get(0).getcPrice()+"::::"+ tP_SimContract.getTpCgorderRequest().get(0).getcSumprice()
+//				+"Id::"+tP_SimContract.getTpCgorderRequest().get(0).getcId());
+		List<TpCgcontractstt>  list = new ArrayList<TpCgcontractstt>();
+		for (TpCgorderRequest tpCgorderRequest : tP_SimContract.getTpCgorderRequest()) {
+//		}
+//		for (int i = 0; i <tP_SimContract.getTpCgorderRequest().size(); i++) {
+//			TpCgorderRequest tpCgorderRequest = tP_SimContract.getTpCgorderRequest().get(i);
+			TpCgcontractstt tpCgcontract =  new TpCgcontractstt();
+			// 合同物资主表主键
+//			tpCgcontract.setcMtid(addTpCgcontractmt.getcId());
+			tpCgcontract.setcId(tpCgorderRequest.getcId());
+			// 物资名称
+			tpCgcontract.setcGoodsname(tpCgorderRequest.getcGoodsname());
+			// 报关规格型号
+			tpCgcontract.setcSpec(tpCgorderRequest.getcSpec());
+			//物资规格型号
+			tpCgcontract.setcCuspec(tpCgorderRequest.getcCuspec());
+			// 单位
+			tpCgcontract.setcUnit(tpCgorderRequest.getcUnit());
+			// 含税单价
+			tpCgcontract.setcPrice(tpCgorderRequest.getcPrice());
+			// 订货数量
+			tpCgcontract.setcGoodsnum(tpCgorderRequest.getcGoodsnum());
+			////报关物资名称
+			if(tpCgorderRequest.getcSw08() == null) {
+				tpCgcontract.setcSw08("");
+			}else {
+				tpCgcontract.setcSw08(tpCgorderRequest.getcSw08());
+			}
+			// 订货情况
+			tpCgcontract.setcGoodscase(null);
+			// 含税总价
+			tpCgcontract.setcSumprice(tpCgorderRequest.getcSumprice());
+			// 预计到货时间
+			tpCgcontract.setcBeforearrtime(null);
+			// 预计到货说明
+			tpCgcontract.setcArrgoodsex(null);
+			// 到货时间
+			tpCgcontract.setcArrgoodstime(null);
+			// 累计到货量
+			tpCgcontract.setcGroudtotalnum("0");
+			// 剩余数量
+			tpCgcontract.setcResiduenum(tpCgorderRequest.getcGoodsnum());
+			// 是/否到齐
+			tpCgcontract.setcArrallyorn("0");
+			// 备注
+			tpCgcontract.setcRemark(tpCgorderRequest.getcRemark());
+			// 预登记状态
+			tpCgcontract.setcState("3");
+			// 是/否验收
+			tpCgcontract.setcCheckyorn("0");
+			// 质保期限
+			tpCgcontract.setcQuadealline(null);
+			// 请购单号ID
+			tpCgcontract.setcOrid(tpCgorderRequest.getcOrid());
+			// 删除标识
+//			tpCgcontract.setcDr(tpCgorderRequest.);
+			// 时间戳
+			tpCgcontract.setcTimestamp(new Date());
+			// 物资单号
+			tpCgcontract.setcSw02(tpCgorderRequest.getcSw02());
+			// 请购单号
+			tpCgcontract.setcSw03(tpCgorderRequest.getcSw03());
+			// 是否有出船记录
+			tpCgcontract.setcSw04(tpCgorderRequest.getcSw04());
+			// 外贸号-存档号
+			tpCgcontract.setcSw05(tpCgorderRequest.getcSw05());
+			// 创建人
+			tpCgcontract.setcCreater(user.getUserName());
+			// 创建时间
+			tpCgcontract.setcCreatetime(new Date());
+			// 合同号
+			tpCgcontract.setcConnum(tP_SimContract.getTpCgcontractmt().getcConnum().replace(" ", "").replaceAll(" ", "").replaceAll("[\\r]", "").replaceAll("[\\n]", ""));
+			list.add(tpCgcontract);
+		}
+		 int introw =  tpCgcontractsttMapper.updatetpCgcontractstt(list);
+		 if(introw>0) {
+			 return buidler.msg("模拟合同物资信息修改失败！！！！").errcode(Errcode.FailParameterError).session(session).build();
+		 }
+		 return buidler.msg("模拟合同物资信息修改成功！！！！").errcode(Errcode.Success).session(session).build();
+		 
+	} catch (Exception e) {
+		e.printStackTrace();
+		throw new RuntimeException("添加失败！！！");
+	}
+	
+}
+
+@SuppressWarnings("unused")
+private String get_data_value(String csubitemdes, String citemdes) {
+	List<TpCgordermt> mt = tpCgordermtMapper.get_data_value(csubitemdes, citemdes);
+	if (mt.size() > 0) {
+		return mt.get(0).getcComname();
+	}
+	return "Err"; 
+}
+@SuppressWarnings("unused")
+private String get_data_subitemid (String subitemid, String citemdes) {
+	List<TpCgordermt> mt = tpCgordermtMapper.get_data_subitemid(subitemid, citemdes);
+	if (mt.size() > 0) {
+		return mt.get(0).getcComname();
+	}
+	return "Err";
+}
+
+public ResponseObject<EmptyTag, EmptyData> M1S11U_XXK2(User user, CG_MNHT_Request_M1S1 cgMnhtRequestM1s1, String session) {
+	ResponseObjectBuilder builder = ResponseObjectBuilder.create();
+	//1.信息卡审核通过--拟合同
+	List<TbDocumeform> tbDocumeformList = new ArrayList<TbDocumeform>();
+	List<CG_MNHT_M1S1> cgMnhtM1s1 = new  ArrayList<CG_MNHT_M1S1>();
+	for (CG_MNHT_M1S1 cg_MNHT_M1S1 : cgMnhtRequestM1s1.getCgMnhtM1s1()) {
+		//拟合同 信息卡
+		CG_MNHT_M1S1 cgMNHTM1S1 = new CG_MNHT_M1S1();
+		TbDocumeform tbDocumeform = new TbDocumeform();
+		cgMNHTM1S1.setcConnum(cg_MNHT_M1S1.getcConnum());
+		//拟合同信息卡状态--审核通过
+		cgMNHTM1S1.setcStatexxk("xxk03");
+		cgMNHTM1S1.setcMadestate("mk003");
+		tbDocumeform.setcConnum(cg_MNHT_M1S1.getcConnum());
+		//制作人完成状态----已审核
+		tbDocumeform.setcMadestate("mk003");
+		tbDocumeform.setcCheckstate("xcc002");
+		tbDocumeform.setcIndida(user.getUserName());
+		
+		tbDocumeformList.add(tbDocumeform);
+		cgMnhtM1s1.add(cgMNHTM1S1);
+	}
+	int row0 = frcDao.M1S11UCG_MNHT_M1S2(cgMnhtM1s1);
+	if (row0 >0) {
+		return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+	}
+	//2.修改信息卡制作人的制作状态---审核通过
+	int updateRown= tbDocumeformMapper.updateTbDocumeform(tbDocumeformList);
+	if(updateRown>0) {
+		return builder.errcode(Errcode.FailParameterError).msg("审核失败！！！").session(session).build();
+	}
+	return builder.errcode(Errcode.Success).msg("审核通过！！！").session(session).build();
+}
+}

@@ -1,0 +1,23 @@
+package code_fb_cg.request;
+
+
+public class ReportDataRequest {
+
+	private String yrar;
+	private String[] cManor;
+	public String getYrar() {
+		return yrar;
+	}
+	public void setYrar(String yrar) {
+		this.yrar = yrar;
+	}
+	public String[] getcManor() {
+		return cManor;
+	}
+	public void setcManor(String[] cManor) {
+		this.cManor = cManor;
+	}
+
+
+	
+}

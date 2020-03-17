@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="cn.tdhc.TB_ATTR_GROUP.mapper.IWIP_AGROUP_Mapper">
+	<resultMap id="M1S1ResultMap"
+		type="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1">
+		<result column="C_BASE_CODE_TB_ATTR_GROUP"
+			property="cBaseCodeTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_MAT_CODE_TB_MATTER_GROUP"
+			property="cMatCodeTbMatterGroup" jdbcType="VARCHAR" />
+		<result column="C_CDESCRIDE_TB_ATTR_GROUP"
+			property="cCdescrideTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_CNAME_TB_ATTR_GROUP"
+			property="cCnameTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_CREATE_USER_TB_ATTR_GROUP"
+			property="cCreateUserTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_DELTE_USER_TB_ATTR_GROUP"
+			property="cDelteUserTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_DR_TB_ATTR_GROUP" property="cDrTbAttrGroup"
+			jdbcType="VARCHAR" />
+		<result column="C_EDESCRIDE_TB_ATTR_GROUP"
+			property="cEdescrideTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_ENAEM_TB_ATTR_GROUP"
+			property="cEnaemTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_FCNAME_TB_ATTR_GROUP"
+			property="cFcnameTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_FDESCRIDE_TB_ATTR_GROUP"
+			property="cFdescrideTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_ID_TB_ATTR_GROUP" property="cIdTbAttrGroup"
+			jdbcType="VARCHAR" />
+		<result column="C_MAT_CODE_TB_ATTR_GROUP"
+			property="cMatCodeTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_PARENT_ID_TB_ATTR_GROUP"
+			property="cParentIdTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_UP_USER_TB_ATTR_GROUP"
+			property="cUpUserTbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE1_TB_ATTR_GROUP"
+			property="reserve1TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE10_TB_ATTR_GROUP"
+			property="reserve10TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE2_TB_ATTR_GROUP"
+			property="reserve2TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE3_TB_ATTR_GROUP"
+			property="reserve3TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE4_TB_ATTR_GROUP"
+			property="reserve4TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE5_TB_ATTR_GROUP"
+			property="reserve5TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE6_TB_ATTR_GROUP"
+			property="reserve6TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE7_TB_ATTR_GROUP"
+			property="reserve7TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE8_TB_ATTR_GROUP"
+			property="reserve8TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="RESERVE9_TB_ATTR_GROUP"
+			property="reserve9TbAttrGroup" jdbcType="VARCHAR" />
+		<result column="C_CTIME_TB_ATTR_GROUP"
+			property="cCtimeTbAttrGroup" jdbcType="TIMESTAMP" />
+		<result column="C_DELUSER_TB_ATTR_GROUP"
+			property="cDeluserTbAttrGroup" jdbcType="TIMESTAMP" />
+		<result column="C_TIMESTAMP_TB_ATTR_GROUP"
+			property="cTimestampTbAttrGroup" jdbcType="TIMESTAMP" />
+		<result column="C_UPTIME_TB_ATTR_GROUP"
+			property="cUptimeTbAttrGroup" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<select id="M1S11QIWIP_AGROUP_M1S1"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		start with 1=1
+
+		<if test="iwipAgroupM1s1.cMatCodeTbAttrGroup != null">
+			AND TB_ATTR_GROUP.C_MAT_CODE like '%' ||
+			#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="iwipAgroupM1s1.cParentIdTbAttrGroup != null">
+			and TB_ATTR_GROUP.C_PARENT_ID like '%' ||
+			#{iwipAgroupM1s1.cParentIdTbAttrGroup,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="iwipAgroupM1s1.cEnaemTbAttrGroup != null">
+			and C_ENAEM like '%' ||
+			#{iwipAgroupM1s1.cEnaemTbAttrGroup,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="iwipAgroupM1s1.cCnameTbAttrGroup != null">
+			and C_CNAME like '%' ||
+			#{iwipAgroupM1s1.cCnameTbAttrGroup,jdbcType=VARCHAR} || '%'
+		</if>
+		connect by
+		prior C_PARENT_ID = C_MAT_CODE order by C_MAT_CODE asc
+	</select>
+
+	<select id="selectAttributes"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		<if test="iwipMgroupM1s1.cParentIdTbMatterGroup != null">
+			AND TB_ATTR_GROUP.C_PARENT_ID =
+			#{iwipMgroupM1s1.cMatCodeTbMatterGroup,jdbcType=VARCHAR}
+		</if>
+	</select>
+
+	<select id="selectViceAttributes"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		<if test="iwipAgroupM1s1.cMatCodeTbAttrGroup != null">
+			AND TB_ATTR_GROUP.C_PARENT_ID =
+			#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR}
+		</if>
+	</select>
+
+	<select id="selectViceAttrCheck"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		AND TB_ATTR_GROUP.C_PARENT_ID = #{viceAttrCheck}
+	</select>
+
+	<!-- 物料编码删除查询判断是否有父节点,用于删除提示 -->
+	<select id="getCountDelFlag"
+		parameterType="cn.tdhc.TB_MATTER_GROUP.entity.IWIP_MGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		SELECT DISTINCT TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1 START WITH C_PARENT_ID =
+		#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR}
+		CONNECT BY PRIOR
+		C_MAT_CODE = C_PARENT_ID
+		and TB_ATTR_GROUP.C_DR ='0'
+	</select>
+	
+	<select id="deleteAllAutt"
+		parameterType="cn.tdhc.TB_MATTER_GROUP.entity.IWIP_MGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		SELECT DISTINCT TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1 START WITH C_PARENT_ID =
+		#{iwipMgroupM1s1.cMatCodeTbMatterGroup,jdbcType=VARCHAR}
+		CONNECT BY PRIOR
+		C_MAT_CODE = C_PARENT_ID
+		and TB_ATTR_GROUP.C_DR ='0'
+	</select>
+	
+	<insert id="M1S11AIWIP_AGROUP_M1S1"
+		parameterType="java.util.List">
+		<foreach close=";end;" collection="iwipAgroupM1s1"
+			index="index" item="item" open="begin" separator=";">
+			insert into TB_ATTR_GROUP
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="item.reserve10TbAttrGroup != null">
+					RESERVE10,
+				</if>
+				<if test="item.cParentIdTbAttrGroup != null">
+					C_PARENT_ID,
+				</if>
+				<if test="item.cEnaemTbAttrGroup != null">
+					C_ENAEM,
+				</if>
+				<if test="item.cCnameTbAttrGroup != null">
+					C_CNAME,
+				</if>
+				<if test="item.cFcnameTbAttrGroup != null">
+					C_FCNAME,
+				</if>
+				<if test="item.cBaseCodeTbAttrGroup != null">
+					C_BASE_CODE,
+				</if>
+				<if test="item.cEdescrideTbAttrGroup != null">
+					C_EDESCRIDE,
+				</if>
+				<if test="item.cCdescrideTbAttrGroup != null">
+					C_CDESCRIDE,
+				</if>
+				<if test="item.cFdescrideTbAttrGroup != null">
+					C_FDESCRIDE,
+				</if>
+				<if test="item.cCreateUserTbAttrGroup != null">
+					C_CREATE_USER,
+				</if>
+				<if test="item.cCtimeTbAttrGroup != null">
+					C_CTIME,
+				</if>
+				<if test="item.cUpUserTbAttrGroup != null">
+					C_UP_USER,
+				</if>
+				<if test="item.cUptimeTbAttrGroup != null">
+					C_UPTIME,
+				</if>
+				<if test="item.cDelteUserTbAttrGroup != null">
+					C_DELTE_USER,
+				</if>
+				<if test="item.cDeluserTbAttrGroup != null">
+					C_DELUSER,
+				</if>
+				<if test="item.cDrTbAttrGroup != null">
+					C_DR,
+				</if>
+				<if test="item.cTimestampTbAttrGroup != null">
+					C_TIMESTAMP,
+				</if>
+				<if test="item.reserve1TbAttrGroup != null">
+					RESERVE1,
+				</if>
+				<if test="item.reserve2TbAttrGroup != null">
+					RESERVE2,
+				</if>
+				<if test="item.reserve3TbAttrGroup != null">
+					RESERVE3,
+				</if>
+				<if test="item.reserve4TbAttrGroup != null">
+					RESERVE4,
+				</if>
+				<if test="item.reserve5TbAttrGroup != null">
+					RESERVE5,
+				</if>
+				<if test="item.reserve6TbAttrGroup != null">
+					RESERVE6,
+				</if>
+				<if test="item.reserve7TbAttrGroup != null">
+					RESERVE7,
+				</if>
+				<if test="item.reserve8TbAttrGroup != null">
+					RESERVE8,
+				</if>
+				<if test="item.reserve9TbAttrGroup != null">
+					RESERVE9,
+				</if>
+				<if test="item.cMatCodeTbAttrGroup != null">
+					C_MAT_CODE,
+				</if>
+				<if test="item.cIdTbAttrGroup != null">
+					C_ID,
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="item.reserve10TbAttrGroup != null">
+					#{item.reserve10TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cParentIdTbAttrGroup != null">
+					#{item.cParentIdTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cEnaemTbAttrGroup != null">
+					#{item.cEnaemTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCnameTbAttrGroup != null">
+					#{item.cCnameTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cFcnameTbAttrGroup != null">
+					#{item.cFcnameTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cBaseCodeTbAttrGroup != null">
+					#{item.cBaseCodeTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cEdescrideTbAttrGroup != null">
+					#{item.cEdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCdescrideTbAttrGroup != null">
+					#{item.cCdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cFdescrideTbAttrGroup != null">
+					#{item.cFdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreateUserTbAttrGroup != null">
+					#{item.cCreateUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCtimeTbAttrGroup != null">
+					#{item.cCtimeTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cUpUserTbAttrGroup != null">
+					#{item.cUpUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cUptimeTbAttrGroup != null">
+					#{item.cUptimeTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cDelteUserTbAttrGroup != null">
+					#{item.cDelteUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cDeluserTbAttrGroup != null">
+					#{item.cDeluserTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cDrTbAttrGroup != null">
+					#{item.cDrTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cTimestampTbAttrGroup != null">
+					#{item.cTimestampTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.reserve1TbAttrGroup != null">
+					#{item.reserve1TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve2TbAttrGroup != null">
+					#{item.reserve2TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve3TbAttrGroup != null">
+					#{item.reserve3TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve4TbAttrGroup != null">
+					#{item.reserve4TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve5TbAttrGroup != null">
+					#{item.reserve5TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve6TbAttrGroup != null">
+					#{item.reserve6TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve7TbAttrGroup != null">
+					#{item.reserve7TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve8TbAttrGroup != null">
+					#{item.reserve8TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve9TbAttrGroup != null">
+					#{item.reserve9TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cMatCodeTbAttrGroup != null">
+					#{item.cMatCodeTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cIdTbAttrGroup != null">
+					#{item.cIdTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+			</trim>
+		</foreach>
+	</insert>
+	<update id="M1S11UIWIP_AGROUP_M1S1"
+		parameterType="java.util.List">
+		<foreach close=";end;" collection="iwipAgroupM1s1"
+			index="index" item="item" open="begin" separator=";">
+			update TB_ATTR_GROUP
+			<set>
+				<if test="item.reserve10TbAttrGroup != null">
+					RESERVE10 =
+					#{item.reserve10TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cParentIdTbAttrGroup != null">
+					C_PARENT_ID =
+					#{item.cParentIdTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cEnaemTbAttrGroup != null">
+					C_ENAEM = #{item.cEnaemTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCnameTbAttrGroup != null">
+					C_CNAME = #{item.cCnameTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cFcnameTbAttrGroup != null">
+					C_FCNAME = #{item.cFcnameTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cBaseCodeTbAttrGroup != null">
+					C_BASE_CODE =
+					#{item.cBaseCodeTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cEdescrideTbAttrGroup != null">
+					C_EDESCRIDE =
+					#{item.cEdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCdescrideTbAttrGroup != null">
+					C_CDESCRIDE =
+					#{item.cCdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cFdescrideTbAttrGroup != null">
+					C_FDESCRIDE =
+					#{item.cFdescrideTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCreateUserTbAttrGroup != null">
+					C_CREATE_USER =
+					#{item.cCreateUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cCtimeTbAttrGroup != null">
+					C_CTIME = #{item.cCtimeTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cUpUserTbAttrGroup != null">
+					C_UP_USER = #{item.cUpUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cUptimeTbAttrGroup != null">
+					C_UPTIME =
+					#{item.cUptimeTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cDelteUserTbAttrGroup != null">
+					C_DELTE_USER =
+					#{item.cDelteUserTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cDeluserTbAttrGroup != null">
+					C_DELUSER =
+					#{item.cDeluserTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.cDrTbAttrGroup != null">
+					C_DR = #{item.cDrTbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cTimestampTbAttrGroup != null">
+					C_TIMESTAMP =
+					#{item.cTimestampTbAttrGroup,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.reserve1TbAttrGroup != null">
+					RESERVE1 = #{item.reserve1TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve2TbAttrGroup != null">
+					RESERVE2 = #{item.reserve2TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve3TbAttrGroup != null">
+					RESERVE3 = #{item.reserve3TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve4TbAttrGroup != null">
+					RESERVE4 = #{item.reserve4TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve5TbAttrGroup != null">
+					RESERVE5 = #{item.reserve5TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve6TbAttrGroup != null">
+					RESERVE6 = #{item.reserve6TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve7TbAttrGroup != null">
+					RESERVE7 = #{item.reserve7TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve8TbAttrGroup != null">
+					RESERVE8 = #{item.reserve8TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.reserve9TbAttrGroup != null">
+					RESERVE9 = #{item.reserve9TbAttrGroup,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cMatCodeTbAttrGroup != null">
+					C_MAT_CODE =
+					#{item.cMatCodeTbAttrGroup,jdbcType=VARCHAR}
+				</if>
+			</set>
+			WHERE 1 = 1
+			and C_ID = #{item.cIdTbAttrGroup,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+	<delete id="M1S11DIWIP_AGROUP_M1S1"
+		parameterType="java.util.List">
+		<foreach close=";end;" collection="iwipAgroupM1s1"
+			index="index" item="item" open="begin" separator=";">
+			delete from
+			TB_ATTR_GROUP
+			WHERE 1 = 1
+			and C_ID =
+			#{item.cIdTbAttrGroup,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+
+	<!-- 查询sql -->
+	<select id="getCountCmatCode" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT count(1) FROM TB_MATTER_GROUP START WITH C_MAT_CODE
+		= #{cMatCode}
+		CONNECT BY PRIOR C_PARENT_ID = C_MAT_CODE
+	</select>
+
+	<!-- 查询物料属性的父节点 -->
+	<select id="getDataParentId"
+		parameterType="cn.tdhc.TB_MATTER_GROUP.entity.IWIP_MGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		SELECT DISTINCT TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+		<if test="iwipAgroupM1s1.cParentIdTbAttrGroup == '2'.toString()">
+			and TB_ATTR_GROUP.C_PARENT_ID IS NULL
+		</if>
+		<if test="iwipAgroupM1s1.cParentIdTbAttrGroup == '10'.toString()">
+			and LENGTH(TB_ATTR_GROUP.C_PARENT_ID) = 6
+		</if>
+		<!-- 配合第三级到第四级属性表 -->
+		<!-- <if test="iwipAgroupM1s1.cReserve9TbAttrGroup != null"> and TB_ATTR_GROUP.C_MAT_CODE 
+			= #{iwipAgroupM1s1.cReserve9TbAttrGroup,jdbcType=VARCHAR} </if> -->
+		<if test="iwipAgroupM1s1.cMatCodeTbAttrGroup != null">
+			START WITH
+			TB_ATTR_GROUP.C_MAT_CODE =
+			#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR}
+			CONNECT BY
+			PRIOR C_MAT_CODE = C_PARENT_ID
+		</if>
+	</select>
+
+
+
+
+	<!-- 正常的查询没有递归,查询属性 -->
+	<select id="getAgroupName" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select max(C_CNAME) from TB_ATTR_GROUP where 1=1 and C_MAT_CODE =
+		#{cMatCode}
+		<!-- <if test="parameter.size != 0"> and C_MAT_CODE in <foreach collection="parameter" 
+			item="parameters" open="(" close=")" separator=","> ${parameters} </foreach> 
+			</if> -->
+	</select>
+
+	<!-- 查询当前最大的物料组编码 -->
+	<select id="getMaxCmatCod" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select max(C_MAT_CODE) from tb_attr_group where c_parent_id
+		= #{cMatCode}
+	</select>
+
+
+	<!-- 属性查询 -->
+	<select id="selectAgroupOne"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+		<if test="iwipMgroupM1s1.cMatCodeTbMatterGroup != null &amp;&amp; iwipMgroupM1s1.cMatCodeTbMatterGroup != ''">
+			AND TB_ATTR_GROUP.C_PARENT_ID =
+			#{iwipMgroupM1s1.cMatCodeTbMatterGroup,jdbcType=VARCHAR}
+		</if>
+		and length(c_mat_code) = 10 ORDER BY c_mat_code
+	</select>
+	<!-- 属性值查询 -->
+	<select id="selectAgroupTwo"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+		<if test="iwipAgroupM1s1.cMatCodeTbAttrGroup != null &amp;&amp; iwipAgroupM1s1.cMatCodeTbMatterGroup != ''">
+			AND TB_ATTR_GROUP.C_PARENT_ID =
+			#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR}
+		</if>
+		and length(c_mat_code) = 11 ORDER BY c_mat_code
+	</select>
+	<!-- 联动查询 -->
+	<select id="selectAgroupMsg"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		and TB_ATTR_GROUP.C_PARENT_ID =
+		#{iwipAgroupM1s1.cMatCodeTbMatterGroup,jdbcType=VARCHAR} ORDER BY
+		c_mat_code
+
+	</select>
+	<!-- 联动值查询 -->
+	<select id="selectAgroupMsgValue"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1
+
+		and TB_ATTR_GROUP.C_PARENT_ID =
+		#{iwipAgroupM1s1.cMatCodeTbAttrGroup,jdbcType=VARCHAR} ORDER BY
+		c_mat_code
+
+	</select>
+	<select id="selectRepeatDate"
+		parameterType="cn.tdhc.TB_ATTR_GROUP.entity.IWIP_AGROUP_M1S1"
+		resultMap="M1S1ResultMap">
+		select DISTINCT
+		TB_ATTR_GROUP.C_ID C_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve10 reserve10_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_PARENT_ID C_PARENT_ID_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_ENAEM C_ENAEM_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CNAME
+		C_CNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FCNAME C_FCNAME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_BASE_CODE C_BASE_CODE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_EDESCRIDE C_EDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CDESCRIDE C_CDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_FDESCRIDE C_FDESCRIDE_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CREATE_USER C_CREATE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_CTIME C_CTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UP_USER
+		C_UP_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_UPTIME C_UPTIME_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELTE_USER C_DELTE_USER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DELUSER C_DELUSER_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_DR
+		C_DR_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_TIMESTAMP C_TIMESTAMP_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.RESERVE1 RESERVE1_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve2
+		reserve2_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve3 reserve3_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve4 reserve4_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve5
+		reserve5_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve6 reserve6_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve7 reserve7_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve8
+		reserve8_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.reserve9 reserve9_TB_ATTR_GROUP
+		,
+		TB_ATTR_GROUP.C_MAT_CODE C_MAT_CODE_TB_ATTR_GROUP
+
+		from TB_ATTR_GROUP
+		WHERE 1=1 and C_MAT_CODE = #{cMatCode}
+	</select>
+</mapper>

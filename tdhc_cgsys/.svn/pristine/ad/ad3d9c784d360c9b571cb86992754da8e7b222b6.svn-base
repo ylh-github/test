@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>结算协议</title>
+    <!-- DevExtreme 依赖 -->
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+    <!--   <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script src="js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="js/localization/dx.messages.zh.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script src="./js1/CG_JIESUANXIEY.js"></script>
+    <script src="./js1/CG_JIESUANXIEYJudgment.js"></script>
+       <style>
+        .bgc_FF0 {
+            background: pink;
+        }
+        
+        .bgc_aqua {
+            background: purple;
+        }
+        
+        .bgc_green {
+            background: palegreen;
+        }
+        
+      /*   #addForm3 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        #deadline3 span .dx-field-item-label-text {
+            font-size: 14px;
+        } */
+        
+        #pice3 span.dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #textarea4 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+        
+        #addmotai4 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        
+        .BoxDilog {
+            width: 80%;
+            margin: 0 auto;
+            font-family: 宋体;
+            font-size: large;
+        }
+        
+        .stance {
+            margin: 10px 0;
+        }
+        
+        .title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .title h3 {
+            font-weight: bold;
+        }
+        
+        .footers {
+            text-align: center;
+        }
+        /*  #clauseForm4 textarea .dx-texteditor-text {
+		font-size: 14px;
+		} */
+        
+        #addForm5 span .dx-field-item-label-text {
+            font-size: 14px;
+            font-family: "黑体";
+        }
+        
+        .font14 {
+            font-size: 14px;
+        }
+        #textarea5 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+        #textarea6 span .dx-field-item-label-text {
+            font-size: 14px;
+        }
+		#clauseForm5 .dx-textarea .dx-texteditor-input {
+		font-size: 14px;
+		font-family: "黑体";
+		}
+		#addForm5 input {
+		border: none;
+		}
+		#textarea5 input {
+		border: none;
+		}
+		#textarea6 input {
+		border: none;
+    </style>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'north',title:'查询条件',split:true,hideCollapsedContent:false" style="height:100%;">
+        <div class="easyui-layout" data-options="fit:true">
+	         <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 1px;">
+		        <div id="searchFormM1"></div>
+		    </div>
+            <div data-options="region:'west',title:'',split:true,hideCollapsedContent:false" >
+                <div class="easyui-layout" data-options="fit:true">
+                   <!--  <div data-options="region:'north',split:true,hideCollapsedContent:false" style="height:40px;padding: 3px">
+                        顶部查询条件
+                        <div id="searchFormM1"></div>
+                    </div> -->
+                     <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 2px;background:#f6f9ff">
+                        <div id="operateFormM1S1"></div>
+                    </div>
+                    <div data-options="region:'center',title:''">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div data-options="region:'center',title:'结算协议信息'">
+        <div class="easyui-layout" data-options="fit: true">
+            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height: 45px; padding: 5px">
+                <div id="searchFormM2"></div>
+            </div>
+            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                <div id="dataGridS2"></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 添加模态框 -->
+ <!--    <div id="addmotai">
+        <h1 style="text-align:center;height:10px;margin-bottom: 50px">
+            单&nbsp;&nbsp;证&nbsp;&nbsp;信&nbsp;&nbsp;息&nbsp;&nbsp;录&nbsp;&nbsp;用&nbsp;&nbsp;卡</h1>
+
+        <div style="height:550px;overflow-y: scroll;">
+             <h3>出&nbsp;&nbsp;口&nbsp;&nbsp;端</h3>
+            <div id="mAke" style="margin:15px 0 20px 0"></div>
+             <h3>进&nbsp;&nbsp;口&nbsp;&nbsp;端</h3>
+             <div id="mAke2" style="margin:15px 0 20px 0"></div>
+            <div id="addFormMT"></div>
+        </div>
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+    </div> -->
+    <!-- 修改模态框 -->
+    <div id="addmotai2">
+        <div id="addForm2" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure2"></div>
+        <div id="addcansel2"></div>
+    </div>
+    
+    <div id="addmotai31">
+       <div class="BoxDilog">
+                 <div class="title">
+                        <h3>结算协议</h3>
+                 </div>
+                <p class="stance">
+                    <b>买方:</b><input id="cCludecom" value="" type="text" style="width:20%" readonly="true">
+                </p>
+                <p class="stance">
+                    <b>卖方:</b><input id="cSupplier" value="" type="text" style="width:20%" readonly="true">
+                </p> 
+                <div class="content  stance">
+                     <div class="main">
+                      &nbsp; &nbsp;买、卖双方于 <input id="cCludetime" value="" type="text" placeholder="签订日期" readonly="true"> 签订<input id="cSw02" value="" type="text" placeholder="台面等材料的采购合同">，合同号为<input  id='cConnum'value="" type="text" readonly="true"> ，
+                            合同签订金额为 <input id="cConmoney" value="" type="text" readonly="true"> 元，到货总金额为 <input id="cGoodsmoney" value="" type="text"> 元。
+                            买方累计支付卖方 <input id="cPaymoney" value="" type="text">元，余款 <input id="cResidualq" value="" type="text">元买方尚未支付卖方。因 <input id="cCause" value="" type="text">买方造成损失，经双方友好协商决定，达成以下协议：  
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;1、卖方给予赔偿 <input id="cPcmoney" value="" type="text">元作为对买方的损失补偿，在 <input id="cKccause" value="" type="text" placeholder="合同余款（质保金）">中一次性扣除，即为 <input id="cZbmoney"  value="" type="text">元；合同结算金额为 <input id="cSettlemoney" value="" type="text">元。
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;<input id="cSw01" value="" type="text" placeholder="2、根据发票填写" style="width:90%">  <br>
+                     &nbsp; &nbsp;本协议作为原合同的补充，与原合同具有同等的法律效力，除本协议变更的内容外，其他条款仍按原合同条款执行。本协议一式肆份，签章生效。
+                        </div>
+                </div>  
+                <p class="stance">
+                        <b>买方:</b><input id="cCludecom2" value="" type="text" style="width:20%" readonly="true">
+                        <br>
+                        <b>买方代表：</b>
+                    </p>
+                    <br>
+                    <p class="stance">
+                        <b>卖方:</b><input id="cSupplier2" value="" type="text" style="width:20%" readonly="true">
+                        <br>
+                        <b>卖方代表：</b>
+                    </p> 
+          <div  class="  stance">
+              <br>
+               <div class="footers">
+                    <div id="addcontract"></div>
+                    <div id="canselcontract"></div>
+               </div> 
+          </div>      
+       </div>
+   </div>
+  <!--   <div id="addmotai32">
+       <div class="BoxDilog">
+                 <div class="title">
+                        <h3>结算协议</h3>
+                 </div>
+                <p class="stance">
+                    <b>买方:</b><input id="cCludecom" value="" type="text">
+                </p>
+                <p class="stance">
+                    <b>卖方:</b><input id="cSupplier" value="" type="text">
+                </p> 
+                <div class="content  stance">
+                     <div class="main">
+                      &nbsp; &nbsp;买、卖双方于 <input id="cCludetime" value="" type="text" placeholder="签订日期"> 签订<input id="cSw02" value="" type="text" placeholder="台面等材料的采购合同">，合同号为 <input  id='cConnum'  value="" type="text"> ，
+                            合同签订金额为 <input id="cConmoney" value="" type="text"> 元，到货总金额为 <input id="cGoodsmoney" value="" type="text"> 元。
+                            买方累计支付卖方 <input id="cPaymoney" value="" type="text">元，余款 <input id="cResidualq" value="" type="text">元买方尚未支付卖方。因 <input id="cCause" value="" type="text">买方造成损失，经双方友好协商决定，达成以下协议：  
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;1、卖方给予赔偿 <input id="cPcmoney" value="" type="text">元作为对买方的损失补偿，在 <input id="cKccause" value="" type="text" placeholder="合同余款（质保金）">中一次性扣除，即为 <input id="cZbmoney"  value="" type="text">元；合同结算金额为 <input id="cSettlemoney" value="" type="text">元。
+                     </div>
+                     <div class="main-details stance">
+                     &nbsp; &nbsp;2、<input id="cSw01" value="" type="text" placeholder="根据发票填写">  <br>
+                     &nbsp; &nbsp;本协议作为原合同的补充，与原合同具有同等的法律效力，除本协议变更的内容外，其他条款仍按原合同条款执行。本协议一式肆份，签章生效。
+                        </div>
+                </div>  
+                <p class="stance">
+                        <b>买方:</b><input id="cCludecom2" value="" type="text" style="width:90%">
+                        <br>
+                        <b>买方代表：</b>
+                    </p>
+                    <br>
+                    <p class="stance">
+                        <b>卖方:</b><input id="cSupplier2" value="" type="text" style="width:30%">
+                        <br>
+                        <b>卖方代表：</b>
+                    </p> 
+          <div  class="  stance">
+              <br>
+               <div class="footers">
+                    <div id="addcontract"></div>
+                    <div id="canselcontract"></div>
+               </div> 
+          </div>      
+       </div>
+   </div> -->
+    <!-- 修改模态框 -->
+    <!-- <div id="addmotai4">
+        <h1 style="text-align:center;height:10px;margin-bottom: 50px">
+            单&nbsp;&nbsp;证&nbsp;&nbsp;信&nbsp;&nbsp;息&nbsp;&nbsp;录&nbsp;&nbsp;用&nbsp;&nbsp;卡</h1>
+        <div style="height:550px;overflow-y: scroll;">
+            <div id="mAke2" style="margin:15px 0 20px 0"></div>
+            <div id="addFormMT2"></div>
+        </div>
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+    </div> -->
+      <!-- 查看合同模板 -->
+    <div id="addmotai5">
+        <div style="height:100%;overflow-y: scroll;">
+            <h1 style="text-align:center;height:10px;margin-bottom: 50px">模&nbsp;&nbsp;拟&nbsp;&nbsp;合&nbsp;&nbsp;同</h1>
+           <!-- 合同模板类型 -->
+           <div id="contract_type5" style="margin-bottom: 15px"></div>
+            <div id="addForm5" style="margin-bottom: 15px"></div>
+            <!-- <div style="display: inline-block; width:700px;height:10px"></div> -->
+            <p class="font14">根据我国相关法律法规，经双方友好协商一致，就需方购买供方产品达成以下条款并共同遵守。</p>
+            <b class="font14">第一条 标的名称、规格型号、计量单位、数量、价款</b>
+           <!--  <div id="First_clause" style="margin-bottom: 15px"></div> -->
+            <div id="addmoni5" style="margin-top:15px"></div>
+            <div id="clauseForm5" style="margin-top:15px"></div>
+           <!--  <div id="deadline5" style="margin-top:10px"></div>
+			<div id="pice5" style="margin-top:10px"></div> -->
+            <div style="width:100%">
+                <div style="width:50%;border:1px solid #000;float:left;margin-top: 5px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">需方</div>
+                    <div id="textarea5" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+                <div style="width:48.5%;border:1px solid #000;float:left;margin-right:20px;margin-top: 5px;margin-left: -1px">
+                    <div style="font-size:16px;height:25px;text-align:center;line-height: 25px">供方</div>
+                    <div id="textarea6" style="margin-left:5px;margin-right:5px"></div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

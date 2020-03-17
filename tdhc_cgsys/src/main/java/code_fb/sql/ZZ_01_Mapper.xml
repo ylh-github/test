@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.ZZ_01_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.ZZ_01_M1S1" >
+	 <result column="C_CLUDECOM_TB_CLUDECOMPANY" property="cCludecomTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMACCOUNTNO_TB_CLUDECOMPANY" property="cComaccountnoTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMADDRESS_TB_CLUDECOMPANY" property="cComaddressTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMBANKNAME_TB_CLUDECOMPANY" property="cCombanknameTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMFAXNO_TB_CLUDECOMPANY" property="cComfaxnoTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMPHONE_TB_CLUDECOMPANY" property="cComphoneTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMREMARK_TB_CLUDECOMPANY" property="cComremarkTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_COMTAXNUMBER_TB_CLUDECOMPANY" property="cComtaxnumberTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TB_CLUDECOMPANY" property="cCreaterTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_CLUDECOMPANY" property="cDrTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_CLUDECOMPANY" property="cIdTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_CLUDECOMPANY" property="cModifierTbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_CLUDECOMPANY" property="cSw01TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_CLUDECOMPANY" property="cSw02TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_CLUDECOMPANY" property="cSw03TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_CLUDECOMPANY" property="cSw04TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_CLUDECOMPANY" property="cSw05TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_CLUDECOMPANY" property="cSw06TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_CLUDECOMPANY" property="cSw07TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_CLUDECOMPANY" property="cSw08TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_CLUDECOMPANY" property="cSw09TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_CLUDECOMPANY" property="cSw10TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_CLUDECOMPANY" property="cSw11TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_CLUDECOMPANY" property="cSw12TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_CLUDECOMPANY" property="cSw13TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_CLUDECOMPANY" property="cSw14TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_CLUDECOMPANY" property="cSw15TbCludecompany" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME_TB_CLUDECOMPANY" property="cCreatetimeTbCludecompany" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TB_CLUDECOMPANY" property="cModifytimeTbCludecompany" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_CLUDECOMPANY" property="cTimestampTbCludecompany" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QZZ_01_M1S1" parameterType="code_fb.entity.ZZ_01_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_CLUDECOMPANY.C_ID C_ID_TB_CLUDECOMPANY
+,
+TB_CLUDECOMPANY.C_COMADDRESS C_COMADDRESS_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMBANKNAME C_COMBANKNAME_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMACCOUNTNO C_COMACCOUNTNO_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMTAXNUMBER C_COMTAXNUMBER_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMPHONE C_COMPHONE_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMFAXNO C_COMFAXNO_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_CLUDECOM C_CLUDECOM_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_SW01 C_SW01_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_SW02 C_SW02_TB_CLUDECOMPANY 
+
+ from TB_CLUDECOMPANY
+ WHERE 1=1 
+   <if test="zz01M1s1.cCludecomTbCludecompany != null" >
+       AND  TB_CLUDECOMPANY.C_CLUDECOM like '%' || #{zz01M1s1.cCludecomTbCludecompany,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="zz01M1s1.cSw02TbCludecompany != null and zz01M1s1.cSw02TbCludecompany != '' " >
+       AND  TB_CLUDECOMPANY.C_SW02 = #{zz01M1s1.cSw02TbCludecompany,jdbcType=VARCHAR}
+  </if>
+	</select> 
+	
+	<select id="selectBycId" parameterType="java.lang.String" resultMap="M1S1ResultMap"> 
+  select 
+TB_CLUDECOMPANY.C_ID C_ID_TB_CLUDECOMPANY
+,
+TB_CLUDECOMPANY.C_COMADDRESS C_COMADDRESS_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMBANKNAME C_COMBANKNAME_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMACCOUNTNO C_COMACCOUNTNO_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMTAXNUMBER C_COMTAXNUMBER_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMPHONE C_COMPHONE_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_COMFAXNO C_COMFAXNO_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_CLUDECOM C_CLUDECOM_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_SW01 C_SW01_TB_CLUDECOMPANY 
+,
+TB_CLUDECOMPANY.C_SW02 C_SW02_TB_CLUDECOMPANY 
+
+ from TB_CLUDECOMPANY
+ WHERE 1=1 
+ and  TB_CLUDECOMPANY.C_ID = #{cId,jdbcType=VARCHAR}
+	</select> 
+<!-- 查询签订公司 -->
+<select id="findCompInfo" parameterType="code_fb_cg.entity.TbCludecompany" resultType="code_fb_cg.entity.TbCludecompany"> 
+  select  distinct T.C_CLUDECOM 
+ from TB_CLUDECOMPANY T
+</select> 
+<!-- 签订公司信息的填充 -->
+<select id="getCompInfo" parameterType="code_fb_cg.entity.TbCludecompany" resultType="code_fb_cg.entity.TbCludecompany"> 
+  select * from TB_CLUDECOMPANY  where 1=1 
+   <if test="tbCludecompany.cCludecom != null and  tbCludecompany.cCludecom != '' " >
+       AND  C_CLUDECOM =  trim(#{tbCludecompany.cCludecom,jdbcType=VARCHAR})
+  </if>
+</select> 
+	 <insert id="M1S11AZZ_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="zz01M1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_CLUDECOMPANY
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	        C_ID,
+	 <if test="item.cComaddressTbCludecompany != null" >
+		C_COMADDRESS,
+  </if>
+	 <if test="item.cCombanknameTbCludecompany != null" >
+		C_COMBANKNAME,
+  </if>
+	 <if test="item.cComaccountnoTbCludecompany != null" >
+		C_COMACCOUNTNO,
+  </if>
+	 <if test="item.cComtaxnumberTbCludecompany != null" >
+		C_COMTAXNUMBER,
+  </if>
+	 <if test="item.cComphoneTbCludecompany != null" >
+		C_COMPHONE,
+  </if>
+	 <if test="item.cComfaxnoTbCludecompany != null" >
+		C_COMFAXNO,
+  </if>
+	 <if test="item.cCludecomTbCludecompany != null" >
+		C_CLUDECOM,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	   C_ID_COMPY.NEXTVAL,
+	 <if test="item.cComaddressTbCludecompany != null" >
+	 <!-- replace(#carNumber#,' ',''), -->
+		trim(#{item.cComaddressTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cCombanknameTbCludecompany != null" >
+		trim(#{item.cCombanknameTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cComaccountnoTbCludecompany != null" >
+		trim(#{item.cComaccountnoTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cComtaxnumberTbCludecompany != null" >
+		trim(#{item.cComtaxnumberTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cComphoneTbCludecompany != null" >
+		trim(#{item.cComphoneTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cComfaxnoTbCludecompany != null" >
+		trim(#{item.cComfaxnoTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+	 <if test="item.cCludecomTbCludecompany != null" >
+		trim(#{item.cCludecomTbCludecompany,jdbcType=VARCHAR}),
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UZZ_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="zz01M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_CLUDECOMPANY
+	         <set >
+	 <if test="item.cComaddressTbCludecompany != null" >
+		C_COMADDRESS = #{item.cComaddressTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCombanknameTbCludecompany != null" >
+		C_COMBANKNAME = #{item.cCombanknameTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComaccountnoTbCludecompany != null" >
+		C_COMACCOUNTNO = #{item.cComaccountnoTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComtaxnumberTbCludecompany != null" >
+		C_COMTAXNUMBER = #{item.cComtaxnumberTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComphoneTbCludecompany != null" >
+		C_COMPHONE = #{item.cComphoneTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComfaxnoTbCludecompany != null" >
+		C_COMFAXNO = #{item.cComfaxnoTbCludecompany,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCludecomTbCludecompany != null" >
+		C_CLUDECOM = #{item.cCludecomTbCludecompany,jdbcType=VARCHAR},
+ </if> 
+	 <if test="item.cSw01TbCludecompany != null" >
+		C_SW01 = #{item.cSw01TbCludecompany,jdbcType=VARCHAR},
+ </if> 
+	 <if test="item.cSw02TbCludecompany != null" >
+		C_SW02 = #{item.cSw02TbCludecompany,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCludecompany,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DZZ_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="zz01M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_CLUDECOMPANY
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTbCludecompany,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ <!--  导入 -->
+  <insert id="Import_CompExcel" parameterType="java.util.List" >
+  <foreach close=";end;" collection="list" index="index" item="item" open="begin" separator=";">  
+    insert into TB_CLUDECOMPANY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+    <!--   <if test="cId != null" > -->
+        C_ID,
+     <!--  </if> -->
+      <if test="item.cCludecom != null" >
+        C_CLUDECOM,
+      </if>
+      <if test="item.cComaddress != null" >
+        C_COMADDRESS,
+      </if>
+      <if test="item.cCombankname != null" >
+        C_COMBANKNAME,
+      </if>
+      <if test="item.cComaccountno != null" >
+        C_COMACCOUNTNO,
+      </if>
+      <if test="item.cComtaxnumber != null" >
+        C_COMTAXNUMBER,
+      </if>
+      <if test="item.cComphone != null" >
+        C_COMPHONE,
+      </if>
+      <if test="item.cComfaxno != null" >
+        C_COMFAXNO,
+      </if>
+      <if test="item.cComremark != null" >
+        C_COMREMARK,
+      </if>
+      <if test="item.cDr != null" >
+        C_DR,
+      </if>
+      <if test="item.cTimestamp != null" >
+        C_TIMESTAMP,
+      </if>
+      <if test="item.cCreater != null" >
+        C_CREATER,
+      </if>
+      <if test="item.cCreatetime != null" >
+        C_CREATETIME,
+      </if>
+      <if test="item.cModifier != null" >
+        C_MODIFIER,
+      </if>
+      <if test="item.cModifytime != null" >
+        C_MODIFYTIME,
+      </if>
+      <if test="item.cSw01 != null" >
+        C_SW01,
+      </if>
+      <if test="item.cSw02 != null" >
+        C_SW02,
+      </if>
+      <if test="item.cSw03 != null" >
+        C_SW03,
+      </if>
+      <if test="item.cSw04 != null" >
+        C_SW04,
+      </if>
+      <if test="item.cSw05 != null" >
+        C_SW05,
+      </if>
+      <if test="item.cSw06 != null" >
+        C_SW06,
+      </if>
+      <if test="item.cSw07 != null" >
+        C_SW07,
+      </if>
+      <if test="item.cSw08 != null" >
+        C_SW08,
+      </if>
+      <if test="item.cSw09 != null" >
+        C_SW09,
+      </if>
+      <if test="item.cSw10 != null" >
+        C_SW10,
+      </if>
+      <if test="item.cSw11 != null" >
+        C_SW11,
+      </if>
+      <if test="item.cSw12 != null" >
+        C_SW12,
+      </if>
+      <if test="item.cSw13 != null" >
+        C_SW13,
+      </if>
+      <if test="item.cSw14 != null" >
+        C_SW14,
+      </if>
+      <if test="item.cSw15 != null" >
+        C_SW15,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <!-- <if test="item.cId != null" >
+        #{cId,jdbcType=VARCHAR},
+      </if> -->
+      C_ID_COMPY.NEXTVAL,
+      <if test="item.cCludecom != null" >
+       #{item.cCludecom,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComaddress != null" >
+       #{item.cComaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCombankname != null" >
+       #{item.cCombankname,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComaccountno != null" >
+       #{item.cComaccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComtaxnumber != null" >
+       #{item.cComtaxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComphone != null" >
+       #{item.cComphone,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComfaxno != null" >
+       #{item.cComfaxno,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cComremark != null" >
+       #{item.cComremark,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cDr != null" >
+       #{item.cDr,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cTimestamp != null" >
+       #{item.cTimestamp,jdbcType=DATE},
+      </if>
+      <if test="item.cCreater != null" >
+       #{item.cCreater,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cCreatetime != null" >
+       #{item.cCreatetime,jdbcType=DATE},
+      </if>
+      <if test="item.cModifier != null" >
+       #{item.cModifier,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cModifytime != null" >
+       #{item.cModifytime,jdbcType=DATE},
+      </if>
+      <if test="item.cSw01 != null" >
+       #{item.cSw01,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw02 != null" >
+       #{item.cSw02,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw03 != null" >
+       #{item.cSw03,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw04 != null" >
+       #{item.cSw04,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw05 != null" >
+       #{item.cSw05,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw06 != null" >
+       #{item.cSw06,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw07 != null" >
+       #{item.cSw07,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw08 != null" >
+       #{item.cSw08,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw09 != null" >
+       #{item.cSw09,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw10 != null" >
+       #{item.cSw10,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw11 != null" >
+       #{item.cSw11,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw12 != null" >
+       #{item.cSw12,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw13 != null" >
+       #{item.cSw13,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw14 != null" >
+       #{item.cSw14,jdbcType=VARCHAR},
+      </if>
+      <if test="item.cSw15 != null" >
+       #{item.cSw15,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    </foreach>
+  </insert>
+ </mapper>

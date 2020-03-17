@@ -1,0 +1,91 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_Q001_M1S1;
+import code_fb.entity.CG_Q001_S1S2;
+import code_fb.entity.CG_Q003_M1S1;
+import code_fb_cg.entity.TbCgcontract;
+import code_fb_cg.entity.TpCgcontractst;
+import code_fb_cg.entity.TpCgordermt;
+import code_fb_cg.entity.TpCgordermt2;
+import code_fb_cg.entity.TpCgorderst;
+import code_fb_cg.request.AllotForData;
+import code_fb_cg.request.Q001M1s1Qrequest;
+import code_fb_cg.request.StRequest;
+import code_fb_cg.response.HomePageResponse;
+import code_fb_cg.response.HompageRequest;
+import code_fb_cg.response.TpCgorderstDetails;
+/**
+ * 
+ * @author lhb
+ * @时间：2018年8月16日上午11:29:56
+ */
+@Repository("tpCgorderstMapper")
+public interface TpCgorderstMapper {
+    int deleteByPrimaryKey(String cId);
+    int insert(TpCgorderst record);
+    int insertSelective(TpCgorderst record);
+    TpCgorderst selectByPrimaryKey(String cId);
+    int updateByPrimaryKeySelective(TpCgorderst record);
+    int updateByPrimaryKey(TpCgorderst record);
+    
+    
+    int addExcelst(@Param("orderst")List<TpCgorderst> orderst);
+    //根据 主表id查询子表数据
+    List<TpCgorderst> selectS1s2(TpCgordermt stList);
+    List<TpCgorderst> selectS1S2(TpCgordermt stList);
+    //根据采购员查询信息
+    List<TpCgorderst> selectS1S3(TpCgordermt2 stList);
+    List<TpCgorderst> selectS1S32(TpCgordermt2 stList);
+    List<TpCgorderst> selectS1S33(TpCgordermt2 stList);
+    
+    List<TpCgorderstDetails> selectrstDetails(TpCgordermt2 stList);
+    //修改
+    int updateS1S2(@Param("list")List<TpCgorderst> list);
+    
+    List<TpCgorderst> S1S21Q(CG_Q003_M1S1 cgQ003M1s1);
+    //预登记查询物资表
+    List<TpCgorderst> selectForOrderSt(StRequest request);
+    //动态查询数据字典信息
+	//List<TpCgordermt> get_data_value(@Param("cSw01")String csubitemdes, @Param("cSw02") String citemdes);
+	//分配前的条件查询
+	List<TpCgorderst> selectOrderStForAllot(AllotForData request);
+	List<TpCgorderst> before_serDel(TpCgorderst tpCgorderst);
+	//取消提交
+	int updateS1S22(@Param("list")List<TpCgorderst> list);
+	int updateForZF(@Param("list")List<TpCgcontractst> list);
+	int deleteByOrderst(@Param("list")List<TpCgorderst> orstList);
+	int S1S21Ubuy(@Param("cgQ001S1s2")List<TpCgorderst> orstList);
+	List<TpCgorderst> selectGOODSNAMEQ();
+	//请购单维护查询信息
+	List<TpCgorderst> M2S11Q(@Param("cg_Q001_M1S1") CG_Q001_M1S1 cg_Q001_M1S1, @Param("tpCgorderst") TpCgorderst tpCgorderst);
+	//物资表查询待转合同物资
+	List<TpCgorderst> M2S11QDZ(@Param("cSw11") String cSw11);
+	//填写模拟合同时，更新请购物资
+	int  updateTpCgorderst(@Param("updateTpCgorderst") List<TpCgorderst> updateTpCgorderst);
+	//根据条件查询请购物资
+	HomePageResponse tpCgorderstSum(@Param("hompageRequest")HompageRequest hompageRequest);
+	HomePageResponse selecttpCgorderstSum(@Param("hompageRequest")HompageRequest hompageRequest);
+	//查询全年的所有物资
+	List<TpCgorderst> yeartpCgorderstSum(@Param("hompageRequest")HompageRequest hompageRequest);
+	List<HomePageResponse> yeartpCgorderstSum2(@Param("hompageRequest")HompageRequest hompageRequest);
+	//查询已购买完成的数据
+	Integer selectFinished(@Param("cSw04")String cSw04);
+	//查询未购买的数据
+	Integer selectNoPurchase(@Param("cSw04")String cSw04);
+	//查询取消购买的数据
+	Integer selectCancelPurchase(@Param("cSw04")String cSw04);
+	//采购员修改
+	int  S1S21UCGY(@Param("cgQ001S1s2") List<CG_Q001_S1S2> cgQ001S1s2);
+	/**
+	 * 请购单合同联合查询
+	 * @param tpcgordermt
+	 * @return
+	 */
+	List<Q001M1s1Qrequest> selectQ001_7(TpCgordermt2 tpcgordermt);
+	int  updateTpCgorderstMapper(TbCgcontract tbCgcontract);
+}

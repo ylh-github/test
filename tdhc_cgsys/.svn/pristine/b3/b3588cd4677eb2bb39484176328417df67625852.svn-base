@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="cn.tdhc.publics.mapper.Publics">
+	
+	
+	<!-- 根据访问会话标识串,动态表名,查询用户档案表图片-->
+	<select id="getUserCodeWithAtoken" parameterType="java.lang.String"
+		resultType="java.lang.String" >
+		SELECT C_NURL FROM TP_CGUSER WHERE C_NAME = (SELECT CODE FROM TODA_USER_ONLINE WHERE ATOKEN = #{atoken})
+	</select>
+	
+	<!-- 根据动态表名,动态字段,动态值,查询并判断此值得属性-->
+	<select id = "getCountTableNum" parameterType="java.lang.String" resultType="java.lang.Integer" statementType="STATEMENT">
+	
+		SELECT COUNT(1) FROM ${tableName} WHERE ${columnName} = ${parameter}
+		
+	</select>
+	
+	<!-- 根据动态表名,动态字段,动态值,查询并判断此值得属性-->
+	<select id = "getCountTableNumList" parameterType="java.util.List" resultType="java.lang.Integer" statementType="STATEMENT">
+	
+		SELECT COUNT(1) FROM ${tableName} WHERE 1=1 
+		 <if test="parameter.size != 0">
+			and
+			${columnName} in
+			<foreach collection="parameter" item="parameters"
+				open="(" close=")" separator=",">
+				${parameters}
+			</foreach>
+		</if>
+	</select>
+	<!-- 物料编码删除查询判断是否有父节点,用于删除提示 -->
+	<select id = "getCountDelFlag" parameterType="java.lang.String" resultType="java.lang.Integer">
+		 SELECT DISTINCT count(1) FROM TB_MATTER_GROUP START WITH C_PARENT_ID = #{cParentId} 
+		CONNECT BY PRIOR C_MAT_CODE = C_PARENT_ID
+	</select>
+</mapper>

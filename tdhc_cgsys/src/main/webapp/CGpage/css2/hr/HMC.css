@@ -1,0 +1,68 @@
+#dataGridS1 .dx-datagrid-header-panel {
+    padding: 0;
+    background-color: rgba(85, 149, 222, 0.6);
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-toolbar {
+    margin: 0;
+    /* padding-right: 20px; */
+    background-color: transparent;
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-toolbar-items-container {
+    height: 55px;
+    background-color: #fff;
+    padding: 0;
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-toolbar-before .dx-toolbar-item:not(:first-child) {
+    /* background-color: rgba(85, 149, 222, 0.6); */
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-toolbar-before .dx-toolbar-item:last-child {
+    padding-right: 10px;
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-selectbox {
+    margin: 17px 10px;
+}
+
+#dataGridS1 .dx-datagrid-header-panel .dx-button {
+    /* margin: 17px 0; */
+}
+
+#dataGridS1 .informer {
+    height: 62px;
+    width: 600px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+}
+
+#dataGridS1 .informers {
+    height: 16px;
+    width: 90px;
+    text-align: center;
+    color: #3a5fad;
+    font-size: 17px;
+    margin: 0;
+}
+
+#dataGridS1 .count {
+    height: 25px;
+    width: 80px;
+    margin: 0;
+    font-size: 13px;
+    color: #3a5fad;
+}
+
+#dataGridS1 .count1 {
+    height: 1px;
+    width: 130px;
+    margin: 0;
+}
+
+img {
+    height: 60px;
+    display: block;
+}

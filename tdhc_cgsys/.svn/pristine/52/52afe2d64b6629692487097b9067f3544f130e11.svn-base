@@ -1,0 +1,125 @@
+package code_fb_cg.controller;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import code_fb_cg.entity.TpCgauthority;
+import code_fb_cg.request.TpCgauthorityM1S12_Request;
+import code_fb_cg.request.TpCgauthorityS1S22_Request;
+import code_fb_cg.service.TpCgauthorityService;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.RequestObject;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User;
+import vip.toda.piper.auth.web.client.annotation.RequestParamUser;
+import vip.toda.piper.auth.web.client.annotation.RequireUser;
+/**
+ * 
+ * @author lhb
+ * @时间：2018年8月19日下午6:56:51
+ */
+@Controller
+@RequestMapping("CG_A001")
+public class TpCgauthorityController {
+
+	@Autowired
+	private TpCgauthorityService tpCgauthorityService;
+	@RequireUser
+	@RequestMapping(value="/M1S12MSG",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> M1S12U(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthorityM1S12_Request> requestObject){ 
+		requestObject.getData().getCgA001M1s1().get(0).setcModifier(user.getUserName());
+		requestObject.getData().getCgA001M1s1().get(0).setcModifydate(new Date());
+		return tpCgauthorityService.M1S12U(requestObject);
+	} 
+	
+	//禁用
+	@RequireUser
+	@RequestMapping(value="/M1S13MSG",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> M1S13U(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthorityM1S12_Request> requestObject){ 
+		requestObject.getData().getCgA001M1s1().get(0).setcModifier(user.getUserName());
+		requestObject.getData().getCgA001M1s1().get(0).setcModifydate(new Date());
+		return tpCgauthorityService.M1S13U(requestObject);
+	} 
+	//启用
+	@RequireUser
+	@RequestMapping(value="/S1S22MSG",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> S1S22U(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthorityS1S22_Request> requestObject){ 
+		requestObject.getData().getCgA001S1s2().get(0).setcModifier(user.getUserName());
+		requestObject.getData().getCgA001S1s2().get(0).setcModifydate(new Date());
+		return tpCgauthorityService.S1S22U(requestObject);
+	} 
+	//禁用
+	@RequireUser
+	@RequestMapping(value="/S1S23MSG",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, EmptyData> S1S23U(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthorityS1S22_Request> requestObject){ 
+		requestObject.getData().getCgA001S1s2().get(0).setcModifier(user.getUserName());
+		requestObject.getData().getCgA001S1s2().get(0).setcModifydate(new Date());
+		return tpCgauthorityService.S1S23U(requestObject);
+	} 
+	//付款方式
+	@RequireUser
+	@RequestMapping(value="/H001FKFS",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> selectH001FKFS(@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		return tpCgauthorityService.selectH001FKFS(requestObject);
+	} 
+	//完成状态
+	@RequireUser
+	@RequestMapping(value="/H001WCZT",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> selectH001WCFS(@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		return tpCgauthorityService.selectH001WCZT(requestObject);
+	} 
+	
+	//-------------
+	@RequireUser
+	@RequestMapping(value="/selcon",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> getDictionaryInfoWithItemNos(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		requestObject.getData().setcCreater(user.getUserName());
+		return tpCgauthorityService.getDictionaryInfoWithItemNos(requestObject);
+	} 
+	@RequireUser
+	@RequestMapping(value="/cstate",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> getCaigouzhuangtai(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		requestObject.getData().setcCreater(user.getUserName());
+		return tpCgauthorityService.getDictionaryInfoWithItemNos4(requestObject);
+	} 
+	//经理及其下属员工
+	@RequireUser
+	@RequestMapping(value="/selcon1",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> getDictionaryInfoWithItemNos1(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		requestObject.getData().setcCreater(user.getUserName());
+		return tpCgauthorityService.getDictionaryInfoWithItemNos1(requestObject);
+	} 
+	//主任及其下属员工
+	@RequireUser
+	@RequestMapping(value="/selcon2",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> getDictionaryInfoWithItemNos2(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		requestObject.getData().setcCreater(user.getUserName());
+		return tpCgauthorityService.getDictionaryInfoWithItemNos2(requestObject);
+	} 
+	//经理及其下属员工
+	@RequireUser
+	@RequestMapping(value="/selcon3",method=RequestMethod.POST) 
+	@ResponseBody 
+	public  ResponseObject<EmptyTag, List<TpCgauthority>> getDictionaryInfoWithItemNos3(@RequestParamUser User user,@RequestBody RequestObject<EmptyTag, TpCgauthority> requestObject){ 
+		requestObject.getData().setcCreater(user.getUserName());
+		return tpCgauthorityService.getDictionaryInfoWithItemNos3(requestObject);
+	} 
+}

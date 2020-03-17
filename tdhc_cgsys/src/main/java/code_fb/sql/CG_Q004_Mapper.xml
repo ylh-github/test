@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_Q004_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_Q004_M1S1" >
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_PHONE" property="cPhone" jdbcType="VARCHAR" />
+	 <result column="C_SUM" property="cSum" jdbcType="VARCHAR" />
+	 <result column="C_SUPPLIER" property="cSupplier" jdbcType="VARCHAR" />
+	 <result column="C_UNIT" property="cUnit" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_ORMTID" property="cOrmtid" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_CLUDECOM" property="cCludecom" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_PIRCE" property="cPirce" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_ORMAN" property="cOrman" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_ORDEPT" property="cOrdept" jdbcType="VARCHAR" />
+	 <result column="C_ORSTID" property="cOrstid" jdbcType="VARCHAR" />
+ </resultMap>
+ <resultMap id="M2S2ResultMap" type="code_fb.entity.CG_Q004_M2S2" >
+	 <result column="C_DEPTAPPLY" property="cDeptapply" jdbcType="VARCHAR" />
+	 <result column="C_DR" property="cDr" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_AUDITTIME" property="cAudittime" jdbcType="TIMESTAMP" />
+	 <result column="C_COMNAME" property="cComname" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_ORDERNUM" property="cOrdernum" jdbcType="VARCHAR" />
+	 <result column="C_AUDITMAN" property="cAuditman" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_MANAPPLY" property="cManapply" jdbcType="VARCHAR" />
+	 <result column="C_MITTYPE" property="cMittype" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_MITMAN" property="cMitman" jdbcType="VARCHAR" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_MITTIME" property="cMittime" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_TIMETAKE" property="cTimetake" jdbcType="TIMESTAMP" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_TIMEAPPLY" property="cTimeapply" jdbcType="TIMESTAMP" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_AUDITTYPE" property="cAudittype" jdbcType="VARCHAR" />
+ </resultMap>
+ <resultMap id="S2S3ResultMap" type="code_fb.entity.CG_Q004_S2S3" >
+	 <result column="C_UNIT" property="cUnit" jdbcType="VARCHAR" />
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_MANOR" property="cManor" jdbcType="VARCHAR" />
+	 <result column="C_MTID" property="cMtid" jdbcType="VARCHAR" />
+	 <result column="C_ORDEALLINE" property="cOrdealline" jdbcType="TIMESTAMP" />
+	 <result column="C_PHONE" property="cPhone" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_PLANTIME" property="cPlantime" jdbcType="TIMESTAMP" />
+	 <result column="C_TYPENAME" property="cTypename" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_PLANOR" property="cPlanor" jdbcType="VARCHAR" />
+	 <result column="C_POLITIME" property="cPolitime" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTSTATE" property="cAllotstate" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTMAN" property="cAllotman" jdbcType="VARCHAR" />
+	 <result column="C_DEPTOR" property="cDeptor" jdbcType="VARCHAR" />
+	 <result column="C_NO" property="cNo" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_ALLOTTIME" property="cAllottime" jdbcType="TIMESTAMP" />
+	 <result column="C_ARRTIME" property="cArrtime" jdbcType="TIMESTAMP" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_MUSTNEED" property="cMustneed" jdbcType="VARCHAR" />
+	 <result column="C_NUM" property="cNum" jdbcType="VARCHAR" />
+	 <result column="C_POLINORMTIME" property="cPolinormtime" jdbcType="VARCHAR" />
+ </resultMap>
+ <select id="M1S11QCG_Q004_M1S1" parameterType="code_fb.entity.CG_Q004_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGORDERBEFORE.C_MODIFYTIME 
+,
+TP_CGORDERBEFORE.C_MODIFIER 
+,
+TP_CGORDERBEFORE.C_ID 
+,
+TP_CGORDERBEFORE.C_CREATER 
+,
+TP_CGORDERBEFORE.C_TIMESTAMP 
+,
+TP_CGORDERBEFORE.C_STATE 
+,
+TP_CGORDERBEFORE.C_REMARK 
+,
+TP_CGORDERBEFORE.C_PHONE 
+,
+TP_CGORDERBEFORE.C_ORDEPT 
+,
+TP_CGORDERBEFORE.C_ORMAN 
+,
+TP_CGORDERBEFORE.C_SUM 
+,
+TP_CGORDERBEFORE.C_PIRCE 
+,
+TP_CGORDERBEFORE.C_CLUDECOM 
+,
+TP_CGORDERBEFORE.C_SUPPLIER 
+,
+TP_CGORDERBEFORE.C_UNIT 
+,
+TP_CGORDERBEFORE.C_SPEC 
+,
+TP_CGORDERBEFORE.C_GOODSNAME 
+,
+TP_CGORDERBEFORE.C_ORSTID 
+,
+TP_CGORDERBEFORE.C_ORMTID 
+,
+TP_CGORDERBEFORE.C_CREATETIME 
+
+ from TP_CGORDERBEFORE
+ WHERE 1=1 
+	 <if test="cgQ004M1s1.cOrman != null" >
+		 AND  TP_CGORDERBEFORE.C_ORMAN like '%' || #{cgQ004M1s1.cOrman,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgQ004M1s1.cSpec != null" >
+		 AND  TP_CGORDERBEFORE.C_SPEC like '%' || #{cgQ004M1s1.cSpec,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgQ004M1s1.cGoodsname != null" >
+		 AND  TP_CGORDERBEFORE.C_GOODSNAME like '%' || #{cgQ004M1s1.cGoodsname,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgQ004M1s1.cOrstid != null" >
+		 AND  TP_CGORDERBEFORE.C_ORSTID like '%' || #{cgQ004M1s1.cOrstid,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <insert id="M1S11ACG_Q004_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TP_CGORDERBEFORE
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME
+  </if>
+	 <if test="item.cModifier != null" >,
+		C_MODIFIER
+  </if>
+	 <if test="item.cCreater != null" >,
+		C_CREATER
+  </if>
+	 <if test="item.cState != null" >,
+		C_STATE
+  </if>
+	 <if test="item.cRemark != null" >,
+		C_REMARK
+  </if>
+	 <if test="item.cPhone != null" >,
+		C_PHONE
+  </if>
+	 <if test="item.cOrdept != null" >,
+		C_ORDEPT
+  </if>
+	 <if test="item.cOrman != null" >,
+		C_ORMAN
+  </if>
+	 <if test="item.cSum != null" >,
+		C_SUM
+  </if>
+	 <if test="item.cPirce != null" >,
+		C_PIRCE
+  </if>
+	 <if test="item.cCludecom != null" >,
+		C_CLUDECOM
+  </if>
+	 <if test="item.cSupplier != null" >,
+		C_SUPPLIER
+  </if>
+	 <if test="item.cUnit != null" >,
+		C_UNIT
+  </if>
+	 <if test="item.cSpec != null" >,
+		C_SPEC
+  </if>
+	 <if test="item.cGoodsname != null" >,
+		C_GOODSNAME
+  </if>
+	 <if test="item.cOrstid != null" >,
+		C_ORSTID
+  </if>
+	 <if test="item.cOrmtid != null" >,
+		C_ORMTID
+  </if>
+	 <if test="item.cCreatetime != null" >,
+		C_CREATETIME
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cModifytime != null" >
+		#{item.cModifytime,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cModifier != null" >,
+		#{item.cModifier,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cCreater != null" >,
+		#{item.cCreater,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cState != null" >,
+		#{item.cState,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cRemark != null" >,
+		#{item.cRemark,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cPhone != null" >,
+		#{item.cPhone,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cOrdept != null" >,
+		#{item.cOrdept,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cOrman != null" >,
+		#{item.cOrman,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cSum != null" >,
+		#{item.cSum,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cPirce != null" >,
+		#{item.cPirce,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cCludecom != null" >,
+		#{item.cCludecom,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cSupplier != null" >,
+		#{item.cSupplier,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cUnit != null" >,
+		#{item.cUnit,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cSpec != null" >,
+		#{item.cSpec,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cGoodsname != null" >,
+		#{item.cGoodsname,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cOrstid != null" >,
+		#{item.cOrstid,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cOrmtid != null" >,
+		#{item.cOrmtid,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cCreatetime != null" >,
+		#{item.cCreatetime,jdbcType=TIMESTAMP}
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UCG_Q004_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TP_CGORDERBEFORE
+	         <set >
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE = #{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPhone != null" >
+		C_PHONE = #{item.cPhone,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrdept != null" >
+		C_ORDEPT = #{item.cOrdept,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrman != null" >
+		C_ORMAN = #{item.cOrman,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSum != null" >
+		C_SUM = #{item.cSum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cPirce != null" >
+		C_PIRCE = #{item.cPirce,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCludecom != null" >
+		C_CLUDECOM = #{item.cCludecom,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSupplier != null" >
+		C_SUPPLIER = #{item.cSupplier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnit != null" >
+		C_UNIT = #{item.cUnit,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpec != null" >
+		C_SPEC = #{item.cSpec,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsname != null" >
+		C_GOODSNAME = #{item.cGoodsname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrstid != null" >
+		C_ORSTID = #{item.cOrstid,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrmtid != null" >
+		C_ORMTID = #{item.cOrmtid,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP}
+ </if> 
+	 </set> WHERE
+		C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DCG_Q004_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_CGORDERBEFORE
+ WHERE 
+		C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ <select id="M2S21QCG_Q004_M2S2" parameterType="code_fb.entity.CG_Q004_M2S2" resultMap="M2S2ResultMap"> 
+  select 
+TP_CGORDERMT.C_AUDITMAN 
+,
+TP_CGORDERMT.C_TIMETAKE 
+,
+TP_CGORDERMT.C_AUDITTYPE 
+,
+TP_CGORDERMT.C_COMNAME 
+,
+TP_CGORDERMT.C_CREATER 
+,
+TP_CGORDERMT.C_CREATETIME 
+,
+TP_CGORDERMT.C_DEPTAPPLY 
+,
+TP_CGORDERMT.C_DR 
+,
+TP_CGORDERMT.C_ID 
+,
+TP_CGORDERMT.C_MANAPPLY 
+,
+TP_CGORDERMT.C_MITMAN 
+,
+TP_CGORDERMT.C_MITTIME 
+,
+TP_CGORDERMT.C_MITTYPE 
+,
+TP_CGORDERMT.C_MODIFIER 
+,
+TP_CGORDERMT.C_MODIFYTIME 
+,
+TP_CGORDERMT.C_ORDERNUM 
+,
+TP_CGORDERMT.C_REMARK 
+,
+TP_CGORDERMT.C_STATE 
+,
+TP_CGORDERMT.C_TIMEAPPLY 
+,
+TP_CGORDERMT.C_TIMESTAMP 
+,
+TP_CGORDERMT.C_AUDITTIME 
+
+ from TP_CGORDERMT
+ WHERE 1=1 
+	 <if test="cgQ004M2s2.cComname != null" >
+		 AND  TP_CGORDERMT.C_COMNAME like '%' || #{cgQ004M2s2.cComname,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgQ004M2s2.cCreatetime != null" >
+		 AND  TP_CGORDERMT.C_CREATETIME like '%' || #{cgQ004M2s2.cCreatetime,jdbcType=TIMESTAMP} || '%'
+  </if>
+	 <if test="cgQ004M2s2.cManapply != null" >
+		 AND  TP_CGORDERMT.C_MANAPPLY like '%' || #{cgQ004M2s2.cManapply,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgQ004M2s2.cOrdernum != null" >
+		 AND  TP_CGORDERMT.C_ORDERNUM like '%' || #{cgQ004M2s2.cOrdernum,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <insert id="M2S21ACG_Q004_M2S2"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M2s2" index="index" item="item" open="begin" separator=";">  
+	        insert into TP_CGORDERMT
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <if test="item.cAuditman != null" >
+		C_AUDITMAN
+  </if>
+	 <if test="item.cTimetake != null" >,
+		C_TIMETAKE
+  </if>
+	 <if test="item.cAudittype != null" >,
+		C_AUDITTYPE
+  </if>
+	 <if test="item.cComname != null" >,
+		C_COMNAME
+  </if>
+	 <if test="item.cCreater != null" >,
+		C_CREATER
+  </if>
+	 <if test="item.cCreatetime != null" >,
+		C_CREATETIME
+  </if>
+	 <if test="item.cDeptapply != null" >,
+		C_DEPTAPPLY
+  </if>,
+  C_ID 
+	 <if test="item.cManapply != null" >,
+		C_MANAPPLY
+  </if>
+	 <if test="item.cMitman != null" >,
+		C_MITMAN
+  </if>
+	 <if test="item.cMittime != null" >,
+		C_MITTIME
+  </if>
+	 <if test="item.cMittype != null" >,
+		C_MITTYPE
+  </if>
+	 <if test="item.cModifier != null" >,
+		C_MODIFIER
+  </if>
+	 <if test="item.cModifytime != null" >,
+		C_MODIFYTIME
+  </if>
+	 <if test="item.cOrdernum != null" >,
+		C_ORDERNUM
+  </if>
+	 <if test="item.cRemark != null" >,
+		C_REMARK
+  </if>
+	 <if test="item.cState != null" >,
+		C_STATE
+  </if>
+	 <if test="item.cTimeapply != null" >,
+		C_TIMEAPPLY
+  </if>
+	 <if test="item.cTimestamp != null" >,
+		C_TIMESTAMP
+  </if>
+	 <if test="item.cAudittime != null" >,
+		C_AUDITTIME
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+	 <if test="item.cAuditman != null" >
+		#{item.cAuditman,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cTimetake != null" >,
+		#{item.cTimetake,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cAudittype != null" >,
+		#{item.cAudittype,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cComname != null" >,
+		#{item.cComname,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cCreater != null" >,
+		#{item.cCreater,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cCreatetime != null" >,
+		#{item.cCreatetime,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cDeptapply != null" >,
+		#{item.cDeptapply,jdbcType=VARCHAR}
+  </if>,
+		C_ID_SEQ.NEXTVAL
+	 <if test="item.cManapply != null" >,
+		#{item.cManapply,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cMitman != null" >,
+		#{item.cMitman,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cMittime != null" >,
+		#{item.cMittime,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cMittype != null" >,
+		#{item.cMittype,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cModifier != null" >,
+		#{item.cModifier,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cModifytime != null" >,
+		#{item.cModifytime,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cOrdernum != null" >,
+		#{item.cOrdernum,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cRemark != null" >,
+		#{item.cRemark,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cState != null" >,
+		#{item.cState,jdbcType=VARCHAR}
+  </if>
+	 <if test="item.cTimeapply != null" >,
+		#{item.cTimeapply,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cTimestamp != null" >,
+		#{item.cTimestamp,jdbcType=TIMESTAMP}
+  </if>
+	 <if test="item.cAudittime != null" >,
+		#{item.cAudittime,jdbcType=TIMESTAMP}
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M2S21UCG_Q004_M2S2"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M2s2" index="index" item="item" open="begin" separator=";">  
+	        update TP_CGORDERMT
+	         <set >
+	 <if test="item.cAuditman != null" >
+		C_AUDITMAN = #{item.cAuditman,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimetake != null" >
+		C_TIMETAKE = #{item.cTimetake,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cAudittype != null" >
+		C_AUDITTYPE = #{item.cAudittype,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cComname != null" >
+		C_COMNAME = #{item.cComname,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreater != null" >
+		C_CREATER = #{item.cCreater,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetime != null" >
+		C_CREATETIME = #{item.cCreatetime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cDeptapply != null" >
+		C_DEPTAPPLY = #{item.cDeptapply,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cId != null" >
+		C_ID = #{item.cId,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cManapply != null" >
+		C_MANAPPLY = #{item.cManapply,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMitman != null" >
+		C_MITMAN = #{item.cMitman,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMittime != null" >
+		C_MITTIME = #{item.cMittime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cMittype != null" >
+		C_MITTYPE = #{item.cMittype,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifier != null" >
+		C_MODIFIER = #{item.cModifier,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytime != null" >
+		C_MODIFYTIME = #{item.cModifytime,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cOrdernum != null" >
+		C_ORDERNUM = #{item.cOrdernum,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cRemark != null" >
+		C_REMARK = #{item.cRemark,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cState != null" >
+		C_STATE = #{item.cState,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimeapply != null" >
+		C_TIMEAPPLY = #{item.cTimeapply,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cTimestamp != null" >
+		C_TIMESTAMP = #{item.cTimestamp,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cAudittime != null" >
+		C_AUDITTIME = #{item.cAudittime,jdbcType=TIMESTAMP}
+ </if> 
+	 </set> WHERE
+		C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M2S21DCG_Q004_M2S2"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="cgQ004M2s2" index="index" item="item" open="begin" separator=";">  
+	        delete from TP_CGORDERMT
+ WHERE 
+		C_ID = #{item.cId,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ <select id="S2S31QCG_Q004_S2S3" parameterType="code_fb.entity.CG_Q004_S2S3" resultMap="S2S3ResultMap"> 
+  select 
+TP_CGORDERST.C_ALLOTMAN 
+,
+TP_CGORDERST.C_UNIT 
+,
+TP_CGORDERST.C_ALLOTTIME 
+,
+TP_CGORDERST.C_ARRTIME 
+,
+TP_CGORDERST.C_CREATER 
+,
+TP_CGORDERST.C_CREATETIME 
+,
+TP_CGORDERST.C_DEPTOR 
+,
+TP_CGORDERST.C_GOODSNAME 
+,
+TP_CGORDERST.C_ID 
+,
+TP_CGORDERST.C_MANOR 
+,
+TP_CGORDERST.C_MODIFIER 
+,
+TP_CGORDERST.C_MODIFYTIME 
+,
+TP_CGORDERST.C_MTID 
+,
+TP_CGORDERST.C_MUSTNEED 
+,
+TP_CGORDERST.C_NO 
+,
+TP_CGORDERST.C_NUM 
+,
+TP_CGORDERST.C_ORDEALLINE 
+,
+TP_CGORDERST.C_PHONE 
+,
+TP_CGORDERST.C_PLANOR 
+,
+TP_CGORDERST.C_PLANTIME 
+,
+TP_CGORDERST.C_POLINORMTIME 
+,
+TP_CGORDERST.C_POLITIME 
+,
+TP_CGORDERST.C_REMARK 
+,
+TP_CGORDERST.C_SPEC 
+,
+TP_CGORDERST.C_STATE 
+,
+TP_CGORDERST.C_TIMESTAMP 
+,
+TP_CGORDERST.C_TYPENAME 
+,
+TP_CGORDERST.C_ALLOTSTATE 
+
+ from TP_CGORDERST
+ WHERE 1=1 
+   <if test="cgQ004S2s3.cMtid != null" >
+       AND  TP_CGORDERST.C_MTID like '' || #{cgQ004S2s3.cMtid,jdbcType=VARCHAR} || ''
+  </if>
+	</select> 
+ </mapper>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <!-- DevExtreme 库 -->
+    <script src="./js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script src="./js1/1.js"></script>
+</head>
+
+
+
+<body>
+    <!-- <div id="main"> -->
+    <div id="searchFormM1"></div>
+    <div id="dataGridS1" style="margin-bottom:15px"></div>
+    <div></div>
+    <!-- </div> -->
+
+    <!-- 添加模态框 -->
+    <div id="addmotai">
+
+        <div style="height:95%;overflow-y:scroll">
+            <div id="formList">
+                <div id="addForm" style="margin-bottom: 10px"></div>
+
+            </div>
+            <p style="text-align:center">------------------------------------------------------------------</p>
+            <div id="bottom_form"></div>
+        </div>
+
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+
+    </div>
+
+</body>
+
+</html>

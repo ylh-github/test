@@ -1,0 +1,59 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.junit.runners.Parameterized.Parameters;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_MNHT_M1S1;
+import code_fb_cg.entity.TpConcatfj;
+import code_fb_cg.entity.TpConcatfjExample;
+@Repository("tpConcatfjMapper")
+public interface TpConcatfjMapper {
+    int countByExample(TpConcatfjExample example);
+
+    int deleteByExample(TpConcatfjExample example);
+
+    int deleteByPrimaryKey(String cId);
+
+    int insert(TpConcatfj record);
+
+    int insertSelective(TpConcatfj record);
+
+    List<TpConcatfj> selectByExample(TpConcatfjExample example);
+
+    TpConcatfj selectByPrimaryKey(String cId);
+
+    int updateByExampleSelective(@Param("record") TpConcatfj record, @Param("example") TpConcatfjExample example);
+
+    int updateByExample(@Param("record") TpConcatfj record, @Param("example") TpConcatfjExample example);
+
+    int updateByPrimaryKeySelective(TpConcatfj record);
+
+    int updateByPrimaryKey(TpConcatfj record);
+/**
+ * 根据合同号和文件名
+ * @param tpConcat
+ * @return
+ */
+	List<TpConcatfj> selectTpConcatfj(@Param("tpConcat")TpConcatfj tpConcat);
+/**
+ * 批量修改
+ * @param selectTpConcatfj
+ * @return
+ */
+	int updateList(@Param("tpConcatfj")List<TpConcatfj> tpConcatfj);
+/**
+ * 根据合同号查询文件信息
+ * @param cg_MNHT_M1S1
+ * @return
+ */
+	List<TpConcatfj> searchFile(@Param("cg_MNHT_M1S1") CG_MNHT_M1S1 cg_MNHT_M1S1);
+/**
+ * 删除
+ * @param tpConcatfj
+ * @return
+ */
+	int deleateFile(TpConcatfj tpConcatfj);
+}

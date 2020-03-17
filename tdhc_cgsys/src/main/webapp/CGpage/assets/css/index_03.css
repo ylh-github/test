@@ -1,0 +1,126 @@
+
+*{
+    margin: 0;
+    padding: 0
+}
+body{
+    width: 100%;
+    /* min-width: 1024px; */
+    background: #EDEDED;
+}
+
+/* >=1024的设备 */
+
+/* @media screen and (min-width:1024px){
+    样式
+    #page-inner{
+        width: 99%;
+        height:218px;
+        min-height: 218px;
+        background: #222 ;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+}*/
+
+    /* #page-inner{
+        width: 99%;
+        height:218px;
+        min-height: 218px;
+        background: #fff ;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    } */
+
+
+
+li{
+    list-style: none;
+    width: 19.3%;
+    min-width: 12%;
+    height: 168px;
+    float: left;
+    /* background: pink; */
+    /* margin-left: 8px; */
+    /* margin-top: 25px; */
+    margin: 17px 3px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.blue{
+    /* background:#30A5FF !important; */
+     background:linear-gradient(to bottom,#74e5db,#50c8b9) !important;
+}
+.orange{
+	background:linear-gradient(to bottom,#e7d168,#eeab4b) !important;
+}
+.pink{
+	background:linear-gradient(to bottom,#f48e94,#ea397d) !important;
+}
+.plum {
+    background:linear-gradient(to bottom,#7a7df3,#415ef1) !important;
+}
+.green {
+    background:linear-gradient(to bottom,#56d950,#279e31) !important;
+}
+img{
+    display: block;
+    width: 50px;
+    height: 56px;
+    /* margin-left: 42%; */
+    margin-left: calc(100% / 2 - 25px);
+    margin-top: 20px
+}
+small,h3{
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    color:#fff;
+    margin-top: 5px
+}
+#center{
+    width: 99%;
+    height: 520px;
+    background: #fff;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.title{
+    color:#828282;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top:10px
+}
+#bottom{
+    width: 99%;
+    height: 525px;
+    margin: 0 auto;
+    margin-bottom: 50px
+}
+#left,#right{
+    width:48%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+#left{
+    float: left;
+}
+#right{
+    float: right;
+}
+.dx-button-has-text .dx-button-content{
+    background: #244586
+}
+.dx-icon-search:before,.dx-button-text{
+    color: #fff
+}
+
+

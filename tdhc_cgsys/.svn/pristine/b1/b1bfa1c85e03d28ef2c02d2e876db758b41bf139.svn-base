@@ -1,0 +1,38 @@
+
+ package code_fb.service;
+ import code_fb.request.CG_CK_Request_M1S1;
+import code_fb.response.CG_CK_Response_M1S1;
+import transfer.EmptyData;
+import transfer.EmptyTag;
+import transfer.ResponseObject;
+import vip.toda.piper.auth.web.client.User; 
+ public interface CG_CK_Service {
+ /**
+ 		 * 动态查询M1S11查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, CG_CK_Response_M1S1> M1S11Q(CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11A(User user,CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11U(User user,CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ /**
+ 		 * 动态查询M2S2查询
+ 		 *
+ 		 * 
+ 		 * */
+ ResponseObject<EmptyTag, EmptyData> M1S11D(User user,CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ //添加船号
+ ResponseObject<EmptyTag, EmptyData> S1S61DCC(User user,CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ //添加框架号
+ ResponseObject<EmptyTag, EmptyData> S1S61GKH(User user,CG_CK_Request_M1S1 cgCkRequestM1s1,String session);
+ }

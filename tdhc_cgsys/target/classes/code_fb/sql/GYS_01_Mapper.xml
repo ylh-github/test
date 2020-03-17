@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.GYS_01_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.GYS_01_M1S1" >
+	 <result column="C_CONNUM_TB_SUPPMATERAL" property="cConnumTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTER_TB_SUPPMATERAL" property="cContacterTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTERR_TB_SUPPMATERAL" property="cContacterrTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_CONTACTTELL_TB_SUPPMATERAL" property="cContacttellTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_CONTPHONE_TB_SUPPMATERAL" property="cContphoneTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_CREATER_TB_SUPPMATERAL" property="cCreaterTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_DR_TB_SUPPMATERAL" property="cDrTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME_TB_SUPPMATERAL" property="cGoodsnameTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_ID_TB_SUPPMATERAL" property="cIdTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER_TB_SUPPMATERAL" property="cModifierTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_MTID_TB_SUPPMATERAL" property="cMtidTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_NO_TB_SUPPMATERAL" property="cNoTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_NUM_TB_SUPPMATERAL" property="cNumTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_ORDERNUM_TB_SUPPMATERAL" property="cOrdernumTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_RECEADDRESS_TB_SUPPMATERAL" property="cReceaddressTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_RECEIVCOMP_TB_SUPPMATERAL" property="cReceivcompTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_RECEIVER_TB_SUPPMATERAL" property="cReceiverTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_REMARK_TB_SUPPMATERAL" property="cRemarkTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SENDER_TB_SUPPMATERAL" property="cSenderTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SPEC_TB_SUPPMATERAL" property="cSpecTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_STATE_TB_SUPPMATERAL" property="cStateTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW01_TB_SUPPMATERAL" property="cSw01TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW02_TB_SUPPMATERAL" property="cSw02TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW03_TB_SUPPMATERAL" property="cSw03TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW04_TB_SUPPMATERAL" property="cSw04TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW05_TB_SUPPMATERAL" property="cSw05TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW06_TB_SUPPMATERAL" property="cSw06TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW07_TB_SUPPMATERAL" property="cSw07TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW08_TB_SUPPMATERAL" property="cSw08TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW09_TB_SUPPMATERAL" property="cSw09TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW10_TB_SUPPMATERAL" property="cSw10TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW11_TB_SUPPMATERAL" property="cSw11TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW12_TB_SUPPMATERAL" property="cSw12TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW13_TB_SUPPMATERAL" property="cSw13TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW14_TB_SUPPMATERAL" property="cSw14TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW15_TB_SUPPMATERAL" property="cSw15TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_SW16_TB_SUPPMATERAL" property="cSw16TbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_TOTALNUM_TB_SUPPMATERAL" property="cTotalnumTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_UNIT_TB_SUPPMATERAL" property="cUnitTbSuppmateral" jdbcType="VARCHAR" />
+	 <result column="C_ARRTIME_TB_SUPPMATERAL" property="cArrtimeTbSuppmateral" jdbcType="TIMESTAMP" />
+	 <result column="C_CREATETIME_TB_SUPPMATERAL" property="cCreatetimeTbSuppmateral" jdbcType="TIMESTAMP" />
+	 <result column="C_MODIFYTIME_TB_SUPPMATERAL" property="cModifytimeTbSuppmateral" jdbcType="TIMESTAMP" />
+	 <result column="C_SENDTIME_TB_SUPPMATERAL" property="cSendtimeTbSuppmateral" jdbcType="TIMESTAMP" />
+	 <result column="C_TIMESTAMP_TB_SUPPMATERAL" property="cTimestampTbSuppmateral" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QGYS_01_M1S1" parameterType="code_fb.entity.GYS_01_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TB_SUPPMATERAL.C_ID C_ID_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CONTPHONE C_CONTPHONE_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_GOODSNAME C_GOODSNAME_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SPEC C_SPEC_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_UNIT C_UNIT_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_NUM C_NUM_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_TOTALNUM C_TOTALNUM_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CONNUM C_CONNUM_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_RECEIVCOMP C_RECEIVCOMP_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_RECEADDRESS C_RECEADDRESS_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CONTACTER C_CONTACTER_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CONTACTTELL C_CONTACTTELL_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_ORDERNUM C_ORDERNUM_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SENDTIME C_SENDTIME_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_ARRTIME C_ARRTIME_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SENDER C_SENDER_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_RECEIVER C_RECEIVER_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CREATER C_CREATER_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CREATETIME C_CREATETIME_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_MODIFIER C_MODIFIER_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_MODIFYTIME C_MODIFYTIME_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_REMARK C_REMARK_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_STATE C_STATE_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_MTID C_MTID_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_DR C_DR_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_TIMESTAMP C_TIMESTAMP_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW01 C_SW01_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW02 C_SW02_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW03 C_SW03_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW04 C_SW04_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW05 C_SW05_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW06 C_SW06_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW07 C_SW07_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW08 C_SW08_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW09 C_SW09_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW10 C_SW10_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW11 C_SW11_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW12 C_SW12_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW13 C_SW13_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW14 C_SW14_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW15 C_SW15_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_SW16 C_SW16_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_CONTACTERR C_CONTACTERR_TB_SUPPMATERAL 
+,
+TB_SUPPMATERAL.C_NO C_NO_TB_SUPPMATERAL 
+
+ from TB_SUPPMATERAL
+ WHERE 1=1 
+   <if test="gys01M1s1.cGoodsnameTbSuppmateral != null" >
+       AND  TB_SUPPMATERAL.C_GOODSNAME like '%' || #{gys01M1s1.cGoodsnameTbSuppmateral,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="gys01M1s1.cConnumTbSuppmateral != null" >
+       AND  TB_SUPPMATERAL.C_CONNUM like '%' || #{gys01M1s1.cConnumTbSuppmateral,jdbcType=VARCHAR} || '%'
+  </if>
+   <if test="gys01M1s1.cReceivcompTbSuppmateral != null" >
+       AND  TB_SUPPMATERAL.C_RECEIVCOMP like '%' || #{gys01M1s1.cReceivcompTbSuppmateral,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+	 <insert id="M1S11AGYS_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gys01M1s1" index="index" item="item" open="begin" separator=";">  
+	        insert into TB_SUPPMATERAL
+	        <trim prefix="(" suffix=")" suffixOverrides="," >
+		C_ID,
+	 <if test="item.cContphoneTbSuppmateral != null" >
+		C_CONTPHONE,
+  </if>
+	 <if test="item.cGoodsnameTbSuppmateral != null" >
+		C_GOODSNAME,
+  </if>
+	 <if test="item.cSpecTbSuppmateral != null" >
+		C_SPEC,
+  </if>
+	 <if test="item.cUnitTbSuppmateral != null" >
+		C_UNIT,
+  </if>
+	 <if test="item.cNumTbSuppmateral != null" >
+		C_NUM,
+  </if>
+	 <if test="item.cTotalnumTbSuppmateral != null" >
+		C_TOTALNUM,
+  </if>
+	 <if test="item.cConnumTbSuppmateral != null" >
+		C_CONNUM,
+  </if>
+	 <if test="item.cReceivcompTbSuppmateral != null" >
+		C_RECEIVCOMP,
+  </if>
+	 <if test="item.cReceaddressTbSuppmateral != null" >
+		C_RECEADDRESS,
+  </if>
+	 <if test="item.cContacterTbSuppmateral != null" >
+		C_CONTACTER,
+  </if>
+	 <if test="item.cContacttellTbSuppmateral != null" >
+		C_CONTACTTELL,
+  </if>
+	 <if test="item.cOrdernumTbSuppmateral != null" >
+		C_ORDERNUM,
+  </if>
+	 <if test="item.cSendtimeTbSuppmateral != null" >
+		C_SENDTIME,
+  </if>
+	 <if test="item.cArrtimeTbSuppmateral != null" >
+		C_ARRTIME,
+  </if>
+	 <if test="item.cSenderTbSuppmateral != null" >
+		C_SENDER,
+  </if>
+	 <if test="item.cReceiverTbSuppmateral != null" >
+		C_RECEIVER,
+  </if>
+	 <if test="item.cCreaterTbSuppmateral != null" >
+		C_CREATER,
+  </if>
+	 <if test="item.cCreatetimeTbSuppmateral != null" >
+		C_CREATETIME,
+  </if>
+	 <if test="item.cModifierTbSuppmateral != null" >
+		C_MODIFIER,
+  </if>
+	 <if test="item.cModifytimeTbSuppmateral != null" >
+		C_MODIFYTIME,
+  </if>
+	 <if test="item.cRemarkTbSuppmateral != null" >
+		C_REMARK,
+  </if>
+	 <if test="item.cStateTbSuppmateral != null" >
+		C_STATE,
+  </if>
+	 <if test="item.cMtidTbSuppmateral != null" >
+		C_MTID,
+  </if>
+	 <if test="item.cDrTbSuppmateral != null" >
+		C_DR,
+  </if>
+	 <if test="item.cTimestampTbSuppmateral != null" >
+		C_TIMESTAMP,
+  </if>
+	 <if test="item.cSw01TbSuppmateral != null" >
+		C_SW01,
+  </if>
+	 <if test="item.cSw02TbSuppmateral != null" >
+		C_SW02,
+  </if>
+	 <if test="item.cSw03TbSuppmateral != null" >
+		C_SW03,
+  </if>
+	 <if test="item.cSw04TbSuppmateral != null" >
+		C_SW04,
+  </if>
+	 <if test="item.cSw05TbSuppmateral != null" >
+		C_SW05,
+  </if>
+	 <if test="item.cSw06TbSuppmateral != null" >
+		C_SW06,
+  </if>
+	 <if test="item.cSw07TbSuppmateral != null" >
+		C_SW07,
+  </if>
+	 <if test="item.cSw08TbSuppmateral != null" >
+		C_SW08,
+  </if>
+	 <if test="item.cSw09TbSuppmateral != null" >
+		C_SW09,
+  </if>
+	 <if test="item.cSw10TbSuppmateral != null" >
+		C_SW10,
+  </if>
+	 <if test="item.cSw11TbSuppmateral != null" >
+		C_SW11,
+  </if>
+	 <if test="item.cSw12TbSuppmateral != null" >
+		C_SW12,
+  </if>
+	 <if test="item.cSw13TbSuppmateral != null" >
+		C_SW13,
+  </if>
+	 <if test="item.cSw14TbSuppmateral != null" >
+		C_SW14,
+  </if>
+	 <if test="item.cSw15TbSuppmateral != null" >
+		C_SW15,
+  </if>
+	 <if test="item.cSw16TbSuppmateral != null" >
+		C_SW16,
+  </if>
+	 <if test="item.cContacterrTbSuppmateral != null" >
+		C_CONTACTERR,
+  </if>
+	 <if test="item.cNoTbSuppmateral != null" >
+		C_NO,
+  </if>
+	  </trim>
+	   <trim prefix="values (" suffix=")" suffixOverrides="," >
+		C_ID_SEQ.NEXTVAL,
+	 <if test="item.cContphoneTbSuppmateral != null" >
+		#{item.cContphoneTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsnameTbSuppmateral != null" >
+		#{item.cGoodsnameTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpecTbSuppmateral != null" >
+		#{item.cSpecTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnitTbSuppmateral != null" >
+		#{item.cUnitTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNumTbSuppmateral != null" >
+		#{item.cNumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTotalnumTbSuppmateral != null" >
+		#{item.cTotalnumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConnumTbSuppmateral != null" >
+		#{item.cConnumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceivcompTbSuppmateral != null" >
+		#{item.cReceivcompTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceaddressTbSuppmateral != null" >
+		#{item.cReceaddressTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacterTbSuppmateral != null" >
+		#{item.cContacterTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacttellTbSuppmateral != null" >
+		#{item.cContacttellTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrdernumTbSuppmateral != null" >
+		#{item.cOrdernumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendtimeTbSuppmateral != null" >
+		#{item.cSendtimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cArrtimeTbSuppmateral != null" >
+		#{item.cArrtimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSenderTbSuppmateral != null" >
+		#{item.cSenderTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceiverTbSuppmateral != null" >
+		#{item.cReceiverTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreaterTbSuppmateral != null" >
+		#{item.cCreaterTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbSuppmateral != null" >
+		#{item.cCreatetimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbSuppmateral != null" >
+		#{item.cModifierTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytimeTbSuppmateral != null" >
+		#{item.cModifytimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cRemarkTbSuppmateral != null" >
+		#{item.cRemarkTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStateTbSuppmateral != null" >
+		#{item.cStateTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMtidTbSuppmateral != null" >
+		#{item.cMtidTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbSuppmateral != null" >
+		#{item.cDrTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbSuppmateral != null" >
+		#{item.cTimestampTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbSuppmateral != null" >
+		#{item.cSw01TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbSuppmateral != null" >
+		#{item.cSw02TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbSuppmateral != null" >
+		#{item.cSw03TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbSuppmateral != null" >
+		#{item.cSw04TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbSuppmateral != null" >
+		#{item.cSw05TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbSuppmateral != null" >
+		#{item.cSw06TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbSuppmateral != null" >
+		#{item.cSw07TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbSuppmateral != null" >
+		#{item.cSw08TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbSuppmateral != null" >
+		#{item.cSw09TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbSuppmateral != null" >
+		#{item.cSw10TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbSuppmateral != null" >
+		#{item.cSw11TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbSuppmateral != null" >
+		#{item.cSw12TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbSuppmateral != null" >
+		#{item.cSw13TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbSuppmateral != null" >
+		#{item.cSw14TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbSuppmateral != null" >
+		#{item.cSw15TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbSuppmateral != null" >
+		#{item.cSw16TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacterrTbSuppmateral != null" >
+		#{item.cContacterrTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNoTbSuppmateral != null" >
+		#{item.cNoTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+   </trim>
+       </foreach>
+  </insert>
+	 <update id="M1S11UGYS_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gys01M1s1" index="index" item="item" open="begin" separator=";">  
+	        update TB_SUPPMATERAL
+	         <set >
+	 <if test="item.cIdTbSuppmateral != null" >
+		C_ID = #{item.cIdTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContphoneTbSuppmateral != null" >
+		C_CONTPHONE = #{item.cContphoneTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cGoodsnameTbSuppmateral != null" >
+		C_GOODSNAME = #{item.cGoodsnameTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSpecTbSuppmateral != null" >
+		C_SPEC = #{item.cSpecTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cUnitTbSuppmateral != null" >
+		C_UNIT = #{item.cUnitTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNumTbSuppmateral != null" >
+		C_NUM = #{item.cNumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTotalnumTbSuppmateral != null" >
+		C_TOTALNUM = #{item.cTotalnumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cConnumTbSuppmateral != null" >
+		C_CONNUM = #{item.cConnumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceivcompTbSuppmateral != null" >
+		C_RECEIVCOMP = #{item.cReceivcompTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceaddressTbSuppmateral != null" >
+		C_RECEADDRESS = #{item.cReceaddressTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacterTbSuppmateral != null" >
+		C_CONTACTER = #{item.cContacterTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacttellTbSuppmateral != null" >
+		C_CONTACTTELL = #{item.cContacttellTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cOrdernumTbSuppmateral != null" >
+		C_ORDERNUM = #{item.cOrdernumTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSendtimeTbSuppmateral != null" >
+		C_SENDTIME = #{item.cSendtimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cArrtimeTbSuppmateral != null" >
+		C_ARRTIME = #{item.cArrtimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSenderTbSuppmateral != null" >
+		C_SENDER = #{item.cSenderTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cReceiverTbSuppmateral != null" >
+		C_RECEIVER = #{item.cReceiverTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreaterTbSuppmateral != null" >
+		C_CREATER = #{item.cCreaterTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cCreatetimeTbSuppmateral != null" >
+		C_CREATETIME = #{item.cCreatetimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cModifierTbSuppmateral != null" >
+		C_MODIFIER = #{item.cModifierTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cModifytimeTbSuppmateral != null" >
+		C_MODIFYTIME = #{item.cModifytimeTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cRemarkTbSuppmateral != null" >
+		C_REMARK = #{item.cRemarkTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cStateTbSuppmateral != null" >
+		C_STATE = #{item.cStateTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cMtidTbSuppmateral != null" >
+		C_MTID = #{item.cMtidTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cDrTbSuppmateral != null" >
+		C_DR = #{item.cDrTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cTimestampTbSuppmateral != null" >
+		C_TIMESTAMP = #{item.cTimestampTbSuppmateral,jdbcType=TIMESTAMP},
+  </if>
+	 <if test="item.cSw01TbSuppmateral != null" >
+		C_SW01 = #{item.cSw01TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw02TbSuppmateral != null" >
+		C_SW02 = #{item.cSw02TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw03TbSuppmateral != null" >
+		C_SW03 = #{item.cSw03TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw04TbSuppmateral != null" >
+		C_SW04 = #{item.cSw04TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw05TbSuppmateral != null" >
+		C_SW05 = #{item.cSw05TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw06TbSuppmateral != null" >
+		C_SW06 = #{item.cSw06TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw07TbSuppmateral != null" >
+		C_SW07 = #{item.cSw07TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw08TbSuppmateral != null" >
+		C_SW08 = #{item.cSw08TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw09TbSuppmateral != null" >
+		C_SW09 = #{item.cSw09TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw10TbSuppmateral != null" >
+		C_SW10 = #{item.cSw10TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw11TbSuppmateral != null" >
+		C_SW11 = #{item.cSw11TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw12TbSuppmateral != null" >
+		C_SW12 = #{item.cSw12TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw13TbSuppmateral != null" >
+		C_SW13 = #{item.cSw13TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw14TbSuppmateral != null" >
+		C_SW14 = #{item.cSw14TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw15TbSuppmateral != null" >
+		C_SW15 = #{item.cSw15TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cSw16TbSuppmateral != null" >
+		C_SW16 = #{item.cSw16TbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cContacterrTbSuppmateral != null" >
+		C_CONTACTERR = #{item.cContacterrTbSuppmateral,jdbcType=VARCHAR},
+  </if>
+	 <if test="item.cNoTbSuppmateral != null" >
+		C_NO = #{item.cNoTbSuppmateral,jdbcType=VARCHAR}
+ </if> 
+	 </set> WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSuppmateral,jdbcType=VARCHAR}
+       </foreach>
+  </update>
+	 <delete id="M1S11DGYS_01_M1S1"  parameterType="java.util.List" >	
+	 <foreach close=";end;" collection="gys01M1s1" index="index" item="item" open="begin" separator=";">  
+	        delete from TB_SUPPMATERAL
+ WHERE 1 = 1 
+		and C_ID = #{item.cIdTbSuppmateral,jdbcType=VARCHAR}
+       </foreach>
+  </delete>
+ </mapper>

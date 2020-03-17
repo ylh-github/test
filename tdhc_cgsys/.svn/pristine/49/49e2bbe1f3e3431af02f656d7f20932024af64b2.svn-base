@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <title>工程装卸部操作页面</title>
+    <!-- 采购员查看的页面  五级权限-->
+    <!-- DevExtreme 依赖 -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <!-- DevExtreme 主题 -->
+    <link rel="stylesheet" type="text/css" href="css/dx.common.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/dx.light.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/dx.carmine.compact.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/dx.Lightcss.css" />
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- DevExtreme 库 -->
+    <script type="text/javascript" src="js/jszip.min.js"></script>
+    <script type="text/javascript" src="js/dx.all.js"></script>
+    <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/cake.js"></script>
+    <script src="js/devextreme-intl/devextreme-intl.min.js"></script>
+    <script src="js/localization/dx.messages.zh.js"></script>
+    <script src="js1/CG_H001_3.js"></script>
+    <style>
+        .bgc_FF0 {
+            background: pink;
+        }
+        
+        .bgc_aqua {
+            background: purple;
+        }
+        
+        .bgc_green {
+            background: palegreen;
+        }
+        .bgc_red {
+            background: palered;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout">
+    <div data-options="region:'north',title:'查询条件'" style="height:98px;padding: 5px;">
+        <div id="searchFormM1"></div>
+    </div>
+    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false,">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:45%;padding: 0px;">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:60px;padding: 2px;background:#f6f9ff">
+                        <div id="operateFormM1S1" style="float:right;"></div>
+                        <div class="you" style="float:right;margin-right:100px;padding-top: 5px;">
+                        	<div id="search-oprate"></div>
+                    	</div>
+                    </div>
+                    <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                        <div id="dataGridS1"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false" style="height:55%;">
+           		 <div data-options="region:'north',title:'',split:false,hideCollapsedContent:false" style="height:35px;padding: 1px;">
+                        <div id="searchFormM2"></div>
+                    </div>
+                <div class="easyui-layout" data-options="fit:true">
+                	
+                    <!-- 选项卡主体 -->
+                    <div id="table3"></div>
+                    <div id="this-grid-container1">
+                        <div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S2"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS2"></div>
+                        </div>
+                    </div>
+                    <!-- 发票 -->
+                    <div id="this-grid-container2">
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS3"></div>
+                        </div>
+                    </div>
+                    <!-- 付款 -->
+                    <div id="this-grid-container3">
+                    	<div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S4"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS4"></div>
+                        </div>
+                    </div>
+                    <!-- 到货 -->
+                    <div id="this-grid-container4">
+                    	<div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S5"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS5"></div>
+                        </div>
+                    </div>
+                    <!-- 出库 -->
+                    <div id="this-grid-container5">
+                    	<div data-options="region:'north',title:'',split:true,hideCollapsedContent:false" style="height:35px;padding: 3px;background:#f6f9ff">
+                            <div id="operateFormS1S6"></div>
+                        </div>
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS6"></div>
+                        </div>
+                    </div>
+                    <!-- 供应商 -->
+                    <div id="this-grid-container6">
+                        <div data-options="region:'center',title:'',split:true,hideCollapsedContent:false">
+                            <div id="dataGridS7"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addmotai0">
+		<div style="display: inline-block;">正在执行...</div>    
+	</div>
+    <div id="addmotai1">
+		<div style="display: inline-block;">正在读取数据...</div>    
+	</div>
+	<div id="addmotai2">
+		<div style="display: inline-block;">正在导入...</div>    
+	</div>
+    <!-- 添加模态框 -->
+    <div id="addmotai">
+        <div id="addForm" style="margin-bottom: 30px"></div>
+        <div style="display: inline-block; width:700px;height:10px"></div>
+        <div id="addsure"></div>
+        <div id="addcansel"></div>
+    </div>
+    <!-- 添加导出模态框 -->
+    <div id="add-edit-popup-container">
+        <div id="add-edit-form-container">
+        </div>
+    </div>
+    <div id="addGangGrid" style="margin-top: 10px"></div>
+    <div id="add-edit-popup-container2">
+        <div id="add-edit-form-container2">
+        </div>
+    </div>
+    <div id="addGangGrid2" style="margin-top: 10px"></div>
+    
+    <div id="add-edit-popup-container3">
+        <div id="add-edit-form-container3">
+        </div>
+    </div>
+    <div id="addGangGrid3" style="margin-top: 10px"></div>
+    
+    <div id="add-edit-popup-container4">
+        <div id="add-edit-form-container4">
+        </div>
+    </div>
+    <div id="addGangGrid4" style="margin-top: 10px"></div>
+    
+    <div id="add-edit-popup-container5">
+        <div id="add-edit-form-container5">
+        </div>
+    </div>
+    <div id="addGangGrid5" style="margin-top: 10px"></div>
+	
+	<div id="add-edit-popup-container6">
+        <div id="add-edit-form-container6">
+        </div>
+    </div>
+    <div id="addGangGrid6" style="margin-top: 10px"></div>
+
+	<div id="DaiChuli">
+        <div id="searchFormM9" ></div>
+      	<div id="operateFormM1S9"></div>
+       <div id="dataGridS9"></div>
+    </div>
+</body>
+
+</html>

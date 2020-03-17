@@ -1,0 +1,271 @@
+package code_fb_cg.entity;
+
+import java.math.BigDecimal;
+
+public class TpCgorderstInfo {
+	//序号
+	private int cNo;
+	//项目名称
+	private String itemName;
+	private String cManor;
+	//请购单总数
+	private int orderNum;
+	private int qgdSum;
+	//请购物资总数
+	private int qgwzSum;
+	//未转合同总数
+	private int wzhtNum;
+	//已转合同总数
+	private int yzhtNum;
+	//取消采购总数
+	private int qxcgNum;
+	//采购完成总数
+	private int cgwcNum;
+	//已选中待转拟合同总数
+	private int yxzNum;
+	//拟合同请购项总数
+	private int nhtqgxNum;
+	//转T类
+	private int ztlNum;
+	
+	//合同总数
+	private int htNum;
+	//未到货合同总数 
+	private int wdhNum;
+	//部分到货合同总数 
+	private int bfdhNum;
+	//已到齐合同总数
+	private int ydhNum;
+	//未开票合同总数
+	private int wkpNum;
+	//部分开票合同总数
+	private int bfkpNum;
+	//已开齐合同总数
+	private int ykqpNum;
+	//未付款合同总数
+	private int wfkNum;
+	//部分付款合同总数
+	private int bffkNum;
+	//已付齐合同总数
+	private int ykqfkNum;
+	//已完成合同总数
+	private int wchtNum;
+	//未完成合同总数
+	private int wwchtNum;
+	//合同实际金额 
+	private BigDecimal sjMoney;
+	//未付金额
+	private BigDecimal wfMoney;
+	//已付金额
+	private BigDecimal yfMoney;
+	//拟合同总金额
+	private BigDecimal nhtMoney;
+	//签订公司
+	private String cCludecom;
+	//出船量
+	private BigDecimal ccNum;
+	//船号
+	private String cShipno;
+	//拟合同未转正式合同总数
+	private int nhtNum;
+	public int getQgdSum() {
+		return qgdSum;
+	}
+	public void setQgdSum(int qgdSum) {
+		this.qgdSum = qgdSum;
+	}
+	public int getQgwzSum() {
+		return qgwzSum;
+	}
+	public void setQgwzSum(int qgwzSum) {
+		this.qgwzSum = qgwzSum;
+	}
+	public int getWzhtNum() {
+		return wzhtNum;
+	}
+	public void setWzhtNum(int wzhtNum) {
+		this.wzhtNum = wzhtNum;
+	}
+	public int getYzhtNum() {
+		return yzhtNum;
+	}
+	public void setYzhtNum(int yzhtNum) {
+		this.yzhtNum = yzhtNum;
+	}
+	public int getQxcgNum() {
+		return qxcgNum;
+	}
+	public void setQxcgNum(int qxcgNum) {
+		this.qxcgNum = qxcgNum;
+	}
+	public int getCgwcNum() {
+		return cgwcNum;
+	}
+	public void setCgwcNum(int cgwcNum) {
+		this.cgwcNum = cgwcNum;
+	}
+	public int getYxzNum() {
+		return yxzNum;
+	}
+	public void setYxzNum(int yxzNum) {
+		this.yxzNum = yxzNum;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public int getcNo() {
+		return cNo;
+	}
+	public void setcNo(int cNo) {
+		this.cNo = cNo;
+	}
+	public String getcManor() {
+		return cManor;
+	}
+	public void setcManor(String cManor) {
+		this.cManor = cManor;
+	}
+	public int getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
+	}
+	public int getHtNum() {
+		return htNum;
+	}
+	public void setHtNum(int htNum) {
+		this.htNum = htNum;
+	}
+	public int getWdhNum() {
+		return wdhNum;
+	}
+	public void setWdhNum(int wdhNum) {
+		this.wdhNum = wdhNum;
+	}
+	public int getBfdhNum() {
+		return bfdhNum;
+	}
+	public void setBfdhNum(int bfdhNum) {
+		this.bfdhNum = bfdhNum;
+	}
+	public int getYdhNum() {
+		return ydhNum;
+	}
+	public void setYdhNum(int ydhNum) {
+		this.ydhNum = ydhNum;
+	}
+	public int getWkpNum() {
+		return wkpNum;
+	}
+	public void setWkpNum(int wkpNum) {
+		this.wkpNum = wkpNum;
+	}
+	public int getBfkpNum() {
+		return bfkpNum;
+	}
+	public void setBfkpNum(int bfkpNum) {
+		this.bfkpNum = bfkpNum;
+	}
+	public int getYkqpNum() {
+		return ykqpNum;
+	}
+	public void setYkqpNum(int ykqpNum) {
+		this.ykqpNum = ykqpNum;
+	}
+	public int getWfkNum() {
+		return wfkNum;
+	}
+	public void setWfkNum(int wfkNum) {
+		this.wfkNum = wfkNum;
+	}
+	public int getBffkNum() {
+		return bffkNum;
+	}
+	public void setBffkNum(int bffkNum) {
+		this.bffkNum = bffkNum;
+	}
+	public int getYkqfkNum() {
+		return ykqfkNum;
+	}
+	public void setYkqfkNum(int ykqfkNum) {
+		this.ykqfkNum = ykqfkNum;
+	}
+	public int getWchtNum() {
+		return wchtNum;
+	}
+	public void setWchtNum(int wchtNum) {
+		this.wchtNum = wchtNum;
+	}
+	public int getWwchtNum() {
+		return wwchtNum;
+	}
+	public void setWwchtNum(int wwchtNum) {
+		this.wwchtNum = wwchtNum;
+	}
+	public BigDecimal getSjMoney() {
+		return sjMoney;
+	}
+	public void setSjMoney(BigDecimal sjMoney) {
+		this.sjMoney = sjMoney;
+	}
+	public BigDecimal getWfMoney() {
+		return wfMoney;
+	}
+	public void setWfMoney(BigDecimal wfMoney) {
+		this.wfMoney = wfMoney;
+	}
+	public BigDecimal getYfMoney() {
+		return yfMoney;
+	}
+	public void setYfMoney(BigDecimal yfMoney) {
+		this.yfMoney = yfMoney;
+	}
+	public String getcCludecom() {
+		return cCludecom;
+	}
+	public void setcCludecom(String cCludecom) {
+		this.cCludecom = cCludecom;
+	}
+	public int getZtlNum() {
+		return ztlNum;
+	}
+	public void setZtlNum(int ztlNum) {
+		this.ztlNum = ztlNum;
+	}
+	public BigDecimal getCcNum() {
+		return ccNum;
+	}
+	public void setCcNum(BigDecimal ccNum) {
+		this.ccNum = ccNum;
+	}
+	public String getcShipno() {
+		return cShipno;
+	}
+	public void setcShipno(String cShipno) {
+		this.cShipno = cShipno;
+	}
+	public int getNhtNum() {
+		return nhtNum;
+	}
+	public void setNhtNum(int nhtNum) {
+		this.nhtNum = nhtNum;
+	}
+	public BigDecimal getNhtMoney() {
+		return nhtMoney;
+	}
+	public void setNhtMoney(BigDecimal nhtMoney) {
+		this.nhtMoney = nhtMoney;
+	}
+	public int getNhtqgxNum() {
+		return nhtqgxNum;
+	}
+	public void setNhtqgxNum(int nhtqgxNum) {
+		this.nhtqgxNum = nhtqgxNum;
+	}
+	
+	
+}

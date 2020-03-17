@@ -1,0 +1,20 @@
+package code_fb_cg.entity;
+
+import java.util.List;
+
+public class TbGuildataRequest {
+	private TbGuildata tbGuildata;
+	private List<TbGuildata> listData;
+	public List<TbGuildata> getListData() {
+		return listData;
+	}
+	public void setListData(List<TbGuildata> listData) {
+		this.listData = listData;
+	}
+	public TbGuildata getTbGuildata() {
+		return tbGuildata;
+	}
+	public void setTbGuildata(TbGuildata tbGuildata) {
+		this.tbGuildata = tbGuildata;
+	}
+}

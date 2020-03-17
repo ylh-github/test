@@ -1,0 +1,56 @@
+package code_fb_cg.mapper;
+
+import java.util.Date;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import code_fb.entity.CG_XXLY_M1S1;
+import code_fb_cg.entity.TbDocumeform;
+import code_fb_cg.entity.TbDocumeformExample;
+import code_fb_cg.entity.TbDocumeformson;
+@Repository("tbDocumeformMapper")
+public interface TbDocumeformMapper {
+    int countByExample(TbDocumeformExample example);
+
+    int deleteByExample(TbDocumeformExample example);
+
+    int deleteByPrimaryKey(String cId);
+
+    int insert(TbDocumeform record);
+
+    int insertSelective(TbDocumeform record);
+
+    List<TbDocumeform> selectByExample(TbDocumeformExample example);
+
+    TbDocumeform selectByPrimaryKey(String cId);
+
+    int updateByExampleSelective(@Param("record") TbDocumeform record, @Param("example") TbDocumeformExample example);
+
+    int updateByExample(@Param("record") TbDocumeform record, @Param("example") TbDocumeformExample example);
+
+    int updateByPrimaryKeySelective(TbDocumeform record);
+
+    int updateByPrimaryKey(TbDocumeform record);
+    /**
+     * 信息卡查询
+     * @param tbDocumeform
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+ List<TbDocumeform> M1S11QCG_XXLY_M1S1(@Param("cg_XXLY_M1S1") TbDocumeform tbDocumeform, @Param("startTime")Date startTime, @Param("endTime")Date endTime);
+ 	/**
+ 	 * 根据合同号单条修改
+ 	 * @param tbDocumeform
+ 	 * @return
+ 	 */
+ 	int  updateBycCnnumSelective(TbDocumeform tbDocumeform);
+/**
+ * 根据合同号批量修改信息卡
+ * @param tbDocumeformList
+ * @return
+ */
+	int  updateTbDocumeform(@Param("tbDocumeformList")List<TbDocumeform> tbDocumeformList);
+}

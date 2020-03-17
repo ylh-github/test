@@ -1,0 +1,167 @@
+$(function() {
+    $('#dataGridS1').dxDataGrid({
+        height: 250,
+    })
+    $('#dataGridS2').dxDataGrid({
+        height: 250,
+    })
+    $('#dataGridS3').dxDataGrid({
+        height: 200,
+    })
+    $('#operateFormM1S1').dxForm({
+        colCount: 16,
+    })
+    $('#operateFormS1S2').dxForm({
+        colCount: 16,
+    })
+   
+  $('#operateFormM1S1').dxForm("instance").option('items').push({
+    //name: 'M1S11Q',
+    itemType: 'button',
+    buttonOptions: {
+        icon: 'search',
+        text: '导入',
+        onClick: function() {
+            // M1S11_serDel();
+            importPopup.show();
+
+        }
+    }
+  });
+  
+  $('#operateFormM1S1').dxForm("instance").repaint();
+    // $("#button6").dxButton({
+    //     text: '导入',
+    //     onClick: function() {
+    //         importPopup.show();
+    //     }
+    // });
+    var importPopup = $('#import-content').dxPopup({
+        deferRendering: false,
+        height: 200,
+        width: 600,
+    }).dxPopup('instance');
+    $('#import_btn').dxForm({
+        width: "100%",
+        items: [{
+            itemType: "group",
+            colCount: 6,
+            items: [{
+                    colSpan: 4,
+                    itemType: "empty"
+                },
+                {
+                    itemType: "button",
+                    buttonOptions: {
+                        icon: "todo",
+                        text: "确定",
+                        onClick: function() {
+                            DevExpress.ui.notify('正在导入，请稍等。。。', "success", 3000);
+                            //console.log.log(localStorage.getItem('updata'));
+                            $.ajax({
+                                url: Cake.Piper.getAuthUrl('../../tdhc_cgsys/CG_Q001/addExcel'),
+                                type: 'POST',
+                                dataType: 'json',
+                                contentType: "application/json; charset=utf-8",
+                                data: localStorage.getItem('updata'),
+                                success: function(data) {
+                                    importPopup.hide();
+                                    DevExpress.ui.notify(data.msg, "success", 3000);
+                                    localStorage.clear('updata');
+                                },
+                                error: function (err) {
+                                    DevExpress.ui.notify('导入失败', "error", 3000);
+                                    localStorage.clear('updata');
+                                }
+                            })
+                        }
+                    }
+                },
+                {
+                    itemType: "button",
+                    buttonOptions: {
+                        icon: "close",
+                        text: "取消",
+                        onClick: function() {
+                            importPopup.hide();
+                        }
+                    }
+                },
+            ]
+        }, ]
+    });
+})
+function importf(obj) {
+    /*
+    FileReader共有4种读取方法：
+    1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+    2.readAsBinaryString(file)：将文件读取为二进制字符串
+    3.readAsDataURL(file)：将文件读取为Data URL
+    4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+    */
+    if (!obj.files) {
+        return;
+    }
+    var wb; //读取完成的数据
+    var rABS = false; //是否将文件读取为二进制字符串
+    var updata = {}; //储存读取出来的数据
+    function fixdata(data) { //文件流转BinaryString
+        var o = "",
+            l = 0,
+            w = 10240;
+        for (; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+    var f = obj.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var data = e.target.result;
+        if (rABS) {
+            wb = XLSX.read(btoa(fixdata(data)), { //手动转化
+                type: 'base64'
+            });
+        } else {
+            wb = XLSX.read(data, {
+                type: 'binary'
+            });
+        }
+        //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+        //wb.Sheets[Sheet名]获取第一个Sheet的数据
+        var tables = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+        var tables1 = JSON.stringify(tables.slice(0, 1));
+        var tables2 = JSON.stringify(tables.slice(2));
+        // 替换公司信息字段
+        tables1 = tables1.replace('公司名称', 'cComname');
+        tables1 = tables1.replace('单据编号', 'cOrdernum');
+        tables1 = tables1.replace('申请部门', 'cDeptapply');
+        tables1 = tables1.replace('申请人', 'cManapply');
+        tables1 = tables1.replace('申请日期', 'cTimeapply');
+        tables1 = tables1.replace('收单日期', 'cTimetake');
+        tables1 = tables1.replace('备注', 'cSwo1');
+        tables1 = tables1.replace('备注', 'cSwo2');
+        // 替换采购单信息字段
+        tables2 = tables2.replace(/公司名称/g, 'cNo');
+        tables2 = tables2.replace(/申请部门/g, 'cTypename');
+        tables2 = tables2.replace(/单据编号/g, 'cMustneed');
+        tables2 = tables2.replace(/申请人/g, 'cGoodsname');
+        tables2 = tables2.replace(/申请日期/g, 'cSpec');
+        tables2 = tables2.replace(/收单日期/g, 'cUnit');
+        tables2 = tables2.replace(/备注/g, 'cNum');
+        tables2 = tables2.replace(/__EMPTY/g, 'cNum');
+        tables2 = tables2.replace(/cNum_1/g, 'cArrtime');
+        // 拼接两段数据
+        
+        updata.data = {
+            'ordermt': JSON.parse(tables1),
+            'orderst': JSON.parse(tables2)
+        };
+        //console.log.log(updata);
+        localStorage.setItem('updata', JSON.stringify(updata));
+    };
+    if (rABS) {
+        reader.readAsArrayBuffer(f);
+    } else {
+        reader.readAsBinaryString(f);
+    }
+}

@@ -1,0 +1,88 @@
+package code_fb_cg.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import code_fb_cg.entity.TpCgcontractmt;
+import code_fb_cg.entity.TpCgcontractst;
+import code_fb_cg.entity.TpCgcontractstt;
+import code_fb_cg.request.ShipM1s1Q;
+import code_fb_cg.response.DeCgMaterials;
+
+public interface TpCgcontractstMapper {
+    int deleteByPrimaryKey(String cId);
+    //逻辑删除 通过合同号删除
+    int deleteUpdate(String cId);
+    //逻辑删除 通过ID删除
+    int deleteUPDATE(String cId);
+    //根据合同主键删除指定合同物资
+    int deleteByMtid(@Param("cMtid")String cMtid);
+    //逻辑删除
+    int UpdateByMtid(@Param("cMtid")String cMtid);
+    int insert(TpCgcontractst record);
+    int insertSelective(TpCgcontractst record);
+    TpCgcontractst selectByPrimaryKey(String cId);
+    int updateByPrimaryKeySelective(TpCgcontractst record);
+    int updateByPrimaryKey(TpCgcontractst record);
+    //相同合同号，存在的子表条数
+    List<TpCgcontractst> selectByCountSt(@Param("cConnum")String cConnum);
+    List<TpCgcontractst> selectByColine(@Param("cConnum")String cConnum);
+    List<TpCgcontractst> selectByCountState(@Param("cConnum")String cConnum);
+    //根据合同号和合同行号 查询数据
+    List<TpCgcontractst> selectByConSTone(TpCgcontractst requestObject);
+    //根据合同号查询子表数据
+    List<TpCgcontractst> selectByConST(TpCgcontractst requestObject);
+    List<TpCgcontractst> selectForShip(ShipM1s1Q shipM1s1Q);
+    List<TpCgcontractst> S1S21Q(ShipM1s1Q shipM1s1Q);
+	List<TpCgcontractst> selectByCountStForSTATE(@Param("cConnum")String cConnum);
+    List<String> selectMTID(@Param("cConnum")String cConnum);
+    int updateForShip(@Param("list")List<TpCgcontractst> requestObject);
+    int updateForShip2(@Param("list")List<TpCgcontractst> requestObject);
+	List<TpCgcontractst> YJshipnum(String getcId);
+	int updateYJshipnum(List<TpCgcontractst> requestObject);
+	int updateByNumLine(TpCgcontractst requestObject);
+	TpCgcontractst selectNumber_Line(@Param("cConnum")String cConnum,@Param("cConline")String cConline);
+	TpCgcontractst selectFororderst(@Param("cSw02")String cSw02);
+	//根据合同物资名称和规格型号查询一条物资信息
+	TpCgcontractst selForGoodsnameAndSpec(
+			@Param("cGoodsname")String cGoodsname,
+			@Param("cSpec")String cSpec,
+			@Param("cConnum")String cConnum, 
+			@Param("cConline")String cConline);
+	
+	List<TpCgcontractst> selectGOODSNAME();
+	int QXCAIGOU(@Param("list")List<TpCgcontractst> requestObject);
+	int S1S21DH(@Param("list")List<TpCgcontractst> newlist);
+	//添加分类和分类时间
+	int updateFL(TpCgcontractst requestObject);
+	List<TpCgcontractst> selectBySw02(@Param("cSw02")String cSw02);
+	//进行判断合同物资导入时，excel表格中是否存在错误数据
+	List<TpCgcontractst> selNAMEASPECANUMALINE(
+			@Param("cConnum")String cConnum, 
+			@Param("cConline")String cConline,
+			@Param("cGoodsname")String cGoodsname,
+			@Param("cSpec")String cSpec
+			);
+	//添加新船号的快捷功能
+	int S1S21DCC(TpCgcontractst tpCgcontractst);
+	//合同物资合并时假删
+	int deleteByUpdate(@Param("cId")String cId);
+	int updateByDelete(TpCgcontractst record);
+	List<TpCgcontractst> selectBySw02_For4(@Param("cSw02")String cSw02);
+	//物资导出查询
+	DeCgMaterials selectMaterials(@Param("cId")String cId);
+	//进行判断模拟合同添加时是否有异常数据
+	TpCgcontractst getForGoodsnameAndSpec(
+			@Param("cConnum")String cConnum, 
+			@Param("cConline")String cConline, 
+			@Param("cOrdernum")String cOrdernum, 
+			@Param("cId")String cId
+			);
+	/**
+	 * 拟合同物资添加到正确合同物资
+	 * @param s1s21q2cg_MNHT_S1S2
+	 * @return
+	 */
+	int  M1S12ACG_MNHT_M1S1(@Param("cgMnhtS1s2")List<TpCgcontractstt> s1s21q2cg_MNHT_S1S2);
+}

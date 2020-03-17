@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="code_fb.mapper.CG_C001_Mapper" >
+ <resultMap id="M1S1ResultMap" type="code_fb.entity.CG_C001_M1S1" >
+	 <result column="C_ID" property="cId" jdbcType="VARCHAR" />
+	 <result column="C_MODIFYTIME" property="cModifytime" jdbcType="TIMESTAMP" />
+	 <result column="C_ORMTID" property="cOrmtid" jdbcType="VARCHAR" />
+	 <result column="C_GOODSNAME" property="cGoodsname" jdbcType="VARCHAR" />
+	 <result column="C_REMARK" property="cRemark" jdbcType="VARCHAR" />
+	 <result column="C_PLANOR" property="cPlanor" jdbcType="VARCHAR" />
+	 <result column="C_MODIFIER" property="cModifier" jdbcType="VARCHAR" />
+	 <result column="C_GOODSTYPE" property="cGoodstype" jdbcType="VARCHAR" />
+	 <result column="C_SPEC" property="cSpec" jdbcType="VARCHAR" />
+	 <result column="C_STATE" property="cState" jdbcType="VARCHAR" />
+	 <result column="C_TIMESTAMP" property="cTimestamp" jdbcType="TIMESTAMP" />
+	 <result column="C_CREATER" property="cCreater" jdbcType="VARCHAR" />
+	 <result column="C_CREATETIME" property="cCreatetime" jdbcType="TIMESTAMP" />
+	 <result column="C_ORSTID" property="cOrstid" jdbcType="VARCHAR" />
+	 <result column="C_PLANORTIME" property="cPlanortime" jdbcType="TIMESTAMP" />
+ </resultMap>
+ <select id="M1S11QCG_C001_M1S1" parameterType="code_fb.entity.CG_C001_M1S1" resultMap="M1S1ResultMap"> 
+  select 
+TP_CGORDERTRACE.C_GOODSNAME 
+,TP_CGORDERTRACE.C_GOODSTYPE 
+,TP_CGORDERTRACE.C_ORSTID
+<!-- 
+,TP_CGORDERTRACE.C_ID  
+,TP_CGORDERTRACE.C_MODIFIER 
+,TP_CGORDERTRACE.C_MODIFYTIME
+,TP_CGORDERTRACE.C_TIMESTAMP 
+,TP_CGORDERTRACE.C_STATE 
+,TP_CGORDERTRACE.C_REMARK 
+  -->
+,TP_CGORDERTRACE.C_CREATER 
+,TP_CGORDERTRACE.C_CREATETIME 
+,TP_CGORDERTRACE.C_ORMTID 
+,TP_CGORDERTRACE.C_PLANOR 
+,TP_CGORDERTRACE.C_PLANORTIME 
+,TP_CGORDERTRACE.C_SPEC 
+ from TP_CGORDERTRACE
+ WHERE 1=1 
+			AND TP_CGORDERTRACE.C_CREATER = #{cgC001M1s1.cCreater,jdbcType=VARCHAR}
+ 		<if test="cgC001M1s1.startTime != null">
+			AND TP_CGORDERTRACE.C_CREATETIME &gt;= #{cgC001M1s1.startTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="cgC001M1s1.endTime != null">
+			AND TP_CGORDERTRACE.C_CREATETIME &lt;= #{cgC001M1s1.endTime,jdbcType=TIMESTAMP}
+		</if>
+	 <if test="cgC001M1s1.cGoodsname != null" >
+		 AND  TP_CGORDERTRACE.C_GOODSNAME like '%' || #{cgC001M1s1.cGoodsname,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC001M1s1.cGoodstype != null" >
+		 AND  TP_CGORDERTRACE.C_GOODSTYPE like '%' || #{cgC001M1s1.cGoodstype,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC001M1s1.cOrmtid != null" >
+		 AND  TP_CGORDERTRACE.C_ORMTID like '%' || #{cgC001M1s1.cOrmtid,jdbcType=VARCHAR} || '%'
+  </if>
+	 <if test="cgC001M1s1.cSpec != null" >
+		 AND  TP_CGORDERTRACE.C_SPEC like '%' || #{cgC001M1s1.cSpec,jdbcType=VARCHAR} || '%'
+  </if>
+	</select> 
+ </mapper>
