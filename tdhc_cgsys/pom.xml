@@ -107,7 +107,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>24.1-jre</version>  <!-- or, for Android: -->
+			<version>24.1.1-jre</version>  <!-- or, for Android: -->
 		</dependency>
 		<!-- <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
